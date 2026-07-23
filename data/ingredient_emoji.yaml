@@ -1,0 +1,11 @@
+# Custom ingredient id -> emoji overrides.
+#
+# Resolution order per ingredient (see layouts/recipes/single.html):
+#   1. this file (explicit override / fill-in, wins)
+#   2. Hugo's `emojify ":<id>:"` (auto, covers gemoji names like tomato, garlic, salt)
+#   3. nothing
+#
+# Only list ids that don't auto-resolve, or where you want a different glyph.
+pepper: "🫑"
+water: "💧"
+oil: "🫒"

@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="mx-auto max-w-4xl px-5 py-10">
+  <header class="text-center">
+    <h1 class="text-4xl font-semibold tracking-tight text-heading">🥣 {{ .Site.Title }}</h1>
+    <p class="mx-auto mt-3 max-w-xl text-muted">{{ i18n "site_tagline" }}</p>
+  </header>
+  <div class="mt-8">
+    {{ partial "recipe-cards.html" . }}
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="mx-auto max-w-4xl px-5 py-10">
+  <header>
+    <h1 class="text-3xl font-semibold tracking-tight text-heading">{{ i18n "back_home" }}</h1>
+  </header>
+  <div class="mt-8">
+    {{ partial "recipe-cards.html" . }}
+  </div>
+</div>
+{{ end }}

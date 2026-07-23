@@ -1,0 +1,40 @@
+baseURL: "https://cook.gerard.space/"
+title: "Cook"
+defaultContentLanguage: "en"
+defaultContentLanguageInSubdir: false
+enableGitInfo: false
+enableEmoji: true
+
+languages:
+  en:
+    languageCode: "en"
+    languageName: "English"
+    weight: 1
+  ca:
+    languageCode: "ca"
+    languageName: "Català"
+    weight: 2
+  es:
+    languageCode: "es"
+    languageName: "Español"
+    weight: 3
+
+disableKinds: ["rss"]
+
+taxonomies:
+  author: author
+
+outputs:
+  home: ["HTML", "JSON"]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    parser:
+      attribute:
+        block: true
+
+params:
+  author: "Gerard"
+  description: "Gerard's guided recipe book."

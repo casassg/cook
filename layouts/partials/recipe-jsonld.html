@@ -1,0 +1,30 @@
+{{- $page := .page -}}
+{{- $en := .en -}}
+{{- $ings := .ings -}}
+{{- $steps := .steps -}}
+{{- $lang := .lang -}}
+{{- $portion := $en.Params.portion -}}
+{{- $ingredientLines := slice -}}
+{{- range $ings -}}
+  {{- $line := .item -}}
+  {{- if .hasAmount -}}{{- $line = printf "%v %s %s" .amount .unitLabel .item | strings.TrimSpace -}}{{- end -}}
+  {{- $ingredientLines = $ingredientLines | append $line -}}
+{{- end -}}
+{{- $instructions := slice -}}
+{{- range $steps -}}
+  {{- $t := .html | plainify | strings.TrimSpace -}}
+  {{- if $t -}}{{- $instructions = $instructions | append (dict "@type" "HowToStep" "text" $t) -}}{{- end -}}
+{{- end -}}
+{{- $data := dict
+  "@context" "https://schema.org"
+  "@type" "Recipe"
+  "name" $page.Title
+  "inLanguage" $lang
+  "description" $page.Params.description
+  "recipeIngredient" $ingredientLines
+  "recipeInstructions" $instructions
+-}}
+{{- with index $en.Params.author 0 }}{{ $data = merge $data (dict "author" (dict "@type" "Person" "name" .)) }}{{ end -}}
+{{- with $page.Resources.GetMatch ($en.Params.image) }}{{ $img := .Resize "1200x webp q82" }}{{ $data = merge $data (dict "image" (slice $img.Permalink)) }}{{ end -}}
+{{- if $portion.value }}{{ $data = merge $data (dict "recipeYield" (printf "%v %s" $portion.value (i18n (printf "unit_%s" $portion.unit))) ) }}{{ end -}}
+<script type="application/ld+json">{{ $data | jsonify | safeJS }}</script>

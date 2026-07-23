@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<meta name="theme-color" content="#2b546b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥣</text></svg>">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{- with .Params.image }}{{ with $.Resources.Get . }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}{{ end }}
+
+<!-- Theme init (before paint, avoids FOUC) -->
+{{- with resources.Get "js/theme-init.js" }}
+  {{- $ti := . | js.Build (dict "minify" true) }}
+  <script>{{ $ti.Content | safeJS }}</script>
+{{- end }}
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- Styles (deferred so Tailwind sees all used classes) -->
+{{- with (templates.Defer (dict "key" "global")) }}
+  {{- partial "css.html" . }}
+{{- end }}
+
+<!-- App logic + Alpine (CDN) -->
+{{- with resources.Get "js/app.js" }}
+  {{- $app := . | js.Build (dict "minify" (not hugo.IsDevelopment)) | fingerprint }}
+  <script defer src="{{ $app.RelPermalink }}"></script>
+{{- end }}
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>

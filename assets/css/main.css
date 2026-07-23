@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* Scan Hugo templates and content for utility classes. Paths are relative to this file. */
+@source "../../layouts";
+@source "../../content";
+
+/* Dark mode driven by an explicit [data-theme] attribute. theme-init.js sets it
+   before paint, resolving system preference to a concrete value so the toggle,
+   the palette below, and dark: utilities all stay in sync. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Palette + type borrowed from casassg/blog: one muted slate-blue accent over
+   neutral grays, Roboto, light body weight. Kept as CSS variables so a single
+   [data-theme] flip re-colors every token at once (mirrors the blog's --blog-*). */
+:root {
+  --bg: #ffffff;
+  --surface: #f5f5f5;
+  --body: #333333;
+  --heading: #222222;
+  --muted: #666666;
+  --line: #e0e0e0;
+  --accent: #2b546b;
+  --accent-hover: #1a3a4d;
+}
+
+[data-theme="dark"] {
+  --bg: #1e1e1e;
+  --surface: #2a2a2a;
+  --body: #d4d4d8;
+  --heading: #f0f0f0;
+  --muted: #9ca3af;
+  --line: #3a3a3a;
+  --accent: #5b9bb5;
+  --accent-hover: #7bbdd4;
+}
+
+/* Expose the palette as Tailwind color utilities (bg-bg, text-body, text-accent,
+   border-line, ...). `inline` keeps them referencing the vars so dark mode flips
+   without needing dark: variants on every element. */
+@theme inline {
+  --font-sans: "Roboto", Helvetica, Arial, sans-serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-body: var(--body);
+  --color-heading: var(--heading);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+}
+
+/* Hide Alpine-controlled elements until Alpine initializes. */
+[x-cloak] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Blog rhythm: light body copy, confident headings. */
+body {
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+/* Elevated card inspired by casassg/wedding. Uses palette vars so it auto-flips
+   in dark mode. */
+.card-shadow {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-shadow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}

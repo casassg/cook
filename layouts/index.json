@@ -1,0 +1,21 @@
+{{- $currentLang := .Language.Lang -}}
+{{- $defaultSite := index site.Sites 0 -}}
+{{- $base := where $defaultSite.RegularPages "Section" "recipes" -}}
+{{- $items := slice -}}
+{{- range $base -}}
+  {{- $en := . -}}
+  {{- $p := . -}}
+  {{- if ne $currentLang $defaultSite.Language.Lang -}}
+    {{- range .Translations -}}{{- if eq .Language.Lang $currentLang -}}{{- $p = . -}}{{- end -}}{{- end -}}
+  {{- end -}}
+  {{- $img := "" -}}
+  {{- with $en.Resources.GetMatch ($en.Params.image) -}}{{- $img = (.Resize "700x webp q80").Permalink -}}{{- end -}}
+  {{- $items = $items | append (dict
+      "title" $p.Title
+      "url" $p.Permalink
+      "image" $img
+      "categories" ($en.Params.categories | default slice)
+      "description" $p.Params.description
+  ) -}}
+{{- end -}}
+{{- dict "recipes" $items | jsonify -}}

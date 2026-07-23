@@ -1,0 +1,41 @@
+{{- $d := .Destination -}}
+{{- $page := .Page -}}
+{{- if hasPrefix $d "i:" -}}
+  {{- $id := strings.TrimPrefix "i:" $d -}}
+  {{- $ing := index ($page.Store.Get "ingIndex") $id -}}
+  {{- if $ing -}}
+    {{- $only := $ing.only -}}
+    <span class="ref relative inline-block" x-data="{open:false}" @mouseenter="focus && (open=true)" @mouseleave="focus && (open=false)" @click="open=true" @click.outside="open=false" @keydown.escape="open=false"
+      {{- with $only }} data-only="{{ delimit . " " }}" x-show="showVar('{{ delimit . " " }}')"{{ end }}>
+      <span tabindex="0" role="button" :aria-expanded="open" @focus="open=true" @blur="open=false" class="cursor-help font-medium text-accent underline decoration-dotted underline-offset-2">{{- .Text | safeHTML -}}</span>
+      <span x-show="open" x-transition x-cloak role="tooltip" class="absolute left-1/2 z-30 w-max max-w-[15rem] -translate-x-1/2 rounded-lg border border-line bg-bg px-3 py-2 text-left text-sm font-normal leading-snug shadow-lg" :class="focus ? 'top-full mt-2' : 'bottom-full mb-2'">
+        <span class="flex items-center gap-1.5 font-medium text-heading">{{ with $ing.emoji }}<span aria-hidden="true">{{ . }}</span> {{ end }}{{ $ing.item }}</span>
+        {{- if $ing.hasAmount }}<span class="mt-1 block tabular-nums text-accent"><span data-base="{{ $ing.amount }}" x-text="fmt($el.dataset.base)">{{ $ing.amount }}</span>{{ with $ing.unitLabel }} {{ . }}{{ end }}</span>{{ else }}<span class="mt-1 block text-muted">{{ $ing.unitLabel }}</span>{{ end -}}
+        {{- with $ing.note }}<span class="mt-1 block text-muted">{{ . }}</span>{{ end }}
+        <span class="absolute left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-line bg-bg" :class="focus ? 'bottom-full translate-y-1/2 border-t border-l' : 'top-full -translate-y-1/2 border-b border-r'"></span>
+      </span>
+    </span>
+  {{- else -}}
+    {{- errorf "recipe %q references unknown ingredient id %q (%s)" $page.Path $id .Position -}}
+  {{- end -}}
+{{- else if hasPrefix $d "tool:" -}}
+  {{- $id := strings.TrimPrefix "tool:" $d -}}
+  {{- $tool := index ($page.Store.Get "toolIndex") $id -}}
+  {{- if $tool -}}
+    <span class="ref relative inline-block" x-data="{open:false}" @mouseenter="focus && (open=true)" @mouseleave="focus && (open=false)" @click="open=true" @click.outside="open=false" @keydown.escape="open=false">
+      <span tabindex="0" role="button" :aria-expanded="open" @focus="open=true" @blur="open=false" class="cursor-help font-medium text-accent underline decoration-dotted underline-offset-2">{{- .Text | safeHTML -}}</span>
+      <span x-show="open" x-transition x-cloak role="tooltip" class="absolute left-1/2 z-30 w-max max-w-[15rem] -translate-x-1/2 rounded-lg border border-line bg-bg px-3 py-2 text-left text-sm font-normal leading-snug shadow-lg" :class="focus ? 'top-full mt-2' : 'bottom-full mb-2'">
+        <span class="flex items-center gap-1.5 font-medium text-heading"><span aria-hidden="true">🔧</span> {{ $tool.name }}</span>
+        <span class="absolute left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-line bg-bg" :class="focus ? 'bottom-full translate-y-1/2 border-t border-l' : 'top-full -translate-y-1/2 border-b border-r'"></span>
+      </span>
+    </span>
+  {{- else -}}
+    {{- errorf "recipe %q references unknown tool id %q (%s)" $page.Path $id .Position -}}
+  {{- end -}}
+{{- else if hasPrefix $d "t:" -}}
+  {{- /* Non-interactive label: durations read inline, but the only tappable timer
+         lives in the focus-mode panel (built from per-step timers in single.html). */ -}}
+  <span class="timer-label whitespace-nowrap text-muted">⏲ {{ .Text | safeHTML }}</span>
+{{- else -}}
+  <a href="{{ $d | safeURL }}" class="text-accent underline underline-offset-2 hover:text-accent-hover"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- end -}}

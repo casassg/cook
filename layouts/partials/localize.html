@@ -1,0 +1,9 @@
+{{- /* Resolve an i18n field: a plain string, or a { en, ca, es } map with English fallback.
+       Call: {{ partial "localize.html" (dict "v" $value "lang" $lang) }} */ -}}
+{{- $v := .v -}}
+{{- $lang := .lang -}}
+{{- if reflect.IsMap $v -}}
+{{- or (index $v $lang) (index $v "en") -}}
+{{- else -}}
+{{- $v -}}
+{{- end -}}

@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="mx-auto max-w-4xl px-5 py-10">
+  <header>
+    <a href="{{ .Site.Home.RelPermalink }}" class="text-sm text-accent hover:underline">← {{ i18n "back_home" }}</a>
+    <h1 class="mt-3 text-3xl font-semibold tracking-tight text-heading">{{ i18n "recipes_by" }} {{ .Title }}</h1>
+  </header>
+  <div class="mt-8">
+    {{ partial "recipe-cards.html" . }}
+  </div>
+</div>
+{{ end }}

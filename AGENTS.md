@@ -16,10 +16,10 @@ Guidance for agents working on Cook, a Hugo recipe book at [cook.gerard.space](h
 
 ## Recipe model
 
-One leaf bundle per recipe under `content/recipes/<slug>/`, one file per language: `index.en.md` (required, canonical) + optional `index.ca.md`, `index.es.md`. Missing translations fall back to English on listings.
+One leaf bundle per recipe under `content/recipes/<slug>/`, one file per language: `index.md` (required, canonical English) + optional `index.ca.md`, `index.es.md`. Hugo links translations by path, no `translationKey` needed. Missing translations fall back to English on listings.
 
-- **`index.en.md`** holds ALL structure and name translations. Front matter: `title`, `description`, `image`, `categories`, `portion` (`{type: servings|units|area, value, unit}`), optional `author`, `defaultVariant`, `variants` (`[{key, name}]`), `tools` (`[{id, name}]`), and `ingredients` (`[{id, amount, unit, item, note?, group?, onlyForVariation?}]`). The text fields `item`, `note`, tool `name`, and variant `name` are either a plain string or an `{en, ca, es}` map (English required, others fall back to it).
-- **Translation files** (`index.ca.md`, `index.es.md`) carry ONLY `title`, `description`, optional `translationKey`, and the translated steps body. They must NOT repeat structure.
+- **`index.md`** holds ALL structure and name translations. Front matter: `title`, `description`, `image`, `categories`, `portion` (`{type: servings|units|area, value, unit}`), optional `author`, `defaultVariant`, `variants` (`[{key, name}]`), `tools` (`[{id, name}]`), and `ingredients` (`[{id, amount, unit, item, note?, group?, onlyForVariation?}]`). The text fields `item`, `note`, tool `name`, and variant `name` are either a plain string or an `{en, ca, es}` map (English required, others fall back to it).
+- **Translation files** (`index.ca.md`, `index.es.md`) carry ONLY `title`, `description`, and the translated steps body. They must NOT repeat structure.
 - **Steps** live in the body as a numbered list, one step per line. Inline refs use link syntax:
   - `[label](i:<ingredientId>)` scaled ingredient highlight (amount pulled from the English structure).
   - `[label](tool:<toolId>)` tool reference.

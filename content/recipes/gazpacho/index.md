@@ -1,10 +1,9 @@
 ---
 title: "Gazpacho"
-description: "Andalusian cold soup. Gerard's thicker, creamier version thickened with bread, or a lighter version loosened with water. Best served well chilled."
+description: "Andalusian cold soup. Best served well chilled."
 image: main.webp
 categories: [mains]
 author: [Gerard]
-translationKey: gazpacho
 portion:
   type: servings
   value: 4
@@ -83,8 +82,8 @@ ingredients:
 ---
 
 1. Peel the [cucumber](i:cucumber), seed the [pepper](i:pepper), and remove the germ from the [garlic](i:garlic).
-2. Soak the [bread](i:bread) in a [bowl](tool:bowl) of water until soft. [10 min](t:10m) {variant: bread}
-3. Quarter the [tomatoes](i:tomato).
-4. Put everything except the oil in a [blender](tool:blender): tomatoes, cucumber, pepper, garlic, [vinegar](i:vinegar), [salt](i:salt) and the [soaked bread](i:bread) [cold water](i:water). Blend until smooth. [3 min](t:3m)
-5. With the blender running low, drizzle in the [olive oil](i:oil) in a thin stream, like making aioli, until silky and emulsified. [1 min](t:1m)
+2. Quarter the [tomatoes](i:tomato).
+3. Soak the [bread](i:bread) in a [bowl](tool:bowl) of water until soft. {variant: bread}
+4. Put everything except the oil in a [blender](tool:blender): [tomatoes](i:tomato), [cucumber](i:cucumber), [pepper](i:pepper), [garlic](i:garlic), [vinegar](i:vinegar), [salt](i:salt) and the [soaked bread](i:bread) [cold water](i:water). Blend until smooth for [2 min](t:2m).
+5. With the blender running low, drizzle in the [olive oil](i:oil) in a thin stream, like making aioli, until silky and emulsified for [1 min](t:1m).
 6. Taste, adjust [salt](i:salt) and [vinegar](i:vinegar), chill, and serve well chilled.

@@ -24,6 +24,6 @@ hugo --gc --minify                    # production build
 
 ## Add a recipe
 
-Create `content/recipes/<slug>/index.en.md` with front matter (structure + name translations) and a numbered steps body. Add `index.ca.md` / `index.es.md` with just `title`, `description`, and translated steps. See `content/recipes/gazpacho/` and `AGENTS.md` for the full model, and `schema/recipe.schema.json` for the contract.
+Create `content/recipes/<slug>/index.md` with front matter (structure + name translations) and a numbered steps body. Add `index.ca.md` / `index.es.md` with just `title`, `description`, and translated steps. See `content/recipes/gazpacho/` and `AGENTS.md` for the full model, and `schema/recipe.schema.json` for the contract.
 
 Push to `main` and GitHub Actions builds and deploys to GitHub Pages.

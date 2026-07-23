@@ -15,7 +15,7 @@ from jsonschema import Draft202012Validator
 
 REPO_ROOT = Path(__file__).parent.parent
 SCHEMA_PATH = REPO_ROOT / "schema" / "recipe.schema.json"
-RECIPES_GLOB = "content/recipes/*/index.*.md"
+RECIPES_GLOB = "content/recipes/*/index*.md"
 
 # Keys that must not appear in translation files
 STRUCTURAL_KEYS = {"ingredients", "tools", "variants", "portion", "image", "categories"}
@@ -261,12 +261,15 @@ def main():
         print("No recipe files found.")
         sys.exit(0)
 
-    # Group by recipe folder
+    # Group by recipe folder. index.md (no lang suffix) is the EN base.
     folders: dict[Path, dict[str, Path]] = defaultdict(dict)
     for path in all_files:
-        m = lang_re.match(path.name)
-        if m:
-            folders[path.parent][m.group(1)] = path
+        if path.name == "index.md":
+            folders[path.parent]["en"] = path
+        else:
+            m = lang_re.match(path.name)
+            if m:
+                folders[path.parent][m.group(1)] = path
 
     all_errors: list[str] = []
     total_files = 0
@@ -277,7 +280,7 @@ def main():
 
         en_path = langs.get("en")
         if en_path is None:
-            all_errors.append(f"{folder_tag}: missing required index.en.md")
+            all_errors.append(f"{folder_tag}: missing required index.md")
             for lang, path in langs.items():
                 total_files += 1
                 _, _, errs = validate_translation(path, schema_translation, {})

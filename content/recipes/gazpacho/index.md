@@ -37,7 +37,7 @@ ingredients:
     amount: 0.5
     unit: unit
     item: { en: "cucumber", ca: "cogombre", es: "pepino" }
-    note: { en: "cut into large pieces", ca: "tallat a trossos grans", es: "cortado en trozos grandes" }
+    note: { en: "peeled and cut into large pieces", ca: "pelat i tallat a trossos grans", es: "pelado y cortado en trozos grandes" }
   - id: pepper
     amount: 0.5
     unit: unit
@@ -81,7 +81,7 @@ ingredients:
     item: { en: "salt", ca: "sal", es: "sal" }
 ---
 
-1. Remove the germ from the [garlic](i:garlic). Cut the [cucumber](i:cucumber) and [pepper](i:pepper) into large pieces.
+1. Remove the germ from the [garlic](i:garlic). Peel the [cucumber](i:cucumber) and cut it and the [pepper](i:pepper) into large pieces.
 2. Quarter the [tomatoes](i:tomato).
 3. Soak the [bread](i:bread) in a [bowl](tool:bowl) of water until soft. {variant: bread}
 4. Put everything except the oil in a [blender](tool:blender): [tomatoes](i:tomato), [cucumber](i:cucumber), [pepper](i:pepper), [garlic](i:garlic), [vinegar](i:vinegar), [salt](i:salt) and the [soaked bread](i:bread) [cold water](i:water). Blend until smooth for [2 min](t:2m).

@@ -26,7 +26,7 @@ tools:
     name: { en: "bowl", ca: "bol", es: "bol" }
 ingredients:
   - id: tomato
-    amount: 1
+    amount: 0.5
     unit: kg
     item: { en: "tomato", ca: "tomàquet", es: "tomate" }
     note:
@@ -34,22 +34,22 @@ ingredients:
       ca: "madurs, pelats (una llauna de tomàquets enters pelats també serveix)"
       es: "maduros, pelados (una lata de tomates enteros pelados también sirve)"
   - id: cucumber
-    amount: 1
+    amount: 0.5
     unit: unit
     item: { en: "cucumber", ca: "cogombre", es: "pepino" }
-    note: { en: "peeled", ca: "pelat", es: "pelado" }
+    note: { en: "cut into large pieces", ca: "tallat a trossos grans", es: "cortado en trozos grandes" }
   - id: pepper
-    amount: 1
+    amount: 0.5
     unit: unit
     item: { en: "green pepper", ca: "pebrot verd", es: "pimiento verde" }
-    note: { en: "seeds removed", ca: "sense llavors", es: "sin semillas" }
+    note: { en: "cut into large pieces", ca: "tallat a trossos grans", es: "cortado en trozos grandes" }
   - id: garlic
-    amount: 1
-    unit: clove
-    item: { en: "garlic", ca: "all", es: "ajo" }
-    note: { en: "germ removed", ca: "sense el centre", es: "sin el centro" }
-  - id: bread
     amount: 2
+    unit: cloves
+    item: { en: "garlic", ca: "all", es: "ajo" }
+    note: { en: "germ removed", ca: "sense el centre", es: "sin la parte del centro" }
+  - id: bread
+    amount: 1
     unit: slices
     item: { en: "bread", ca: "pa", es: "pan" }
     note: { en: "soaked in water", ca: "mullat en aigua", es: "mojado en agua" }
@@ -81,7 +81,7 @@ ingredients:
     item: { en: "salt", ca: "sal", es: "sal" }
 ---
 
-1. Peel the [cucumber](i:cucumber), seed the [pepper](i:pepper), and remove the germ from the [garlic](i:garlic).
+1. Remove the germ from the [garlic](i:garlic). Cut the [cucumber](i:cucumber) and [pepper](i:pepper) into large pieces.
 2. Quarter the [tomatoes](i:tomato).
 3. Soak the [bread](i:bread) in a [bowl](tool:bowl) of water until soft. {variant: bread}
 4. Put everything except the oil in a [blender](tool:blender): [tomatoes](i:tomato), [cucumber](i:cucumber), [pepper](i:pepper), [garlic](i:garlic), [vinegar](i:vinegar), [salt](i:salt) and the [soaked bread](i:bread) [cold water](i:water). Blend until smooth for [2 min](t:2m).

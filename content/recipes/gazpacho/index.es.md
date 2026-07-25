@@ -4,7 +4,7 @@ description: "Gazpacho andaluz frío. Mejor servido bien frío."
 # Structure and name translations live in index.en.md. Only prose lives here.
 ---
 
-1. Pela el [pepino](i:cucumber), quita las semillas del [pimiento](i:pepper) y retira el centro del [ajo](i:garlic).
+1. Retira el centro del [ajo](i:garlic). Corta el [pepino](i:cucumber) y el [pimiento](i:pepper) en trozos grandes.
 2. Trocea los [tomates](i:tomato) a cuartos.
 3. Remoja el [pan](i:bread) en un [bol](tool:bowl) con agua hasta que se ablande. {variant: bread}
 4. Pon todo menos el aceite en una [batidora](tool:blender): [tomates](i:tomato), [pepino](i:cucumber), [pimiento](i:pepper), [ajo](i:garlic), [vinagre](i:vinegar), [sal](i:salt) y el [pan remojado](i:bread) [agua fría](i:water). Tritura hasta que quede suave. [2 min](t:2m)

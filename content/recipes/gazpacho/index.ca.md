@@ -4,7 +4,7 @@ description: "Gaspatxo andalús fred. Millor servit ben fred."
 # Structure and name translations live in index.en.md. Only prose lives here.
 ---
 
-1. Pela el [cogombre](i:cucumber), treu les llavors del [pebrot](i:pepper) i treu el centre de l'[all](i:garlic).
+1. Treu el centre de l'[all](i:garlic). Talla el [cogombre](i:cucumber) i el [pebrot](i:pepper) a trossos grans.
 2. Talla els [tomàquets](i:tomato) a quarts.
 3. Mulla el [pa](i:bread) en un [bol](tool:bowl) amb aigua fins que s'estovi. {variant: bread}
 4. Posa-ho tot menys l'oli a la [batedora](tool:blender): [tomàquets](i:tomato), [cogombre](i:cucumber), [pebrot](i:pepper), [all](i:garlic), [vinagre](i:vinegar), [sal](i:salt) i [pa mullat](i:bread) [aigua freda](i:water). Tritura fins que quedi suau. [2 min](t:2m)

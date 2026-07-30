@@ -19,6 +19,11 @@ tools:
     name: { en: "electric mixer", ca: "batedora elèctrica", es: "batidora eléctrica" }
   - id: bowl
     name: { en: "large mixing bowl", ca: "bol gran", es: "bol grande" }
+  - id: whisk
+    name:
+      en: "wire whisk (or a fork)"
+      ca: "batedor de filferro (o una forquilla)"
+      es: "batidor de alambre (o un tenedor)"
   - id: brush
     name: { en: "pastry brush", ca: "pinzell de cuina", es: "brocha de cocina" }
   - id: tray
@@ -95,6 +100,6 @@ ingredients:
 7. Once risen, heat the [oven](tool:oven) to 180 °C (360 °F). Dust a board with flour and grease a [cookie sheet](tool:tray) with [butter](i:butter).
 8. Pinch off a piece of dough, roll it into a ball, then roll out into a long cigar shape. Place on the greased [tray](tool:tray).
 9. Bake on the center rack for 15–18 minutes, until golden on top. [18 min](t:18m)
-10. While baking, prepare the glaze: mix [confectioners' sugar](i:glaze_sugar) with [lukewarm water](i:glaze_water) with a fork until thick and white.
+10. While baking, prepare the glaze: mix [confectioners' sugar](i:glaze_sugar) with [lukewarm water](i:glaze_water) using a [wire whisk (or a fork)](tool:whisk) until thick and white.
 11. While the fartóns are still warm, brush each with the glaze using a [pastry brush](tool:brush).
 12. Serve warm with a glass of horchata de chufa.

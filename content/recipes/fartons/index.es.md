@@ -13,6 +13,6 @@ description: "Pan dulce alargado tradicional de la región de Valencia, típicam
 7. Una vez leudada, calienta el [horno](tool:oven) a 180 °C (360 °F). Espolvorea una superficie con harina y engrasa una [bandeja](tool:tray) con [mantequilla](i:butter).
 8. Toma un trozo de masa, haz una bola y luego estírala en forma de cigarro alargado. Colócalos en la [bandeja](tool:tray) engrasada.
 9. Hornea en la rejilla central durante 15–18 minutos, hasta que estén dorados. [18 min](t:18m)
-10. Mientras se hornean, prepara el glaseado: mezcla el [azúcar glas](i:glaze_sugar) con [agua tibia](i:glaze_water) con un tenedor hasta que quede espeso y blanco.
+10. Mientras se hornean, prepara el glaseado: mezcla el [azúcar glas](i:glaze_sugar) con [agua tibia](i:glaze_water) usando un [batidor de alambre (o un tenedor)](tool:whisk) hasta que quede espeso y blanco.
 11. Mientras los fartóns aún estén calientes, pincela cada uno con el glaseado usando una [brocha de cocina](tool:brush).
 12. Sirve calientes con un vaso de horchata de chufa.

@@ -14,7 +14,7 @@
         {{- with $ing.note }}<span class="mt-1 block text-muted">{{ . }}</span>{{ end }}
         <span class="absolute left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-line bg-bg" :class="focus ? 'bottom-full translate-y-1/2 border-t border-l' : 'top-full -translate-y-1/2 border-b border-r'"></span>
       </span>
-    </span>
+    {{- "" }}</span>
   {{- else -}}
     {{- errorf "recipe %q references unknown ingredient id %q (%s)" $page.Path $id .Position -}}
   {{- end -}}
@@ -28,7 +28,7 @@
         <span class="flex items-center gap-1.5 font-medium text-heading"><span aria-hidden="true">🔧</span> {{ $tool.name }}</span>
         <span class="absolute left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-line bg-bg" :class="focus ? 'bottom-full translate-y-1/2 border-t border-l' : 'top-full -translate-y-1/2 border-b border-r'"></span>
       </span>
-    </span>
+    {{- "" }}</span>
   {{- else -}}
     {{- errorf "recipe %q references unknown tool id %q (%s)" $page.Path $id .Position -}}
   {{- end -}}

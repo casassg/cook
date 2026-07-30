@@ -5,7 +5,7 @@
   {{- $ing := index ($page.Store.Get "ingIndex") $id -}}
   {{- if $ing -}}
     {{- $only := $ing.only -}}
-    <span class="ref relative inline-block" x-data="{open:false}" @mouseenter="focus && (open=true)" @mouseleave="focus && (open=false)" @click="open=true" @click.outside="open=false" @keydown.escape="open=false"
+    <span class="ref relative" x-data="{open:false}" @mouseenter="focus && (open=true)" @mouseleave="focus && (open=false)" @click="open=true" @click.outside="open=false" @keydown.escape="open=false"
       {{- with $only }} data-only="{{ delimit . " " }}" x-show="showVar('{{ delimit . " " }}')"{{ end }}>
       <span tabindex="0" role="button" :aria-expanded="open" @focus="open=true" @blur="open=false" class="cursor-help font-medium text-accent underline decoration-dotted underline-offset-2">{{- .Text | safeHTML -}}</span>
       <span x-show="open" x-transition x-cloak role="tooltip" class="absolute left-1/2 z-30 w-max max-w-[15rem] -translate-x-1/2 rounded-lg border border-line bg-bg px-3 py-2 text-left text-sm font-normal leading-snug shadow-lg" :class="focus ? 'top-full mt-2' : 'bottom-full mb-2'">
@@ -22,7 +22,7 @@
   {{- $id := strings.TrimPrefix "tool:" $d -}}
   {{- $tool := index ($page.Store.Get "toolIndex") $id -}}
   {{- if $tool -}}
-    <span class="ref relative inline-block" x-data="{open:false}" @mouseenter="focus && (open=true)" @mouseleave="focus && (open=false)" @click="open=true" @click.outside="open=false" @keydown.escape="open=false">
+    <span class="ref relative" x-data="{open:false}" @mouseenter="focus && (open=true)" @mouseleave="focus && (open=false)" @click="open=true" @click.outside="open=false" @keydown.escape="open=false">
       <span tabindex="0" role="button" :aria-expanded="open" @focus="open=true" @blur="open=false" class="cursor-help font-medium text-accent underline decoration-dotted underline-offset-2">{{- .Text | safeHTML -}}</span>
       <span x-show="open" x-transition x-cloak role="tooltip" class="absolute left-1/2 z-30 w-max max-w-[15rem] -translate-x-1/2 rounded-lg border border-line bg-bg px-3 py-2 text-left text-sm font-normal leading-snug shadow-lg" :class="focus ? 'top-full mt-2' : 'bottom-full mb-2'">
         <span class="flex items-center gap-1.5 font-medium text-heading"><span aria-hidden="true">🔧</span> {{ $tool.name }}</span>

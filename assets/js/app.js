@@ -145,6 +145,17 @@ document.addEventListener("alpine:init", () => {
         this.exitFocus();
       }
     },
+    sx: 0, sy: 0,
+    onTouchStart(e) {
+      this.sx = e.changedTouches[0].clientX;
+      this.sy = e.changedTouches[0].clientY;
+    },
+    onTouchEnd(e) {
+      const dx = e.changedTouches[0].clientX - this.sx;
+      const dy = e.changedTouches[0].clientY - this.sy;
+      if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      dx < 0 ? this.next() : this.prev();
+    },
     async lock() {
       try {
         if ("wakeLock" in navigator) this.wake = await navigator.wakeLock.request("screen");

@@ -73,7 +73,7 @@
 {{ range $steps }}{{ $stepOnly = $stepOnly | append (delimit .only " ") }}{{ end }}
 {{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly }}
 
-<article class="mx-auto max-w-3xl px-5 py-8" x-data="recipe({{ $cfg | jsonify }})" @keydown.window="onKey($event)">
+<article class="mx-auto max-w-3xl px-5 py-8 pb-24 sm:pb-8" x-data="recipe({{ $cfg | jsonify }})" @keydown.window="onKey($event)">
   <a href="{{ .Site.Home.RelPermalink }}" class="text-sm text-accent hover:underline">← {{ i18n "back_home" }}</a>
 
   {{/* Hero: image with overlaid title, or plain header if no image. */}}
@@ -107,12 +107,13 @@
   </header>
   {{ end }}
 
+  {{ if $variants }}
   <div class="mt-6 inline-flex items-center rounded-lg border border-line p-1" role="tablist" aria-label="{{ i18n "variant" }}">
     {{ range $variants }}
     <button type="button" @click="variant='{{ .key }}'" class="rounded-md px-3 py-1.5 text-sm transition" :class="variant==='{{ .key }}' ? 'bg-accent text-white' : 'text-muted hover:text-accent'">{{ .name }}</button>
     {{ end }}
-    <button @click="enterFocus()" class="rounded-md bg-accent px-3 py-1.5 text-sm font-medium text-white transition hover:bg-accent-hover">▶ {{ i18n "cook_mode" }}</button>
   </div>
+  {{ end }}
 
   <div class="mt-8 grid gap-8 sm:grid-cols-[minmax(0,18rem)_1fr]">
     <section>
@@ -155,8 +156,10 @@
     </section>
   </div>
 
+  <button @click="enterFocus()" class="fixed inset-x-0 bottom-0 z-40 bg-accent py-4 pb-[max(1rem,env(safe-area-inset-bottom))] text-center text-lg font-medium text-white transition hover:bg-accent-hover sm:hidden">▶ {{ i18n "cook_mode" }}</button>
+
   {{/* Guided focus mode overlay */}}
-  <div x-show="focus" x-cloak class="fixed inset-0 z-50 flex flex-col bg-bg">
+  <div x-show="focus" x-cloak @touchstart.passive="onTouchStart($event)" @touchend.passive="onTouchEnd($event)" class="fixed inset-0 z-50 flex flex-col bg-bg sm:hidden">
     <header class="flex items-center gap-4 border-b border-line px-5 py-3">
       <button @click="exitFocus()" aria-label="{{ i18n "close" }}" class="text-3xl leading-none text-muted transition hover:text-accent">×</button>
       <div class="h-1.5 flex-1 overflow-hidden rounded-full bg-line">

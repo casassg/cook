@@ -39,6 +39,49 @@ function formatAmount(n) {
   return String(r);
 }
 
+const wake = {
+  count: 0,
+  sentinel: null,
+  requesting: null,
+
+  async acquire() {
+    this.count++;
+    if (this.count === 1) await this.request();
+  },
+
+  release() {
+    this.count = Math.max(0, this.count - 1);
+    if (!this.count && this.sentinel) {
+      this.sentinel.release();
+      this.sentinel = null;
+    }
+  },
+
+  async request() {
+    try {
+      if (this.sentinel?.released) this.sentinel = null;
+      if (!this.count || this.sentinel || this.requesting || !("wakeLock" in navigator)) return;
+      this.requesting = navigator.wakeLock.request("screen");
+      const sentinel = await this.requesting;
+      if (!this.count) {
+        sentinel.release();
+        return;
+      }
+      this.sentinel = sentinel;
+      sentinel.addEventListener("release", () => {
+        if (this.sentinel === sentinel) this.sentinel = null;
+      });
+    } catch (e) {}
+    finally {
+      this.requesting = null;
+    }
+  },
+};
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") wake.request();
+});
+
 document.addEventListener("alpine:init", () => {
   const Alpine = window.Alpine;
 
@@ -61,20 +104,14 @@ document.addEventListener("alpine:init", () => {
     stepVariants: cfg.steps || [],
     focus: false,
     pos: 0,
-    wake: null,
 
     init() {
       this.$watch("variant", () => {
         if (this.pos > this.total - 1) this.pos = Math.max(0, this.total - 1);
       });
-      this._onVis = () => {
-        if (this.focus && document.visibilityState === "visible") this.lock();
-      };
-      document.addEventListener("visibilitychange", this._onVis);
     },
     destroy() {
-      document.removeEventListener("visibilitychange", this._onVis);
-      this.release();
+      wake.release();
     },
 
     // --- scaling ---
@@ -121,12 +158,12 @@ document.addEventListener("alpine:init", () => {
       this.pos = 0;
       this.focus = true;
       document.body.style.overflow = "hidden";
-      await this.lock();
+      await wake.acquire();
     },
     exitFocus() {
       this.focus = false;
       document.body.style.overflow = "";
-      this.release();
+      wake.release();
     },
     next() {
       if (this.pos < this.total - 1) this.pos++;
@@ -176,8 +213,20 @@ document.addEventListener("alpine:init", () => {
     remaining: parseDuration(dur),
     running: false,
     iv: null,
+    lastTap: 0,
     get display() {
       return this.running || this.remaining !== this.total ? clock(this.remaining) : humanDuration(dur);
+    },
+    tap() {
+      const now = Date.now();
+      if (now - this.lastTap < 350) {
+        this.pause();
+        this.remaining = this.total;
+        this.lastTap = 0;
+        return;
+      }
+      this.lastTap = now;
+      this.toggle();
     },
     toggle() {
       if (this.remaining <= 0) {
@@ -187,7 +236,9 @@ document.addEventListener("alpine:init", () => {
       this.running ? this.pause() : this.start();
     },
     start() {
+      if (this.running) return;
       this.running = true;
+      wake.acquire();
       this.iv = setInterval(() => {
         this.remaining--;
         if (this.remaining <= 0) {
@@ -198,8 +249,11 @@ document.addEventListener("alpine:init", () => {
       }, 1000);
     },
     pause() {
-      this.running = false;
       if (this.iv) clearInterval(this.iv);
+      this.iv = null;
+      const wasRunning = this.running;
+      this.running = false;
+      if (wasRunning) wake.release();
     },
     ring() {
       try {

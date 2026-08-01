@@ -177,7 +177,7 @@
             <h3 class="text-xs font-semibold uppercase tracking-wide text-muted">{{ i18n "timer" }}</h3>
             <div class="mt-2 flex flex-wrap gap-2">
               {{ range . }}
-              <button type="button" class="inline-flex items-center gap-2 rounded-lg bg-accent/10 px-4 py-2 text-lg font-medium tabular-nums text-accent transition hover:bg-accent/20" x-data="timer('{{ . }}')" @click="toggle()" x-text="'⏲ ' + display">⏲ {{ . }}</button>
+              <button type="button" class="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-lg font-medium tabular-nums transition touch-manipulation" :class="running ? 'bg-green-600/10 text-green-600 hover:bg-green-600/20' : 'bg-line/60 text-muted hover:bg-line'" x-data="timer('{{ . }}')" @click="tap()"><span x-text="running ? '■' : '▶'"></span><span x-text="display">{{ . }}</span></button>
               {{ end }}
             </div>
           </div>

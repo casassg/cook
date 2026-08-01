@@ -127,7 +127,6 @@
         </div>
         {{ end }}
       </div>
-      {{ if $scalable }}<p class="mt-1 text-xs text-muted">{{ i18n "servings" }}</p>{{ end }}
       <ul class="mt-3">
         {{ range $ings }}
         <li class="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] last:border-0" {{ with .only }}data-only="{{ delimit . " " }}" x-show="showVar('{{ delimit . " " }}')"{{ end }}>

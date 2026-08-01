@@ -107,7 +107,7 @@
   </header>
   {{ end }}
 
-  {{ if $variants }}
+  {{ if gt (len $variants) 1 }}
   <div class="mt-6 inline-flex items-center rounded-lg border border-line p-1" role="tablist" aria-label="{{ i18n "variant" }}">
     {{ range $variants }}
     <button type="button" @click="variant='{{ .key }}'" class="rounded-md px-3 py-1.5 text-sm transition" :class="variant==='{{ .key }}' ? 'bg-accent text-white' : 'text-muted hover:text-accent'">{{ .name }}</button>

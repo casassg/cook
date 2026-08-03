@@ -107,7 +107,7 @@
   </header>
   {{ end }}
 
-  {{ if $variants }}
+  {{ if gt (len $variants) 1 }}
   <div class="mt-6 inline-flex items-center rounded-lg border border-line p-1" role="tablist" aria-label="{{ i18n "variant" }}">
     {{ range $variants }}
     <button type="button" @click="variant='{{ .key }}'" class="rounded-md px-3 py-1.5 text-sm transition" :class="variant==='{{ .key }}' ? 'bg-accent text-white' : 'text-muted hover:text-accent'">{{ .name }}</button>
@@ -127,7 +127,6 @@
         </div>
         {{ end }}
       </div>
-      {{ if $scalable }}<p class="mt-1 text-xs text-muted">{{ i18n "servings" }}</p>{{ end }}
       <ul class="mt-3">
         {{ range $ings }}
         <li class="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] last:border-0" {{ with .only }}data-only="{{ delimit . " " }}" x-show="showVar('{{ delimit . " " }}')"{{ end }}>
@@ -177,7 +176,7 @@
             <h3 class="text-xs font-semibold uppercase tracking-wide text-muted">{{ i18n "timer" }}</h3>
             <div class="mt-2 flex flex-wrap gap-2">
               {{ range . }}
-              <button type="button" class="inline-flex items-center gap-2 rounded-lg bg-accent/10 px-4 py-2 text-lg font-medium tabular-nums text-accent transition hover:bg-accent/20" x-data="timer('{{ . }}')" @click="toggle()" x-text="'⏲ ' + display">⏲ {{ . }}</button>
+              <button type="button" class="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-lg font-medium tabular-nums transition touch-manipulation" :class="running ? 'bg-green-600/10 text-green-600 hover:bg-green-600/20' : 'bg-line/60 text-muted hover:bg-line'" x-data="timer('{{ . }}')" @click="tap()"><span class="inline-block w-4 text-center leading-none" x-text="running ? '■' : '▶'"></span><span x-text="display">{{ . }}</span></button>
               {{ end }}
             </div>
           </div>

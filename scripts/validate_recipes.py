@@ -18,7 +18,7 @@ SCHEMA_PATH = REPO_ROOT / "schema" / "recipe.schema.json"
 RECIPES_GLOB = "content/recipes/*/index*.md"
 
 # Keys that must not appear in translation files
-STRUCTURAL_KEYS = {"ingredients", "tools", "variants", "portion", "image", "categories"}
+STRUCTURAL_KEYS = {"ingredients", "tools", "variants", "portion", "image", "categories", "author", "source"}
 
 # Regex patterns
 STEP_RE = re.compile(r"^\s*\d+\.\s+(.*)$")

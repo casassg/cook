@@ -25,6 +25,7 @@
   "recipeInstructions" $instructions
 -}}
 {{- with index $en.Params.author 0 }}{{ $data = merge $data (dict "author" (dict "@type" "Person" "name" .)) }}{{ end -}}
+{{- with $en.Params.source }}{{ $data = merge $data (dict "isBasedOn" .) }}{{ end -}}
 {{- with $page.Resources.GetMatch ($en.Params.image) }}{{ $img := .Resize "1200x webp q82" }}{{ $data = merge $data (dict "image" (slice $img.Permalink)) }}{{ end -}}
 {{- if $portion.value }}{{ $data = merge $data (dict "recipeYield" (printf "%v %s" $portion.value (i18n (printf "unit_%s" $portion.unit))) ) }}{{ end -}}
 <script type="application/ld+json">{{ $data | jsonify | safeJS }}</script>

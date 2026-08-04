@@ -13,6 +13,7 @@ next: "Siguiente"
 variant: "Variante"
 timer: "Temporizador"
 by_author: "por"
+original_recipe: "Receta original"
 search_placeholder: "Buscar recetas, ingredientes, autores…"
 
 cat_mains: "Platos principales"

@@ -4,6 +4,7 @@ description: "Fresh Mexican tomatillo salsa, spicy and thick, perfect for tacos 
 image: main.webp
 categories: [snacks]
 author: [Jauja Cocina Mexicana]
+source: https://youtu.be/Wb1oPc6TqP0
 portion:
   type: servings
   value: 6

@@ -304,6 +304,15 @@ document.addEventListener("alpine:init", () => {
     display(t) {
       return t.running || t.remaining !== t.total ? clock(t.remaining) : humanDuration(t.dur);
     },
+    // idle (never started / reset) = gray, running = green, paused = yellow, done = pulsing red.
+    // Returns a state string rather than Tailwind classes directly, so the class
+    // names stay as literal strings in the templates for Tailwind's content scan.
+    state(t) {
+      if (!t) return "idle";
+      if (t.done) return "done";
+      if (t.running) return "running";
+      return t.remaining !== t.total ? "paused" : "idle";
+    },
   });
 
   Alpine.data("recipeList", (hints = []) => ({

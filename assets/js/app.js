@@ -259,8 +259,10 @@ document.addEventListener("alpine:init", () => {
       const t = this.find(id);
       const now = Date.now();
       if (now - t.lastTap < 350) {
-        this.reset(t);
-        t.lastTap = 0;
+        // Double-tap resets: drop it from the shared bar entirely rather than
+        // leaving a stale idle chip behind. Tapping the same button again
+        // starts a brand-new timer.
+        this.dismiss(id);
         return;
       }
       t.lastTap = now;

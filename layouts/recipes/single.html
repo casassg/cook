@@ -91,16 +91,14 @@
     {{ $timers = $timers | append (dict "dur" $dur "emoji" $emoji "label" $label) }}
   {{ end }}
   {{ $html := $.RenderString (dict "display" "inline") $text }}
-  {{ $refIds := slice }}
-  {{ range $refs }}{{ $refIds = $refIds | append .id }}{{ end }}
-  {{ $steps = $steps | append (dict "html" $html "only" $only "refs" ($refs | uniq) "refIds" ($refIds | uniq) "timers" $timers) }}
+  {{ $steps = $steps | append (dict "html" $html "only" $only "refs" $refs "timers" $timers) }}
 {{ end }}
 
 {{ $stepOnly := slice }}
 {{ $stepHasPanel := slice }}
 {{ range $steps }}
   {{ $stepOnly = $stepOnly | append (delimit .only " ") }}
-  {{ $stepHasPanel = $stepHasPanel | append (or (gt (len .timers) 0) (gt (len .refIds) 0)) }}
+  {{ $stepHasPanel = $stepHasPanel | append (or (gt (len .timers) 0) (gt (len .refs) 0)) }}
 {{ end }}
 {{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly "stepsHasPanel" $stepHasPanel }}
 
@@ -219,7 +217,7 @@
             </div>
           </div>
           {{ end }}
-          {{ if $s.refIds }}
+          {{ if $s.refs }}
           <div>
             <h3 class="text-xs font-semibold uppercase tracking-wide text-muted">{{ i18n "ingredients" }}</h3>
             <ul class="mt-2 space-y-2">

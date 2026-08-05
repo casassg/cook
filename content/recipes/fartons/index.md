@@ -102,5 +102,4 @@ ingredients:
 8. Pinch off a piece of dough, roll it into a ball, then roll out into a long cigar shape. Place on the greased [tray](tool:tray).
 9. Bake on the center rack for [15–18 minutes](t:18m:fire), until golden on top.
 10. While baking, prepare the glaze: mix [confectioners' sugar](i:glaze_sugar) with [lukewarm water](i:glaze_water) using a [wire whisk (or a fork)](tool:whisk) until thick and white.
-11. While the fartóns are still warm, brush each with the glaze using a [pastry brush](tool:brush).
-12. Serve warm with a glass of horchata de chufa.
+11. While the fartóns are still warm, brush each with the glaze using a [pastry brush](tool:brush). Serve warm with a glass of horchata de chufa.

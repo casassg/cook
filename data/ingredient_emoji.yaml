@@ -7,6 +7,7 @@
 #
 # Only list ids that don't auto-resolve, or where you want a different glyph.
 pepper: "🫑"
+chufa: "🥜"
 water: "💧"
 oil: "🫒"
 yeast: "🧫"

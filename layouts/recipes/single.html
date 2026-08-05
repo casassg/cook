@@ -240,7 +240,8 @@
     </div>
     <footer class="flex items-center justify-between border-t border-line px-6 py-4">
       <button @click="prev()" :disabled="pos===0" class="rounded-lg bg-surface px-5 py-2.5 font-medium text-body transition disabled:opacity-30">← {{ i18n "prev" }}</button>
-      <button @click="next()" :disabled="pos===total-1" class="rounded-lg bg-accent px-6 py-2.5 font-medium text-white transition hover:bg-accent-hover disabled:opacity-30">{{ i18n "next" }} →</button>
+      <button x-show="pos < total-1" @click="next()" class="rounded-lg bg-accent px-6 py-2.5 font-medium text-white transition hover:bg-accent-hover">{{ i18n "next" }} →</button>
+      <button x-show="pos >= total-1" @click="exitFocus()" class="rounded-lg bg-accent px-6 py-2.5 font-medium text-white transition hover:bg-accent-hover">✓ {{ i18n "done" }}</button>
     </footer>
   </div>
 </article>

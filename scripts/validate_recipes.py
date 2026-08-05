@@ -79,13 +79,31 @@ def extract_refs(step_text: str):
     for m in INLINE_REF_RE.finditer(step_text):
         target = m.group(2)
         if target.startswith("i:"):
-            refs.append(("i", target[2:]))
+            raw_id = target[2:]
+            clean_id = re.sub(r'\*[0-9.]+$', '', raw_id)
+            refs.append(("i", clean_id))
         elif target.startswith("tool:"):
             refs.append(("tool", target[5:]))
         elif target.startswith("t:"):
             refs.append(("t", target[2:]))  # "<dur>" or "<dur>:<emojiKey>"
 
     return refs, variant_keys
+
+
+FRACTION_RE = re.compile(r'\(i:[a-z0-9_]+\*([0-9.]+)\)')
+
+
+def validate_step_fractions(step_text: str, step_num: int, tag: str) -> list[str]:
+    """Validate ingredient fraction multipliers in a step."""
+    errors = []
+    for m in FRACTION_RE.finditer(step_text):
+        try:
+            frac = float(m.group(1))
+            if frac <= 0 or frac > 1:
+                errors.append(f"{tag}: step {step_num}: ingredient fraction {frac} must be >0 and ≤1")
+        except ValueError:
+            errors.append(f"{tag}: step {step_num}: invalid ingredient fraction '{m.group(1)}'")
+    return errors
 
 
 def load_post(path: Path):
@@ -192,6 +210,7 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
         for vk in vm_keys:
             if vk not in variant_keys:
                 errors.append(f"{tag}: step {step_num}: variant marker key '{vk}' not declared")
+        errors.extend(validate_step_fractions(step_text, step_num, tag))
 
     return meta, body, errors
 
@@ -244,6 +263,7 @@ def validate_translation(
         for vk in vm_keys:
             if vk not in base_variant_keys:
                 errors.append(f"{tag}: step {step_num}: variant marker key '{vk}' not in base")
+        errors.extend(validate_step_fractions(step_text, step_num, tag))
 
     return meta, body, errors
 

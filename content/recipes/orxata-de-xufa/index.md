@@ -63,7 +63,7 @@ ingredients:
 
 1. Rinse the [tiger nuts](i:chufa) well and soak them covered in water for 1–2 days in the fridge. Meanwhile, keep the [water](i:water) in the fridge so it is very cold when you blend.
 2. Drain the [tiger nuts](i:chufa), discarding the soaking water.
-3. Blend the tiger nuts in a [powerful blender](tool:blender) with part of the [chilled water](i:water), stopping partway to scrape down the sides with a [spatula](tool:spatula). [1 min](t:1m)
-4. Add the remaining water and blend again at a slower speed. [1 min](t:1m)
+3. Blend the tiger nuts in a [powerful blender](tool:blender) with part of the [chilled water](i:water*0.5), stopping partway to scrape down the sides with a [spatula](tool:spatula). [1 min](t:1m)
+4. Add the remaining [water](i:water*0.5) and blend again at a slower speed. [1 min](t:1m)
 5. Strain the mixture through a [coffee filter](tool:coffee_filter), pressing the tiger nut pulp firmly to extract as much flavor as possible.
 6. Stir in the [brown sugar](i:brown_sugar) until dissolved, refrigerate and serve very cold. Fresh horchata is heat-sensitive: drink it the same day or the next. Store in the coldest part of the fridge and shake well before serving.

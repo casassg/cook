@@ -13,6 +13,7 @@ next: "Next"
 variant: "Variant"
 timer: "Timer"
 by_author: "by"
+original_recipe: "Original recipe"
 search_placeholder: "Search recipes, ingredients, authors…"
 
 cat_mains: "Mains"

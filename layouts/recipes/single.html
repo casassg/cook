@@ -92,6 +92,7 @@
       <h1 class="mt-2 text-3xl font-semibold tracking-tight text-white drop-shadow-lg sm:text-4xl">{{ .Title }}</h1>
       {{ with .Params.description }}<p class="mt-2 max-w-2xl text-white/80 drop-shadow">{{ . }}</p>{{ end }}
       {{ with index $en.Params.author 0 }}<p class="mt-1 text-sm italic text-white/70 drop-shadow">{{ i18n "by_author" }} <a href="{{ relURL (printf "/author/%s/" (. | urlize)) }}" class="underline underline-offset-2 hover:text-white">{{ . }}</a></p>{{ end }}
+      {{ with $en.Params.source }}<p class="mt-1 text-sm text-white/70 drop-shadow"><a href="{{ . }}" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-white">↗ {{ i18n "original_recipe" }}</a></p>{{ end }}
     </div>
   </div>
   {{ else }}
@@ -104,6 +105,7 @@
     <h1 class="mt-2 text-3xl font-semibold tracking-tight text-heading sm:text-4xl">{{ .Title }}</h1>
     {{ with .Params.description }}<p class="mt-2 max-w-2xl text-muted">{{ . }}</p>{{ end }}
     {{ with index $en.Params.author 0 }}<p class="mt-1 text-sm italic text-muted">{{ i18n "by_author" }} <a href="{{ relURL (printf "/author/%s/" (. | urlize)) }}" class="text-accent underline underline-offset-2 hover:text-accent-hover">{{ . }}</a></p>{{ end }}
+    {{ with $en.Params.source }}<p class="mt-1 text-sm text-muted"><a href="{{ . }}" target="_blank" rel="noopener" class="text-accent underline underline-offset-2 hover:text-accent-hover">↗ {{ i18n "original_recipe" }}</a></p>{{ end }}
   </header>
   {{ end }}
 

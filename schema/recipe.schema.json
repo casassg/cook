@@ -35,6 +35,11 @@
           "items": { "type": "string" },
           "minItems": 1
         },
+        "source": {
+          "type": "string",
+          "format": "uri",
+          "description": "Optional URL of the original recipe (shown in the UI as a link)"
+        },
         "development": { "type": "boolean" },
         "defaultVariant": { "type": "string" },
         "variants": {

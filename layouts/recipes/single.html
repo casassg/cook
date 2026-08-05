@@ -158,10 +158,10 @@
               {{- if .hasAmount -}}
               <span class="font-semibold tabular-nums text-heading"><span data-base="{{ .amount }}" x-text="fmt($el.dataset.base)">{{ .amount }}</span>{{ with .unitLabel }} {{ . }}{{ end }}</span> {{ .item }}
               {{- else -}}{{ .item }}{{- end -}}
+              {{- with .links }} {{ partial "item-links.html" . }}{{ end -}}
             </div>
             {{ if .hasAmount }}{{ with .note }}<div class="text-sm text-muted">{{ . }}</div>{{ end }}
             {{ else }}<div class="text-sm text-muted">{{ .unitLabel }}{{ with .note }} · {{ . }}{{ end }}</div>{{ end }}
-            {{ with .links }}<div class="text-sm">{{ partial "item-links.html" . }}</div>{{ end }}
           </div>
         </li>
         {{ end }}
@@ -218,9 +218,8 @@
               <li class="flex items-start gap-2.5" {{ with .only }}x-show="showVar('{{ delimit . " " }}')"{{ end }}>
                 <span class="w-6 shrink-0 text-center text-lg leading-6" aria-hidden="true">{{ .emoji }}</span>
                 <div class="min-w-0">
-                  <div>{{ if .hasAmount }}<span class="font-semibold tabular-nums text-heading"><span data-base="{{ .amount }}" x-text="fmt($el.dataset.base)">{{ .amount }}</span>{{ with .unitLabel }} {{ . }}{{ end }}</span> {{ end }}{{ .item }}</div>
+                  <div>{{ if .hasAmount }}<span class="font-semibold tabular-nums text-heading"><span data-base="{{ .amount }}" x-text="fmt($el.dataset.base)">{{ .amount }}</span>{{ with .unitLabel }} {{ . }}{{ end }}</span> {{ end }}{{ .item }}{{ with .links }} {{ partial "item-links.html" . }}{{ end }}</div>
                   {{ with .note }}<div class="text-sm text-muted">{{ . }}</div>{{ end }}
-                  {{ with .links }}<div class="text-sm">{{ partial "item-links.html" . }}</div>{{ end }}
                 </div>
               </li>
               {{ end }}{{ end }}

@@ -4,6 +4,7 @@ description: "Long, cigar-shaped sweet bread traditional of the region of Valenc
 image: main.webp
 categories: [baking, desserts]
 author: [gerard]
+source: https://www.thespruceeats.com/fartons-recipe-3083196
 portion:
   type: servings
   value: 4

@@ -4,6 +4,7 @@ description: "Italian classic: pan-fried swordfish in a sweet-sour orange and le
 image: main.webp
 categories: [mains]
 author: [gerard]
+source: https://www.recipesfromitaly.com/swordfish-in-orange-juice/
 portion:
   type: servings
   value: 4

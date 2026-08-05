@@ -1,6 +1,6 @@
 # /// script
 # requires-python = ">=3.11"
-# dependencies = ["python-frontmatter", "jsonschema", "pyyaml"]
+# dependencies = ["python-frontmatter", "jsonschema", "pyyaml", "emoji"]
 # ///
 
 import json
@@ -9,13 +9,16 @@ import sys
 from pathlib import Path
 from collections import defaultdict
 
+import emoji as emoji_lib
 import frontmatter
 import jsonschema
+import yaml
 from jsonschema import Draft202012Validator
 
 REPO_ROOT = Path(__file__).parent.parent
 SCHEMA_PATH = REPO_ROOT / "schema" / "recipe.schema.json"
 RECIPES_GLOB = "content/recipes/*/index*.md"
+EMOJI_DATA_PATH = REPO_ROOT / "data" / "ingredient_emoji.yaml"
 
 # Keys that must not appear in translation files
 STRUCTURAL_KEYS = {"ingredients", "tools", "variants", "portion", "image", "categories", "author", "source"}
@@ -26,10 +29,32 @@ INLINE_REF_RE = re.compile(r"\[([^\]]*)\]\(([^)]+)\)")
 VARIANT_MARKER_RE = re.compile(r"\{variant:\s*([^}]+)\}$")
 DURATION_RE = re.compile(r"^(\d+h)?(\d+m)?(\d+s)?$")
 
+EMOJI_OVERRIDES = yaml.safe_load(EMOJI_DATA_PATH.read_text()) or {}
+
 
 def valid_duration(dur: str) -> bool:
     m = DURATION_RE.match(dur)
     return bool(m) and any(m.group(i) for i in (1, 2, 3))
+
+
+def timer_ref_error(ref_id: str) -> str | None:
+    """Validate a `t:` ref target ("<dur>" or "<dur>:<emojiKey>"). Returns an
+    error message, or None if valid."""
+    dur, _, emoji_key = ref_id.partition(":")
+    if not valid_duration(dur):
+        return f"invalid timer duration 't:{ref_id}'"
+    if emoji_key and not resolves_to_emoji(emoji_key):
+        return f"timer 't:{ref_id}' has unresolvable emoji key '{emoji_key}'"
+    return None
+
+
+def resolves_to_emoji(key: str) -> bool:
+    """Mirrors layouts/partials/resolve-emoji.html: data file override wins,
+    else the gemoji alias set (same alias language Hugo's `emojify` recognizes)."""
+    if key in EMOJI_OVERRIDES:
+        return True
+    code = f":{key}:"
+    return emoji_lib.emojize(code, language="alias") != code
 
 
 def parse_steps(body: str):
@@ -58,7 +83,7 @@ def extract_refs(step_text: str):
         elif target.startswith("tool:"):
             refs.append(("tool", target[5:]))
         elif target.startswith("t:"):
-            refs.append(("t", target[2:]))
+            refs.append(("t", target[2:]))  # "<dur>" or "<dur>:<emojiKey>"
 
     return refs, variant_keys
 
@@ -137,6 +162,16 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
                     f"{tag}: ingredient '{ing['id']}' onlyForVariation key '{vk}' not declared"
                 )
 
+    # Every ingredient must resolve to an emoji: its own `emoji` field (if set), else its id
+    for ing in meta.get("ingredients", []):
+        key = ing.get("emoji", ing["id"])
+        if not resolves_to_emoji(key):
+            errors.append(
+                f"{tag}: ingredient '{ing['id']}' has no resolvable emoji "
+                f"(key '{key}' not in data/ingredient_emoji.yaml and not a gemoji alias); "
+                f"rename the id to a gemoji name or set an 'emoji' field"
+            )
+
     # Body step validation
     steps = parse_steps(body)
     for step_num, step_text in enumerate(steps, 1):
@@ -146,8 +181,10 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
                 errors.append(f"{tag}: step {step_num}: ingredient ref 'i:{ref_id}' not declared")
             elif ref_type == "tool" and ref_id not in tool_ids:
                 errors.append(f"{tag}: step {step_num}: tool ref 'tool:{ref_id}' not declared")
-            elif ref_type == "t" and not valid_duration(ref_id):
-                errors.append(f"{tag}: step {step_num}: invalid timer duration 't:{ref_id}'")
+            elif ref_type == "t":
+                err = timer_ref_error(ref_id)
+                if err:
+                    errors.append(f"{tag}: step {step_num}: {err}")
         for vk in vm_keys:
             if vk not in variant_keys:
                 errors.append(f"{tag}: step {step_num}: variant marker key '{vk}' not declared")
@@ -196,8 +233,10 @@ def validate_translation(
                 errors.append(f"{tag}: step {step_num}: ingredient ref 'i:{ref_id}' not in base")
             elif ref_type == "tool" and ref_id not in base_tool_ids:
                 errors.append(f"{tag}: step {step_num}: tool ref 'tool:{ref_id}' not in base")
-            elif ref_type == "t" and not valid_duration(ref_id):
-                errors.append(f"{tag}: step {step_num}: invalid timer duration 't:{ref_id}'")
+            elif ref_type == "t":
+                err = timer_ref_error(ref_id)
+                if err:
+                    errors.append(f"{tag}: step {step_num}: {err}")
         for vk in vm_keys:
             if vk not in base_variant_keys:
                 errors.append(f"{tag}: step {step_num}: variant marker key '{vk}' not in base")

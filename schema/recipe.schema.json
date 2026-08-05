@@ -111,6 +111,11 @@
               "item": { "$ref": "#/$defs/i18nText" },
               "note": { "$ref": "#/$defs/i18nText" },
               "group": { "$ref": "#/$defs/i18nText" },
+              "emoji": {
+                "type": "string",
+                "pattern": "^[a-z0-9_+-]+$",
+                "description": "Optional gemoji key override when the id itself doesn't resolve to an emoji"
+              },
               "onlyForVariation": {
                 "type": "array",
                 "items": { "type": "string" }

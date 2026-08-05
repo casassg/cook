@@ -3,7 +3,8 @@ title: "Fartóns"
 description: "Long, cigar-shaped sweet bread traditional of the region of Valencia, typically served with the tiger nut drink called horchata de chufa."
 image: main.webp
 categories: [baking, desserts]
-author: [The Spruce Eats]
+author: [gerard]
+source: https://www.thespruceeats.com/fartons-recipe-3083196
 portion:
   type: servings
   value: 4
@@ -96,10 +97,10 @@ ingredients:
 3. Add the [sugar](i:sugar) and [eggs](i:egg) and mix well with an [electric mixer](tool:mixer) on medium speed. If it becomes too thick, switch to a wooden spoon.
 4. Add the [vegetable oil](i:oil) and [salt](i:salt) while continuing to mix.
 5. Knead until the dough is well mixed. Form into a ball and cover the [bowl](tool:bowl) with a kitchen towel or plastic wrap.
-6. Leave in a warm spot, out of drafts, until the dough doubles in size, about [2 h](t:2h).
+6. Leave in a warm spot, out of drafts, until the dough doubles in size, about [2 h](t:2h:bread).
 7. Once risen, heat the [oven](tool:oven) to 180 °C (360 °F). Dust a board with flour and grease a [cookie sheet](tool:tray) with [butter](i:butter).
 8. Pinch off a piece of dough, roll it into a ball, then roll out into a long cigar shape. Place on the greased [tray](tool:tray).
-9. Bake on the center rack for 15–18 minutes, until golden on top. [18 min](t:18m)
+9. Bake on the center rack for [15–18 minutes](t:18m:fire), until golden on top.
 10. While baking, prepare the glaze: mix [confectioners' sugar](i:glaze_sugar) with [lukewarm water](i:glaze_water) using a [wire whisk (or a fork)](tool:whisk) until thick and white.
 11. While the fartóns are still warm, brush each with the glaze using a [pastry brush](tool:brush).
 12. Serve warm with a glass of horchata de chufa.

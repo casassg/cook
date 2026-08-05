@@ -72,7 +72,7 @@
         </div>
         <h2 class="mt-2 text-lg font-semibold text-heading transition group-hover:text-accent">{{ $p.Title }}</h2>
         {{ with $p.Params.description }}<p class="mt-1 line-clamp-2 text-sm text-muted">{{ . }}</p>{{ end }}
-        {{ with index $en.Params.author 0 }}<p class="mt-1 text-xs italic text-muted">{{ i18n "by_author" }} {{ . }}</p>{{ end }}
+        {{ with index $en.Params.author 0 }}<p class="mt-1 text-xs italic text-muted">{{ i18n "by_author" }} {{ strings.FirstUpper . }}</p>{{ end }}
       </div>
     </a>
     {{ end }}

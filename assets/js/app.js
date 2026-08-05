@@ -39,6 +39,34 @@ function formatAmount(n) {
   return String(r);
 }
 
+function chime() {
+  // Soft two-tone (E6 -> A6) chime, repeated 3x, instead of a harsh single beep.
+  try {
+    const ac = new (window.AudioContext || window.webkitAudioContext)();
+    const notes = [1318.51, 1760.0]; // E6, A6
+    const noteDur = 0.18;
+    for (let rep = 0; rep < 3; rep++) {
+      const start = ac.currentTime + rep * 0.5;
+      notes.forEach((freq, i) => {
+        const o = ac.createOscillator();
+        const g = ac.createGain();
+        o.type = "sine";
+        o.frequency.value = freq;
+        const t0 = start + i * noteDur;
+        g.gain.setValueAtTime(0.0001, t0);
+        g.gain.exponentialRampToValueAtTime(0.3, t0 + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + noteDur);
+        o.connect(g);
+        g.connect(ac.destination);
+        o.start(t0);
+        o.stop(t0 + noteDur);
+      });
+    }
+    setTimeout(() => ac.close(), 1600);
+  } catch (e) {}
+  if (navigator.vibrate) navigator.vibrate(400);
+}
+
 const wake = {
   count: 0,
   sentinel: null,
@@ -102,6 +130,7 @@ document.addEventListener("alpine:init", () => {
     servings: cfg.servings || 1,
     scalable: cfg.scalable !== false,
     stepVariants: cfg.steps || [],
+    stepsHasPanel: cfg.stepsHasPanel || [],
     focus: false,
     pos: 0,
 
@@ -147,6 +176,9 @@ document.addEventListener("alpine:init", () => {
     },
     get total() {
       return this.visibleSteps.length;
+    },
+    get hasPanel() {
+      return !!this.stepsHasPanel[this.current];
     },
     get progress() {
       return this.total ? Math.round(((this.pos + 1) / this.total) * 100) : 0;
@@ -208,68 +240,88 @@ document.addEventListener("alpine:init", () => {
     },
   }));
 
-  Alpine.data("timer", (dur) => ({
-    total: parseDuration(dur),
-    remaining: parseDuration(dur),
-    running: false,
-    iv: null,
-    lastTap: 0,
-    get display() {
-      return this.running || this.remaining !== this.total ? clock(this.remaining) : humanDuration(dur);
+  // Global timer store: timers survive step navigation (the persistent bar in
+  // focus mode reads $store.timers.list) and exiting focus mode does not stop
+  // them, since the store lives outside the per-step markup.
+  Alpine.store("timers", {
+    list: [],
+
+    find(id) {
+      return this.list.find((t) => t.id === id);
     },
-    tap() {
+
+    // Re-tap of a running timer pauses it, tap of a paused one resumes it,
+    // a double-tap (within 350ms) resets it, and a brand-new id is created
+    // and started.
+    start(id, label, emoji, dur) {
+      if (!this.find(id)) {
+        this.list.push({ id, label, emoji, dur, total: parseDuration(dur), remaining: parseDuration(dur), running: false, done: false, iv: null, lastTap: 0 });
+      }
+      // Re-fetch (rather than reuse the object above) so `t` is the reactive
+      // element Alpine tracks; mutating a freshly-created raw object directly
+      // updates the data but never notifies Alpine to re-render the countdown.
+      const t = this.find(id);
       const now = Date.now();
-      if (now - this.lastTap < 350) {
-        this.pause();
-        this.remaining = this.total;
-        this.lastTap = 0;
+      if (now - t.lastTap < 350) {
+        // Double-tap resets: drop it from the shared bar entirely rather than
+        // leaving a stale idle chip behind. Tapping the same button again
+        // starts a brand-new timer.
+        this.dismiss(id);
         return;
       }
-      this.lastTap = now;
-      this.toggle();
-    },
-    toggle() {
-      if (this.remaining <= 0) {
-        this.remaining = this.total;
-        return;
+      t.lastTap = now;
+      if (t.done) {
+        this.reset(t);
+      } else if (t.running) {
+        this.pause(t);
+      } else {
+        this.resume(t);
       }
-      this.running ? this.pause() : this.start();
     },
-    start() {
-      if (this.running) return;
-      this.running = true;
+    resume(t) {
+      if (t.running) return;
+      t.running = true;
       wake.acquire();
-      this.iv = setInterval(() => {
-        this.remaining--;
-        if (this.remaining <= 0) {
-          this.remaining = 0;
-          this.pause();
-          this.ring();
+      t.iv = setInterval(() => {
+        t.remaining--;
+        if (t.remaining <= 0) {
+          t.remaining = 0;
+          this.pause(t);
+          t.done = true;
+          chime();
         }
       }, 1000);
     },
-    pause() {
-      if (this.iv) clearInterval(this.iv);
-      this.iv = null;
-      const wasRunning = this.running;
-      this.running = false;
+    pause(t) {
+      if (t.iv) clearInterval(t.iv);
+      t.iv = null;
+      const wasRunning = t.running;
+      t.running = false;
       if (wasRunning) wake.release();
     },
-    ring() {
-      try {
-        const ac = new (window.AudioContext || window.webkitAudioContext)();
-        const o = ac.createOscillator();
-        o.connect(ac.destination);
-        o.frequency.value = 880;
-        o.start();
-        setTimeout(() => {
-          o.stop();
-          ac.close();
-        }, 500);
-      } catch (e) {}
-      if (navigator.vibrate) navigator.vibrate(400);
+    reset(t) {
+      this.pause(t);
+      t.remaining = t.total;
+      t.done = false;
     },
-  }));
+    dismiss(id) {
+      const t = this.find(id);
+      if (t) this.pause(t);
+      this.list = this.list.filter((x) => x.id !== id);
+    },
+    display(t) {
+      return t.running || t.remaining !== t.total ? clock(t.remaining) : humanDuration(t.dur);
+    },
+    // idle (never started / reset) = gray, running = green, paused = yellow, done = pulsing red.
+    // Returns a state string rather than Tailwind classes directly, so the class
+    // names stay as literal strings in the templates for Tailwind's content scan.
+    state(t) {
+      if (!t) return "idle";
+      if (t.done) return "done";
+      if (t.running) return "running";
+      return t.remaining !== t.total ? "paused" : "idle";
+    },
+  });
 
   Alpine.data("recipeList", (hints = []) => ({
     q: "",

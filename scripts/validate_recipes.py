@@ -108,11 +108,15 @@ def check_i18n_maps(meta: dict, tag: str) -> list[str]:
         for field in ("item", "note", "group"):
             if field in ing:
                 check_field(ing[field], f"ingredients[{iid}].{field}")
+        for link in ing.get("links", []):
+            check_field(link.get("label"), f"ingredients[{iid}].links.label")
 
     for tool in meta.get("tools", []):
         tid = tool.get("id", "?")
         if "name" in tool:
             check_field(tool["name"], f"tools[{tid}].name")
+        for link in tool.get("links", []):
+            check_field(link.get("label"), f"tools[{tid}].links.label")
 
     for variant in meta.get("variants", []):
         vk = variant.get("key", "?")

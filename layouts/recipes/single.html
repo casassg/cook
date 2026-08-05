@@ -24,7 +24,11 @@
   {{/* Emoji: per-ingredient `emoji` field wins as the lookup key, else the id itself. */}}
   {{ $emojiKey := index . "emoji" | default .id }}
   {{ $emoji := partial "resolve-emoji.html" (dict "key" $emojiKey) }}
-  {{ $entry := dict "id" .id "amount" .amount "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "only" $only "emoji" $emoji }}
+  {{ $links := slice }}
+  {{ range (index . "links" | default slice) }}
+    {{ $links = $links | append (dict "url" .url "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
+  {{ end }}
+  {{ $entry := dict "id" .id "amount" .amount "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "only" $only "emoji" $emoji "links" $links }}
   {{ $ings = $ings | append $entry }}
   {{ $ingIndex = merge $ingIndex (dict .id $entry) }}
 {{ end }}
@@ -35,7 +39,11 @@
 {{ $toolIndex := dict }}
 {{ range ($en.Params.tools | default slice) }}
   {{ $name := partial "localize.html" (dict "v" .name "lang" $lang) }}
-  {{ $entry := dict "id" .id "name" $name }}
+  {{ $links := slice }}
+  {{ range (index . "links" | default slice) }}
+    {{ $links = $links | append (dict "url" .url "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
+  {{ end }}
+  {{ $entry := dict "id" .id "name" $name "links" $links }}
   {{ $tools = $tools | append $entry }}
   {{ $toolIndex = merge $toolIndex (dict .id $entry) }}
 {{ end }}
@@ -153,6 +161,7 @@
             </div>
             {{ if .hasAmount }}{{ with .note }}<div class="text-sm text-muted">{{ . }}</div>{{ end }}
             {{ else }}<div class="text-sm text-muted">{{ .unitLabel }}{{ with .note }} · {{ . }}{{ end }}</div>{{ end }}
+            {{ with .links }}<div class="text-sm">{{ partial "item-links.html" . }}</div>{{ end }}
           </div>
         </li>
         {{ end }}
@@ -211,6 +220,7 @@
                 <div class="min-w-0">
                   <div>{{ if .hasAmount }}<span class="font-semibold tabular-nums text-heading"><span data-base="{{ .amount }}" x-text="fmt($el.dataset.base)">{{ .amount }}</span>{{ with .unitLabel }} {{ . }}{{ end }}</span> {{ end }}{{ .item }}</div>
                   {{ with .note }}<div class="text-sm text-muted">{{ . }}</div>{{ end }}
+                  {{ with .links }}<div class="text-sm">{{ partial "item-links.html" . }}</div>{{ end }}
                 </div>
               </li>
               {{ end }}{{ end }}

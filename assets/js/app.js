@@ -250,11 +250,13 @@ document.addEventListener("alpine:init", () => {
     // a double-tap (within 350ms) resets it, and a brand-new id is created
     // and started.
     start(id, label, emoji, dur) {
-      let t = this.find(id);
-      if (!t) {
-        t = { id, label, emoji, dur, total: parseDuration(dur), remaining: parseDuration(dur), running: false, done: false, iv: null, lastTap: 0 };
-        this.list.push(t);
+      if (!this.find(id)) {
+        this.list.push({ id, label, emoji, dur, total: parseDuration(dur), remaining: parseDuration(dur), running: false, done: false, iv: null, lastTap: 0 });
       }
+      // Re-fetch (rather than reuse the object above) so `t` is the reactive
+      // element Alpine tracks; mutating a freshly-created raw object directly
+      // updates the data but never notifies Alpine to re-render the countdown.
+      const t = this.find(id);
       const now = Date.now();
       if (now - t.lastTap < 350) {
         this.reset(t);

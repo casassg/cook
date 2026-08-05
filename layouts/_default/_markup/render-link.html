@@ -34,8 +34,15 @@
   {{- end -}}
 {{- else if hasPrefix $d "t:" -}}
   {{- /* Non-interactive label: durations read inline, but the only tappable timer
-         lives in the focus-mode panel (built from per-step timers in single.html). */ -}}
-  <span class="timer-label whitespace-nowrap text-muted">⏲ {{ .Text | safeHTML }}</span>
+         lives in the focus-mode panel (built from per-step timers in single.html).
+         Optional `:emojiKey` suffix resolves to a glyph, else falls back to ⏳. */ -}}
+  {{- $ref := strings.TrimPrefix "t:" $d -}}
+  {{- $parts := split $ref ":" -}}
+  {{- $emoji := "⏳" -}}
+  {{- if gt (len $parts) 1 -}}
+    {{- with partial "resolve-emoji.html" (dict "key" (index $parts 1)) -}}{{- $emoji = . -}}{{- end -}}
+  {{- end -}}
+  <span class="timer-label whitespace-nowrap text-muted">{{ $emoji }} {{ .Text | safeHTML }}</span>
 {{- else -}}
   <a href="{{ $d | safeURL }}" class="text-accent underline underline-offset-2 hover:text-accent-hover"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- end -}}

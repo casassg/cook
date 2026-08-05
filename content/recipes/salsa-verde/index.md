@@ -3,7 +3,7 @@ title: "Salsa Verde"
 description: "Fresh Mexican tomatillo salsa, spicy and thick, perfect for tacos and quesadillas."
 image: main.webp
 categories: [snacks]
-author: [Jauja Cocina Mexicana]
+author: [gerard]
 source: https://youtu.be/Wb1oPc6TqP0
 portion:
   type: servings
@@ -70,7 +70,7 @@ ingredients:
       es: "para hervir, más un poco del agua de cocción"
 ---
 
-1. Bring water to a boil in a [pot](tool:pot). Add the [jalapeños](i:jalapeno), the [serranos](i:serrano), the [onion](i:onion) quarter and the large [garlic](i:garlic) clove; cook for [15 min](t:15m).
+1. Bring water to a boil in a [pot](tool:pot). Add the [jalapeños](i:jalapeno), the [serranos](i:serrano), the [onion](i:onion) quarter and the large [garlic](i:garlic) clove; cook for [15 min](t:15m:stew).
 2. Add the [tomatillos](i:tomatillo) to the hot water. When they start turning yellowish, turn off the heat and let them finish in the hot water, then cool.
 3. In the [molcajete](tool:molcajete), grind the raw half [garlic](i:garlic) clove with the [salt](i:salt). Add the cooked [garlic](i:garlic) and grind, then the [jalapeños](i:jalapeno) and [serranos](i:serrano); watch out for splashes.
 4. Transfer the cooked [onion](i:onion), [jalapeños](i:jalapeno), [serranos](i:serrano) and some [tomatillos](i:tomatillo) to a [food processor](tool:food_processor) and blend until smooth; move to a [bowl](tool:bowl).

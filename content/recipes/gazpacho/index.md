@@ -3,7 +3,7 @@ title: "Gazpacho"
 description: "Andalusian cold soup. Best served well chilled."
 image: main.webp
 categories: [mains]
-author: [Gerard]
+author: [gerard]
 portion:
   type: servings
   value: 4
@@ -84,6 +84,6 @@ ingredients:
 1. Remove the germ from the [garlic](i:garlic). Peel the [cucumber](i:cucumber) and cut it and the [pepper](i:pepper) into large pieces.
 2. Quarter the [tomatoes](i:tomato).
 3. Soak the [bread](i:bread) in a [bowl](tool:bowl) of water until soft. {variant: bread}
-4. Put everything except the oil in a [blender](tool:blender): [tomatoes](i:tomato), [cucumber](i:cucumber), [pepper](i:pepper), [garlic](i:garlic), [vinegar](i:vinegar), [salt](i:salt) and the [soaked bread](i:bread) [cold water](i:water). Blend until smooth for [2 min](t:2m).
-5. With the blender running low, drizzle in the [olive oil](i:oil) in a thin stream, like making aioli, until silky and emulsified for [1 min](t:1m).
+4. Put everything except the oil in a [blender](tool:blender): [tomatoes](i:tomato), [cucumber](i:cucumber), [pepper](i:pepper), [garlic](i:garlic), [vinegar](i:vinegar), [salt](i:salt) and the [soaked bread](i:bread) [cold water](i:water). Blend until smooth for [2 min](t:2m:cyclone).
+5. With the blender running low, drizzle in the [olive oil](i:oil) in a thin stream, like making aioli, until silky and emulsified for [1 min](t:1m:droplet).
 6. Taste, adjust [salt](i:salt) and [vinegar](i:vinegar), chill, and serve well chilled.

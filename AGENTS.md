@@ -23,10 +23,16 @@ One leaf bundle per recipe under `content/recipes/<slug>/`, one file per languag
 - **Steps** live in the body as a numbered list, one step per line. Inline refs use link syntax:
   - `[label](i:<ingredientId>)` scaled ingredient highlight (amount pulled from the English structure).
   - `[label](tool:<toolId>)` tool reference.
-  - `[label](t:<dur>)` **non-interactive** duration label (`10m`, `1h30m`, `90s`); the tappable countdown lives only in the focus-mode panel, never inline.
+  - `[label](t:<dur>)` or `[label](t:<dur>:<emojiKey>)` **non-interactive** duration label (`10m`, `1h30m`, `90s`, optionally suffixed with a gemoji id like `stew`); the tappable countdown lives only in the focus-mode panel, never inline. Omitting the emoji key falls back to ⏳; prefer setting one.
   - Trailing `{variant: <key>}` scopes the whole step to a variant. Ingredient-level `onlyForVariation` scopes chips automatically.
-- Ingredient emoji is auto-resolved from the `id` via Hugo `emojify` (`enableEmoji: true`); add or override entries in `data/ingredient_emoji.yaml` (`id → emoji`) for ids with no/incorrect glyph. No per-recipe emoji field.
-- `schema/recipe.schema.json` is the contract; the validator also checks ref ids, timer format, variant keys, and cross-language step parity (same step count and ref ids, only prose differs).
+- Ingredient emoji is auto-resolved from the `id` via Hugo `emojify` (`enableEmoji: true`); add or override entries in `data/ingredient_emoji.yaml` (`id → emoji`) for ids with no/incorrect glyph, or set the ingredient's own optional `emoji` field. Every ingredient id MUST resolve to an emoji through one of those paths (validated).
+- `schema/recipe.schema.json` is the contract; the validator also checks ref ids, timer format, variant keys, ingredient emoji resolution, and cross-language step parity (same step count and ref ids, only prose differs).
+
+### Authoring rules (for agents writing/editing recipes)
+
+- Timers ONLY for passive waits (simmer, bake, rest, chill, proof) of roughly 1 minute or more. Never add a timer for active work (chopping, mixing, blending) or for "until done" judgement calls — describe those in prose instead.
+- One action per step. Split steps that mix prep + cook, or that chain two unrelated actions; each step should read as a single imperative sentence.
+- Ingredient ids MUST resolve to an emoji: prefer picking an id that is itself a gemoji name (e.g. use id `fish` for swordfish, not `swordfish`). When two distinct ingredients in the same recipe would otherwise share a gemoji name, keep the ids unique and descriptive and set each ingredient's `emoji` field to the shared gemoji key (e.g. two fish ingredients get ids `swordfish`/`cod`, both with `emoji: fish`).
 
 ## Rendering internals
 

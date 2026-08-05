@@ -21,9 +21,9 @@
   {{ $item := partial "localize.html" (dict "v" .item "lang" $lang) }}
   {{ $note := partial "localize.html" (dict "v" (index . "note") "lang" $lang) }}
   {{ $only := index . "onlyForVariation" | default slice }}
-  {{/* Emoji: explicit override wins, else auto-derive from the id via gemoji. */}}
-  {{ $emoji := "" }}
-  {{ with index site.Data.ingredient_emoji .id }}{{ $emoji = . }}{{ else }}{{ $code := printf ":%s:" .id }}{{ $try := emojify $code }}{{ if ne $try $code }}{{ $emoji = $try }}{{ end }}{{ end }}
+  {{/* Emoji: per-ingredient `emoji` field wins as the lookup key, else the id itself. */}}
+  {{ $emojiKey := index . "emoji" | default .id }}
+  {{ $emoji := partial "resolve-emoji.html" (dict "key" $emojiKey) }}
   {{ $entry := dict "id" .id "amount" .amount "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "only" $only "emoji" $emoji }}
   {{ $ings = $ings | append $entry }}
   {{ $ingIndex = merge $ingIndex (dict .id $entry) }}
@@ -62,8 +62,18 @@
     {{ $refs = $refs | append (. | replaceRE `^\(i:` "" | replaceRE `\)$` "") }}
   {{ end }}
   {{ $timers := slice }}
-  {{ range findRE `\(t:[0-9hms]+\)` $text }}
-    {{ $timers = $timers | append (. | replaceRE `^\(t:` "" | replaceRE `\)$` "") }}
+  {{ range findRE `\[[^\]]*\]\(t:[0-9hms]+(:[a-z0-9_+-]+)?\)` $text }}
+    {{ $label := . | replaceRE `^\[([^\]]*)\]\(.*\)$` "$1" }}
+    {{ $ref := . | replaceRE `^\[[^\]]*\]\(t:` "" | replaceRE `\)$` "" }}
+    {{ $dur := $ref }}
+    {{ $emojiKey := "" }}
+    {{ with (findRE `:[a-z0-9_+-]+$` $ref 1) }}
+      {{ $emojiKey = (index . 0) | strings.TrimPrefix ":" }}
+      {{ $dur = replaceRE `:[a-z0-9_+-]+$` "" $ref }}
+    {{ end }}
+    {{ $emoji := "⏳" }}
+    {{ with $emojiKey }}{{ with partial "resolve-emoji.html" (dict "key" .) }}{{ $emoji = . }}{{ end }}{{ end }}
+    {{ $timers = $timers | append (dict "dur" $dur "emoji" $emoji "label" $label) }}
   {{ end }}
   {{ $html := $.RenderString (dict "display" "inline") $text }}
   {{ $steps = $steps | append (dict "html" $html "only" $only "refs" ($refs | uniq) "timers" $timers) }}
@@ -91,8 +101,7 @@
       </div>
       <h1 class="mt-2 text-3xl font-semibold tracking-tight text-white drop-shadow-lg sm:text-4xl">{{ .Title }}</h1>
       {{ with .Params.description }}<p class="mt-2 max-w-2xl text-white/80 drop-shadow">{{ . }}</p>{{ end }}
-      {{ with index $en.Params.author 0 }}<p class="mt-1 text-sm italic text-white/70 drop-shadow">{{ i18n "by_author" }} <a href="{{ relURL (printf "/author/%s/" (. | urlize)) }}" class="underline underline-offset-2 hover:text-white">{{ . }}</a></p>{{ end }}
-      {{ with $en.Params.source }}<p class="mt-1 text-sm text-white/70 drop-shadow"><a href="{{ . }}" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-white">↗ {{ i18n "original_recipe" }}</a></p>{{ end }}
+      {{ with index $en.Params.author 0 }}<p class="mt-1 text-sm text-white/70 drop-shadow">{{ i18n "contributor" }}: <a href="{{ relURL (printf "/author/%s/" (. | urlize)) }}" class="italic underline underline-offset-2 hover:text-white">{{ . }}</a>{{ with $en.Params.source }} · <a href="{{ . }}" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-white">↗ {{ i18n "original_recipe" }}</a>{{ end }}</p>{{ end }}
     </div>
   </div>
   {{ else }}
@@ -104,8 +113,7 @@
     </div>
     <h1 class="mt-2 text-3xl font-semibold tracking-tight text-heading sm:text-4xl">{{ .Title }}</h1>
     {{ with .Params.description }}<p class="mt-2 max-w-2xl text-muted">{{ . }}</p>{{ end }}
-    {{ with index $en.Params.author 0 }}<p class="mt-1 text-sm italic text-muted">{{ i18n "by_author" }} <a href="{{ relURL (printf "/author/%s/" (. | urlize)) }}" class="text-accent underline underline-offset-2 hover:text-accent-hover">{{ . }}</a></p>{{ end }}
-    {{ with $en.Params.source }}<p class="mt-1 text-sm text-muted"><a href="{{ . }}" target="_blank" rel="noopener" class="text-accent underline underline-offset-2 hover:text-accent-hover">↗ {{ i18n "original_recipe" }}</a></p>{{ end }}
+    {{ with index $en.Params.author 0 }}<p class="mt-1 text-sm text-muted">{{ i18n "contributor" }}: <a href="{{ relURL (printf "/author/%s/" (. | urlize)) }}" class="italic text-accent underline underline-offset-2 hover:text-accent-hover">{{ . }}</a>{{ with $en.Params.source }} · <a href="{{ . }}" target="_blank" rel="noopener" class="text-accent underline underline-offset-2 hover:text-accent-hover">↗ {{ i18n "original_recipe" }}</a>{{ end }}</p>{{ end }}
   </header>
   {{ end }}
 
@@ -177,8 +185,14 @@
           <div>
             <h3 class="text-xs font-semibold uppercase tracking-wide text-muted">{{ i18n "timer" }}</h3>
             <div class="mt-2 flex flex-wrap gap-2">
-              {{ range . }}
-              <button type="button" class="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-lg font-medium tabular-nums transition touch-manipulation" :class="running ? 'bg-green-600/10 text-green-600 hover:bg-green-600/20' : 'bg-line/60 text-muted hover:bg-line'" x-data="timer('{{ . }}')" @click="tap()"><span class="inline-block w-4 text-center leading-none" x-text="running ? '■' : '▶'"></span><span x-text="display">{{ . }}</span></button>
+              {{ range $j, $t := . }}
+              {{ $id := printf "step%d-t%d" $i $j }}
+              {{ $cfg := dict "id" $id "label" $t.label "emoji" $t.emoji "dur" $t.dur }}
+              <button type="button" x-data="{ ...{{ $cfg | jsonify }}, get t() { return $store.timers.find(this.id) } }" @click="$store.timers.start(id, label, emoji, dur)" class="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-lg font-medium tabular-nums transition touch-manipulation" :class="t && t.running ? 'bg-green-600/10 text-green-600 hover:bg-green-600/20' : 'bg-line/60 text-muted hover:bg-line'">
+                <span aria-hidden="true">{{ $t.emoji }}</span>
+                <span class="inline-block w-4 text-center leading-none" x-text="t && t.running ? '■' : '▶'">▶</span>
+                <span x-text="t ? $store.timers.display(t) : label">{{ $t.label }}</span>
+              </button>
               {{ end }}
             </div>
           </div>
@@ -211,6 +225,18 @@
           {{ end }}
         </div>
       </div>
+    </div>
+    {{/* Persistent timer bar: lives outside the per-step panels so running
+         countdowns stay visible while navigating steps or across all of them. */}}
+    <div x-show="$store.timers.list.length" x-cloak class="flex flex-wrap gap-2 overflow-x-auto border-t border-line px-4 py-2">
+      <template x-for="timer in $store.timers.list" :key="timer.id">
+        <button type="button" @click="$store.timers.start(timer.id, timer.label, timer.emoji, timer.dur)" class="inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium tabular-nums transition" :class="timer.done ? 'animate-pulse bg-red-600/10 text-red-600' : timer.running ? 'bg-green-600/10 text-green-600' : 'bg-line/60 text-muted'">
+          <span x-text="timer.emoji" aria-hidden="true"></span>
+          <span x-text="timer.label" class="max-w-[6rem] truncate"></span>
+          <span x-text="$store.timers.display(timer)"></span>
+          <span x-show="timer.done" @click.stop="$store.timers.dismiss(timer.id)" class="ml-1 leading-none">✕</span>
+        </button>
+      </template>
     </div>
     <footer class="flex items-center justify-between border-t border-line px-6 py-4">
       <button @click="prev()" :disabled="pos===0" class="rounded-lg bg-surface px-5 py-2.5 font-medium text-body transition disabled:opacity-30">← {{ i18n "prev" }}</button>

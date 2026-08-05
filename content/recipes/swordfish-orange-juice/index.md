@@ -3,7 +3,7 @@ title: "Swordfish in Orange Juice"
 description: "Italian classic: pan-fried swordfish in a sweet-sour orange and lemon sauce."
 image: main.webp
 categories: [mains]
-author: [recipesfromitaly.com]
+author: [gerard]
 portion:
   type: servings
   value: 4
@@ -18,7 +18,7 @@ tools:
   - id: frying_pan
     name: { en: "large frying pan", ca: "paella gran", es: "sartén grande" }
 ingredients:
-  - id: swordfish
+  - id: fish
     amount: 500
     unit: g
     item: { en: "swordfish slices", ca: "rodanxes de peix espasa", es: "rodajas de pez espada" }
@@ -60,16 +60,16 @@ ingredients:
     item: { en: "black pepper", ca: "pebre negre", es: "pimienta negra" }
 ---
 
-1. Prepare the [swordfish](i:swordfish): the slices should be about 1 ½ cm thick. Remove the skin and the central bone.
-2. On a cutting board, cut the [swordfish](i:swordfish) into fairly large, even pieces with a [chef's knife](tool:knife) and place them in a [bowl](tool:bowl).
+1. Prepare the [swordfish](i:fish): the slices should be about 1 ½ cm thick. Remove the skin and the central bone.
+2. On a cutting board, cut the [swordfish](i:fish) into fairly large, even pieces with a [chef's knife](tool:knife) and place them in a [bowl](tool:bowl).
 3. Squeeze the [lemon](i:lemon) and the [oranges](i:orange). Add the strained juice to the swordfish.
 4. Add a pinch of [salt](i:salt), [black pepper](i:black_pepper) to taste, the [brown sugar](i:brown_sugar) and the chopped [parsley](i:parsley).
-5. Stir and leave the swordfish to marinate for about [30 min](t:30m).
+5. Stir and leave the swordfish to marinate for about [30 min](t:30m:fish).
 6. Spread the [flour](i:flour) on a [plate](tool:plate). Take the swordfish pieces out of the marinade and dip them in the flour.
 7. Make sure each piece is well covered. Flour all the pieces and arrange them on the [plate](tool:plate). Set aside the citrus marinade, you will use it for cooking.
 8. In a large [frying pan](tool:frying_pan), heat the [olive oil](i:olive_oil).
 9. Add the fish and cook over high heat for a few minutes.
-10. After about [2 min](t:2m), turn the swordfish and brown the other side the same way. The flour in contact with the hot oil forms a crispy crust.
-11. When the fish is crispy and golden brown on both sides, about [5 min](t:5m) total, pour the reserved marinade, mostly orange juice, over the fish.
-12. Cook for another [5 min](t:5m) over medium heat: the flour and sugars will thicken the liquid into an orange sauce.
+10. After about [2 min](t:2m:cooking), turn the swordfish and brown the other side the same way. The flour in contact with the hot oil forms a crispy crust.
+11. When the fish is crispy and golden brown on both sides, about [5 min](t:5m:fire) total, pour the reserved marinade, mostly orange juice, over the fish.
+12. Cook for another [5 min](t:5m:fire) over medium heat: the flour and sugars will thicken the liquid into an orange sauce.
 13. Serve drizzled with the cooking juices and topped with grated zest and a slice of [orange](i:orange).

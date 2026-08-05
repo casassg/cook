@@ -80,8 +80,12 @@
 {{ end }}
 
 {{ $stepOnly := slice }}
-{{ range $steps }}{{ $stepOnly = $stepOnly | append (delimit .only " ") }}{{ end }}
-{{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly }}
+{{ $stepHasPanel := slice }}
+{{ range $steps }}
+  {{ $stepOnly = $stepOnly | append (delimit .only " ") }}
+  {{ $stepHasPanel = $stepHasPanel | append (or (gt (len .timers) 0) (gt (len .refs) 0)) }}
+{{ end }}
+{{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly "stepsHasPanel" $stepHasPanel }}
 
 <article class="mx-auto max-w-3xl px-5 py-8 pb-24 sm:pb-8" x-data="recipe({{ $cfg | jsonify }})" @keydown.window="onKey($event)">
   <a href="{{ .Site.Home.RelPermalink }}" class="text-sm text-accent hover:underline">← {{ i18n "back_home" }}</a>
@@ -178,7 +182,7 @@
     </header>
     <div class="flex flex-1 flex-col-reverse overflow-hidden sm:flex-row">
       {{/* Step panel: bottom on mobile, left on desktop. Shows this step's timer(s) + ingredients. */}}
-      <aside class="max-h-[42vh] shrink-0 overflow-y-auto border-t border-line p-5 sm:max-h-none sm:w-80 sm:border-r sm:border-t-0">
+      <aside x-show="hasPanel" class="max-h-[42vh] shrink-0 overflow-y-auto border-t border-line p-5 sm:max-h-none sm:w-80 sm:border-r sm:border-t-0">
         {{ range $i, $s := $steps }}
         <div x-show="isCurrent({{ $i }})" x-cloak class="flex flex-col gap-6">
           {{ with $s.timers }}

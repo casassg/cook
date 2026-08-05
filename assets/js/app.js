@@ -130,6 +130,7 @@ document.addEventListener("alpine:init", () => {
     servings: cfg.servings || 1,
     scalable: cfg.scalable !== false,
     stepVariants: cfg.steps || [],
+    stepsHasPanel: cfg.stepsHasPanel || [],
     focus: false,
     pos: 0,
 
@@ -175,6 +176,9 @@ document.addEventListener("alpine:init", () => {
     },
     get total() {
       return this.visibleSteps.length;
+    },
+    get hasPanel() {
+      return !!this.stepsHasPanel[this.current];
     },
     get progress() {
       return this.total ? Math.round(((this.pos + 1) / this.total) * 100) : 0;

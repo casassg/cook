@@ -37,7 +37,8 @@
   {{- $author := "" -}}{{- with index $en.Params.author 0 }}{{ $author = . }}{{ $al := . | lower }}{{ if not (index $seenHints $al) }}{{ $hints = $hints | append (dict "l" $al "t" "a") }}{{ $seenHints = merge $seenHints (dict $al true) }}{{ end }}{{ end -}}
   {{- $tl := $p.Title | lower -}}
   {{- if not (index $seenHints $tl) }}{{ $hints = $hints | append (dict "l" $tl "t" "r") }}{{ $seenHints = merge $seenHints (dict $tl true) }}{{ end -}}
-  {{- $cards = $cards | append (dict "p" $p "en" $en "ings" (delimit ($recipeIngs | uniq) "|") "catLabels" (delimit $catLabels "|") "author" $author) -}}
+  {{- $search := printf "%s %s %s %s" ($p.Title | lower) (delimit $catLabels " ") ($author | lower) (delimit ($recipeIngs | uniq) " ") -}}
+  {{- $cards = $cards | append (dict "p" $p "en" $en "search" $search) -}}
 {{- end -}}
 
 <div x-data="recipeList({{ $hints | jsonify }})" @click.outside="open=false">
@@ -57,7 +58,7 @@
     {{ range $cards }}
     {{ $p := .p }}{{ $en := .en }}
     <a href="{{ $p.RelPermalink }}"
-       data-search="{{ $p.Title | lower }} {{ index . "catLabels" | replace "|" " " }} {{ index . "author" | lower }} {{ index . "ings" | replace "|" " " }}"
+       data-search="{{ .search }}"
        x-show="match($el)"
        class="card-shadow group flex flex-col overflow-hidden">
       {{ with $en.Resources.GetMatch ($en.Params.image) }}

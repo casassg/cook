@@ -14,4 +14,4 @@ description: "Pa dolç allargat tradicional de la Comunitat Valenciana, que se s
 8. Agafa un tros de massa, fes-ne una bola i després estira-la en forma de cigarret allargat. Col·loca-la a la [plata del forn](tool:tray) untada.
 9. Enforna al centre del forn durant [15–18 minuts](t:18m:fire), fins que estiguin daurats.
 10. Mentre s'enfornen, prepara el glacejat: barreja el [sucre de llustre](i:glaze_sugar) amb [aigua tèbia](i:glaze_water) fent servir un [batedor de barnilles (o una forquilla)](tool:whisk) fins que quedi espès i blanc.
-11. Mentre els fartons encara són calents, pinta cada un amb el glacejat fent servir un [pinzell de cuina](tool:brush). Serveix calents amb un got d'horxata de xufa.
+11. Mentre els fartons encara són calents, pinta cada un amb el glacejat fent servir un [pinzell de cuina](tool:brush). Serveix calents amb un got d'[horxata de xufa](/recipes/orxata-de-xufa).

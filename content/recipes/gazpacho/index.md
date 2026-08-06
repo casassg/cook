@@ -18,11 +18,13 @@ variants:
     name: { en: "Light (no bread)", ca: "Lleuger (sense pa)", es: "Ligero (sin pan)" }
 tools:
   - id: blender
+    icon: "⚙️"
     name:
       en: "food processor or powerful hand blender"
       ca: "processadora d'aliments o batedora de mà potent"
       es: "procesadora de alimentos o batidora de mano potente"
   - id: bowl
+    icon: "🥣"
     name: { en: "bowl", ca: "bol", es: "bol" }
 ingredients:
   - id: tomato

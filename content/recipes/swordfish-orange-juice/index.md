@@ -11,12 +11,16 @@ portion:
   unit: servings
 tools:
   - id: knife
+    icon: "🔪"
     name: { en: "chef's knife", ca: "ganivet de cuina", es: "cuchillo de cocina" }
   - id: bowl
+    icon: "🥣"
     name: { en: "bowl", ca: "bol", es: "bol" }
   - id: plate
+    icon: "🍽️"
     name: { en: "plate", ca: "plat", es: "plato" }
   - id: frying_pan
+    icon: "🍳"
     name: { en: "large frying pan", ca: "paella gran", es: "sartén grande" }
 ingredients:
   - id: fish

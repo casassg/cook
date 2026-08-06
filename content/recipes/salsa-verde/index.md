@@ -11,15 +11,19 @@ portion:
   unit: servings
 tools:
   - id: pot
+    icon: "🍲"
     name: { en: "pot", ca: "olla", es: "olla" }
   - id: molcajete
+    icon: "🪨"
     name:
       en: "molcajete (stone mortar); alternatively a regular mortar; or do everything in the food processor"
       ca: "morter de pedra (molcajete); alternativament un morter qualsevol; o fes-ho tot a la processadora"
       es: "molcajete (mortero de piedra); alternativamente un mortero cualquiera; o hazlo todo en la procesadora"
   - id: food_processor
+    icon: "⚙️"
     name: { en: "food processor (or blender)", ca: "processadora d'aliments (o batedora)", es: "procesadora de alimentos (o licuadora)" }
   - id: bowl
+    icon: "🥣"
     name: { en: "bowl", ca: "bol", es: "bol" }
 ingredients:
   - id: tomatillo

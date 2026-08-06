@@ -26,7 +26,7 @@
   {{ $emoji := partial "resolve-emoji.html" (dict "key" $emojiKey) }}
   {{ $links := slice }}
   {{ range (index . "links" | default slice) }}
-    {{ $links = $links | append (dict "url" .url "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
+    {{ $links = $links | append (dict "url" .url "icon" (index . "icon" | default "🛒") "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
   {{ end }}
   {{ $entry := dict "id" .id "amount" .amount "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "only" $only "emoji" $emoji "links" $links }}
   {{ $ings = $ings | append $entry }}
@@ -39,11 +39,12 @@
 {{ $toolIndex := dict }}
 {{ range ($en.Params.tools | default slice) }}
   {{ $name := partial "localize.html" (dict "v" .name "lang" $lang) }}
+  {{ $icon := index . "icon" | default "🔧" }}
   {{ $links := slice }}
   {{ range (index . "links" | default slice) }}
-    {{ $links = $links | append (dict "url" .url "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
+    {{ $links = $links | append (dict "url" .url "icon" (index . "icon" | default "🛒") "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
   {{ end }}
-  {{ $entry := dict "id" .id "name" $name "links" $links }}
+  {{ $entry := dict "id" .id "name" $name "icon" $icon "links" $links }}
   {{ $tools = $tools | append $entry }}
   {{ $toolIndex = merge $toolIndex (dict .id $entry) }}
 {{ end }}
@@ -173,6 +174,19 @@
         </li>
         {{ end }}
       </ul>
+      {{ with $tools }}
+      <details class="mt-6">
+        <summary class="cursor-pointer text-lg font-semibold text-heading">{{ i18n "tools" }} <span class="text-sm font-normal text-muted">({{ len $tools }})</span></summary>
+        <ul class="mt-3">
+          {{ range . }}
+          <li class="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] last:border-0">
+            <span class="w-6 shrink-0 text-center text-lg leading-6" aria-hidden="true">{{ .icon }}</span>
+            <div class="min-w-0">{{ .name }}{{ with .links }}{{ range . }}. <a href="{{ .url }}" target="_blank" rel="noopener" class="text-accent underline underline-offset-2 hover:text-accent-hover">{{ .icon }} {{ .label }} ↗</a>{{ end }}{{ end }}</div>
+          </li>
+          {{ end }}
+        </ul>
+      </details>
+      {{ end }}
     </section>
 
     <section>

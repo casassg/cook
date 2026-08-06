@@ -101,13 +101,13 @@
   {{ $stepHasPanel = $stepHasPanel | append (or (gt (len .timers) 0) (gt (len .refs) 0)) }}
 {{ end }}
 {{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly "stepsHasPanel" $stepHasPanel }}
+{{ $heroImg := .Resources.GetMatch ($en.Params.image) }}
 
-<article class="mx-auto max-w-3xl px-5 py-8 pb-24 sm:pb-8" x-data="recipe({{ $cfg | jsonify }})" @keydown.window="onKey($event)">
+<article class="mx-auto max-w-3xl px-5 {{ if $heroImg }}pt-0{{ else }}pt-8{{ end }} pb-24 sm:pb-8" x-data="recipe({{ $cfg | jsonify }})" @keydown.window="onKey($event)">
   {{/* Hero: image with overlaid title, or plain header if no image. */}}
-  {{ $heroImg := .Resources.GetMatch ($en.Params.image) }}
   {{ if $heroImg }}
   {{ $img := $heroImg.Resize "1200x webp q82" }}
-  <div class="relative -mx-5 mt-3 overflow-hidden sm:-mx-5">
+  <div class="relative -mx-5 overflow-hidden sm:-mx-5">
     <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .Title }}" loading="lazy" class="block aspect-[2/1] w-full object-cover sm:min-h-[20rem] sm:max-h-[28rem]">
     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
     <div class="absolute inset-x-0 bottom-0 p-5 sm:p-8">
@@ -122,7 +122,7 @@
     </div>
   </div>
   {{ else }}
-  <header class="mt-3">
+  <header>
     <div class="flex flex-wrap items-center gap-2">
       {{ range .Params.categories | default $en.Params.categories }}
       <span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">{{ or (i18n (printf "cat_%s" .)) . }}</span>

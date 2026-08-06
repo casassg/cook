@@ -67,8 +67,15 @@ def parse_steps(body: str):
     return steps
 
 
-def extract_refs(step_text: str):
-    """Extract (type, target) tuples and variant marker keys from a step."""
+FRACTION_SUFFIX_RE = re.compile(r'\*([0-9.]+)$')
+
+
+def extract_refs(step_text: str, step_num: int = 0, tag: str = ""):
+    """Extract (type, target) tuples, variant marker keys, and fraction errors.
+
+    Refs use the raw target for parity checks (so ``i:water*0.5`` ≠ ``i:water``).
+    Returns (refs, variant_keys, errors).
+    """
     variant_keys = []
     vm = VARIANT_MARKER_RE.search(step_text)
     if vm:
@@ -76,16 +83,27 @@ def extract_refs(step_text: str):
         step_text = step_text[: vm.start()].strip()
 
     refs = []
+    errors = []
     for m in INLINE_REF_RE.finditer(step_text):
         target = m.group(2)
         if target.startswith("i:"):
-            refs.append(("i", target[2:]))
+            raw = target[2:]
+            # Validate fraction suffix if present
+            fm = FRACTION_SUFFIX_RE.search(raw)
+            if fm:
+                try:
+                    frac = float(fm.group(1))
+                    if frac <= 0 or frac > 1:
+                        errors.append(f"{tag}: step {step_num}: ingredient fraction {frac} must be >0 and ≤1")
+                except ValueError:
+                    errors.append(f"{tag}: step {step_num}: invalid ingredient fraction '{fm.group(1)}'")
+            refs.append(("i", raw))
         elif target.startswith("tool:"):
             refs.append(("tool", target[5:]))
         elif target.startswith("t:"):
             refs.append(("t", target[2:]))  # "<dur>" or "<dur>:<emojiKey>"
 
-    return refs, variant_keys
+    return refs, variant_keys, errors
 
 
 def load_post(path: Path):
@@ -108,11 +126,15 @@ def check_i18n_maps(meta: dict, tag: str) -> list[str]:
         for field in ("item", "note", "group"):
             if field in ing:
                 check_field(ing[field], f"ingredients[{iid}].{field}")
+        for link in ing.get("links", []):
+            check_field(link.get("label"), f"ingredients[{iid}].links.label")
 
     for tool in meta.get("tools", []):
         tid = tool.get("id", "?")
         if "name" in tool:
             check_field(tool["name"], f"tools[{tid}].name")
+        for link in tool.get("links", []):
+            check_field(link.get("label"), f"tools[{tid}].links.label")
 
     for variant in meta.get("variants", []):
         vk = variant.get("key", "?")
@@ -175,9 +197,11 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
     # Body step validation
     steps = parse_steps(body)
     for step_num, step_text in enumerate(steps, 1):
-        refs, vm_keys = extract_refs(step_text)
+        refs, vm_keys, frac_errors = extract_refs(step_text, step_num, tag)
+        errors.extend(frac_errors)
         for ref_type, ref_id in refs:
-            if ref_type == "i" and ref_id not in ingredient_ids:
+            clean_id = FRACTION_SUFFIX_RE.sub('', ref_id) if ref_type == "i" else ref_id
+            if ref_type == "i" and clean_id not in ingredient_ids:
                 errors.append(f"{tag}: step {step_num}: ingredient ref 'i:{ref_id}' not declared")
             elif ref_type == "tool" and ref_id not in tool_ids:
                 errors.append(f"{tag}: step {step_num}: tool ref 'tool:{ref_id}' not declared")
@@ -227,9 +251,11 @@ def validate_translation(
     # Body step validation uses base structure for ref id lookups
     steps = parse_steps(body)
     for step_num, step_text in enumerate(steps, 1):
-        refs, vm_keys = extract_refs(step_text)
+        refs, vm_keys, frac_errors = extract_refs(step_text, step_num, tag)
+        errors.extend(frac_errors)
         for ref_type, ref_id in refs:
-            if ref_type == "i" and ref_id not in base_ingredient_ids:
+            clean_id = FRACTION_SUFFIX_RE.sub('', ref_id) if ref_type == "i" else ref_id
+            if ref_type == "i" and clean_id not in base_ingredient_ids:
                 errors.append(f"{tag}: step {step_num}: ingredient ref 'i:{ref_id}' not in base")
             elif ref_type == "tool" and ref_id not in base_tool_ids:
                 errors.append(f"{tag}: step {step_num}: tool ref 'tool:{ref_id}' not in base")
@@ -265,8 +291,8 @@ def check_step_parity(
         return errors
 
     for step_num, (en_text, trans_text) in enumerate(zip(en_steps, trans_steps), 1):
-        en_refs, en_vms = extract_refs(en_text)
-        trans_refs, trans_vms = extract_refs(trans_text)
+        en_refs, en_vms, _ = extract_refs(en_text)
+        trans_refs, trans_vms, _ = extract_refs(trans_text)
 
         if trans_refs != en_refs:
             errors.append(

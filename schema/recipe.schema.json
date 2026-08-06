@@ -61,7 +61,8 @@
             "required": ["id", "name"],
             "properties": {
               "id": { "type": "string", "minLength": 1 },
-              "name": { "$ref": "#/$defs/i18nText" }
+              "name": { "$ref": "#/$defs/i18nText" },
+              "links": { "$ref": "#/$defs/links" }
             },
             "additionalProperties": false
           }
@@ -119,11 +120,25 @@
               "onlyForVariation": {
                 "type": "array",
                 "items": { "type": "string" }
-              }
+              },
+              "links": { "$ref": "#/$defs/links" }
             },
             "additionalProperties": false
           }
         }
+      }
+    },
+    "links": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["url", "label"],
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "label": { "$ref": "#/$defs/i18nText" }
+        },
+        "additionalProperties": false
       }
     },
     "translation": {

@@ -24,7 +24,11 @@
   {{/* Emoji: per-ingredient `emoji` field wins as the lookup key, else the id itself. */}}
   {{ $emojiKey := index . "emoji" | default .id }}
   {{ $emoji := partial "resolve-emoji.html" (dict "key" $emojiKey) }}
-  {{ $entry := dict "id" .id "amount" .amount "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "only" $only "emoji" $emoji }}
+  {{ $links := slice }}
+  {{ range (index . "links" | default slice) }}
+    {{ $links = $links | append (dict "url" .url "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
+  {{ end }}
+  {{ $entry := dict "id" .id "amount" .amount "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "only" $only "emoji" $emoji "links" $links }}
   {{ $ings = $ings | append $entry }}
   {{ $ingIndex = merge $ingIndex (dict .id $entry) }}
 {{ end }}
@@ -35,7 +39,11 @@
 {{ $toolIndex := dict }}
 {{ range ($en.Params.tools | default slice) }}
   {{ $name := partial "localize.html" (dict "v" .name "lang" $lang) }}
-  {{ $entry := dict "id" .id "name" $name }}
+  {{ $links := slice }}
+  {{ range (index . "links" | default slice) }}
+    {{ $links = $links | append (dict "url" .url "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
+  {{ end }}
+  {{ $entry := dict "id" .id "name" $name "links" $links }}
   {{ $tools = $tools | append $entry }}
   {{ $toolIndex = merge $toolIndex (dict .id $entry) }}
 {{ end }}
@@ -58,8 +66,15 @@
   {{ end }}
   {{ $text = replaceRE `[ \t]*\{variant:[^}]+\}` "" $text }}
   {{ $refs := slice }}
-  {{ range findRE `\(i:[a-z0-9_]+\)` $text }}
-    {{ $refs = $refs | append (. | replaceRE `^\(i:` "" | replaceRE `\)$` "") }}
+  {{ range findRE `\(i:[a-z0-9_]+(\*[0-9.]+)?\)` $text }}
+    {{ $raw := . | replaceRE `^\(i:` "" | replaceRE `\)$` "" }}
+    {{ $rid := $raw }}
+    {{ $rfrac := 0.0 }}
+    {{ with findRE `\*[0-9.]+$` $raw 1 }}
+      {{ $rid = replaceRE `\*[0-9.]+$` "" $raw }}
+      {{ $rfrac = float (strings.TrimPrefix "*" (index . 0)) }}
+    {{ end }}
+    {{ $refs = $refs | append (dict "id" $rid "frac" $rfrac) }}
   {{ end }}
   {{ $timers := slice }}
   {{ range findRE `\[[^\]]*\]\(t:[0-9hms]+(:[a-z0-9_+-]+)?\)` $text }}
@@ -76,7 +91,7 @@
     {{ $timers = $timers | append (dict "dur" $dur "emoji" $emoji "label" $label) }}
   {{ end }}
   {{ $html := $.RenderString (dict "display" "inline") $text }}
-  {{ $steps = $steps | append (dict "html" $html "only" $only "refs" ($refs | uniq) "timers" $timers) }}
+  {{ $steps = $steps | append (dict "html" $html "only" $only "refs" $refs "timers" $timers) }}
 {{ end }}
 
 {{ $stepOnly := slice }}
@@ -150,6 +165,7 @@
               {{- if .hasAmount -}}
               <span class="font-semibold tabular-nums text-heading"><span data-base="{{ .amount }}" x-text="fmt($el.dataset.base)">{{ .amount }}</span>{{ with .unitLabel }} {{ . }}{{ end }}</span> {{ .item }}
               {{- else -}}{{ .item }}{{- end -}}
+              {{- with .links }} {{ partial "item-links.html" . }}{{ end -}}
             </div>
             {{ if .hasAmount }}{{ with .note }}<div class="text-sm text-muted">{{ . }}</div>{{ end }}
             {{ else }}<div class="text-sm text-muted">{{ .unitLabel }}{{ with .note }} · {{ . }}{{ end }}</div>{{ end }}
@@ -205,11 +221,12 @@
           <div>
             <h3 class="text-xs font-semibold uppercase tracking-wide text-muted">{{ i18n "ingredients" }}</h3>
             <ul class="mt-2 space-y-2">
-              {{ range $s.refs }}{{ with index $ingIndex . }}
+              {{ range $s.refs }}{{ $ref := . }}{{ with index $ingIndex $ref.id }}
+              {{ $amt := .amount }}{{ if gt $ref.frac 0.0 }}{{ $amt = mul .amount $ref.frac }}{{ end }}
               <li class="flex items-start gap-2.5" {{ with .only }}x-show="showVar('{{ delimit . " " }}')"{{ end }}>
                 <span class="w-6 shrink-0 text-center text-lg leading-6" aria-hidden="true">{{ .emoji }}</span>
                 <div class="min-w-0">
-                  <div>{{ if .hasAmount }}<span class="font-semibold tabular-nums text-heading"><span data-base="{{ .amount }}" x-text="fmt($el.dataset.base)">{{ .amount }}</span>{{ with .unitLabel }} {{ . }}{{ end }}</span> {{ end }}{{ .item }}</div>
+                  <div>{{ if .hasAmount }}<span class="font-semibold tabular-nums text-heading"><span data-base="{{ $amt }}" x-text="fmt($el.dataset.base)">{{ $amt }}</span>{{ with .unitLabel }} {{ . }}{{ end }}</span> {{ end }}{{ .item }}{{ with .links }} {{ partial "item-links.html" . }}{{ end }}</div>
                   {{ with .note }}<div class="text-sm text-muted">{{ . }}</div>{{ end }}
                 </div>
               </li>

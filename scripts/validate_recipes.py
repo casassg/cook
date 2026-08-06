@@ -196,15 +196,21 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
 
     # Body step validation
     steps = parse_steps(body)
+    used_ingredients: set[str] = set()
+    used_tools: set[str] = set()
     for step_num, step_text in enumerate(steps, 1):
         refs, vm_keys, frac_errors = extract_refs(step_text, step_num, tag)
         errors.extend(frac_errors)
         for ref_type, ref_id in refs:
             clean_id = FRACTION_SUFFIX_RE.sub('', ref_id) if ref_type == "i" else ref_id
-            if ref_type == "i" and clean_id not in ingredient_ids:
-                errors.append(f"{tag}: step {step_num}: ingredient ref 'i:{ref_id}' not declared")
-            elif ref_type == "tool" and ref_id not in tool_ids:
-                errors.append(f"{tag}: step {step_num}: tool ref 'tool:{ref_id}' not declared")
+            if ref_type == "i":
+                used_ingredients.add(clean_id)
+                if clean_id not in ingredient_ids:
+                    errors.append(f"{tag}: step {step_num}: ingredient ref 'i:{ref_id}' not declared")
+            elif ref_type == "tool":
+                used_tools.add(ref_id)
+                if ref_id not in tool_ids:
+                    errors.append(f"{tag}: step {step_num}: tool ref 'tool:{ref_id}' not declared")
             elif ref_type == "t":
                 err = timer_ref_error(ref_id)
                 if err:
@@ -212,6 +218,11 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
         for vk in vm_keys:
             if vk not in variant_keys:
                 errors.append(f"{tag}: step {step_num}: variant marker key '{vk}' not declared")
+
+    for iid in sorted(ingredient_ids - used_ingredients):
+        errors.append(f"{tag}: ingredient '{iid}' declared but never referenced in steps")
+    for tid in sorted(tool_ids - used_tools):
+        errors.append(f"{tag}: tool '{tid}' declared but never referenced in steps")
 
     return meta, body, errors
 

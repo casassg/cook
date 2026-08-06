@@ -5,5 +5,5 @@
     {{- $translation := index (where $page.AllTranslations "Language.Lang" $lang.Lang) 0 -}}
     {{- $href := "" -}}
     {{- with $translation }}{{ $href = .RelPermalink }}{{ else }}{{ with $page.Site.GetPage (printf "/%s" $lang.Lang) }}{{ $href = .RelPermalink }}{{ else }}{{ $href = (printf "/%s/" $lang.Lang) }}{{ end }}{{ end -}}
-    <a href="{{ $href }}" class="transition {{ if eq $page.Language.Lang $lang.Lang }}font-semibold text-accent{{ else }}text-muted hover:text-accent{{ end }}">{{ $lang.LanguageName }}</a>
+    <a href="{{ $href }}" onclick="try{localStorage.setItem('lang-selected','true')}catch(e){}" class="transition {{ if eq $page.Language.Lang $lang.Lang }}font-semibold text-accent{{ else }}text-muted hover:text-accent{{ end }}">{{ $lang.LanguageName }}</a>
 {{- end }}

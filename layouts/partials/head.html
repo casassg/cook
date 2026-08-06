@@ -19,6 +19,21 @@
   <script>{{ $ti.Content | safeJS }}</script>
 {{- end }}
 
+<!-- Language auto-redirect (first visit only, before paint) -->
+<script>
+(function(){try{
+  if(localStorage.getItem("lang-selected"))return;
+  var p=window.location.pathname;
+  if(p!=="/"){localStorage.setItem("lang-selected","true");return}
+  var l=(navigator.languages||[navigator.language||"en"]).map(function(s){return s.toLowerCase().split("-")[0]});
+  for(var i=0;i<l.length;i++){
+    if(l[i]==="ca"){localStorage.setItem("lang-selected","true");location.replace("/ca/");return}
+    if(l[i]==="es"){localStorage.setItem("lang-selected","true");location.replace("/es/");return}
+    if(l[i]==="en")break;
+  }
+}catch(e){}})();
+</script>
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

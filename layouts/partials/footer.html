@@ -1,4 +1,12 @@
 <footer class="mx-auto mt-10 max-w-3xl border-t border-line px-5 py-8 text-center text-sm text-muted">
+    <div class="mb-4 flex items-center justify-center gap-4">
+        {{- partial "language-switcher.html" . }}
+        <span class="text-line">·</span>
+        <button type="button" x-data="themeToggle" @click="toggle()" aria-label="Toggle dark mode" class="rounded-full p-1.5 transition hover:text-accent">
+            <span class="dark:hidden">🌙</span>
+            <span class="hidden dark:inline">☀️</span>
+        </button>
+    </div>
     <p>{{ i18n "footer_made" }} {{ .Site.Params.author }}</p>
     <p class="mt-1">{{ i18n "footer_updated" }} {{ now.Format "2006-01-02" }}</p>
 </footer>

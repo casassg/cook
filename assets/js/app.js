@@ -368,11 +368,21 @@ document.addEventListener("alpine:init", () => {
   Alpine.data("recipeList", (hints = []) => ({
     q: "",
     open: false,
+    sel: 0,
     hints: hints,
     get suggestions() {
       if (!this.q) return [];
       const q = this.q.toLowerCase();
       return this.hints.filter((h) => h.l.includes(q)).slice(0, 8);
+    },
+    pick() {
+      if (this.suggestions.length) {
+        this.q = this.suggestions[this.sel]?.l || this.suggestions[0].l;
+        this.open = false;
+      }
+    },
+    cap(s) {
+      return s.charAt(0).toUpperCase() + s.slice(1);
     },
     match(el) {
       if (!this.q) return true;

@@ -58,14 +58,17 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Blog rhythm: light body copy, confident headings. */
+/* Blog rhythm: light body copy, confident headings. In @layer base so
+   Tailwind utilities (e.g. text-white on hero titles) can override it. */
 body {
   font-weight: 300;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  color: var(--heading);
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--heading);
+  }
 }
 
 /* Elevated card inspired by casassg/wedding. Uses palette vars so it auto-flips

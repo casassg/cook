@@ -103,8 +103,6 @@
 {{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly "stepsHasPanel" $stepHasPanel }}
 
 <article class="mx-auto max-w-3xl px-5 py-8 pb-24 sm:pb-8" x-data="recipe({{ $cfg | jsonify }})" @keydown.window="onKey($event)">
-  <a href="{{ .Site.Home.RelPermalink }}" class="text-sm text-accent hover:underline">← {{ i18n "back_home" }}</a>
-
   {{/* Hero: image with overlaid title, or plain header if no image. */}}
   {{ $heroImg := .Resources.GetMatch ($en.Params.image) }}
   {{ if $heroImg }}
@@ -184,6 +182,8 @@
       </ol>
     </section>
   </div>
+
+  <a href="{{ .Site.Home.RelPermalink }}" class="mt-12 block text-center text-sm text-accent hover:underline">← {{ i18n "back_home" }}</a>
 
   <button @click="enterFocus()" class="fixed inset-x-0 bottom-0 z-40 bg-accent py-4 pb-[max(1rem,env(safe-area-inset-bottom))] text-center text-lg font-medium text-white transition hover:bg-accent-hover sm:hidden">▶ {{ i18n "cook_mode" }}</button>
 

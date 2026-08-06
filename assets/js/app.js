@@ -390,28 +390,3 @@ document.addEventListener("alpine:init", () => {
     },
   }));
 });
-
-/* ── Relative timestamps ── */
-document.addEventListener('DOMContentLoaded', () => {
-  const lang = document.documentElement.lang || 'en';
-  const rtf = new Intl.RelativeTimeFormat(lang, { numeric: 'auto' });
-  const thresholds = [
-    [60, 1, 'second'],
-    [3600, 60, 'minute'],
-    [86400, 3600, 'hour'],
-    [2592000, 86400, 'day'],
-    [31536000, 2592000, 'month'],
-    [Infinity, 31536000, 'year'],
-  ];
-  document.querySelectorAll('time[data-relative]').forEach(el => {
-    const dt = new Date(el.getAttribute('datetime'));
-    if (isNaN(dt)) return;
-    const diff = (dt - Date.now()) / 1000;
-    for (const [max, divisor, unit] of thresholds) {
-      if (Math.abs(diff) < max) {
-        el.textContent = rtf.format(Math.round(diff / divisor), unit);
-        return;
-      }
-    }
-  });
-});

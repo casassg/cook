@@ -2,7 +2,7 @@ baseURL: "https://cook.gerard.space/"
 title: "Cook"
 defaultContentLanguage: "en"
 defaultContentLanguageInSubdir: false
-enableGitInfo: true
+enableGitInfo: false
 enableEmoji: true
 
 languages:
@@ -34,12 +34,6 @@ markup:
     parser:
       attribute:
         block: true
-
-frontmatter:
-  lastmod:
-    - lastmod
-    - ':git'
-    - date
 
 params:
   author: "Gerard"

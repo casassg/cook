@@ -80,7 +80,7 @@ ingredients:
       es: "para hervir, más un poco del agua de cocción"
 ---
 
-1. Bring water to a boil in a [pot](tool:pot). Add the [jalapeños](i:jalapeno), the [serranos](i:serrano), the [onion](i:onion) quarter and a large [garlic](i:garlic*0.5) clove; cook for [15 min](t:15m).
+1. Bring [water](i:water) to a boil in a [pot](tool:pot). Add the [jalapeños](i:jalapeno), the [serranos](i:serrano), the [onion](i:onion) quarter and a large [garlic](i:garlic*0.5) clove; cook for [15 min](t:15m).
 2. Add the [tomatillos](i:tomatillo) to the hot water. When they start turning yellowish, turn off the heat, cover them, and let them finish in the hot water.
 3. In the [molcajete](tool:molcajete), grind the one raw [garlic](i:garlic*0.5) clove with the [salt](i:salt). Once done, add the cooked garlic and grind, then the [jalapeños](i:jalapeno) and [serranos](i:serrano); watch out for splashes.
 4. Transfer the cooked [onion](i:onion), your molcajete mix and some [tomatillos](i:tomatillo) to a [food processor](tool:food_processor) and blend until smooth; move to a [bowl](tool:bowl).

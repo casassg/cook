@@ -24,9 +24,6 @@ tools:
       en: "food processor or powerful hand blender"
       ca: "processadora d'aliments o batedora de mà potent"
       es: "procesadora de alimentos o batidora de mano potente"
-  - id: bowl
-    icon: "🥣"
-    name: { en: "bowl", ca: "bol", es: "bol" }
 ingredients:
   - id: tomato
     amount: 0.5
@@ -91,5 +88,6 @@ ingredients:
 1. Remove the germ from the [garlic](i:garlic). Peel the [cucumber](i:cucumber) and cut it and the [pepper](i:pepper) into large pieces. Quarter the [tomatoes](i:tomato).
 2. Soak the [bread](i:bread) with water until soft. {variant: bread}
 3. Put everything except the oil in a [blender](tool:blender): [tomatoes](i:tomato), [cucumber](i:cucumber), [pepper](i:pepper), [garlic](i:garlic), [vinegar](i:vinegar), [salt](i:salt) and the [soaked bread](i:bread). Blend until smooth for [2 minutes](t:2m).
-4. With the blender running low, drizzle in the [olive oil](i:oil) in a thin stream, like making aioli, until silky and emulsified for [1 minute](t:1m).
-5. Taste, adjust [salt](i:salt) and [vinegar](i:vinegar), serve well chilled.
+4. Add the [cold water](i:water) gradually (with a few ice cubes if you like) and blend briefly to loosen. {variant: light}
+5. With the blender running low, drizzle in the [olive oil](i:oil) in a thin stream, like making aioli, until silky and emulsified for [1 minute](t:1m).
+6. Taste, adjust [salt](i:salt) and [vinegar](i:vinegar), serve well chilled.

@@ -1,12 +1,12 @@
-<footer class="mt-10 border-t border-line px-5 py-8 text-center text-sm text-muted">
-    <div class="mb-4 flex items-center justify-center gap-4">
-        {{- partial "language-switcher.html" . }}
-        <span class="text-line">·</span>
-        <button type="button" x-data="themeToggle" @click="toggle()" aria-label="Toggle dark mode" class="rounded-full p-1.5 transition hover:text-accent">
-            <span class="dark:hidden">🌙</span>
-            <span class="hidden dark:inline">☀️</span>
-        </button>
+<footer class="mt-10 border-t border-line px-5 py-6 text-sm text-muted">
+    <div class="flex items-center justify-between">
+        <p>{{ i18n "footer_made" }} {{ .Site.Params.author }}</p>
+        <div class="flex items-center gap-3">
+            {{- partial "language-switcher.html" . }}
+            <button type="button" x-data="themeToggle" @click="toggle()" aria-label="Toggle dark mode" class="rounded-full p-1.5 transition hover:text-accent">
+                <span class="dark:hidden">🌙</span>
+                <span class="hidden dark:inline">☀️</span>
+            </button>
+        </div>
     </div>
-    <p>{{ i18n "footer_made" }} {{ .Site.Params.author }}</p>
-    <p class="mt-1">{{ i18n "footer_updated" }} <time datetime="{{ now.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ now.Format "January 2, 2006" }}" data-relative>{{ now.Format "Jan 2, 2006" }}</time></p>
 </footer>

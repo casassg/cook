@@ -1,4 +1,4 @@
-<footer class="mx-auto mt-10 max-w-3xl border-t border-line px-5 py-8 text-center text-sm text-muted">
+<footer class="mt-10 border-t border-line px-5 py-8 text-center text-sm text-muted">
     <div class="mb-4 flex items-center justify-center gap-4">
         {{- partial "language-switcher.html" . }}
         <span class="text-line">·</span>
@@ -8,5 +8,5 @@
         </button>
     </div>
     <p>{{ i18n "footer_made" }} {{ .Site.Params.author }}</p>
-    <p class="mt-1">{{ i18n "footer_updated" }} {{ now.Format "2006-01-02" }}</p>
+    <p class="mt-1">{{ i18n "footer_updated" }} <time datetime="{{ now.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ now.Format "January 2, 2006" }}" data-relative>{{ now.Format "Jan 2, 2006" }}</time></p>
 </footer>

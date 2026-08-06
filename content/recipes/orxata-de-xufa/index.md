@@ -57,7 +57,7 @@ ingredients:
   - id: water
     emoji: "💧"
     amount: 1
-    unit: l
+    unit: L
     item: { en: "water", ca: "aigua", es: "agua" }
     note:
       en: "very cold"

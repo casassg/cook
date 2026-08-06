@@ -37,17 +37,17 @@
   {{- $author := "" -}}{{- with index $en.Params.author 0 }}{{ $author = . }}{{ $al := . | lower }}{{ if not (index $seenHints $al) }}{{ $hints = $hints | append (dict "l" $al "t" "a") }}{{ $seenHints = merge $seenHints (dict $al true) }}{{ end }}{{ end -}}
   {{- $tl := $p.Title | lower -}}
   {{- if not (index $seenHints $tl) }}{{ $hints = $hints | append (dict "l" $tl "t" "r") }}{{ $seenHints = merge $seenHints (dict $tl true) }}{{ end -}}
-  {{- $cards = $cards | append (dict "p" $p "en" $en "ings" (delimit ($recipeIngs | uniq) "|") "catLabels" (delimit $catLabels "|") "author" $author) -}}
+  {{- $search := printf "%s %s %s %s" ($p.Title | lower) (delimit $catLabels " ") ($author | lower) (delimit ($recipeIngs | uniq) " ") -}}
+  {{- $cards = $cards | append (dict "p" $p "en" $en "search" $search) -}}
 {{- end -}}
 
 <div x-data="recipeList({{ $hints | jsonify }})" @click.outside="open=false">
   <div class="relative mx-auto max-w-md">
-    <input type="search" x-model="q" @input="open=q.length>0" @focus="if(q) open=true" @keydown.escape="open=false" @keydown.enter="if(suggestions.length){q=suggestions[0].l; open=false}" placeholder="{{ i18n "search_placeholder" }}" class="w-full rounded-lg border border-line bg-surface px-4 py-2.5 text-body outline-none transition focus:border-accent">
+    <input type="search" x-model="q" @input="open=q.length>0; sel=0" @focus="if(q) open=true" @keydown.escape="open=false" @keydown.enter.prevent="pick()" @keydown.arrow-down.prevent="sel=Math.min(sel+1,suggestions.length-1)" @keydown.arrow-up.prevent="sel=Math.max(sel-1,0)" placeholder="{{ i18n "search_placeholder" }}" class="w-full rounded-lg border border-line bg-surface px-4 py-2.5 text-body outline-none transition focus:border-accent">
     <div x-show="open && suggestions.length" x-cloak class="absolute left-0 right-0 top-full z-20 mt-1 max-h-48 overflow-y-auto rounded-lg border border-line bg-bg shadow-lg">
-      <template x-for="s in suggestions" :key="s.l">
-        <button type="button" @click="q=s.l; open=false" class="flex w-full items-center gap-2.5 px-4 py-2 text-left text-sm text-body transition hover:bg-surface">
-          <span class="w-5 shrink-0 text-center" x-text="s.t==='r' ? '🍽' : s.t==='i' ? '🍅' : s.t==='a' ? '👨‍🍳' : '📂'"></span>
-          <span x-text="s.l"></span>
+      <template x-for="(s,i) in suggestions" :key="s.l">
+        <button type="button" @click="q=s.l; open=false" @mouseenter="sel=i" class="flex w-full items-center px-4 py-2 text-left text-sm text-body transition" :class="i===sel ? 'bg-surface' : ''">
+          <span x-text="cap(s.l)"></span>
         </button>
       </template>
     </div>
@@ -57,7 +57,7 @@
     {{ range $cards }}
     {{ $p := .p }}{{ $en := .en }}
     <a href="{{ $p.RelPermalink }}"
-       data-search="{{ $p.Title | lower }} {{ index . "catLabels" | replace "|" " " }} {{ index . "author" | lower }} {{ index . "ings" | replace "|" " " }}"
+       data-search="{{ .search }}"
        x-show="match($el)"
        class="card-shadow group flex flex-col overflow-hidden">
       {{ with $en.Resources.GetMatch ($en.Params.image) }}

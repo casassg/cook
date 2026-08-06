@@ -1,4 +1,5 @@
 ---
+date: 2026-07-23T14:51:25-05:00
 title: "Gazpacho"
 description: "Andalusian cold soup. Best served well chilled."
 image: main.webp
@@ -41,6 +42,7 @@ ingredients:
     item: { en: "cucumber", ca: "cogombre", es: "pepino" }
     note: { en: "peeled and cut into large pieces", ca: "pelat i tallat a trossos grans", es: "pelado y cortado en trozos grandes" }
   - id: pepper
+    emoji: "🫑"
     amount: 0.5
     unit: unit
     item: { en: "green pepper", ca: "pebrot verd", es: "pimiento verde" }
@@ -57,6 +59,7 @@ ingredients:
     note: { en: "soaked in water", ca: "mullat en aigua", es: "mojado en agua" }
     onlyForVariation: [bread]
   - id: water
+    emoji: "💧"
     amount: 150
     unit: ml
     item: { en: "cold water", ca: "aigua freda", es: "agua fría" }
@@ -66,6 +69,7 @@ ingredients:
       es: "para aligerar, añadir poco a poco"
     onlyForVariation: [light]
   - id: oil
+    emoji: "🫒"
     amount: 0
     unit: as_needed
     item: { en: "olive oil", ca: "oli d'oliva", es: "aceite de oliva" }
@@ -74,6 +78,7 @@ ingredients:
       ca: "afegit a poc a poc per emulsionar"
       es: "añadido poco a poco para emulsionar"
   - id: vinegar
+    emoji: "🍶"
     amount: 0
     unit: to_taste
     item: { en: "white vinegar", ca: "vinagre blanc", es: "vinagre blanco" }

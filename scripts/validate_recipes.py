@@ -1,6 +1,6 @@
 # /// script
 # requires-python = ">=3.11"
-# dependencies = ["python-frontmatter", "jsonschema", "pyyaml", "emoji"]
+# dependencies = ["python-frontmatter", "jsonschema", "emoji"]
 # ///
 
 import json
@@ -12,13 +12,11 @@ from collections import defaultdict
 import emoji as emoji_lib
 import frontmatter
 import jsonschema
-import yaml
 from jsonschema import Draft202012Validator
 
 REPO_ROOT = Path(__file__).parent.parent
 SCHEMA_PATH = REPO_ROOT / "schema" / "recipe.schema.json"
 RECIPES_GLOB = "content/recipes/*/index*.md"
-EMOJI_DATA_PATH = REPO_ROOT / "data" / "ingredient_emoji.yaml"
 
 # Keys that must not appear in translation files
 STRUCTURAL_KEYS = {"ingredients", "tools", "variants", "portion", "image", "categories", "author", "source"}
@@ -29,31 +27,27 @@ INLINE_REF_RE = re.compile(r"\[([^\]]*)\]\(([^)]+)\)")
 VARIANT_MARKER_RE = re.compile(r"\{variant:\s*([^}]+)\}$")
 DURATION_RE = re.compile(r"^(\d+h)?(\d+m)?(\d+s)?$")
 
-EMOJI_OVERRIDES = yaml.safe_load(EMOJI_DATA_PATH.read_text()) or {}
-
-
 def valid_duration(dur: str) -> bool:
     m = DURATION_RE.match(dur)
     return bool(m) and any(m.group(i) for i in (1, 2, 3))
 
 
 def timer_ref_error(ref_id: str) -> str | None:
-    """Validate a `t:` ref target ("<dur>" or "<dur>:<emojiKey>"). Returns an
+    """Validate a `t:` ref target (just a duration like "15m"). Returns an
     error message, or None if valid."""
-    dur, _, emoji_key = ref_id.partition(":")
-    if not valid_duration(dur):
+    if not valid_duration(ref_id):
         return f"invalid timer duration 't:{ref_id}'"
-    if emoji_key and not resolves_to_emoji(emoji_key):
-        return f"timer 't:{ref_id}' has unresolvable emoji key '{emoji_key}'"
     return None
 
 
-def resolves_to_emoji(key: str) -> bool:
-    """Mirrors layouts/partials/resolve-emoji.html: data file override wins,
-    else the gemoji alias set (same alias language Hugo's `emojify` recognizes)."""
-    if key in EMOJI_OVERRIDES:
-        return True
-    code = f":{key}:"
+def is_emoji(s: str) -> bool:
+    """Check if the string is a single emoji character/sequence."""
+    return bool(s) and emoji_lib.is_emoji(s)
+
+
+def resolves_to_emoji(ingredient_id: str) -> bool:
+    """Check if an ingredient id auto-resolves via Hugo's emojify (gemoji alias)."""
+    code = f":{ingredient_id}:"
     return emoji_lib.emojize(code, language="alias") != code
 
 
@@ -101,7 +95,7 @@ def extract_refs(step_text: str, step_num: int = 0, tag: str = ""):
         elif target.startswith("tool:"):
             refs.append(("tool", target[5:]))
         elif target.startswith("t:"):
-            refs.append(("t", target[2:]))  # "<dur>" or "<dur>:<emojiKey>"
+            refs.append(("t", target[2:]))
 
     return refs, variant_keys, errors
 
@@ -184,14 +178,20 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
                     f"{tag}: ingredient '{ing['id']}' onlyForVariation key '{vk}' not declared"
                 )
 
-    # Every ingredient must resolve to an emoji: its own `emoji` field (if set), else its id
+    # Every ingredient must have an emoji: direct `emoji` field (unicode char), or id auto-resolves via emojify
     for ing in meta.get("ingredients", []):
-        key = ing.get("emoji", ing["id"])
-        if not resolves_to_emoji(key):
+        explicit = ing.get("emoji")
+        if explicit:
+            if not is_emoji(explicit):
+                errors.append(
+                    f"{tag}: ingredient '{ing['id']}' has invalid emoji field "
+                    f"'{explicit}'; must be a single emoji character"
+                )
+        elif not resolves_to_emoji(ing["id"]):
             errors.append(
-                f"{tag}: ingredient '{ing['id']}' has no resolvable emoji "
-                f"(key '{key}' not in data/ingredient_emoji.yaml and not a gemoji alias); "
-                f"rename the id to a gemoji name or set an 'emoji' field"
+                f"{tag}: ingredient '{ing['id']}' has no resolvable emoji; "
+                f"set an 'emoji' field with a unicode emoji character, "
+                f"or rename the id to a gemoji name"
             )
 
     # Body step validation

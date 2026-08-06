@@ -115,8 +115,8 @@
               "group": { "$ref": "#/$defs/i18nText" },
               "emoji": {
                 "type": "string",
-                "pattern": "^[a-z0-9_+-]+$",
-                "description": "Optional gemoji key override when the id itself doesn't resolve to an emoji"
+                "minLength": 1,
+                "description": "Direct emoji character for this ingredient, used when the id doesn't auto-resolve via Hugo emojify"
               },
               "onlyForVariation": {
                 "type": "array",

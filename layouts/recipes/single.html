@@ -21,9 +21,9 @@
   {{ $item := partial "localize.html" (dict "v" .item "lang" $lang) }}
   {{ $note := partial "localize.html" (dict "v" (index . "note") "lang" $lang) }}
   {{ $only := index . "onlyForVariation" | default slice }}
-  {{/* Emoji: per-ingredient `emoji` field wins as the lookup key, else the id itself. */}}
-  {{ $emojiKey := index . "emoji" | default .id }}
-  {{ $emoji := partial "resolve-emoji.html" (dict "key" $emojiKey) }}
+  {{/* Emoji: direct character from `emoji` field, else Hugo emojify on the id. */}}
+  {{ $emoji := index . "emoji" | default "" }}
+  {{ if not $emoji }}{{ $code := printf ":%s:" .id }}{{ $try := emojify $code }}{{ if ne $try $code }}{{ $emoji = $try }}{{ end }}{{ end }}
   {{ $links := slice }}
   {{ range (index . "links" | default slice) }}
     {{ $links = $links | append (dict "url" .url "icon" (index . "icon" | default "🛒") "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
@@ -78,18 +78,10 @@
     {{ $refs = $refs | append (dict "id" $rid "frac" $rfrac) }}
   {{ end }}
   {{ $timers := slice }}
-  {{ range findRE `\[[^\]]*\]\(t:[0-9hms]+(:[a-z0-9_+-]+)?\)` $text }}
+  {{ range findRE `\[[^\]]*\]\(t:[0-9hms]+\)` $text }}
     {{ $label := . | replaceRE `^\[([^\]]*)\]\(.*\)$` "$1" }}
-    {{ $ref := . | replaceRE `^\[[^\]]*\]\(t:` "" | replaceRE `\)$` "" }}
-    {{ $dur := $ref }}
-    {{ $emojiKey := "" }}
-    {{ with (findRE `:[a-z0-9_+-]+$` $ref 1) }}
-      {{ $emojiKey = (index . 0) | strings.TrimPrefix ":" }}
-      {{ $dur = replaceRE `:[a-z0-9_+-]+$` "" $ref }}
-    {{ end }}
-    {{ $emoji := "⏳" }}
-    {{ with $emojiKey }}{{ with partial "resolve-emoji.html" (dict "key" .) }}{{ $emoji = . }}{{ end }}{{ end }}
-    {{ $timers = $timers | append (dict "dur" $dur "emoji" $emoji "label" $label) }}
+    {{ $dur := . | replaceRE `^\[[^\]]*\]\(t:` "" | replaceRE `\)$` "" }}
+    {{ $timers = $timers | append (dict "dur" $dur "emoji" "⏳" "label" $label) }}
   {{ end }}
   {{ $html := $.RenderString (dict "display" "inline") $text }}
   {{ $steps = $steps | append (dict "html" $html "only" $only "refs" $refs "timers" $timers) }}
@@ -104,13 +96,14 @@
 {{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly "stepsHasPanel" $stepHasPanel }}
 {{ $heroImg := .Resources.GetMatch ($en.Params.image) }}
 
-<article class="mx-auto max-w-3xl px-5 {{ if $heroImg }}pt-0{{ else }}pt-8{{ end }} pb-24 sm:pb-8" x-data="recipe({{ $cfg | jsonify }})" @keydown.window="onKey($event)">
+<article class="mx-auto max-w-4xl px-5 py-4" x-data="recipe({{ $cfg | jsonify }})" @keydown.window="onKey($event)">
+  <a href="{{ .Site.Home.RelPermalink }}" class="mb-4 inline-block text-sm text-muted transition hover:text-accent">← {{ i18n "back_home" }}</a>
   {{/* Hero: image with overlaid title, or plain header if no image. */}}
   {{ if $heroImg }}
   {{ $img := $heroImg.Resize "1200x webp q82" }}
-  <div class="relative -mx-5 overflow-hidden sm:-mx-5">
+  <div class="relative overflow-hidden rounded-2xl shadow-lg">
     <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .Title }}" loading="lazy" class="block h-[24rem] w-full object-cover sm:h-[30rem] sm:max-h-[36rem]">
-    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-black/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/60"></div>
     <div class="absolute inset-0 flex flex-col justify-between p-5 sm:p-8">
       <div>
         <div class="flex flex-wrap items-center gap-2">
@@ -144,6 +137,8 @@
     {{ end }}
   </div>
   {{ end }}
+
+  <button @click="enterFocus()" class="mt-6 w-full rounded-lg bg-accent py-3 text-center text-lg font-medium text-white transition hover:bg-accent-hover lg:hidden">▶ {{ i18n "cook_mode" }}</button>
 
   <div class="mt-8 grid gap-8 sm:grid-cols-[minmax(0,18rem)_1fr]">
     <section>
@@ -199,12 +194,13 @@
     </section>
   </div>
 
-  <a href="{{ .Site.Home.RelPermalink }}" class="mt-12 block text-center text-sm text-accent hover:underline">← {{ i18n "back_home" }}</a>
 
-  <button @click="enterFocus()" class="fixed inset-x-0 bottom-0 z-40 bg-accent py-4 pb-[max(1rem,env(safe-area-inset-bottom))] text-center text-lg font-medium text-white transition hover:bg-accent-hover sm:hidden">▶ {{ i18n "cook_mode" }}</button>
+
+
+
 
   {{/* Guided focus mode overlay */}}
-  <div x-show="focus" x-cloak @touchstart.passive="onTouchStart($event)" @touchend.passive="onTouchEnd($event)" class="fixed inset-0 z-50 flex flex-col bg-bg sm:hidden">
+  <div x-show="focus" x-cloak @touchstart.passive="onTouchStart($event)" @touchend.passive="onTouchEnd($event)" class="fixed inset-0 z-50 flex flex-col bg-bg lg:hidden">
     <header class="flex items-center gap-4 border-b border-line px-5 py-3">
       <button @click="exitFocus()" aria-label="{{ i18n "close" }}" class="text-3xl leading-none text-muted transition hover:text-accent">×</button>
       <div class="h-1.5 flex-1 overflow-hidden rounded-full bg-line">

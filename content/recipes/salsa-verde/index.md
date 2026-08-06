@@ -1,4 +1,5 @@
 ---
+date: 2026-08-04T22:31:40-05:00
 title: "Salsa Verde"
 description: "Fresh Mexican tomatillo salsa, spicy and thick, perfect for tacos and quesadillas."
 image: main.webp
@@ -27,14 +28,17 @@ tools:
     name: { en: "bowl", ca: "bol", es: "bol" }
 ingredients:
   - id: tomatillo
+    emoji: "🍅"
     amount: 0.5
     unit: kg
     item: { en: "tomatillos", ca: "tomatillos", es: "tomatillos" }
   - id: jalapeno
+    emoji: "🌶️"
     amount: 2
     unit: unit
     item: { en: "jalapeño chiles", ca: "chiles jalapeños", es: "chiles jalapeños" }
   - id: serrano
+    emoji: "🌶️"
     amount: 2
     unit: unit
     item: { en: "serrano chiles", ca: "chiles serrans", es: "chiles serranos" }
@@ -44,6 +48,7 @@ ingredients:
     item: { en: "onion", ca: "ceba", es: "cebolla" }
     note: { en: "a quarter", ca: "un quart", es: "un cuarto" }
   - id: cilantro
+    emoji: "🌿"
     amount: 1
     unit: unit
     item: { en: "cilantro", ca: "coriandre", es: "cilantro" }
@@ -65,6 +70,7 @@ ingredients:
       ca: "plena, per moldre; ajusta al gust al final"
       es: "colmada, para moler; ajusta al gusto al final"
   - id: water
+    emoji: "💧"
     amount: 0
     unit: as_needed
     item: { en: "water", ca: "aigua", es: "agua" }
@@ -74,7 +80,7 @@ ingredients:
       es: "para hervir, más un poco del agua de cocción"
 ---
 
-1. Bring water to a boil in a [pot](tool:pot). Add the [jalapeños](i:jalapeno), the [serranos](i:serrano), the [onion](i:onion) quarter and a large [garlic](i:garlic*0.5) clove; cook for [15 min](t:15m:stew).
+1. Bring water to a boil in a [pot](tool:pot). Add the [jalapeños](i:jalapeno), the [serranos](i:serrano), the [onion](i:onion) quarter and a large [garlic](i:garlic*0.5) clove; cook for [15 min](t:15m).
 2. Add the [tomatillos](i:tomatillo) to the hot water. When they start turning yellowish, turn off the heat, cover them, and let them finish in the hot water.
 3. In the [molcajete](tool:molcajete), grind the one raw [garlic](i:garlic*0.5) clove with the [salt](i:salt). Once done, add the cooked garlic and grind, then the [jalapeños](i:jalapeno) and [serranos](i:serrano); watch out for splashes.
 4. Transfer the cooked [onion](i:onion), your molcajete mix and some [tomatillos](i:tomatillo) to a [food processor](tool:food_processor) and blend until smooth; move to a [bowl](tool:bowl).

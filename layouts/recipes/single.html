@@ -21,9 +21,9 @@
   {{ $item := partial "localize.html" (dict "v" .item "lang" $lang) }}
   {{ $note := partial "localize.html" (dict "v" (index . "note") "lang" $lang) }}
   {{ $only := index . "onlyForVariation" | default slice }}
-  {{/* Emoji: per-ingredient `emoji` field wins as the lookup key, else the id itself. */}}
-  {{ $emojiKey := index . "emoji" | default .id }}
-  {{ $emoji := partial "resolve-emoji.html" (dict "key" $emojiKey) }}
+  {{/* Emoji: direct character from `emoji` field, else Hugo emojify on the id. */}}
+  {{ $emoji := index . "emoji" | default "" }}
+  {{ if not $emoji }}{{ $code := printf ":%s:" .id }}{{ $try := emojify $code }}{{ if ne $try $code }}{{ $emoji = $try }}{{ end }}{{ end }}
   {{ $links := slice }}
   {{ range (index . "links" | default slice) }}
     {{ $links = $links | append (dict "url" .url "icon" (index . "icon" | default "🛒") "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
@@ -78,18 +78,10 @@
     {{ $refs = $refs | append (dict "id" $rid "frac" $rfrac) }}
   {{ end }}
   {{ $timers := slice }}
-  {{ range findRE `\[[^\]]*\]\(t:[0-9hms]+(:[a-z0-9_+-]+)?\)` $text }}
+  {{ range findRE `\[[^\]]*\]\(t:[0-9hms]+\)` $text }}
     {{ $label := . | replaceRE `^\[([^\]]*)\]\(.*\)$` "$1" }}
-    {{ $ref := . | replaceRE `^\[[^\]]*\]\(t:` "" | replaceRE `\)$` "" }}
-    {{ $dur := $ref }}
-    {{ $emojiKey := "" }}
-    {{ with (findRE `:[a-z0-9_+-]+$` $ref 1) }}
-      {{ $emojiKey = (index . 0) | strings.TrimPrefix ":" }}
-      {{ $dur = replaceRE `:[a-z0-9_+-]+$` "" $ref }}
-    {{ end }}
-    {{ $emoji := "⏳" }}
-    {{ with $emojiKey }}{{ with partial "resolve-emoji.html" (dict "key" .) }}{{ $emoji = . }}{{ end }}{{ end }}
-    {{ $timers = $timers | append (dict "dur" $dur "emoji" $emoji "label" $label) }}
+    {{ $dur := . | replaceRE `^\[[^\]]*\]\(t:` "" | replaceRE `\)$` "" }}
+    {{ $timers = $timers | append (dict "dur" $dur "emoji" "⏳" "label" $label) }}
   {{ end }}
   {{ $html := $.RenderString (dict "display" "inline") $text }}
   {{ $steps = $steps | append (dict "html" $html "only" $only "refs" $refs "timers" $timers) }}

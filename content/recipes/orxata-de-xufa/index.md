@@ -38,6 +38,7 @@ tools:
           es: "Bolsa reutilizable para cold brew en Amazon"
 ingredients:
   - id: chufa
+    emoji: "🥜"
     amount: 250
     unit: g
     item: { en: "tiger nuts", ca: "xufes", es: "chufas" }
@@ -53,6 +54,7 @@ ingredients:
           ca: "Xufes orgàniques a Amazon"
           es: "Chufas orgánicas en Amazon"
   - id: water
+    emoji: "💧"
     amount: 1
     unit: l
     item: { en: "water", ca: "aigua", es: "agua" }
@@ -61,6 +63,7 @@ ingredients:
       ca: "molt freda"
       es: "muy fría"
   - id: brown_sugar
+    emoji: "🎍"
     amount: 18
     unit: g
     item: { en: "brown sugar", ca: "sucre morè", es: "azúcar moreno" }

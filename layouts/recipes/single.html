@@ -191,6 +191,14 @@
     </section>
   </div>
 
+  {{ $added := $en.Date }}{{ $modified := $en.Lastmod }}
+  {{ if not $added.IsZero }}
+  <div class="mt-10 flex items-center justify-center gap-2 text-xs text-muted">
+    <span>{{ i18n "date_added" }} <time datetime="{{ $added.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ $added.Format "January 2, 2006" }}" data-relative>{{ $added.Format "Jan 2, 2006" }}</time></span>
+    {{ if and (not $modified.IsZero) (ne ($added.Format "2006-01-02") ($modified.Format "2006-01-02")) }}<span class="text-line">·</span>
+    <span>{{ i18n "date_updated" }} <time datetime="{{ $modified.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ $modified.Format "January 2, 2006" }}" data-relative>{{ $modified.Format "Jan 2, 2006" }}</time></span>{{ end }}
+  </div>
+  {{ end }}
   <a href="{{ .Site.Home.RelPermalink }}" class="mt-12 block text-center text-sm text-accent hover:underline">← {{ i18n "back_home" }}</a>
 
   <button @click="enterFocus()" class="fixed inset-x-0 bottom-0 z-40 bg-accent py-4 pb-[max(1rem,env(safe-area-inset-bottom))] text-center text-lg font-medium text-white transition hover:bg-accent-hover lg:hidden">▶ {{ i18n "cook_mode" }}</button>

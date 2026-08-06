@@ -23,8 +23,8 @@ tools:
   - id: whisk
     name:
       en: "wire whisk (or a fork)"
-      ca: "batedor de filferro (o una forquilla)"
-      es: "batidor de alambre (o un tenedor)"
+      ca: "batedor de barnilles (o una forquilla)"
+      es: "batidor de varillas (o un tenedor)"
   - id: brush
     name: { en: "pastry brush", ca: "pinzell de cuina", es: "brocha de cocina" }
   - id: tray

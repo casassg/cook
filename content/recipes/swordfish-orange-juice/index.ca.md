@@ -6,7 +6,7 @@ description: "Clàssic italià: peix espasa arrebossat amb una salsa agredolça 
 
 1. Prepara el [peix espasa](i:fish): les rodanxes han de fer uns 1 ½ cm (½ polzada) de gruix. Treu la pell i l'espina central.
 2. Sobre una taula de tallar, talla el [peix espasa](i:fish) a trossos força grans i regulars amb un [ganivet de cuina](tool:knife) i posa'ls en un [bol](tool:bowl).
-3. Esprémer la [llimona](i:lemon) i les [taronges](i:orange). Afegeix el suc colat al peix espasa. Alternativament pots fer servir suc de taronja de cartró, però el suc fresc és millor.
+3. Esprem la [llimona](i:lemon) i les [taronges](i:orange). Afegeix el suc colat al peix espasa. Alternativament pots fer servir suc de taronja de cartró, però el suc fresc és millor.
 4. Afegeix un pessic de [sal](i:salt), [pebre negre](i:black_pepper) al gust, el [sucre morè](i:brown_sugar) i el [julivert](i:parsley) picat.
 5. Remena i deixa marinar el peix espasa durant uns [30 min](t:30m:fish). No cal més temps, però es pot deixar fins a 2 hores. L'àcid del suc cítric començarà a coure el peix, així que no el deixis massa estona.
 6. Estén la [farina](i:flour) en un [plat](tool:plate). Treu els trossos de peix espasa de la marinada i arrebossa'ls amb farina. Assegura't que cada tros quedi ben cobert. Arrebossa tots els trossos i col·loca'ls al [plat](tool:plate). Reserva la marinada de cítrics, la faràs servir per coure.

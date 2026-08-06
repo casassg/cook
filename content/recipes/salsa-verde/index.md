@@ -15,7 +15,7 @@ tools:
   - id: molcajete
     name:
       en: "molcajete (stone mortar); alternatively a regular mortar; or do everything in the food processor"
-      ca: "morter de pedra (molcajete); alternativament on morter qualsevol; o fes-ho tot a la processadora"
+      ca: "morter de pedra (molcajete); alternativament un morter qualsevol; o fes-ho tot a la processadora"
       es: "molcajete (mortero de piedra); alternativamente un mortero cualquiera; o hazlo todo en la procesadora"
   - id: food_processor
     name: { en: "food processor (or blender)", ca: "processadora d'aliments (o batedora)", es: "procesadora de alimentos (o licuadora)" }
@@ -49,9 +49,9 @@ ingredients:
     unit: clove
     item: { en: "garlic", ca: "all", es: "ajo" }
     note:
-      en: "1 large clove cooked, ½ small clove raw"
-      ca: "1 gra gran cuita, ½ gra petita crua"
-      es: "1 diente grande cocido, ½ diente pequeño crudo"
+      en: "1 large clove cooked, 1 small clove raw"
+      ca: "1 gra gran cuit, 1 gra petit cru"
+      es: "1 diente grande cocido, 1 diente pequeño crudo"
   - id: salt
     amount: 0.5
     unit: tsp
@@ -72,7 +72,7 @@ ingredients:
 
 1. Bring water to a boil in a [pot](tool:pot). Add the [jalapeños](i:jalapeno), the [serranos](i:serrano), the [onion](i:onion) quarter and a large [garlic](i:garlic*0.5) clove; cook for [15 min](t:15m:stew).
 2. Add the [tomatillos](i:tomatillo) to the hot water. When they start turning yellowish, turn off the heat, cover them, and let them finish in the hot water.
-3. In the [molcajete](tool:molcajete), grind the one raw [garlic](i:garlic*0.5) clove with the [salt](i:salt). Once done, add the cooked [garlic](i:garlic) and grind, then the [jalapeños](i:jalapeno) and [serranos](i:serrano); watch out for splashes.
+3. In the [molcajete](tool:molcajete), grind the one raw [garlic](i:garlic*0.5) clove with the [salt](i:salt). Once done, add the cooked garlic and grind, then the [jalapeños](i:jalapeno) and [serranos](i:serrano); watch out for splashes.
 4. Transfer the cooked [onion](i:onion), your molcajete mix and some [tomatillos](i:tomatillo) to a [food processor](tool:food_processor) and blend until smooth; move to a [bowl](tool:bowl).
 5. Blend the remaining [tomatillos](i:tomatillo) with a splash of the cooking water until thick, add the [cilantro](i:cilantro) and pulse briefly.
 6. Combine both parts, stir, taste and adjust the [salt](i:salt). Serve with quesadillas, tacos or totopos; it's also the base for guisados and enchiladas verdes (fry it first for those).

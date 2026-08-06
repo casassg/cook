@@ -45,9 +45,9 @@ ingredients:
     note: { en: "cut into large pieces", ca: "tallat a trossos grans", es: "cortado en trozos grandes" }
   - id: garlic
     amount: 2
-    unit: cloves
+    unit: clove
     item: { en: "garlic", ca: "all", es: "ajo" }
-    note: { en: "germ removed", ca: "sense el centre", es: "sin la parte del centro" }
+    note: { en: "germ removed", ca: "sense el germen", es: "sin el germen" }
   - id: bread
     amount: 1
     unit: slices

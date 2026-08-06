@@ -67,6 +67,21 @@ function chime() {
   if (navigator.vibrate) navigator.vibrate(400);
 }
 
+// Request notification permission lazily on first timer start.
+// Fire a notification when a timer expires so the user is alerted
+// even if they switched tabs/apps (works on desktop and Android).
+function notifyTimerDone(label, emoji) {
+  if (!("Notification" in window) || Notification.permission !== "granted") return;
+  try {
+    new Notification(emoji + " Timer done", { body: label, tag: "cook-timer-" + label, renotify: true });
+  } catch (e) {}
+}
+
+function ensureNotificationPermission() {
+  if (!("Notification" in window) || Notification.permission !== "default") return;
+  Notification.requestPermission();
+}
+
 const wake = {
   count: 0,
   sentinel: null,
@@ -107,7 +122,28 @@ const wake = {
 };
 
 document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "visible") wake.request();
+  if (document.visibilityState === "visible") {
+    wake.request();
+    // Force-recalculate running timers so display updates instantly on wake.
+    try {
+      const store = window.Alpine?.store("timers");
+      if (store) {
+        store.list.forEach((t) => {
+          if (t.running && t.resumedAt) {
+            const elapsed = Math.floor((Date.now() - t.resumedAt) / 1000);
+            t.remaining = Math.max(0, t.snap - elapsed);
+            if (t.remaining <= 0) {
+              t.remaining = 0;
+              store.pause(t);
+              t.done = true;
+              chime();
+              notifyTimerDone(t.label, t.emoji);
+            }
+          }
+        });
+      }
+    } catch (e) {}
+  }
 });
 
 document.addEventListener("alpine:init", () => {
@@ -255,7 +291,7 @@ document.addEventListener("alpine:init", () => {
     // and started.
     start(id, label, emoji, dur) {
       if (!this.find(id)) {
-        this.list.push({ id, label, emoji, dur, total: parseDuration(dur), remaining: parseDuration(dur), running: false, done: false, iv: null, lastTap: 0 });
+        this.list.push({ id, label, emoji, dur, total: parseDuration(dur), remaining: parseDuration(dur), running: false, done: false, iv: null, lastTap: 0, resumedAt: 0, snap: 0 });
       }
       // Re-fetch (rather than reuse the object above) so `t` is the reactive
       // element Alpine tracks; mutating a freshly-created raw object directly
@@ -279,16 +315,21 @@ document.addEventListener("alpine:init", () => {
       }
     },
     resume(t) {
+      ensureNotificationPermission();
       if (t.running) return;
+      t.resumedAt = Date.now();
+      t.snap = t.remaining;
       t.running = true;
       wake.acquire();
       t.iv = setInterval(() => {
-        t.remaining--;
+        const elapsed = Math.floor((Date.now() - t.resumedAt) / 1000);
+        t.remaining = Math.max(0, t.snap - elapsed);
         if (t.remaining <= 0) {
           t.remaining = 0;
           this.pause(t);
           t.done = true;
           chime();
+          notifyTimerDone(t.label, t.emoji);
         }
       }, 1000);
     },
@@ -302,6 +343,7 @@ document.addEventListener("alpine:init", () => {
     reset(t) {
       this.pause(t);
       t.remaining = t.total;
+      t.snap = t.total;
       t.done = false;
     },
     dismiss(id) {

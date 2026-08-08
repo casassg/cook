@@ -139,7 +139,7 @@ ingredients:
 ---
 
 1. Make the sofrito: cut the [onion](i:onion) into small pieces and poach it in [olive oil](i:olive_oil) in the [paella pan](tool:paella_pan) over medium heat until it's all yellow and very soft, but not burned.
-2. Blend the [tomatoes](i:tomato) into a sauce with about one teaspoon of [sugar](i:sugar) and one or two teaspoons of [salt](i:salt). Taste it: if it still tastes acidic, add more sugar until it doesn't.
+2. Blend the [tomatoes](i:tomato) into a sauce with about one teaspoon of [sugar](i:sugar) and a teaspoon or two of [salt](i:salt). Taste it: it should be clearly salty but not oversalted, and it must not taste acidic. If the acidity still comes through, add more [sugar](i:sugar) until it's gone.
 3. Pour the tomato sauce into the pan with the onions and cook over medium-high heat until the water has evaporated and it turns an intense red. It takes a while.
 4. Add the [chicken wings](i:chicken_wings) (or small-cut pork ribs) and cook them until browned.
 5. When everything is fried, add the [squid](i:squid) cut in squares if you have it (you can also make it mountain-style, just meat).

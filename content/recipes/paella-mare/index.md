@@ -20,7 +20,7 @@ tools:
 ingredients:
   - id: chicken_wings
     emoji: "🍗"
-    amount: 450
+    amount: 225
     unit: g
     item: { en: "chicken wings", ca: "aletes de pollastre", es: "alitas de pollo" }
     note:
@@ -45,7 +45,7 @@ ingredients:
       ca: "sobre la meitat del pes del tomàquet"
       es: "aproximadamente la mitad del peso del tomate"
   - id: squid
-    amount: 450
+    amount: 225
     unit: g
     item: { en: "squid", ca: "sípia o calamars", es: "sepia o calamares" }
     note:

@@ -32,9 +32,9 @@ ingredients:
     unit: g
     item: { en: "tomatoes", ca: "tomàquets", es: "tomates" }
     note:
-      en: "canned or fresh, about half a kilo"
-      ca: "de llauna o frescos, sobre mig quilo"
-      es: "de lata o frescos, aproximadamente medio kilo"
+      en: "canned or fresh, any kind as long as it's ripe (maduros) and soft, almost falling apart when cut; San Marzano canned tomatoes are great (Kirkland from Costco works well)"
+      ca: "de llauna o frescos, qualsevol tipus sempre que sigui madur i tou, que gairebé es desfaci en tallar-lo; els tomàquets San Marzano de llauna van molt bé (els Kirkland del Costco també)"
+      es: "de lata o frescos, cualquier tipo siempre que esté maduro y blando, que casi se deshaga al cortarlo; los tomates San Marzano en lata van muy bien (los Kirkland de Costco también)"
   - id: onion
     amount: 1
     unit: unit

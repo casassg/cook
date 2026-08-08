@@ -5,7 +5,7 @@ description: "La paella de la mare: aletes de pollastre, sípia i musclos sobre 
 ---
 
 1. Fes el sofregit: talla la [ceba](i:onion) a trossos petits i ofega-la amb [oli d'oliva](i:olive_oil) a la [paella](tool:paella_pan) a foc mitjà fins que sigui tota groga i molt tova, sense cremar-se.
-2. Tritura els [tomàquets](i:tomato) fins a fer-ne una salsa, amb una culleradeta de [sucre](i:sugar) i una o dues culleradetes de [sal](i:salt). Prova-la: si encara té l'acidesa del tomàquet, afegeix-hi més sucre fins que no la notis.
+2. Tritura els [tomàquets](i:tomato) fins a fer-ne una salsa, amb una culleradeta de [sucre](i:sugar) i una o dues culleradetes de [sal](i:salt). Prova-la: ha de ser clarament salada però sense passar-se, i no ha de tenir acidesa. Si encara notis l'acidesa, afegeix-hi més [sucre](i:sugar) fins que desaparegui.
 3. Aboca la salsa de tomàquet a la paella on s'està ofegant la ceba i cou-ho a foc mitjà-alt fins que l'aigua s'hagi evaporat i agafi un vermell intens. Trigarà una estona.
 4. Afegeix-hi les [aletes de pollastre](i:chicken_wings) (o costella de porc tallada petita) i cou-les fins que quedin daurades.
 5. Quan estigui tot fregit, pots afegir-hi la [sípia o els calamars](i:squid) tallats a quadrats, si en tens (la pots fer de muntanya, de carn i prou).

@@ -49,9 +49,9 @@ ingredients:
     unit: g
     item: { en: "squid", ca: "sípia o calamars", es: "sepia o calamares" }
     note:
-      en: "legs and body, cut in squares (optional)"
-      ca: "potes i cos tallats a quadrats (opcional)"
-      es: "patas y cuerpo cortados en cuadrados (opcional)"
+      en: "tentacles or body, whichever you prefer, cut in squares (optional)"
+      ca: "potes o cos, el que prefereixis, tallats a quadrats (opcional)"
+      es: "tentáculos o cuerpo, lo que prefieras, cortados en cuadrados (opcional)"
   - id: rice
     amount: 600
     unit: g

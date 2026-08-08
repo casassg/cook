@@ -10,9 +10,12 @@ description: "La paella de mamá: alitas de pollo, sepia y mejillones sobre un s
 4. Baja el fuego a medio-bajo y deja que hierva a fuego lento hasta que se haya evaporado casi toda el agua y tome un rojo intenso, unos 10 minutos aproximadamente, pero compruébalo a ojo y al gusto. Cuando esté en su punto tiene que estar salado, con ese sabor umami de un buen sofrito de tomate; si no está lo bastante salado, añade más [sal](i:salt).
 5. Sazona las [alitas de pollo](i:chicken_wings) con [pimentón](i:paprika), [sal](i:salt), [pimienta negra](i:black_pepper) y [ajo en polvo](i:garlic_powder), y déjalas marinar en la nevera un rato, tapadas, antes de cocinarlas.
 6. Añade las [alitas de pollo](i:chicken_wings) sazonadas (o costillas de cerdo cortadas pequeñas) y cuécelas hasta que queden doradas.
-7. Cuando esté todo frito, puedes añadir la [sepia o los calamares](i:squid) cortados en cuadrados, si tienes (también puedes hacerla de montaña, solo con carne).
-8. También puedes añadir [verduras](i:vegetables) si quieres: alcachofas, espárragos verdes, pimientos...
-9. Añade el [caldo](i:stock). Añade [sal](i:salt) y [pimienta negra](i:black_pepper): tiene que tener un punto fuerte de sal. Mide el líquido: hace falta el doble de líquido que de [arroz](i:rice), en volumen, no en peso.
-10. Déjalo hervir un rato con la carne y las verduras, con el [azafrán](i:saffron) si lo usas.
-11. Después añade el [arroz](i:rice) y cuécelo removiendo de vez en cuando hasta que esté cocido.
-12. Mientras el arroz se cuece, hierve los [mejillones](i:mussels) en una [cacerola](tool:pot) con el [agua](i:water), las [hojas de laurel](i:bay_leaves) y el [limón](i:lemon) hasta que se abran, y luego colócalos sobre la paella.
+7. Corta la [sepia o los calamares](i:squid) en trozos pequeños y resérvalos.
+8. Repasa los [mejillones](i:mussels): descarta los que tengan la concha rota y los que estén abiertos y no se cierren al tocarlos; quédate solo con los buenos.
+9. Lava los mejillones seleccionados con [agua](i:water), quitándoles las impurezas, y déjalos listos para hervir.
+10. Cuando esté todo frito, añade la [sepia](i:squid) reservada y fríela con el resto (también puedes hacerla de montaña, solo con carne).
+11. También puedes añadir [verduras](i:vegetables) si quieres: alcachofas, espárragos verdes, pimientos...
+12. Añade el [caldo](i:stock). Añade [sal](i:salt) y [pimienta negra](i:black_pepper): tiene que tener un punto fuerte de sal. Mide el líquido: hace falta el doble de líquido que de [arroz](i:rice), en volumen, no en peso.
+13. Déjalo hervir un rato con la carne y las verduras, con el [azafrán](i:saffron) si lo usas.
+14. Después añade el [arroz](i:rice) y cuécelo removiendo de vez en cuando hasta que esté cocido.
+15. Mientras el arroz se cuece, haz los [mejillones](i:mussels) al vapor siguiendo la [receta de mejillones al vapor](/recipes/musclos-al-vapor) y colócalos sobre la paella.

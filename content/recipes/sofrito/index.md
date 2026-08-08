@@ -14,6 +14,9 @@ tools:
   - id: pan
     icon: "🍳"
     name: { en: "paella pan or large frying pan", ca: "paella o cassola gran", es: "paellera o sartén grande" }
+  - id: splatter_screen
+    icon: "🛡️"
+    name: { en: "splatter screen", ca: "tapa esquitxades", es: "tapa antisalpicaduras" }
 ingredients:
   - id: onion
     amount: 1
@@ -55,5 +58,5 @@ ingredients:
 
 1. Cut the [onion](i:onion) into small pieces and poach it in [olive oil](i:olive_oil) in the [pan](tool:pan) over medium heat until it's all yellow and very soft, but not burned. Stir from time to time so it doesn't stick to the bottom or burn: the onion burns quickly.
 2. Blend the [tomatoes](i:tomato) into a sauce with about one teaspoon of [sugar](i:sugar) and a teaspoon or two of [salt](i:salt). Taste it: it should be clearly salty but not oversalted, and it must not taste acidic. If the acidity still comes through, add more [sugar](i:sugar) until it's gone.
-3. Pour the tomato sauce into the pan with the onions and cook over high to medium-high heat for about 3 or 4 minutes, with plenty of [olive oil](i:olive_oil) in the pan: the tomato has to fry in it, so don't be shy (ideally olive oil, but any vegetable oil works). Beware of splatters: with all that oil it splashes a lot, so wear an apron or clothes you don't mind staining.
+3. Pour the tomato sauce into the pan with the onions and cook over high to medium-high heat for about 3 or 4 minutes, with plenty of [olive oil](i:olive_oil) in the pan: the tomato has to fry in it, so don't be shy (ideally olive oil, but any vegetable oil works). Beware of splatters: with all that oil it splashes a lot, so wear an apron or clothes you don't mind staining, or use a [splatter screen](tool:splatter_screen) to cut down the splashes.
 4. Lower the heat to medium-low and let it simmer until most of the water has evaporated and it turns an intense red, roughly 10 minutes, but check by eye and taste. Stir from time to time so it doesn't stick or burn at the bottom: the sofrito burns quickly. When it's done it should taste salty, with that umami flavor of a good tomato sofrito; if it's not salty enough, add more [salt](i:salt).

@@ -27,23 +27,23 @@ ingredients:
       en: "or small-cut pork ribs"
       ca: "o costella de porc tallada petita"
       es: "o costillas de cerdo cortadas pequeñas"
-  - id: tomato_can
-    emoji: "🍅"
-    amount: 800
+  - id: tomato
+    amount: 500
     unit: g
-    item: { en: "canned whole peeled tomatoes", ca: "tomàquet sencer pelat de llauna", es: "tomate entero pelado en lata" }
+    item: { en: "tomatoes", ca: "tomàquets", es: "tomates" }
     note:
-      en: "blended with a little salt and sugar to kill the acidity"
-      ca: "triturat amb una mica de sal i sucre per treure l'acidesa"
-      es: "triturado con un poco de sal y azúcar para quitar la acidez"
+      en: "canned or fresh, about half a kilo"
+      ca: "de llauna o frescos, sobre mig quilo"
+      es: "de lata o frescos, aproximadamente medio kilo"
   - id: onion
     amount: 1
     unit: unit
     item: { en: "onion", ca: "ceba", es: "cebolla" }
-    note:
-      en: "about half the weight of the tomatoes"
-      ca: "sobre la meitat del pes del tomàquet"
-      es: "aproximadamente la mitad del peso del tomate"
+  - id: sugar
+    emoji: "🍬"
+    amount: 1
+    unit: tsp
+    item: { en: "sugar", ca: "sucre", es: "azúcar" }
   - id: squid
     amount: 225
     unit: g
@@ -138,11 +138,13 @@ ingredients:
     item: { en: "olive oil", ca: "oli d'oliva", es: "aceite de oliva" }
 ---
 
-1. Heat the [olive oil](i:olive_oil) in a [paella pan](tool:paella_pan) and cook the [chicken wings](i:chicken_wings) (or small-cut pork ribs).
-2. Add the sofrito. If you don't have any, make one: take the meat out of the pan, fry the finely chopped [onion](i:onion) and, when soft, add the blended [tomatoes](i:tomato_can). You don't need much, about two tablespoons is enough.
-3. When the sofrito is done, add the [squid](i:squid) cut in squares if you have it (you can also make it mountain-style, just meat).
-4. You can also add [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...
-5. When everything is fried, return the meat to the pan and add the [stock](i:stock). Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted. Measure the liquid: you need twice as much liquid as [rice](i:rice) by volume, not by weight.
-6. Let it boil for a while with the meat and the vegetables, with the [saffron](i:saffron) if you're using it.
-7. Add the [rice](i:rice) and cook, stirring from time to time, until it's done.
-8. While the rice cooks, boil the [mussels](i:mussels) in a [pot](tool:pot) with the [water](i:water), the [bay leaves](i:bay_leaves) and the [lemon](i:lemon) until they open, then arrange them over the paella.
+1. Make the sofrito: cut the [onion](i:onion) into small pieces and poach it in [olive oil](i:olive_oil) in the [paella pan](tool:paella_pan) over medium heat until it's all yellow and very soft, but not burned.
+2. Blend the [tomatoes](i:tomato) into a sauce with about one teaspoon of [sugar](i:sugar) and one or two teaspoons of [salt](i:salt). Taste it: if it still tastes acidic, add more sugar until it doesn't.
+3. Pour the tomato sauce into the pan with the onions and cook over medium-high heat until the water has evaporated and it turns an intense red. It takes a while.
+4. Add the [chicken wings](i:chicken_wings) (or small-cut pork ribs) and cook them until browned.
+5. When everything is fried, add the [squid](i:squid) cut in squares if you have it (you can also make it mountain-style, just meat).
+6. You can also add [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...
+7. Add the [stock](i:stock). Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted. Measure the liquid: you need twice as much liquid as [rice](i:rice) by volume, not by weight.
+8. Let it boil for a while with the meat and the vegetables, with the [saffron](i:saffron) if you're using it.
+9. Add the [rice](i:rice) and cook, stirring from time to time, until it's done.
+10. While the rice cooks, boil the [mussels](i:mussels) in a [pot](tool:pot) with the [water](i:water), the [bay leaves](i:bay_leaves) and the [lemon](i:lemon) until they open, then arrange them over the paella.

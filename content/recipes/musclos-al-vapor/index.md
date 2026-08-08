@@ -68,5 +68,5 @@ ingredients:
 
 1. Clean the [mussels](i:mussels) well, removing all the debris they carry, and rinse them under [water](i:water).
 2. Put them in a [pot with lid](tool:pot) with a finger of [water](i:water) and [salt](i:salt), a [garlic](i:garlic) clove, a [bay leaf](i:bay_leaves) and a [lemon](i:lemon) slice, plus a splash of [white wine](i:white_wine) if you're using it.
-3. Cover the [pot](tool:pot): the mussels will be open in about [3 min](t:3m).
+3. Cover the [pot](tool:pot) and steam until every [mussel](i:mussels) is fully open, about [3-4 min](t:3m): don't stop before they're all open, but don't overcook them either.
 4. Dress them with a drizzle of [olive oil](i:olive_oil); you can also dress them with [lemon](i:lemon), mayonnaise, etc.

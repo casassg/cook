@@ -35,6 +35,12 @@ ingredients:
       en: "canned or fresh, any kind as long as it's ripe (maduros) and soft, almost falling apart when cut; San Marzano canned tomatoes are great (Kirkland from Costco works well)"
       ca: "de llauna o frescos, qualsevol tipus sempre que sigui madur i tou, que gairebé es desfaci en tallar-lo; els tomàquets San Marzano de llauna van molt bé (els Kirkland del Costco també)"
       es: "de lata o frescos, cualquier tipo siempre que esté maduro y blando, que casi se deshaga al cortarlo; los tomates San Marzano en lata van muy bien (los Kirkland de Costco también)"
+    links:
+      - url: "https://www.instacart.com/store/products/19342627-kirkland-signature-san-marzano-tomatoes-with-basil-3-x-28-oz-28-oz?x_retailer=true"
+        label:
+          en: "Kirkland San Marzano tomatoes (Costco)"
+          ca: "Tomàquets San Marzano Kirkland (Costco)"
+          es: "Tomates San Marzano Kirkland (Costco)"
   - id: onion
     amount: 1
     unit: unit

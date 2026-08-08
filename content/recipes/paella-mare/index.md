@@ -32,10 +32,11 @@ ingredients:
     amount: 1
     unit: tsp
     item: { en: "paprika", ca: "pebre vermell", es: "pimentón" }
-  - id: garlic
-    amount: 2
-    unit: clove
-    item: { en: "garlic", ca: "all", es: "ajo" }
+  - id: garlic_powder
+    emoji: "🧄"
+    amount: 1
+    unit: tsp
+    item: { en: "garlic powder", ca: "all en pols", es: "ajo en polvo" }
   - id: tomato
     amount: 500
     unit: g
@@ -156,7 +157,7 @@ ingredients:
 1. Make the sofrito: cut the [onion](i:onion) into small pieces and poach it in [olive oil](i:olive_oil) in the [paella pan](tool:paella_pan) over medium heat until it's all yellow and very soft, but not burned.
 2. Blend the [tomatoes](i:tomato) into a sauce with about one teaspoon of [sugar](i:sugar) and a teaspoon or two of [salt](i:salt). Taste it: it should be clearly salty but not oversalted, and it must not taste acidic. If the acidity still comes through, add more [sugar](i:sugar) until it's gone.
 3. Pour the tomato sauce into the pan with the onions and cook over medium-high heat until the water has evaporated and it turns an intense red. It takes a while, and it needs plenty of [olive oil](i:olive_oil) in the pan: the tomato has to fry in it, so don't be shy. Ideally olive oil, but any vegetable oil works.
-4. Season the [chicken wings](i:chicken_wings) with [paprika](i:paprika), [salt](i:salt), [black pepper](i:black_pepper) and [garlic](i:garlic), then leave them to marinate in the fridge for a little while, covered.
+4. Season the [chicken wings](i:chicken_wings) with [paprika](i:paprika), [salt](i:salt), [black pepper](i:black_pepper) and [garlic powder](i:garlic_powder), then leave them to marinate in the fridge for a little while, covered.
 5. Add the seasoned [chicken wings](i:chicken_wings) (or small-cut pork ribs) to the pan and cook them until browned.
 6. When everything is fried, add the [squid](i:squid) cut in squares if you have it (you can also make it mountain-style, just meat).
 7. You can also add [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...

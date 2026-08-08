@@ -14,9 +14,6 @@ tools:
   - id: paella_pan
     icon: "🍳"
     name: { en: "paella pan", ca: "paella", es: "paellera" }
-  - id: pot
-    icon: "🥘"
-    name: { en: "pot", ca: "cassola", es: "cacerola" }
 ingredients:
   - id: chicken_wings
     emoji: "🍗"
@@ -91,26 +88,9 @@ ingredients:
     unit: ml
     item: { en: "water", ca: "aigua", es: "agua" }
     note:
-      en: "to boil the mussels"
-      ca: "per bullir els musclos"
-      es: "para hervir los mejillones"
-  - id: bay_leaves
-    emoji: "🌿"
-    amount: 2
-    unit: unit
-    item: { en: "bay leaves", ca: "fulles de llorer", es: "hojas de laurel" }
-    note:
-      en: "to boil the mussels"
-      ca: "per bullir els musclos"
-      es: "para hervir los mejillones"
-  - id: lemon
-    amount: 1
-    unit: unit
-    item: { en: "lemon", ca: "llimona", es: "limón" }
-    note:
-      en: "to boil the mussels"
-      ca: "per bullir els musclos"
-      es: "para hervir los mejillones"
+      en: "to clean the mussels"
+      ca: "per rentar els musclos"
+      es: "para lavar los mejillones"
   - id: mussels
     emoji: "🦪"
     amount: 900
@@ -160,9 +140,12 @@ ingredients:
 4. Lower the heat to medium-low and let it simmer until most of the water has evaporated and it turns an intense red, roughly 10 minutes, but check by eye and taste. When it's done it should taste salty, with that umami flavor of a good tomato sofrito; if it's not salty enough, add more [salt](i:salt).
 5. Season the [chicken wings](i:chicken_wings) with [paprika](i:paprika), [salt](i:salt), [black pepper](i:black_pepper) and [garlic powder](i:garlic_powder), then leave them to marinate in the fridge for a little while, covered.
 6. Add the seasoned [chicken wings](i:chicken_wings) (or small-cut pork ribs) to the pan and cook them until browned.
-7. When everything is fried, add the [squid](i:squid) cut in squares if you have it (you can also make it mountain-style, just meat).
-8. You can also add [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...
-9. Add the [stock](i:stock). Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted. Measure the liquid: you need twice as much liquid as [rice](i:rice) by volume, not by weight.
-10. Let it boil for a while with the meat and the vegetables, with the [saffron](i:saffron) if you're using it.
-11. Add the [rice](i:rice) and cook, stirring from time to time, until it's done.
-12. While the rice cooks, boil the [mussels](i:mussels) in a [pot](tool:pot) with the [water](i:water), the [bay leaves](i:bay_leaves) and the [lemon](i:lemon) until they open, then arrange them over the paella.
+7. Cut the [squid](i:squid) into small pieces and set it aside.
+8. Sort through the [mussels](i:mussels): discard any with broken shells, and any open ones that don't close when you tap them; keep only the good ones.
+9. Rinse the selected mussels in [water](i:water), cleaning off any impurities, and set them aside for boiling.
+10. When everything is fried, add the [squid](i:squid) to the pan and fry it with the rest (you can also make it mountain-style, just meat).
+11. You can also add [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...
+12. Add the [stock](i:stock). Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted. Measure the liquid: you need twice as much liquid as [rice](i:rice) by volume, not by weight.
+13. Let it boil for a while with the meat and the vegetables, with the [saffron](i:saffron) if you're using it.
+14. Add the [rice](i:rice) and cook, stirring from time to time, until it's done.
+15. While the rice cooks, steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor) and arrange them over the paella.

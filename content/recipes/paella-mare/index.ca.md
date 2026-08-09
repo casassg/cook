@@ -1,6 +1,6 @@
 ---
-title: "Paella mare"
-description: "La paella de la mare: aletes de pollastre, sípia i musclos sobre un sofregit amb arròs de gra curt."
+title: "Paella Mixta"
+description: "Recepta de la meva mare: aletes de pollastre, sípia i musclos sobre un sofregit amb arròs de gra curt."
 # Structure and name translations live in index.md. Only prose lives here.
 ---
 

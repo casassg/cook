@@ -13,6 +13,7 @@ tools:
   - id: paella_pan
     icon: "🍳"
     name: { en: "paella pan", ca: "paella", es: "paellera" }
+    note: { en: "or a wide, shallow pot", ca: "o una olla ampla i baixa", es: "o una olla ancha y baja" }
 ingredients:
   - id: chicken_wings
     emoji: "🍗"

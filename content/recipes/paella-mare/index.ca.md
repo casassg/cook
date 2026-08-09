@@ -12,7 +12,7 @@ description: "La paella de la mare: aletes de pollastre, sípia i musclos sobre 
 6. Renta els musclos seleccionats amb [aigua](i:water), traient-los les impureses, i deixa'ls a punt per coure al vapor.
 7. Afegeix una mica més de sofregit a la paella, baixa una mica el foc perquè no es cremi i fregeix-lo una mica més (el sofregit ja ha de portar prou oli).
 8. Afegeix-hi la [sípia](i:squid) (i [verdures](i:vegetables) si en vols: carxofes, esparrecs verds, pebrots...) i cou-la una mica.
-9. Afegeix l'[arròs](i:rice) i deixa que absorbeixi els sucs, torrant-lo una mica.
-10. Afegeix el [caldo](i:stock) calent (ha d'estar calent quan el posis) i torna a posar-hi les [aletes de pollastre](i:chicken_wings). Afegeix [sal](i:salt) i [pebre negre](i:black_pepper): ha de tenir un punt fort de sal.
-11. Deixa-ho bullir una estona amb el [safrà](i:saffron) si en fas servir, fins que l'arròs sigui cuit, remenant de tant en tant.
+9. Afegeix l'[arròs](i:rice) i torra'l un parell de minuts, deixant que absorbeixi els sucs. Quan el posis, l'arròs ha de quedar vermell: si no, et cal més sofregit.
+10. Afegeix el [caldo](i:stock) calent (de pollastre o de peix; ha d'estar calent quan el posis) i torna a posar-hi les [aletes de pollastre](i:chicken_wings). Afegeix [sal](i:salt) i [pebre negre](i:black_pepper): ha de tenir un punt fort de sal.
+11. Deixa-ho coure inclinant i movent la paella de tant en tant perquè es cogui bé, fins que l'arròs del fons es dauri una mica (el socarrat), amb el [safrà](i:saffron) si en fas servir.
 12. Mentre l'arròs es cou, feu els [musclos](i:mussels) al vapor seguint la [recepta de musclos al vapor](/recipes/musclos-al-vapor) i col·loqueu-los sobre la paella.

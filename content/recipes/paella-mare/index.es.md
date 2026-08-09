@@ -12,7 +12,7 @@ description: "La paella de mamá: alitas de pollo, sepia y mejillones sobre un s
 6. Lava los mejillones seleccionados con [agua](i:water), quitándoles las impurezas, y déjalos listos para cocer al vapor.
 7. Añade un poco más de sofrito a la paellera, baja un poco el fuego para que no se queme y fríelo un poco más (el sofrito ya debería llevar suficiente aceite).
 8. Añade la [sepia](i:squid) (y [verduras](i:vegetables) si quieres: alcachofas, espárragos verdes, pimientos...) y cuécela un poco.
-9. Añade el [arroz](i:rice) y deja que absorba los jugos, tostándolo un poco.
-10. Añade el [caldo](i:stock) caliente (tiene que estar caliente cuando lo pongas) y vuelve a poner las [alitas de pollo](i:chicken_wings). Añade [sal](i:salt) y [pimienta negra](i:black_pepper): tiene que tener un punto fuerte de sal.
-11. Déjalo hervir un rato con el [azafrán](i:saffron) si lo usas, hasta que el arroz esté cocido, removiendo de vez en cuando.
+9. Añade el [arroz](i:rice) y tuéstalo un par de minutos, dejando que absorba los jugos. Cuando lo pongas, el arroz tiene que quedar rojo: si no, necesitas más sofrito.
+10. Añade el [caldo](i:stock) caliente (de pollo o de pescado; tiene que estar caliente cuando lo pongas) y vuelve a poner las [alitas de pollo](i:chicken_wings). Añade [sal](i:salt) y [pimienta negra](i:black_pepper): tiene que tener un punto fuerte de sal.
+11. Déjalo cocer inclinando y moviendo la paellera de vez en cuando para que se cocine bien, hasta que el arroz del fondo se dore un poco (el socarrat), con el [azafrán](i:saffron) si lo usas.
 12. Mientras el arroz se cuece, haz los [mejillones](i:mussels) al vapor siguiendo la [receta de mejillones al vapor](/recipes/musclos-al-vapor) y colócalos sobre la paella.

@@ -114,7 +114,7 @@ ingredients:
 6. Rinse the selected mussels in [water](i:water), cleaning off any impurities, and set them aside for steaming.
 7. Add a little more of the sofrito to the pan, lower the heat a bit so it doesn't burn, and fry it a little more (the sofrito should already have enough oil).
 8. Add the [squid](i:squid) (and [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...) and cook it for a little bit.
-9. Add the [rice](i:rice) and let it absorb the juices, toasting it for a little bit.
-10. Add the hot [stock](i:stock) (it must be hot when it goes in) and return the [chicken wings](i:chicken_wings) to the pan. Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted.
-11. Let it boil for a while with the [saffron](i:saffron) if you're using it, until the rice is done, stirring from time to time.
+9. Add the [rice](i:rice) and toast it for a couple of minutes, letting it absorb the juices. When you add it, the rice should look red: if it doesn't, you need more sofrito.
+10. Add the hot [stock](i:stock) (chicken or fish broth; it must be hot when it goes in) and return the [chicken wings](i:chicken_wings) to the pan. Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted.
+11. Let it cook, tilting and moving the pan around from time to time so it cooks evenly, until the rice at the bottom browns a little (the socarrat), with the [saffron](i:saffron) if you're using it.
 12. While the rice cooks, steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor) and arrange them over the paella.

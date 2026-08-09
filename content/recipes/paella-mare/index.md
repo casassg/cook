@@ -16,7 +16,7 @@ tools:
 ingredients:
   - id: chicken_wings
     emoji: "🍗"
-    amount: 225
+    amount: 450
     unit: g
     item: { en: "chicken wings", ca: "aletes de pollastre", es: "alitas de pollo" }
     note:
@@ -69,22 +69,13 @@ ingredients:
       es: "para lavar los mejillones"
   - id: mussels
     emoji: "🦪"
-    amount: 900
+    amount: 450
     unit: g
     item: { en: "mussels", ca: "musclos", es: "mejillones" }
     note:
-      en: "1 bag (about 2 lb)"
-      ca: "una bossa (d'uns 2 lb)"
-      es: "una bolsa (de unas 2 lb)"
-  - id: vegetables
-    emoji: "🥬"
-    amount: 0
-    unit: as_needed
-    item: { en: "vegetables", ca: "verdures", es: "verduras" }
-    note:
-      en: "artichokes, green asparagus, bell peppers, whatever you like (optional)"
-      ca: "carxofes, esparrecs verds, pebrots, el que vulguis (opcional)"
-      es: "alcachofas, espárragos verdes, pimientos, lo que quieras (opcional)"
+      en: "1 lb for the paella; I usually buy a 2 lb bag and eat the rest as a starter"
+      ca: "1 lb per a la paella; normalment compro una bossa de 2 lb i la resta la menjo d'entrant"
+      es: "1 lb para la paella; normalmente compro una bolsa de 2 lb y el resto me lo como de entrante"
   - id: saffron
     emoji: "🌼"
     amount: 0
@@ -129,7 +120,7 @@ ingredients:
 5. Sort through the [mussels](i:mussels): discard any with broken shells, and any open ones that don't close when you tap them; keep only the good ones.
 6. Rinse the selected mussels in [water](i:water), cleaning off any impurities, and set them aside for steaming.
 7. Add a little more of the sofrito to the pan, lower the heat a bit so it doesn't burn, and fry it a little more (the sofrito should already have enough oil).
-8. Add the [squid](i:squid) (and [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...) and cook it for a little bit.
+8. Add the [squid](i:squid) and cook it for a little bit.
 9. Add the [rice](i:rice) and toast it for a couple of minutes, letting it absorb the juices. When you add it, the rice should look red: if it doesn't, you need more sofrito.
 10. Add the hot [stock](i:stock) (chicken or fish broth; it must be hot when it goes in) and return the [chicken wings](i:chicken_wings) to the pan. Mix the broth with the sofrito and taste it: it needs to be salty, so add [salt](i:salt) if there's not enough, and season with [black pepper](i:black_pepper).
 11. Start on strong heat; when the broth comes to a boil, lower it to a gentle simmer (chup chup) and leave it, tilting and moving the pan around so it cooks evenly, with the [saffron](i:saffron) if you're using it. Don't stir once the rice starts absorbing the liquid, or it will come out wrong.

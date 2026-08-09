@@ -11,7 +11,7 @@ description: "La paella de la mare: aletes de pollastre, sípia i musclos sobre 
 5. Repassa els [musclos](i:mussels): descarta els que tinguin la closca trencada i els que estiguin oberts i no es tanquin quan els toques; queda't només amb els bons.
 6. Renta els musclos seleccionats amb [aigua](i:water), traient-los les impureses, i deixa'ls a punt per coure al vapor.
 7. Afegeix una mica més de sofregit a la paella, baixa una mica el foc perquè no es cremi i fregeix-lo una mica més (el sofregit ja ha de portar prou oli).
-8. Afegeix-hi la [sípia](i:squid) (i [verdures](i:vegetables) si en vols: carxofes, esparrecs verds, pebrots...) i cou-la una mica.
+8. Afegeix-hi la [sípia](i:squid) i cou-la una mica.
 9. Afegeix l'[arròs](i:rice) i torra'l un parell de minuts, deixant que absorbeixi els sucs. Quan el posis, l'arròs ha de quedar vermell: si no, et cal més sofregit.
 10. Afegeix el [caldo](i:stock) calent (de pollastre o de peix; ha d'estar calent quan el posis) i torna a posar-hi les [aletes de pollastre](i:chicken_wings). Barreja el caldo amb el sofregit i prova-ho: ha de ser salat, així que afegeix-hi [sal](i:salt) si no n'hi ha prou, i amaneix amb [pebre negre](i:black_pepper).
 11. Comença amb foc fort; quan el caldo comenci a bullir, baixa'l fins que faci xup-xup i deixa-ho estar, inclinant i movent la paella perquè es cogui bé, amb el [safrà](i:saffron) si en fas servir. No remenis un cop l'arròs comenci a beure el líquid, perquè llavors quedarà malament.

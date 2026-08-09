@@ -11,7 +11,7 @@ description: "La paella de mamá: alitas de pollo, sepia y mejillones sobre un s
 5. Repasa los [mejillones](i:mussels): descarta los que tengan la concha rota y los que estén abiertos y no se cierren al tocarlos; quédate solo con los buenos.
 6. Lava los mejillones seleccionados con [agua](i:water), quitándoles las impurezas, y déjalos listos para cocer al vapor.
 7. Añade un poco más de sofrito a la paellera, baja un poco el fuego para que no se queme y fríelo un poco más (el sofrito ya debería llevar suficiente aceite).
-8. Añade la [sepia](i:squid) (y [verduras](i:vegetables) si quieres: alcachofas, espárragos verdes, pimientos...) y cuécela un poco.
+8. Añade la [sepia](i:squid) y cuécela un poco.
 9. Añade el [arroz](i:rice) y tuéstalo un par de minutos, dejando que absorba los jugos. Cuando lo pongas, el arroz tiene que quedar rojo: si no, necesitas más sofrito.
 10. Añade el [caldo](i:stock) caliente (de pollo o de pescado; tiene que estar caliente cuando lo pongas) y vuelve a poner las [alitas de pollo](i:chicken_wings). Mezcla el caldo con el sofrito y pruébalo: tiene que estar salado, así que añade [sal](i:salt) si no hay suficiente, y sazona con [pimienta negra](i:black_pepper).
 11. Empieza con fuego fuerte; cuando el caldo empiece a hervir, bájalo hasta que haga chup-chup y déjalo estar, inclinando y moviendo la paellera para que se cocine bien, con el [azafrán](i:saffron) si lo usas. No remuevas una vez el arroz empiece a beber el líquido, porque entonces quedará mal.

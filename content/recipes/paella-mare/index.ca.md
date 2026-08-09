@@ -5,7 +5,7 @@ description: "Recepta de la meva mare: aletes de pollastre, sípia i musclos sob
 ---
 
 1. Feu el [sofregit](/recipes/sofrito) seguint la recepta del sofregit, directament a la [paella](tool:paella_pan).
-2. Amania les [aletes de pollastre](i:chicken_wings) amb [pebre vermell](i:paprika), [sal](i:salt), [pebre negre](i:black_pepper) i [all en pols](i:garlic_powder), i deixa-les marinar a la nevera una estona, tapades, abans de coure-les.
+2. Mentre fas el sofregit, amania les [aletes de pollastre](i:chicken_wings) amb [pebre vermell](i:paprika), [sal](i:salt), [pebre negre](i:black_pepper) i [all en pols](i:garlic_powder), i deixa-les marinar a la nevera una estona, tapades, abans de coure-les.
 3. Afegeix-hi les [aletes de pollastre](i:chicken_wings) amanides (o costella de porc tallada petita) i cou-les uns 5 minuts per cada costat, fins que quedin daurades i sucoses pels dos costats; després treu-les i reserva-les. Quan comencis amb el pollastre, posa també el [caldo](i:stock) a escalfar.
 4. Talla la [sípia o els calamars](i:squid) a trossos petits i reserva'ls.
 5. Feu els [musclos](i:mussels) al vapor seguint la [recepta de musclos al vapor](/recipes/musclos-al-vapor).

@@ -47,9 +47,9 @@ ingredients:
     unit: g
     item: { en: "paella rice", ca: "arròs per a paella", es: "arroz para paella" }
     note:
-      en: "arborio or any short-grain rice"
-      ca: "arborio o qualsevol arròs de gra curt"
-      es: "arborio o cualquier arroz de grano corto"
+      en: "the broth ratio depends on the rice: Spanish extra or arborio take about 2:1 (twice as much broth), bomba can take 3-4:1 depending on the brand"
+      ca: "la proporció de caldo depèn de l'arròs: l'extra o l'arborio demanen uns 2:1 (el doble de caldo), el bomba pot demanar 3-4:1 segons la marca"
+      es: "la proporción de caldo depende del arroz: el extra o el arborio piden unos 2:1 (el doble de caldo), el bomba puede pedir 3-4:1 según la marca"
   - id: stock
     emoji: "🍲"
     amount: 1.5
@@ -104,6 +104,23 @@ ingredients:
     amount: 0
     unit: to_taste
     item: { en: "black pepper", ca: "pebre negre", es: "pimienta negra" }
+  - id: lemon
+    amount: 1
+    unit: unit
+    item: { en: "lemon", ca: "llimona", es: "limón" }
+    note:
+      en: "for serving, cut in wedges"
+      ca: "per servir, tallada a quarts"
+      es: "para servir, cortada en gajos"
+  - id: aioli
+    emoji: "🧄"
+    amount: 0
+    unit: as_needed
+    item: { en: "aioli", ca: "allioli", es: "alioli" }
+    note:
+      en: "optional, for serving"
+      ca: "opcional, per servir"
+      es: "opcional, para servir"
 ---
 
 1. Make the [sofrito](/recipes/sofrito) following the sofrito recipe, directly in the [paella pan](tool:paella_pan).
@@ -116,5 +133,7 @@ ingredients:
 8. Add the [squid](i:squid) (and [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...) and cook it for a little bit.
 9. Add the [rice](i:rice) and toast it for a couple of minutes, letting it absorb the juices. When you add it, the rice should look red: if it doesn't, you need more sofrito.
 10. Add the hot [stock](i:stock) (chicken or fish broth; it must be hot when it goes in) and return the [chicken wings](i:chicken_wings) to the pan. Mix the broth with the sofrito and taste it: it needs to be salty, so add [salt](i:salt) if there's not enough, and season with [black pepper](i:black_pepper).
-11. Let it cook, tilting and moving the pan around so it cooks evenly: it should be boiling, not on maximum heat. When the broth starts to boil, lower the heat a bit and keep a gentle simmer until all the liquid is absorbed and the rice at the bottom browns a little (the socarrat), with the [saffron](i:saffron) if you're using it. You can stir, but don't stir once the rice starts absorbing the liquid, or it will come out wrong.
-12. While the rice cooks, steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor) and arrange them over the paella.
+11. Start on strong heat; when the broth comes to a boil, lower it to a gentle simmer (chup chup) and leave it, tilting and moving the pan around so it cooks evenly, with the [saffron](i:saffron) if you're using it. Don't stir once the rice starts absorbing the liquid, or it will come out wrong.
+12. When the rice starts showing through the broth, taste it: if it's not done yet, add a little more boiling [stock](i:stock) (salted water only as a last resort; the ratio depends on the rice, see the rice note). When the broth is mostly absorbed, raise the heat a little for about a minute to create a bit of socarrat at the bottom, then turn off the heat and let it rest for a little while, finishing on its own heat so it doesn't overcook.
+13. While the rice cooks, steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor); shell a few of them and mix the meat into the rice, keeping the rest whole.
+14. Serve: arrange the whole mussels and any extra [chicken wings](i:chicken_wings) on top in a nice formation, with [lemon](i:lemon) wedges to squeeze and [aioli](i:aioli) on the side for those who like it.

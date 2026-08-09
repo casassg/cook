@@ -5,7 +5,6 @@ description: "Mom's paella: chicken wings, squid and mussels over a sofrito with
 image: main.webp
 categories: [mains]
 author: [gerard]
-source: https://s.samsungfood.com/KFU1Q
 portion:
   type: servings
   value: 4

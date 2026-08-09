@@ -63,7 +63,7 @@
               "id": { "type": "string", "minLength": 1 },
               "name": { "$ref": "#/$defs/i18nText" },
               "icon": { "type": "string", "description": "Emoji icon override for the tool (defaults to 🔧)" },
-              "links": { "$ref": "#/$defs/links" }
+              "note": { "$ref": "#/$defs/i18nText" }
             },
             "additionalProperties": false
           }
@@ -121,26 +121,11 @@
               "onlyForVariation": {
                 "type": "array",
                 "items": { "type": "string" }
-              },
-              "links": { "$ref": "#/$defs/links" }
+              }
             },
             "additionalProperties": false
           }
         }
-      }
-    },
-    "links": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "required": ["url", "label"],
-        "properties": {
-          "url": { "type": "string", "format": "uri" },
-          "icon": { "type": "string", "description": "Emoji icon for the link (defaults to 🛒)" },
-          "label": { "$ref": "#/$defs/i18nText" }
-        },
-        "additionalProperties": false
       }
     },
     "translation": {

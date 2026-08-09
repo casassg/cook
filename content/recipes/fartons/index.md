@@ -42,6 +42,7 @@ ingredients:
     amount: 100
     unit: ml
     item: { en: "lukewarm water", ca: "aigua tèbia", es: "agua tibia" }
+    group: { en: "Dough", ca: "Massa", es: "Masa" }
     note:
       en: "for the dough"
       ca: "per la massa"
@@ -51,16 +52,19 @@ ingredients:
     amount: 7
     unit: g
     item: { en: "dry active yeast", ca: "llevat sec actiu", es: "levadura seca activa" }
+    group: { en: "Dough", ca: "Massa", es: "Masa" }
   - id: flour
     emoji: "🌾"
     amount: 575
     unit: g
     item: { en: "all-purpose flour", ca: "farina de tot ús", es: "harina de todo uso" }
+    group: { en: "Dough", ca: "Massa", es: "Masa" }
   - id: sugar
     emoji: "🍚"
     amount: 100
     unit: g
     item: { en: "granulated sugar", ca: "sucre", es: "azúcar" }
+    group: { en: "Dough", ca: "Massa", es: "Masa" }
     note:
       en: "for the dough"
       ca: "per la massa"
@@ -69,20 +73,24 @@ ingredients:
     amount: 2
     unit: unit
     item: { en: "large eggs", ca: "ous grans", es: "huevos grandes" }
+    group: { en: "Dough", ca: "Massa", es: "Masa" }
   - id: oil
     emoji: "🫒"
     amount: 100
     unit: ml
     item: { en: "vegetable oil", ca: "oli vegetal", es: "aceite vegetal" }
+    group: { en: "Dough", ca: "Massa", es: "Masa" }
   - id: salt
     amount: 1
     unit: tsp
     item: { en: "salt", ca: "sal", es: "sal" }
+    group: { en: "Dough", ca: "Massa", es: "Masa" }
   - id: glaze_sugar
     emoji: "🍬"
     amount: 150
     unit: g
     item: { en: "confectioners' sugar", ca: "sucre de llustre", es: "azúcar glas" }
+    group: { en: "Glaze", ca: "Glacejat", es: "Glaseado" }
     note:
       en: "for the glaze"
       ca: "pel glacejat"
@@ -92,6 +100,7 @@ ingredients:
     amount: 50
     unit: ml
     item: { en: "lukewarm water", ca: "aigua tèbia", es: "agua tibia" }
+    group: { en: "Glaze", ca: "Glacejat", es: "Glaseado" }
     note:
       en: "for the glaze"
       ca: "pel glacejat"
@@ -100,6 +109,7 @@ ingredients:
     amount: 0
     unit: as_needed
     item: { en: "butter", ca: "mantega", es: "mantequilla" }
+    group: { en: "For the tray", ca: "Per a la plata", es: "Para la bandeja" }
     note:
       en: "for greasing the tray"
       ca: "per untar la plata"

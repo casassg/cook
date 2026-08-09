@@ -105,7 +105,7 @@ ingredients:
 ---
 
 1. Make the [sofrito](/recipes/sofrito) following the sofrito recipe, directly in the [paella pan](tool:paella_pan).
-2. Season the [chicken wings](i:chicken_wings) with [paprika](i:paprika), [salt](i:salt), [black pepper](i:black_pepper) and [garlic powder](i:garlic_powder), then leave them to marinate in the fridge for a little while, covered.
+2. While making the sofrito, season the [chicken wings](i:chicken_wings) with [paprika](i:paprika), [salt](i:salt), [black pepper](i:black_pepper) and [garlic powder](i:garlic_powder), then leave them to marinate in the fridge for a little while, covered.
 3. Add the seasoned [chicken wings](i:chicken_wings) (or small-cut pork ribs) to the pan and cook them for about 5 minutes per side, until they look golden and juicy on both sides, then take them out and set them aside. When you start the chicken, also put the [stock](i:stock) on to heat.
 4. Cut the [squid](i:squid) into small pieces and set it aside.
 5. Steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor).

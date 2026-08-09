@@ -5,7 +5,7 @@ description: "Receta de mi madre: alitas de pollo, sepia y mejillones sobre un s
 ---
 
 1. Haz el [sofrito](/recipes/sofrito) siguiendo la receta del sofrito, directamente en la [paellera](tool:paella_pan).
-2. Sazona las [alitas de pollo](i:chicken_wings) con [pimentón](i:paprika), [sal](i:salt), [pimienta negra](i:black_pepper) y [ajo en polvo](i:garlic_powder), y déjalas marinar en la nevera un rato, tapadas, antes de cocinarlas.
+2. Mientras haces el sofrito, sazona las [alitas de pollo](i:chicken_wings) con [pimentón](i:paprika), [sal](i:salt), [pimienta negra](i:black_pepper) y [ajo en polvo](i:garlic_powder), y déjalas marinar en la nevera un rato, tapadas, antes de cocinarlas.
 3. Añade las [alitas de pollo](i:chicken_wings) sazonadas (o costillas de cerdo cortadas pequeñas) y cuécelas unos 5 minutos por cada lado, hasta que queden doradas y jugosas por ambos lados; luego sácalas y resérvalas. Cuando empieces con el pollo, pon también el [caldo](i:stock) a calentar.
 4. Corta la [sepia o los calamares](i:squid) en trozos pequeños y resérvalos.
 5. Haz los [mejillones](i:mussels) al vapor siguiendo la [receta de mejillones al vapor](/recipes/musclos-al-vapor).

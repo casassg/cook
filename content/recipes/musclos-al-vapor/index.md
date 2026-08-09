@@ -5,7 +5,6 @@ description: "Quick, easy and cheap: mussels steamed with garlic, bay leaf and l
 image: main.webp
 categories: [mains]
 author: [gerard]
-source: https://s.samsungfood.com/ENd9R
 portion:
   type: servings
   value: 4
@@ -20,15 +19,6 @@ ingredients:
     amount: 1000
     unit: g
     item: { en: "mussels", ca: "musclos", es: "mejillones" }
-  - id: water
-    emoji: "💧"
-    amount: 0
-    unit: as_needed
-    item: { en: "mineral water", ca: "aigua mineral", es: "agua mineral" }
-    note:
-      en: "a finger of water in the pot"
-      ca: "un dit d'aigua al cassó"
-      es: "un dedo de agua en la cacerola"
   - id: salt
     amount: 0
     unit: to_taste
@@ -66,7 +56,7 @@ ingredients:
     item: { en: "olive oil", ca: "oli d'oliva", es: "aceite de oliva" }
 ---
 
-1. Clean the [mussels](i:mussels) well, removing all the debris they carry, and rinse them under [water](i:water).
-2. Put them in a [pot with lid](tool:pot) with a finger of [water](i:water) and [salt](i:salt), a [garlic](i:garlic) clove, a [bay leaf](i:bay_leaves) and a [lemon](i:lemon) slice, plus a splash of [white wine](i:white_wine) if you're using it.
+1. Clean the [mussels](i:mussels) well, removing all the debris they carry, and rinse them under running water.
+2. Put them in a [pot with lid](tool:pot) with a finger of water and [salt](i:salt), a [garlic](i:garlic) clove, a [bay leaf](i:bay_leaves) and a [lemon](i:lemon) slice, plus a splash of [white wine](i:white_wine) if you're using it.
 3. Cover the [pot](tool:pot) and steam until every [mussel](i:mussels) is fully open, about [3-4 min](t:3m): don't stop before they're all open, but don't overcook them either.
 4. Dress them with a drizzle of [olive oil](i:olive_oil); you can also dress them with [lemon](i:lemon), mayonnaise, etc.

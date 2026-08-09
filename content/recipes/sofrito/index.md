@@ -5,7 +5,6 @@ description: "The base of the paella: onion slowly fried in olive oil with a sea
 image: main.webp
 categories: [mains]
 author: [gerard]
-source: https://s.samsungfood.com/KFU1Q
 portion:
   type: servings
   value: 4

@@ -1,0 +1,9 @@
+# Grams per US cup, keyed by ingredient id.
+# Used by the metric → US conversion toggle.
+flour: 125
+sugar: 200
+brown_sugar: 220
+glaze_sugar: 120
+yeast: 128
+chufa: 150
+rice: 200

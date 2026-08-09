@@ -109,9 +109,9 @@ ingredients:
     unit: unit
     item: { en: "lemon", ca: "llimona", es: "limón" }
     note:
-      en: "for serving, cut in wedges"
-      ca: "per servir, tallada a quarts"
-      es: "para servir, cortada en gajos"
+      en: "optional, for serving, cut in wedges"
+      ca: "opcional, per servir, tallada a quarts"
+      es: "opcional, para servir, cortada en gajos"
   - id: aioli
     emoji: "🧄"
     amount: 0
@@ -136,4 +136,4 @@ ingredients:
 11. Start on strong heat; when the broth comes to a boil, lower it to a gentle simmer (chup chup) and leave it, tilting and moving the pan around so it cooks evenly, with the [saffron](i:saffron) if you're using it. Don't stir once the rice starts absorbing the liquid, or it will come out wrong.
 12. When the rice starts showing through the broth, taste it: if it's not done yet, add a little more boiling [stock](i:stock) (salted water only as a last resort; the ratio depends on the rice, see the rice note). When the broth is mostly absorbed, raise the heat a little for about a minute to create a bit of socarrat at the bottom, then turn off the heat and let it rest for a little while, finishing on its own heat so it doesn't overcook.
 13. While the rice cooks, steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor); shell a few of them and mix the meat into the rice, keeping the rest whole.
-14. Serve: arrange the whole mussels and any extra [chicken wings](i:chicken_wings) on top in a nice formation, with [lemon](i:lemon) wedges to squeeze and [aioli](i:aioli) on the side for those who like it.
+14. Serve: arrange the whole mussels and any extra [chicken wings](i:chicken_wings) on top in a nice formation, with [lemon](i:lemon) wedges and [aioli](i:aioli) on the side, both optional.

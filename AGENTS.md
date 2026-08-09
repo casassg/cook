@@ -34,6 +34,7 @@ One leaf bundle per recipe under `content/recipes/<slug>/`, one file per languag
 - Timers ONLY for passive waits (simmer, bake, rest, chill, proof) of roughly 1 minute or more. Never add a timer for active work (chopping, mixing, blending) or for "until done" judgement calls — describe those in prose instead.
 - One action per step. Split steps that mix prep + cook, or that chain two unrelated actions; each step should read as a single imperative sentence.
 - Ingredient ids MUST resolve to an emoji: prefer picking an id that is itself a gemoji name (e.g. use id `fish` for swordfish, not `swordfish`). When two distinct ingredients in the same recipe would otherwise share a gemoji name, keep the ids unique and descriptive and set each ingredient's `emoji` field to the shared gemoji key (e.g. two fish ingredients get ids `swordfish`/`cod`, both with `emoji: fish`). For ids that don't auto-resolve (e.g. `olive_oil`, `brown_sugar`), set `emoji` to the actual unicode character (e.g. `emoji: "🫒"`).
+- Group ingredients whenever a recipe has 12 or more. Use groups that match the cooking flow (e.g. "Chicken", "Main", "To serve") rather than generic categories.
 
 ## Rendering internals
 

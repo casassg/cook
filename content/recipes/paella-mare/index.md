@@ -19,6 +19,7 @@ ingredients:
     amount: 450
     unit: g
     item: { en: "chicken wings", ca: "aletes de pollastre", es: "alitas de pollo" }
+    group: { en: "Chicken", ca: "Pollastre", es: "Pollo" }
     note:
       en: "or small-cut pork ribs"
       ca: "o costella de porc tallada petita"
@@ -28,15 +29,18 @@ ingredients:
     amount: 1
     unit: tsp
     item: { en: "paprika", ca: "pebre vermell", es: "pimentón" }
+    group: { en: "Chicken", ca: "Pollastre", es: "Pollo" }
   - id: garlic_powder
     emoji: "🧄"
     amount: 1
     unit: tsp
     item: { en: "garlic powder", ca: "all en pols", es: "ajo en polvo" }
+    group: { en: "Chicken", ca: "Pollastre", es: "Pollo" }
   - id: squid
     amount: 225
     unit: g
     item: { en: "squid", ca: "sípia o calamars", es: "sepia o calamares" }
+    group: { en: "Main", ca: "Principal", es: "Principal" }
     note:
       en: "tentacles or body, whichever you prefer, cut in squares (optional)"
       ca: "potes o cos, el que prefereixis, tallats a quadrats (opcional)"
@@ -45,6 +49,7 @@ ingredients:
     amount: 600
     unit: g
     item: { en: "paella rice", ca: "arròs per a paella", es: "arroz para paella" }
+    group: { en: "Main", ca: "Principal", es: "Principal" }
     note:
       en: "the broth ratio depends on the rice: Spanish extra or arborio take about 2:1 (twice as much broth), bomba can take 3-4:1 depending on the brand"
       ca: "la proporció de caldo depèn de l'arròs: l'extra o l'arborio demanen uns 2:1 (el doble de caldo), el bomba pot demanar 3-4:1 segons la marca"
@@ -54,6 +59,7 @@ ingredients:
     amount: 1.5
     unit: l
     item: { en: "stock", ca: "caldo", es: "caldo" }
+    group: { en: "Main", ca: "Principal", es: "Principal" }
     note:
       en: "chicken broth, ideally bone broth for better flavor; you can also use the water from steaming the mussels, or fish broth"
       ca: "caldo de pollastre, idealment d'ossos, que dóna més gust; també pots fer servir l'aigua de coure els musclos o caldo de peix"
@@ -63,6 +69,7 @@ ingredients:
     amount: 450
     unit: g
     item: { en: "mussels", ca: "musclos", es: "mejillones" }
+    group: { en: "Main", ca: "Principal", es: "Principal" }
     note:
       en: "1 lb for the paella; I usually buy a 2 lb bag and eat the rest as a starter"
       ca: "1 lb per a la paella; normalment compro una bossa de 2 lb i la resta la menjo d'entrant"
@@ -72,6 +79,7 @@ ingredients:
     amount: 0
     unit: to_taste
     item: { en: "saffron", ca: "safrà", es: "azafrán" }
+    group: { en: "Main", ca: "Principal", es: "Principal" }
     note:
       en: "optional"
       ca: "opcional"
@@ -80,15 +88,18 @@ ingredients:
     amount: 0
     unit: to_taste
     item: { en: "salt", ca: "sal", es: "sal" }
+    group: { en: "Main", ca: "Principal", es: "Principal" }
   - id: black_pepper
     emoji: "🧂"
     amount: 0
     unit: to_taste
     item: { en: "black pepper", ca: "pebre negre", es: "pimienta negra" }
+    group: { en: "Main", ca: "Principal", es: "Principal" }
   - id: lemon
     amount: 1
     unit: unit
     item: { en: "lemon", ca: "llimona", es: "limón" }
+    group: { en: "To serve", ca: "Per servir", es: "Para servir" }
     note:
       en: "optional, for serving, cut in wedges"
       ca: "opcional, per servir, tallada a quarts"
@@ -98,6 +109,7 @@ ingredients:
     amount: 0
     unit: as_needed
     item: { en: "aioli", ca: "allioli", es: "alioli" }
+    group: { en: "To serve", ca: "Per servir", es: "Para servir" }
     note:
       en: "optional, for serving"
       ca: "opcional, per servir"

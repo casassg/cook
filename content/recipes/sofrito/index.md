@@ -12,7 +12,8 @@ portion:
 tools:
   - id: pan
     icon: "🍳"
-    name: { en: "paella pan or large frying pan", ca: "paella o cassola gran", es: "paellera o sartén grande" }
+    name: { en: "paella pan", ca: "paella", es: "paellera" }
+    note: { en: "or a large frying pan", ca: "o una cassola gran", es: "o una sartén grande" }
   - id: splatter_screen
     icon: "🛡️"
     name: { en: "splatter screen", ca: "tapa esquitxades", es: "tapa antisalpicaduras" }
@@ -38,15 +39,9 @@ ingredients:
     unit: g
     item: { en: "tomatoes", ca: "tomàquets", es: "tomates" }
     note:
-      en: "canned or fresh, any kind as long as it's ripe (maduros) and soft, almost falling apart when cut; San Marzano canned tomatoes are great (Kirkland from Costco works well)"
-      ca: "de llauna o frescos, qualsevol tipus sempre que sigui madur i tou, que gairebé es desfaci en tallar-lo; els tomàquets San Marzano de llauna van molt bé (els Kirkland del Costco també)"
-      es: "de lata o frescos, cualquier tipo siempre que esté maduro y blando, que casi se deshaga al cortarlo; los tomates San Marzano en lata van muy bien (los Kirkland de Costco también)"
-    links:
-      - url: "https://www.instacart.com/store/products/19342627-kirkland-signature-san-marzano-tomatoes-with-basil-3-x-28-oz-28-oz?x_retailer=true"
-        label:
-          en: "Kirkland San Marzano tomatoes (Costco)"
-          ca: "Tomàquets San Marzano Kirkland (Costco)"
-          es: "Tomates San Marzano Kirkland (Costco)"
+      en: "canned or fresh, any kind as long as it's ripe (maduros) and soft, almost falling apart when cut; San Marzano canned tomatoes are great ([🛒 Kirkland San Marzano from Costco](https://www.instacart.com/store/products/19342627-kirkland-signature-san-marzano-tomatoes-with-basil-3-x-28-oz-28-oz?x_retailer=true))"
+      ca: "de llauna o frescos, qualsevol tipus sempre que sigui madur i tou, que gairebé es desfaci en tallar-lo; els tomàquets San Marzano de llauna van molt bé ([🛒 Kirkland San Marzano del Costco](https://www.instacart.com/store/products/19342627-kirkland-signature-san-marzano-tomatoes-with-basil-3-x-28-oz-28-oz?x_retailer=true))"
+      es: "de lata o frescos, cualquier tipo siempre que esté maduro y blando, que casi se deshaga al cortarlo; los tomates San Marzano en lata van muy bien ([🛒 Kirkland San Marzano de Costco](https://www.instacart.com/store/products/19342627-kirkland-signature-san-marzano-tomatoes-with-basil-3-x-28-oz-28-oz?x_retailer=true))"
   - id: sugar
     emoji: "🍬"
     amount: 1

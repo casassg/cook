@@ -20,15 +20,13 @@
   {{ if and (eq $unitLabel "") (ne $unit "unit") }}{{ $unitLabel = $unit }}{{ end }}
   {{ $item := partial "localize.html" (dict "v" .item "lang" $lang) }}
   {{ $note := partial "localize.html" (dict "v" (index . "note") "lang" $lang) }}
+  {{ with $note }}{{ $note = $.RenderString (dict "display" "inline") $note }}{{ end }}
+  {{ $group := partial "localize.html" (dict "v" (index . "group") "lang" $lang) }}
   {{ $only := index . "onlyForVariation" | default slice }}
   {{/* Emoji: direct character from `emoji` field, else Hugo emojify on the id. */}}
   {{ $emoji := index . "emoji" | default "" }}
   {{ if not $emoji }}{{ $code := printf ":%s:" .id }}{{ $try := emojify $code }}{{ if ne $try $code }}{{ $emoji = $try }}{{ end }}{{ end }}
-  {{ $links := slice }}
-  {{ range (index . "links" | default slice) }}
-    {{ $links = $links | append (dict "url" .url "icon" (index . "icon" | default "🛒") "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
-  {{ end }}
-  {{ $entry := dict "id" .id "amount" .amount "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "only" $only "emoji" $emoji "links" $links }}
+  {{ $entry := dict "id" .id "amount" .amount "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "group" $group "only" $only "emoji" $emoji }}
   {{ $ings = $ings | append $entry }}
   {{ $ingIndex = merge $ingIndex (dict .id $entry) }}
 {{ end }}
@@ -40,11 +38,9 @@
 {{ range ($en.Params.tools | default slice) }}
   {{ $name := partial "localize.html" (dict "v" .name "lang" $lang) }}
   {{ $icon := index . "icon" | default "🔧" }}
-  {{ $links := slice }}
-  {{ range (index . "links" | default slice) }}
-    {{ $links = $links | append (dict "url" .url "icon" (index . "icon" | default "🛒") "label" (partial "localize.html" (dict "v" .label "lang" $lang))) }}
-  {{ end }}
-  {{ $entry := dict "id" .id "name" $name "icon" $icon "links" $links }}
+  {{ $note := partial "localize.html" (dict "v" (index . "note") "lang" $lang) }}
+  {{ with $note }}{{ $note = $.RenderString (dict "display" "inline") $note }}{{ end }}
+  {{ $entry := dict "id" .id "name" $name "item" $name "icon" $icon "note" $note }}
   {{ $tools = $tools | append $entry }}
   {{ $toolIndex = merge $toolIndex (dict .id $entry) }}
 {{ end }}
@@ -153,20 +149,15 @@
         {{ end }}
       </div>
       <ul class="mt-3">
+        {{ $prevGroup := "" }}
         {{ range $ings }}
+        {{ if ne .group $prevGroup }}{{ with .group }}
+        <li class="pt-4 pb-1 text-xs font-semibold uppercase tracking-wide text-muted">{{ . }}</li>
+        {{ end }}{{ end }}
         <li class="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] last:border-0" {{ with .only }}data-only="{{ delimit . " " }}" x-show="showVar('{{ delimit . " " }}')"{{ end }}>
-          <span class="w-6 shrink-0 text-center text-lg leading-6" aria-hidden="true">{{ .emoji }}</span>
-          <div class="min-w-0">
-            <div>
-              {{- if .hasAmount -}}
-              <span class="font-semibold tabular-nums text-heading"><span data-base="{{ .amount }}" x-text="fmt($el.dataset.base)">{{ .amount }}</span>{{ with .unitLabel }} {{ . }}{{ end }}</span> {{ .item }}
-              {{- else -}}{{ .item }}{{- end -}}
-              {{- with .links }} {{ partial "item-links.html" . }}{{ end -}}
-            </div>
-            {{ if .hasAmount }}{{ with .note }}<div class="text-sm text-muted">{{ . }}</div>{{ end }}
-            {{ else }}<div class="text-sm text-muted">{{ .unitLabel }}{{ with .note }} · {{ . }}{{ end }}</div>{{ end }}
-          </div>
+          {{ partial "item-row.html" (dict "e" .) }}
         </li>
+        {{ $prevGroup = .group }}
         {{ end }}
       </ul>
       {{ with $tools }}
@@ -175,8 +166,7 @@
         <ul class="mt-3">
           {{ range . }}
           <li class="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] last:border-0">
-            <span class="w-6 shrink-0 text-center text-lg leading-6" aria-hidden="true">{{ .icon }}</span>
-            <div class="min-w-0">{{ .name }}{{ with .links }}{{ range . }}. <a href="{{ .url }}" target="_blank" rel="noopener" class="text-accent underline underline-offset-2 hover:text-accent-hover">{{ .icon }} {{ .label }} ↗</a>{{ end }}{{ end }}</div>
+            {{ partial "item-row.html" (dict "e" .) }}
           </li>
           {{ end }}
         </ul>
@@ -236,11 +226,7 @@
               {{ range $s.refs }}{{ $ref := . }}{{ with index $ingIndex $ref.id }}
               {{ $amt := .amount }}{{ if gt $ref.frac 0.0 }}{{ $amt = mul .amount $ref.frac }}{{ end }}
               <li class="flex items-start gap-2.5" {{ with .only }}x-show="showVar('{{ delimit . " " }}')"{{ end }}>
-                <span class="w-6 shrink-0 text-center text-lg leading-6" aria-hidden="true">{{ .emoji }}</span>
-                <div class="min-w-0">
-                  <div>{{ if .hasAmount }}<span class="font-semibold tabular-nums text-heading"><span data-base="{{ $amt }}" x-text="fmt($el.dataset.base)">{{ $amt }}</span>{{ with .unitLabel }} {{ . }}{{ end }}</span> {{ end }}{{ .item }}{{ with .links }} {{ partial "item-links.html" . }}{{ end }}</div>
-                  {{ with .note }}<div class="text-sm text-muted">{{ . }}</div>{{ end }}
-                </div>
+                {{ partial "item-row.html" (dict "e" . "amount" $amt) }}
               </li>
               {{ end }}{{ end }}
             </ul>

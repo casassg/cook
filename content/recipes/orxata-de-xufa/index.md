@@ -30,13 +30,10 @@ tools:
       en: "coffee filter (e.g. reusable organic cotton cold brew bag)"
       ca: "filtre de cafè (p. ex. bossa de cotó orgànic reutilitzable per a cold brew)"
       es: "filtro de café (p. ej. bolsa de algodón orgánico reutilizable para cold brew)"
-    links:
-      - url: "https://a.co/d/03O45HaF"
-        icon: "🛒"
-        label:
-          en: "Reusable cold brew bag on Amazon"
-          ca: "Bossa reutilitzable per a cold brew a Amazon"
-          es: "Bolsa reutilizable para cold brew en Amazon"
+    note:
+      en: "[🛒 Reusable cold brew bag on Amazon](https://a.co/d/03O45HaF)"
+      ca: "[🛒 Bossa reutilitzable per a cold brew a Amazon](https://a.co/d/03O45HaF)"
+      es: "[🛒 Bolsa reutilizable para cold brew en Amazon](https://a.co/d/03O45HaF)"
 ingredients:
   - id: chufa
     emoji: "🥜"
@@ -44,16 +41,9 @@ ingredients:
     unit: g
     item: { en: "tiger nuts", ca: "xufes", es: "chufas" }
     note:
-      en: "organic"
-      ca: "orgàniques"
-      es: "orgánicas"
-    links:
-      - url: "https://a.co/d/09hxJ2n6"
-        icon: "🛒"
-        label:
-          en: "Organic tiger nuts on Amazon"
-          ca: "Xufes orgàniques a Amazon"
-          es: "Chufas orgánicas en Amazon"
+      en: "organic ([🛒 buy on Amazon](https://a.co/d/09hxJ2n6))"
+      ca: "orgàniques ([🛒 comprar a Amazon](https://a.co/d/09hxJ2n6))"
+      es: "orgánicas ([🛒 comprar en Amazon](https://a.co/d/09hxJ2n6))"
   - id: water
     emoji: "💧"
     amount: 1

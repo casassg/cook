@@ -9,7 +9,7 @@ description: "Receta de mi madre: alitas de pollo, sepia y mejillones sobre un s
 3. Añade las [alitas de pollo](i:chicken_wings) sazonadas (o costillas de cerdo cortadas pequeñas) y cuécelas unos 5 minutos por cada lado, hasta que queden doradas y jugosas por ambos lados; luego sácalas y resérvalas. Cuando empieces con el pollo, pon también el [caldo](i:stock) a calentar: hace falta el doble de caldo que de [arroz](i:rice), unos 1,5 litros para 4 personas.
 4. Corta la [sepia o los calamares](i:squid) en trozos pequeños y resérvalos.
 5. Repasa los [mejillones](i:mussels): descarta los que tengan la concha rota y los que estén abiertos y no se cierren al tocarlos; quédate solo con los buenos.
-6. Lava los mejillones seleccionados con [agua](i:water), quitándoles las impurezas, y déjalos listos para cocer al vapor.
+6. Lava los mejillones seleccionados con agua corriente, quitándoles las impurezas, y déjalos listos para cocer al vapor.
 7. Añade un poco más de sofrito a la paellera, baja un poco el fuego para que no se queme y fríelo un poco más (el sofrito ya debería llevar suficiente aceite).
 8. Añade la [sepia](i:squid) y cuécela un poco.
 9. Añade el [arroz](i:rice) y tuéstalo un par de minutos, dejando que absorba los jugos. Cuando lo pongas, el arroz tiene que quedar rojo: si no, necesitas más sofrito.

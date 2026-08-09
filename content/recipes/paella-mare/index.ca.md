@@ -9,7 +9,7 @@ description: "Recepta de la meva mare: aletes de pollastre, sípia i musclos sob
 3. Afegeix-hi les [aletes de pollastre](i:chicken_wings) amanides (o costella de porc tallada petita) i cou-les uns 5 minuts per cada costat, fins que quedin daurades i sucoses pels dos costats; després treu-les i reserva-les. Quan comencis amb el pollastre, posa també el [caldo](i:stock) a escalfar: cal el doble de caldo que d'[arròs](i:rice), uns 1,5 litres per a 4 persones.
 4. Talla la [sípia o els calamars](i:squid) a trossos petits i reserva'ls.
 5. Repassa els [musclos](i:mussels): descarta els que tinguin la closca trencada i els que estiguin oberts i no es tanquin quan els toques; queda't només amb els bons.
-6. Renta els musclos seleccionats amb [aigua](i:water), traient-los les impureses, i deixa'ls a punt per coure al vapor.
+6. Renta els musclos seleccionats amb aigua corrent, traient-los les impureses, i deixa'ls a punt per coure al vapor.
 7. Afegeix una mica més de sofregit a la paella, baixa una mica el foc perquè no es cremi i fregeix-lo una mica més (el sofregit ja ha de portar prou oli).
 8. Afegeix-hi la [sípia](i:squid) i cou-la una mica.
 9. Afegeix l'[arròs](i:rice) i torra'l un parell de minuts, deixant que absorbeixi els sucs. Quan el posis, l'arròs ha de quedar vermell: si no, et cal més sofregit.

@@ -1,7 +1,7 @@
 ---
 date: 2026-08-08T12:00:00-05:00
-title: "Paella mare"
-description: "Mom's paella: chicken wings, squid and mussels over a sofrito with short-grain rice."
+title: "Paella Mixta"
+description: "Recipe from my mom: chicken wings, squid and mussels over a sofrito with short-grain rice."
 image: main.webp
 categories: [mains]
 author: [gerard]

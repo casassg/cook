@@ -6,13 +6,13 @@ description: "La paella de mamá: alitas de pollo, sepia y mejillones sobre un s
 
 1. Haz el [sofrito](/recipes/sofrito) siguiendo la receta del sofrito, directamente en la [paellera](tool:paella_pan).
 2. Sazona las [alitas de pollo](i:chicken_wings) con [pimentón](i:paprika), [sal](i:salt), [pimienta negra](i:black_pepper) y [ajo en polvo](i:garlic_powder), y déjalas marinar en la nevera un rato, tapadas, antes de cocinarlas.
-3. Añade las [alitas de pollo](i:chicken_wings) sazonadas (o costillas de cerdo cortadas pequeñas) y cuécelas unos 5 minutos por cada lado, hasta que queden doradas y jugosas; luego sácalas y resérvalas. Cuando empieces con el pollo, pon también el [caldo](i:stock) a calentar: hace falta el doble de caldo que de [arroz](i:rice), unos 1,5 litros para 4 personas.
+3. Añade las [alitas de pollo](i:chicken_wings) sazonadas (o costillas de cerdo cortadas pequeñas) y cuécelas unos 5 minutos por cada lado, hasta que queden doradas y jugosas por ambos lados; luego sácalas y resérvalas. Cuando empieces con el pollo, pon también el [caldo](i:stock) a calentar: hace falta el doble de caldo que de [arroz](i:rice), unos 1,5 litros para 4 personas.
 4. Corta la [sepia o los calamares](i:squid) en trozos pequeños y resérvalos.
 5. Repasa los [mejillones](i:mussels): descarta los que tengan la concha rota y los que estén abiertos y no se cierren al tocarlos; quédate solo con los buenos.
 6. Lava los mejillones seleccionados con [agua](i:water), quitándoles las impurezas, y déjalos listos para cocer al vapor.
-7. Añade la [sepia](i:squid) reservada y fríela con el resto (también puedes hacerla de montaña, solo con carne).
-8. También puedes añadir [verduras](i:vegetables) si quieres: alcachofas, espárragos verdes, pimientos...
-9. Vuelve a poner las [alitas de pollo](i:chicken_wings) y añade el [caldo](i:stock) caliente. Añade [sal](i:salt) y [pimienta negra](i:black_pepper): tiene que tener un punto fuerte de sal.
-10. Déjalo hervir un rato con la carne y las verduras, con el [azafrán](i:saffron) si lo usas.
-11. Después añade el [arroz](i:rice) y cuécelo removiendo de vez en cuando hasta que esté cocido.
+7. Añade un poco más de sofrito a la paellera, baja un poco el fuego para que no se queme y fríelo un poco más (el sofrito ya debería llevar suficiente aceite).
+8. Añade la [sepia](i:squid) (y [verduras](i:vegetables) si quieres: alcachofas, espárragos verdes, pimientos...) y cuécela un poco.
+9. Añade el [arroz](i:rice) y deja que absorba los jugos, tostándolo un poco.
+10. Añade el [caldo](i:stock) caliente (tiene que estar caliente cuando lo pongas) y vuelve a poner las [alitas de pollo](i:chicken_wings). Añade [sal](i:salt) y [pimienta negra](i:black_pepper): tiene que tener un punto fuerte de sal.
+11. Déjalo hervir un rato con el [azafrán](i:saffron) si lo usas, hasta que el arroz esté cocido, removiendo de vez en cuando.
 12. Mientras el arroz se cuece, haz los [mejillones](i:mussels) al vapor siguiendo la [receta de mejillones al vapor](/recipes/musclos-al-vapor) y colócalos sobre la paella.

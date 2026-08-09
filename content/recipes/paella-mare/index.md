@@ -52,13 +52,13 @@ ingredients:
       es: "arborio o cualquier arroz de grano corto"
   - id: stock
     emoji: "🍲"
-    amount: 1
+    amount: 1.5
     unit: l
     item: { en: "stock", ca: "caldo", es: "caldo" }
     note:
-      en: "fish preferably, chicken otherwise; vegetable stock or plain water also work"
-      ca: "de peix preferiblement, de pollastre si no; també val caldo de verdura o aigua"
-      es: "de pescado preferiblemente, de pollo si no; también sirve caldo de verduras o agua"
+      en: "chicken broth, ideally bone broth for better flavor; you can also use the water from steaming the mussels, or fish broth"
+      ca: "caldo de pollastre, idealment d'ossos, que dóna més gust; també pots fer servir l'aigua de coure els musclos o caldo de peix"
+      es: "caldo de pollo, idealmente de huesos, que da más sabor; también puedes usar el agua de cocer los mejillones o caldo de pescado"
   - id: water
     emoji: "💧"
     amount: 500
@@ -108,13 +108,13 @@ ingredients:
 
 1. Make the [sofrito](/recipes/sofrito) following the sofrito recipe, directly in the [paella pan](tool:paella_pan).
 2. Season the [chicken wings](i:chicken_wings) with [paprika](i:paprika), [salt](i:salt), [black pepper](i:black_pepper) and [garlic powder](i:garlic_powder), then leave them to marinate in the fridge for a little while, covered.
-3. Add the seasoned [chicken wings](i:chicken_wings) (or small-cut pork ribs) to the pan and cook them for about 5 minutes per side, until they look brown and juicy, then take them out and set them aside.
+3. Add the seasoned [chicken wings](i:chicken_wings) (or small-cut pork ribs) to the pan and cook them for about 5 minutes per side, until they look brown and juicy, then take them out and set them aside. When you start the chicken, also put the [stock](i:stock) on to heat: you need twice as much broth as [rice](i:rice), about 1.5 liters for 4 people.
 4. Cut the [squid](i:squid) into small pieces and set it aside.
 5. Sort through the [mussels](i:mussels): discard any with broken shells, and any open ones that don't close when you tap them; keep only the good ones.
 6. Rinse the selected mussels in [water](i:water), cleaning off any impurities, and set them aside for steaming.
 7. Add the [squid](i:squid) to the pan and fry it with the rest (you can also make it mountain-style, just meat).
 8. You can also add [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...
-9. Return the [chicken wings](i:chicken_wings) to the pan, then add the [stock](i:stock). Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted. Measure the liquid: you need twice as much liquid as [rice](i:rice) by volume, not by weight.
+9. Return the [chicken wings](i:chicken_wings) to the pan and add the heated [stock](i:stock). Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted.
 10. Let it boil for a while with the meat and the vegetables, with the [saffron](i:saffron) if you're using it.
 11. Add the [rice](i:rice) and cook, stirring from time to time, until it's done.
 12. While the rice cooks, steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor) and arrange them over the paella.

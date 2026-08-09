@@ -10,10 +10,9 @@ description: "Receta de mi madre: alitas de pollo, sepia y mejillones sobre un s
 4. Corta la [sepia o los calamares](i:squid) en trozos pequeños y resérvalos.
 5. Haz los [mejillones](i:mussels) al vapor siguiendo la [receta de mejillones al vapor](/recipes/musclos-al-vapor).
 6. Añade un poco más de sofrito a la paellera, baja un poco el fuego para que no se queme y fríelo un poco más (el sofrito ya debería llevar suficiente aceite).
-7. Añade la [sepia](i:squid) y cuécela un poco.
+7. Añade la [sepia](i:squid) y cuécela unos 3 minutos, y luego añade unos cuantos [mejillones](i:mussels) desconchados.
 8. Añade el [arroz](i:rice) y tuéstalo un par de minutos, dejando que absorba los jugos. Cuando lo pongas, el arroz tiene que quedar rojo: si no, necesitas más sofrito.
 9. Añade el [caldo](i:stock) caliente (tiene que estar caliente cuando lo pongas) y vuelve a poner las [alitas de pollo](i:chicken_wings). Mezcla el caldo con el sofrito y pruébalo: tiene que estar salado, así que añade [sal](i:salt) si no hay suficiente, y sazona con [pimienta negra](i:black_pepper).
 10. Empieza con fuego fuerte; cuando el caldo empiece a hervir, bájalo hasta que haga chup-chup y déjalo estar, inclinando y moviendo la paellera para que se cocine bien, con el [azafrán](i:saffron) si lo usas. No remuevas una vez el arroz empiece a beber el líquido, porque entonces quedará mal.
 11. Cuando el arroz empiece a asomar por encima del caldo, pruébalo: si todavía no está hecho, añade un poco más de [caldo](i:stock) hirviendo (agua con sal solo como último recurso). Cuando el caldo esté casi absorbido, sube un poco el fuego durante un minuto aproximadamente para hacer un poco de socarrat en el fondo, y luego apaga el fuego y déjalo reposar un rato, que termine de hacerse con su propio calor y no se pase.
-12. Desconcha unos cuantos de los [mejillones](i:mussels) cocidos y mezcla la carne con el arroz, dejando el resto enteros.
-13. Sirve: coloca los mejillones enteros y el [pollo](i:chicken_wings) sobrante encima, en una formación bonita, con [limón](i:lemon) en gajos y [alioli](i:aioli) al lado.
+12. Sirve: coloca los mejillones enteros y el [pollo](i:chicken_wings) sobrante encima, en una formación bonita, con [limón](i:lemon) en gajos y [alioli](i:aioli) al lado.

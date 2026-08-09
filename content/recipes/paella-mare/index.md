@@ -110,10 +110,9 @@ ingredients:
 4. Cut the [squid](i:squid) into small pieces and set it aside.
 5. Steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor).
 6. Add a little more of the sofrito to the pan, lower the heat a bit so it doesn't burn, and fry it a little more (the sofrito should already have enough oil).
-7. Add the [squid](i:squid) and cook it for a little bit.
+7. Add the [squid](i:squid) and cook it for about 3 minutes, then add some shelled [mussels](i:mussels).
 8. Add the [rice](i:rice) and toast it for a couple of minutes, letting it absorb the juices. When you add it, the rice should look red: if it doesn't, you need more sofrito.
 9. Add the hot [stock](i:stock) (it must be hot when it goes in) and return the [chicken wings](i:chicken_wings) to the pan. Mix the broth with the sofrito and taste it: it needs to be salty, so add [salt](i:salt) if there's not enough, and season with [black pepper](i:black_pepper).
 10. Start on strong heat; when the broth comes to a boil, lower it to a gentle simmer (chup chup) and leave it, tilting and moving the pan around so it cooks evenly, with the [saffron](i:saffron) if you're using it. Don't stir once the rice starts absorbing the liquid, or it will come out wrong.
 11. When the rice starts showing through the broth, taste it: if it's not done yet, add a little more boiling [stock](i:stock) (salted water only as a last resort). When the broth is mostly absorbed, raise the heat a little for about a minute to create a bit of socarrat at the bottom, then turn off the heat and let it rest for a little while, finishing on its own heat so it doesn't overcook.
-12. Shell a few of the steamed [mussels](i:mussels) and mix the meat into the rice, keeping the rest whole.
-13. Serve: arrange the whole mussels and any extra [chicken wings](i:chicken_wings) on top in a nice formation, with [lemon](i:lemon) wedges and [aioli](i:aioli) on the side.
+12. Serve: arrange the whole mussels and any extra [chicken wings](i:chicken_wings) on top in a nice formation, with [lemon](i:lemon) wedges and [aioli](i:aioli) on the side.

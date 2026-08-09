@@ -6,13 +6,13 @@ description: "La paella de la mare: aletes de pollastre, sípia i musclos sobre 
 
 1. Feu el [sofregit](/recipes/sofrito) seguint la recepta del sofregit, directament a la [paella](tool:paella_pan).
 2. Amania les [aletes de pollastre](i:chicken_wings) amb [pebre vermell](i:paprika), [sal](i:salt), [pebre negre](i:black_pepper) i [all en pols](i:garlic_powder), i deixa-les marinar a la nevera una estona, tapades, abans de coure-les.
-3. Afegeix-hi les [aletes de pollastre](i:chicken_wings) amanides (o costella de porc tallada petita) i cou-les uns 5 minuts per cada costat, fins que quedin daurades i sucoses; després treu-les i reserva-les. Quan comencis amb el pollastre, posa també el [caldo](i:stock) a escalfar: cal el doble de caldo que d'[arròs](i:rice), uns 1,5 litres per a 4 persones.
+3. Afegeix-hi les [aletes de pollastre](i:chicken_wings) amanides (o costella de porc tallada petita) i cou-les uns 5 minuts per cada costat, fins que quedin daurades i sucoses pels dos costats; després treu-les i reserva-les. Quan comencis amb el pollastre, posa també el [caldo](i:stock) a escalfar: cal el doble de caldo que d'[arròs](i:rice), uns 1,5 litres per a 4 persones.
 4. Talla la [sípia o els calamars](i:squid) a trossos petits i reserva'ls.
 5. Repassa els [musclos](i:mussels): descarta els que tinguin la closca trencada i els que estiguin oberts i no es tanquin quan els toques; queda't només amb els bons.
 6. Renta els musclos seleccionats amb [aigua](i:water), traient-los les impureses, i deixa'ls a punt per coure al vapor.
-7. Afegeix-hi la [sípia](i:squid) reservada i fregeix-la amb la resta (la pots fer de muntanya, de carn i prou).
-8. També hi pots afegir [verdures](i:vegetables) si n'hi vols posar: carxofes, esparrecs verds, pebrots...
-9. Torna a posar-hi les [aletes de pollastre](i:chicken_wings) i afegeix el [caldo](i:stock) calent. Afegeix [sal](i:salt) i [pebre negre](i:black_pepper): ha de tenir un punt fort de sal.
-10. Deixa-ho bullir una estona amb la carn i les verdures, amb el [safrà](i:saffron) si en fas servir.
-11. Després afegeix l'[arròs](i:rice) i cou-lo remenant de tant en tant fins que estigui cuit.
+7. Afegeix una mica més de sofregit a la paella, baixa una mica el foc perquè no es cremi i fregeix-lo una mica més (el sofregit ja ha de portar prou oli).
+8. Afegeix-hi la [sípia](i:squid) (i [verdures](i:vegetables) si en vols: carxofes, esparrecs verds, pebrots...) i cou-la una mica.
+9. Afegeix l'[arròs](i:rice) i deixa que absorbeixi els sucs, torrant-lo una mica.
+10. Afegeix el [caldo](i:stock) calent (ha d'estar calent quan el posis) i torna a posar-hi les [aletes de pollastre](i:chicken_wings). Afegeix [sal](i:salt) i [pebre negre](i:black_pepper): ha de tenir un punt fort de sal.
+11. Deixa-ho bullir una estona amb el [safrà](i:saffron) si en fas servir, fins que l'arròs sigui cuit, remenant de tant en tant.
 12. Mentre l'arròs es cou, feu els [musclos](i:mussels) al vapor seguint la [recepta de musclos al vapor](/recipes/musclos-al-vapor) i col·loqueu-los sobre la paella.

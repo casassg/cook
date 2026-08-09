@@ -108,13 +108,13 @@ ingredients:
 
 1. Make the [sofrito](/recipes/sofrito) following the sofrito recipe, directly in the [paella pan](tool:paella_pan).
 2. Season the [chicken wings](i:chicken_wings) with [paprika](i:paprika), [salt](i:salt), [black pepper](i:black_pepper) and [garlic powder](i:garlic_powder), then leave them to marinate in the fridge for a little while, covered.
-3. Add the seasoned [chicken wings](i:chicken_wings) (or small-cut pork ribs) to the pan and cook them for about 5 minutes per side, until they look brown and juicy, then take them out and set them aside. When you start the chicken, also put the [stock](i:stock) on to heat: you need twice as much broth as [rice](i:rice), about 1.5 liters for 4 people.
+3. Add the seasoned [chicken wings](i:chicken_wings) (or small-cut pork ribs) to the pan and cook them for about 5 minutes per side, until they look golden and juicy on both sides, then take them out and set them aside. When you start the chicken, also put the [stock](i:stock) on to heat: you need twice as much broth as [rice](i:rice), about 1.5 liters for 4 people.
 4. Cut the [squid](i:squid) into small pieces and set it aside.
 5. Sort through the [mussels](i:mussels): discard any with broken shells, and any open ones that don't close when you tap them; keep only the good ones.
 6. Rinse the selected mussels in [water](i:water), cleaning off any impurities, and set them aside for steaming.
-7. Add the [squid](i:squid) to the pan and fry it with the rest (you can also make it mountain-style, just meat).
-8. You can also add [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...
-9. Return the [chicken wings](i:chicken_wings) to the pan and add the heated [stock](i:stock). Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted.
-10. Let it boil for a while with the meat and the vegetables, with the [saffron](i:saffron) if you're using it.
-11. Add the [rice](i:rice) and cook, stirring from time to time, until it's done.
+7. Add a little more of the sofrito to the pan, lower the heat a bit so it doesn't burn, and fry it a little more (the sofrito should already have enough oil).
+8. Add the [squid](i:squid) (and [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...) and cook it for a little bit.
+9. Add the [rice](i:rice) and let it absorb the juices, toasting it for a little bit.
+10. Add the hot [stock](i:stock) (it must be hot when it goes in) and return the [chicken wings](i:chicken_wings) to the pan. Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted.
+11. Let it boil for a while with the [saffron](i:saffron) if you're using it, until the rice is done, stirring from time to time.
 12. While the rice cooks, steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor) and arrange them over the paella.

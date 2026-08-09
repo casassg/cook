@@ -116,5 +116,5 @@ ingredients:
 8. Add the [squid](i:squid) (and [vegetables](i:vegetables) if you want: artichokes, green asparagus, bell peppers...) and cook it for a little bit.
 9. Add the [rice](i:rice) and toast it for a couple of minutes, letting it absorb the juices. When you add it, the rice should look red: if it doesn't, you need more sofrito.
 10. Add the hot [stock](i:stock) (chicken or fish broth; it must be hot when it goes in) and return the [chicken wings](i:chicken_wings) to the pan. Add [salt](i:salt) and [black pepper](i:black_pepper): the broth should be well salted.
-11. Let it cook, tilting and moving the pan around from time to time so it cooks evenly, until the rice at the bottom browns a little (the socarrat), with the [saffron](i:saffron) if you're using it.
+11. Let it cook, tilting and moving the pan around so it cooks evenly: it should be boiling, not on maximum heat. When the broth starts to boil, lower the heat a bit and keep a gentle simmer until all the liquid is absorbed and the rice at the bottom browns a little (the socarrat), with the [saffron](i:saffron) if you're using it. You can stir, but don't stir once the rice starts absorbing the liquid, or it will come out wrong.
 12. While the rice cooks, steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor) and arrange them over the paella.

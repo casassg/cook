@@ -58,15 +58,6 @@ ingredients:
       en: "chicken broth, ideally bone broth for better flavor; you can also use the water from steaming the mussels, or fish broth"
       ca: "caldo de pollastre, idealment d'ossos, que dóna més gust; també pots fer servir l'aigua de coure els musclos o caldo de peix"
       es: "caldo de pollo, idealmente de huesos, que da más sabor; también puedes usar el agua de cocer los mejillones o caldo de pescado"
-  - id: water
-    emoji: "💧"
-    amount: 500
-    unit: ml
-    item: { en: "water", ca: "aigua", es: "agua" }
-    note:
-      en: "to clean the mussels"
-      ca: "per rentar els musclos"
-      es: "para lavar los mejillones"
   - id: mussels
     emoji: "🦪"
     amount: 450
@@ -118,7 +109,7 @@ ingredients:
 3. Add the seasoned [chicken wings](i:chicken_wings) (or small-cut pork ribs) to the pan and cook them for about 5 minutes per side, until they look golden and juicy on both sides, then take them out and set them aside. When you start the chicken, also put the [stock](i:stock) on to heat: you need twice as much broth as [rice](i:rice), about 1.5 liters for 4 people.
 4. Cut the [squid](i:squid) into small pieces and set it aside.
 5. Sort through the [mussels](i:mussels): discard any with broken shells, and any open ones that don't close when you tap them; keep only the good ones.
-6. Rinse the selected mussels in [water](i:water), cleaning off any impurities, and set them aside for steaming.
+6. Rinse the selected mussels under running water, cleaning off any impurities, and set them aside for steaming.
 7. Add a little more of the sofrito to the pan, lower the heat a bit so it doesn't burn, and fry it a little more (the sofrito should already have enough oil).
 8. Add the [squid](i:squid) and cook it for a little bit.
 9. Add the [rice](i:rice) and toast it for a couple of minutes, letting it absorb the juices. When you add it, the rice should look red: if it doesn't, you need more sofrito.

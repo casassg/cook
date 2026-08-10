@@ -81,11 +81,17 @@ ingredients:
     amount: 0.5
     unit: tsp
     item: { en: "curry powder", ca: "curri en pols", es: "curry en polvo" }
-  - id: water
-    emoji: "💧"
+  - id: stock
+    emoji: "🍲"
     amount: 640
     unit: ml
-    item: { en: "water", ca: "aigua", es: "agua" }
+    item: { en: "chicken stock (or vegetable stock)", ca: "brou de pollastre (o de verdures)", es: "caldo de pollo (o de verduras)" }
+    note: { en: "instead of water; never fish stock", ca: "en lloc d'aigua; mai brou de peix", es: "en lugar de agua; nunca caldo de pescado" }
+  - id: bay_leaves
+    emoji: "🌿"
+    amount: 2
+    unit: unit
+    item: { en: "bay leaves", ca: "fulles de llorer", es: "hojas de laurel" }
   - id: tomato
     amount: 400
     unit: g
@@ -108,7 +114,7 @@ ingredients:
 4. Add the [sausages](i:sausage) (frozen sausages or any meat you want to throw in) and keep sautéing: they add extra protein to the dish.
 5. Add the [lentils](i:lentils) and stop the sautéing.
 6. Add the [potatoes](i:potato), [carrots](i:carrot), [cumin](i:cumin) and [curry](i:curry).
-7. Add the [water](i:water) and the [diced tomatoes](i:tomato) with their juices.
+7. Add the [stock](i:stock) (chicken or veggie, instead of water) and the [diced tomatoes](i:tomato) with their juices, plus a couple of [bay leaves](i:bay_leaves).
 8. Close the lid, set to White Rice (or press the Cook switch) and cook until the rice cooker switches to Keep-Warm, about [45 min](t:45m).
 9. Midway through cooking, carefully open the [rice cooker](tool:rice_cooker) and stir with a long-handled [wooden spoon](tool:wooden_spoon), then re-cover. Careful: escaping steam and the inner bowl are hot.
 10. When it switches to Keep-Warm, open the lid, stir again and re-cover. Let it stand for [10 min](t:10m).

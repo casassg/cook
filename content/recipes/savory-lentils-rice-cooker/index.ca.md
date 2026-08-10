@@ -10,7 +10,7 @@ description: "Llenties amb xoriço i salsitxes, sofregides amb ceba, all, patata
 4. Afegeix les [salsitxes](i:sausage) (congelades o qualsevol carn que hi vulguis tirar) i segueix sofregint: afegeixen més proteïna al plat.
 5. Afegeix les [llenties](i:lentils) i para el sofregit.
 6. Afegeix les [patates](i:potato), les [pastanagues](i:carrot), el [comí](i:cumin) i el [curri](i:curry).
-7. Afegeix l'[aigua](i:water) i els [tomàquets a trossos](i:tomato) amb el seu suc.
+7. Afegeix el [brou](i:stock) (de pollastre o de verdures, en lloc d'aigua) i els [tomàquets a trossos](i:tomato) amb el seu suc, més un parell de [fulles de llorer](i:bay_leaves).
 8. Tanca la tapa, posa-ho en mode arròs blanc (o prem l'interruptor de cocció) i cou-ho fins que l'arrocera passi a mantenir calent, uns [45 min](t:45m).
 9. A mitja cocció, obre l'[arrocera](tool:rice_cooker) amb compte i remena amb una [cullera de fusta](tool:wooden_spoon) de mànec llarg, i torna a tapar. Compte: el vapor i el bol interior són calents.
 10. Quan passi a mantenir calent, obre la tapa, remena un altre cop i torna a tapar. Deixa-ho reposar [10 min](t:10m).

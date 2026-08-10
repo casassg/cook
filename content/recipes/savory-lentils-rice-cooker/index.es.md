@@ -10,7 +10,7 @@ description: "Lentejas con chorizo y salchichas, salteadas con cebolla, ajo, pat
 4. Añade las [salchichas](i:sausage) (congeladas o cualquier carne que quieras echar) y sigue salteando: aportan más proteína al plato.
 5. Añade las [lentejas](i:lentils) y para el salteado.
 6. Añade las [patatas](i:potato), las [zanahorias](i:carrot), el [comino](i:cumin) y el [curry](i:curry).
-7. Añade el [agua](i:water) y los [tomates en trozos](i:tomato) con su jugo.
+7. Añade el [caldo](i:stock) (de pollo o de verduras, en lugar de agua) y los [tomates en trozos](i:tomato) con su jugo, además de un par de [hojas de laurel](i:bay_leaves).
 8. Cierra la tapa, ponlo en modo arroz blanco (o pulsa el interruptor de cocción) y cuécelo hasta que la arrocera pase a mantener caliente, unos [45 min](t:45m).
 9. A mitad de cocción, abre la [arrocera](tool:rice_cooker) con cuidado y remueve con una [cuchara de madera](tool:wooden_spoon) de mango largo, y vuelve a tapar. Cuidado: el vapor y el recipiente interior están calientes.
 10. Cuando pase a mantener caliente, abre la tapa, remueve otra vez y vuelve a tapar. Déjalo reposar [10 min](t:10m).

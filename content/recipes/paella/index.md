@@ -20,11 +20,21 @@ tools:
   - id: paella_pan
     icon: "🍳"
     name: { en: "paella pan", ca: "paella", es: "paellera" }
+groups:
+  - key: protein
+    name: { en: "Protein", ca: "Proteïna", es: "Proteína" }
+  - key: seasoning
+    name: { en: "Seasoning", ca: "Condiments", es: "Condimentos" }
+  - key: base
+    name: { en: "Base", ca: "Base", es: "Base" }
+  - key: serving
+    name: { en: "For serving", ca: "Per servir", es: "Para servir" }
 ingredients:
   - id: chicken_wings
     emoji: "🍗"
     amount: 450
     unit: g
+    group: protein
     item: { en: "chicken wings", ca: "aletes de pollastre", es: "alitas de pollo" }
     note:
       en: "or small-cut pork ribs"
@@ -34,15 +44,18 @@ ingredients:
     emoji: "🌶️"
     amount: 1
     unit: tsp
+    group: seasoning
     item: { en: "paprika", ca: "pebre vermell", es: "pimentón" }
   - id: garlic_powder
     emoji: "🧄"
     amount: 1
     unit: tsp
+    group: seasoning
     item: { en: "garlic powder", ca: "all en pols", es: "ajo en polvo" }
   - id: squid
     amount: 225
     unit: g
+    group: protein
     item: { en: "squid", ca: "sípia o calamars", es: "sepia o calamares" }
     note:
       en: "tentacles or body, whichever you prefer, cut in squares (optional)"
@@ -51,6 +64,7 @@ ingredients:
   - id: rice
     amount: 600
     unit: g
+    group: base
     item: { en: "paella rice", ca: "arròs per a paella", es: "arroz para paella" }
     note:
       en: "the broth ratio depends on the rice: Spanish extra or arborio take about 2:1 (twice as much broth), bomba can take 3-4:1 depending on the brand"
@@ -60,6 +74,7 @@ ingredients:
     emoji: "🍲"
     amount: 1.5
     unit: l
+    group: base
     item: { en: "stock", ca: "caldo", es: "caldo" }
     note:
       en: "chicken broth, ideally bone broth for better flavor; you can also use the water from steaming the mussels, or fish broth"
@@ -69,6 +84,7 @@ ingredients:
     emoji: "🦪"
     amount: 450
     unit: g
+    group: protein
     item: { en: "mussels", ca: "musclos", es: "mejillones" }
     note:
       en: "1 lb for the paella; I usually buy a 2 lb bag and eat the rest as a starter"
@@ -78,6 +94,7 @@ ingredients:
     emoji: "🌼"
     amount: 0
     unit: to_taste
+    group: seasoning
     item: { en: "saffron", ca: "safrà", es: "azafrán" }
     note:
       en: "optional"
@@ -86,15 +103,18 @@ ingredients:
   - id: salt
     amount: 0
     unit: to_taste
+    group: seasoning
     item: { en: "salt", ca: "sal", es: "sal" }
   - id: black_pepper
     emoji: "🧂"
     amount: 0
     unit: to_taste
+    group: seasoning
     item: { en: "black pepper", ca: "pebre negre", es: "pimienta negra" }
   - id: lemon
     amount: 1
     unit: unit
+    group: serving
     item: { en: "lemon", ca: "llimona", es: "limón" }
     note:
       en: "optional, for serving, cut in wedges"
@@ -104,6 +124,7 @@ ingredients:
     emoji: "🧄"
     amount: 0
     unit: as_needed
+    group: serving
     item: { en: "aioli", ca: "allioli", es: "alioli" }
     note:
       en: "optional, for serving"

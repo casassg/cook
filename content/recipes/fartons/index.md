@@ -36,13 +36,20 @@ tools:
   - id: tray
     icon: "🍪"
     name: { en: "cookie sheet", ca: "plata del forn", es: "bandeja del horno" }
+groups:
+  - key: dough
+    name: { en: "Dough", ca: "Massa", es: "Masa" }
+  - key: glaze
+    name: { en: "Glaze", ca: "Glacejat", es: "Glaseado" }
+  - key: tray
+    name: { en: "For the tray", ca: "Per a la plata", es: "Para la bandeja" }
 ingredients:
   - id: water
     emoji: "💧"
     amount: 100
     unit: ml
     item: { en: "lukewarm water", ca: "aigua tèbia", es: "agua tibia" }
-    group: { en: "Dough", ca: "Massa", es: "Masa" }
+    group: dough
     note:
       en: "for the dough"
       ca: "per la massa"
@@ -52,19 +59,19 @@ ingredients:
     amount: 7
     unit: g
     item: { en: "dry active yeast", ca: "llevat sec actiu", es: "levadura seca activa" }
-    group: { en: "Dough", ca: "Massa", es: "Masa" }
+    group: dough
   - id: flour
     emoji: "🌾"
     amount: 575
     unit: g
     item: { en: "all-purpose flour", ca: "farina de tot ús", es: "harina de todo uso" }
-    group: { en: "Dough", ca: "Massa", es: "Masa" }
+    group: dough
   - id: sugar
     emoji: "🍚"
     amount: 100
     unit: g
     item: { en: "granulated sugar", ca: "sucre", es: "azúcar" }
-    group: { en: "Dough", ca: "Massa", es: "Masa" }
+    group: dough
     note:
       en: "for the dough"
       ca: "per la massa"
@@ -73,24 +80,24 @@ ingredients:
     amount: 2
     unit: unit
     item: { en: "large eggs", ca: "ous grans", es: "huevos grandes" }
-    group: { en: "Dough", ca: "Massa", es: "Masa" }
+    group: dough
   - id: oil
     emoji: "🫒"
     amount: 100
     unit: ml
     item: { en: "vegetable oil", ca: "oli vegetal", es: "aceite vegetal" }
-    group: { en: "Dough", ca: "Massa", es: "Masa" }
+    group: dough
   - id: salt
     amount: 1
     unit: tsp
     item: { en: "salt", ca: "sal", es: "sal" }
-    group: { en: "Dough", ca: "Massa", es: "Masa" }
+    group: dough
   - id: glaze_sugar
     emoji: "🍬"
     amount: 150
     unit: g
     item: { en: "confectioners' sugar", ca: "sucre de llustre", es: "azúcar glas" }
-    group: { en: "Glaze", ca: "Glacejat", es: "Glaseado" }
+    group: glaze
     note:
       en: "for the glaze"
       ca: "pel glacejat"
@@ -100,7 +107,7 @@ ingredients:
     amount: 50
     unit: ml
     item: { en: "lukewarm water", ca: "aigua tèbia", es: "agua tibia" }
-    group: { en: "Glaze", ca: "Glacejat", es: "Glaseado" }
+    group: glaze
     note:
       en: "for the glaze"
       ca: "pel glacejat"
@@ -109,7 +116,7 @@ ingredients:
     amount: 0
     unit: as_needed
     item: { en: "butter", ca: "mantega", es: "mantequilla" }
-    group: { en: "For the tray", ca: "Per a la plata", es: "Para la bandeja" }
+    group: tray
     note:
       en: "for greasing the tray"
       ca: "per untar la plata"

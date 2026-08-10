@@ -21,7 +21,9 @@
   {{ $item := partial "localize.html" (dict "v" .item "lang" $lang) }}
   {{ $note := partial "localize.html" (dict "v" (index . "note") "lang" $lang) }}
   {{ with $note }}{{ $note = $.RenderString (dict "display" "inline") $note }}{{ end }}
-  {{ $group := partial "localize.html" (dict "v" (index . "group") "lang" $lang) }}
+  {{ $groupKey := index . "group" | default "" }}
+  {{ $group := "" }}
+  {{ range ($en.Params.groups | default slice) }}{{ if eq .key $groupKey }}{{ $group = partial "localize.html" (dict "v" .name "lang" $lang) }}{{ end }}{{ end }}
   {{ $only := index . "onlyForVariation" | default slice }}
   {{/* Emoji: direct character from `emoji` field, else Hugo emojify on the id. */}}
   {{ $emoji := index . "emoji" | default "" }}

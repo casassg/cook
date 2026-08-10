@@ -137,6 +137,19 @@
             },
             "additionalProperties": false
           }
+        },
+        "subRecipes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "recipe", "servings"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+              "recipe": { "type": "string", "pattern": "^/recipes/[a-z0-9-]+/?$" },
+              "servings": { "type": "number", "exclusiveMinimum": 0 }
+            },
+            "additionalProperties": false
+          }
         }
       }
     },

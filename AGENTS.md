@@ -27,7 +27,8 @@ One leaf bundle per recipe under `content/recipes/<slug>/`, one file per languag
   - `[label](/recipes/<slug>)` crosslink to another recipe, resolved at build time via Hugo's `.GetPage` (language-aware, fails the build if the slug is invalid). Renders as a navigating link, not a popover.
   - Trailing `{variant: <key>}` scopes the whole step to a variant. Ingredient-level `onlyForVariation` scopes chips automatically.
 - Ingredient emoji resolution: if the ingredient has an `emoji` field, that unicode character is used directly. Otherwise Hugo's `emojify ":<id>:"` auto-resolves the id (works for gemoji names like `tomato`, `garlic`, `salt`). Every ingredient MUST resolve to an emoji through one of these paths (validated).
-- `schema/recipe.schema.json` is the contract; the validator also checks ref ids, timer format, variant keys, ingredient emoji resolution, and cross-language step parity (same step count and ref ids, only prose differs).
+- **Sub-recipes** (`subRecipes` front matter): attach a component recipe with `{id, recipe: "/recipes/<slug>", servings}`. Reference it in a step via `[label](sub:<id>)`. At build time, the sub's ingredients are merged into the parent (namespaced as `<subId>__<ingId>`, scaled by `servings / subPortion`, grouped under the sub's title). In focus mode, the `sub:` step is replaced by the sub-recipe's inlined steps. One level of nesting only (validated). The sub's `defaultVariant` is used if the sub has variants.
+- `schema/recipe.schema.json` is the contract; the validator also checks ref ids, timer format, variant keys, ingredient emoji resolution, sub-recipe refs, and cross-language step parity (same step count and ref ids, only prose differs).
 
 ### Authoring rules (for agents writing/editing recipes)
 

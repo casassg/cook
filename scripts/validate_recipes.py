@@ -19,7 +19,7 @@ SCHEMA_PATH = REPO_ROOT / "schema" / "recipe.schema.json"
 RECIPES_GLOB = "content/recipes/*/index*.md"
 
 # Keys that must not appear in translation files
-STRUCTURAL_KEYS = {"ingredients", "tools", "variants", "portion", "image", "categories", "author", "source"}
+STRUCTURAL_KEYS = {"ingredients", "tools", "variants", "portion", "image", "categories", "author", "source", "subRecipes"}
 
 # Regex patterns
 STEP_RE = re.compile(r"^\s*\d+\.\s+(.*)$")
@@ -96,6 +96,8 @@ def extract_refs(step_text: str, step_num: int = 0, tag: str = ""):
             refs.append(("tool", target[5:]))
         elif target.startswith("t:"):
             refs.append(("t", target[2:]))
+        elif target.startswith("sub:"):
+            refs.append(("sub", target[4:]))
 
     return refs, variant_keys, errors
 
@@ -164,6 +166,9 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
 
     ingredient_ids = {ing["id"] for ing in meta.get("ingredients", [])}
     tool_ids = {t["id"] for t in meta.get("tools", [])}
+    sub_ing_ids, sub_tool_ids = _collect_sub_ids(meta)
+    ingredient_ids |= sub_ing_ids
+    tool_ids |= sub_tool_ids
     variant_keys = {v["key"] for v in meta.get("variants", [])}
     group_keys = {g["key"] for g in meta.get("groups", [])}
 
@@ -205,10 +210,31 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
                 f"or rename the id to a gemoji name"
             )
 
-    # Body step validation
+    # Sub-recipe declaration validation
+    sub_ids = set()
+    for sub in meta.get("subRecipes", []):
+        sub_id = sub.get("id", "?")
+        if sub_id in sub_ids:
+            errors.append(f"{tag}: duplicate subRecipe id '{sub_id}'")
+        sub_ids.add(sub_id)
+        recipe_path = sub.get("recipe", "")
+        slug = recipe_path.strip("/").split("/")[-1] if recipe_path else ""
+        target_index = REPO_ROOT / "content" / "recipes" / slug / "index.md"
+        if not target_index.exists():
+            errors.append(f"{tag}: subRecipe '{sub_id}' references non-existent recipe '{recipe_path}'")
+        else:
+            try:
+                target_meta, _ = load_post(target_index)
+                if target_meta.get("subRecipes"):
+                    errors.append(f"{tag}: subRecipe '{sub_id}' target '{recipe_path}' itself has subRecipes (nesting not allowed)")
+            except Exception:
+                pass
+
+    # Body step validation (ingredients, tools, timers, sub-recipe refs in one pass)
     steps = parse_steps(body)
     used_ingredients: set[str] = set()
     used_tools: set[str] = set()
+    used_subs: set[str] = set()
     for step_num, step_text in enumerate(steps, 1):
         refs, vm_keys, frac_errors = extract_refs(step_text, step_num, tag)
         errors.extend(frac_errors)
@@ -226,14 +252,22 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
                 err = timer_ref_error(ref_id)
                 if err:
                     errors.append(f"{tag}: step {step_num}: {err}")
+            elif ref_type == "sub":
+                if ref_id not in sub_ids:
+                    errors.append(f"{tag}: step {step_num}: sub ref 'sub:{ref_id}' not declared in subRecipes")
+                elif ref_id in used_subs:
+                    errors.append(f"{tag}: step {step_num}: sub ref 'sub:{ref_id}' referenced more than once")
+                used_subs.add(ref_id)
         for vk in vm_keys:
             if vk not in variant_keys:
                 errors.append(f"{tag}: step {step_num}: variant marker key '{vk}' not declared")
 
-    for iid in sorted(ingredient_ids - used_ingredients):
+    for iid in sorted((ingredient_ids - sub_ing_ids) - used_ingredients):
         errors.append(f"{tag}: ingredient '{iid}' declared but never referenced in steps")
-    for tid in sorted(tool_ids - used_tools):
+    for tid in sorted((tool_ids - sub_tool_ids) - used_tools):
         errors.append(f"{tag}: tool '{tid}' declared but never referenced in steps")
+    for sid in sorted(sub_ids - used_subs):
+        errors.append(f"{tag}: subRecipe '{sid}' declared but never referenced in steps")
 
     return meta, body, errors
 
@@ -268,6 +302,9 @@ def validate_translation(
 
     base_ingredient_ids = {ing["id"] for ing in base_meta.get("ingredients", [])}
     base_tool_ids = {t["id"] for t in base_meta.get("tools", [])}
+    sub_ing_ids, sub_tool_ids = _collect_sub_ids(base_meta)
+    base_ingredient_ids |= sub_ing_ids
+    base_tool_ids |= sub_tool_ids
     base_variant_keys = {v["key"] for v in base_meta.get("variants", [])}
 
     # Body step validation uses base structure for ref id lookups
@@ -285,6 +322,10 @@ def validate_translation(
                 err = timer_ref_error(ref_id)
                 if err:
                     errors.append(f"{tag}: step {step_num}: {err}")
+            elif ref_type == "sub":
+                base_sub_ids = {s["id"] for s in base_meta.get("subRecipes", [])}
+                if ref_id not in base_sub_ids:
+                    errors.append(f"{tag}: step {step_num}: sub ref 'sub:{ref_id}' not in base")
         for vk in vm_keys:
             if vk not in base_variant_keys:
                 errors.append(f"{tag}: step {step_num}: variant marker key '{vk}' not in base")
@@ -310,7 +351,31 @@ def check_step_parity(
         errors.append(
             f"{tag}: step count differs from EN: EN={len(en_steps)} {lang}={len(trans_steps)}"
         )
-        return errors
+    return errors
+
+
+def _collect_sub_ids(meta: dict) -> tuple[set[str], set[str]]:
+    """Return namespaced (ingredient_ids, tool_ids) from sub-recipes."""
+    ing_ids: set[str] = set()
+    tool_ids: set[str] = set()
+    for sub in meta.get("subRecipes", []):
+        sub_id = sub.get("id", "")
+        slug = sub.get("recipe", "").strip("/").split("/")[-1]
+        target_index = REPO_ROOT / "content" / "recipes" / slug / "index.md"
+        if not target_index.exists():
+            continue
+        try:
+            target_meta, _ = load_post(target_index)
+            for ing in target_meta.get("ingredients", []):
+                ing_ids.add(f"{sub_id}__{ing['id']}")
+            for tool in target_meta.get("tools", []):
+                tool_ids.add(f"{sub_id}__{tool['id']}")
+        except Exception:
+            pass
+    return ing_ids, tool_ids
+
+
+
 
     for step_num, (en_text, trans_text) in enumerate(zip(en_steps, trans_steps), 1):
         en_refs, en_vms, _ = extract_refs(en_text)

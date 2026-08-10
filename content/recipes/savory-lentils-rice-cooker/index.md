@@ -37,15 +37,9 @@ ingredients:
     unit: as_needed
     item: { en: "chorizo", ca: "xoriço", es: "chorizo" }
     note:
-      en: "optional; ideally Spanish chorizo; if you don't have it, a little smoked paprika works instead"
-      ca: "opcional; idealment xoriço espanyol; si no en tens, una mica de pebre vermell fumat també funciona"
-      es: "opcional; idealmente chorizo español; si no tienes, un poco de pimentón ahumado también funciona"
-  - id: smoked_paprika
-    emoji: "🌶️"
-    amount: 1
-    unit: tsp
-    item: { en: "smoked paprika", ca: "pebre vermell fumat", es: "pimentón ahumado" }
-    note: { en: "instead of the chorizo, if you don't have it", ca: "en lloc del xoriço, si no en tens", es: "en lugar del chorizo, si no tienes" }
+      en: "optional; ideally Spanish chorizo; if you don't have it, use a little smoked paprika instead"
+      ca: "opcional; idealment xoriço espanyol; si no en tens, fes servir una mica de pebre vermell fumat"
+      es: "opcional; idealmente chorizo español; si no tienes, usa un poco de pimentón de la Vera"
   - id: sausage
     emoji: "🍖"
     amount: 0
@@ -110,7 +104,7 @@ ingredients:
 
 1. Slice the [onion](i:onion) very thin and mince the [garlic](i:garlic). Peel the [carrots](i:carrot) and cut them into small thin pieces; cut the [potatoes](i:potato) into chunks.
 2. Set the [rice cooker](tool:rice_cooker) (or multi-purpose Instant Pot) to sauté mode and heat the [olive oil](i:olive_oil). Sauté the [onion](i:onion) and [garlic](i:garlic) until the onion is soft and translucent.
-3. Add the [chorizo](i:chorizo) and sauté it with the [onion](i:onion). If you don't have chorizo, use a little [smoked paprika](i:smoked_paprika) instead. Sauté until the onion starts to look reddish.
+3. Add the [chorizo](i:chorizo) and sauté it with the [onion](i:onion) until the onion starts to look reddish.
 4. Add the [sausages](i:sausage) (frozen sausages or any meat you want to throw in) and keep sautéing: they add extra protein to the dish.
 5. Add the [lentils](i:lentils) and stop the sautéing.
 6. Add the [potatoes](i:potato), [carrots](i:carrot), [cumin](i:cumin) and [curry](i:curry).

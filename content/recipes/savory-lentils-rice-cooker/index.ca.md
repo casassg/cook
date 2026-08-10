@@ -6,7 +6,7 @@ description: "Llenties amb xoriço i salsitxes, sofregides amb ceba, all, patata
 
 1. Talla la [ceba](i:onion) ben fina i pica l'[all](i:garlic). Pela les [pastanagues](i:carrot) i talla-les a tires fines i petites; talla les [patates](i:potato) a trossos.
 2. Posa l'[arrocera](tool:rice_cooker) (o l'olla multifunció Instant Pot) en mode saltar i escalfa l'[oli d'oliva](i:olive_oil). Sofregeix la [ceba](i:onion) i l'[all](i:garlic) fins que la ceba sigui tova i translúcida.
-3. Afegeix el [xoriço](i:chorizo) i sofregeix-lo amb la [ceba](i:onion). Si no tens xoriço, posa-hi una mica de [pebre vermell fumat](i:smoked_paprika). Sofregeix fins que la ceba comenci a agafar un to vermellós.
+3. Afegeix el [xoriço](i:chorizo) i sofregeix-lo amb la [ceba](i:onion) fins que la ceba comenci a agafar un to vermellós.
 4. Afegeix les [salsitxes](i:sausage) (congelades o qualsevol carn que hi vulguis tirar) i segueix sofregint: afegeixen més proteïna al plat.
 5. Afegeix les [llenties](i:lentils) i para el sofregit.
 6. Afegeix les [patates](i:potato), les [pastanagues](i:carrot), el [comí](i:cumin) i el [curri](i:curry).

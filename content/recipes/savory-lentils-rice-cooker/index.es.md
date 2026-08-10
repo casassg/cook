@@ -6,7 +6,7 @@ description: "Lentejas con chorizo y salchichas, salteadas con cebolla, ajo, pat
 
 1. Corta la [cebolla](i:onion) muy fina y pica el [ajo](i:garlic). Pela las [zanahorias](i:carrot) y córtalas en trocitos finos; corta las [patatas](i:potato) en trozos.
 2. Pon la [arrocera](tool:rice_cooker) (u olla multifunción Instant Pot) en modo saltear y calienta el [aceite de oliva](i:olive_oil). Saltea la [cebolla](i:onion) y el [ajo](i:garlic) hasta que la cebolla esté blanda y translúcida.
-3. Añade el [chorizo](i:chorizo) y saltéalo con la [cebolla](i:onion). Si no tienes chorizo, echa un poco de [pimentón ahumado](i:smoked_paprika). Saltea hasta que la cebolla empiece a coger un tono rojizo.
+3. Añade el [chorizo](i:chorizo) y saltéalo con la [cebolla](i:onion) hasta que la cebolla empiece a coger un tono rojizo.
 4. Añade las [salchichas](i:sausage) (congeladas o cualquier carne que quieras echar) y sigue salteando: aportan más proteína al plato.
 5. Añade las [lentejas](i:lentils) y para el salteado.
 6. Añade las [patatas](i:potato), las [zanahorias](i:carrot), el [comino](i:cumin) y el [curry](i:curry).

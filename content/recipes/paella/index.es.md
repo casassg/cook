@@ -1,5 +1,5 @@
 ---
-title: "Paella Mixta"
+title: "Paella"
 description: "Receta de mi madre: alitas de pollo, sepia y mejillones sobre un sofrito con arroz de grano corto."
 # Structure and name translations live in index.md. Only prose lives here.
 ---

@@ -1,10 +1,17 @@
 ---
 date: 2026-08-08T12:00:00-05:00
-title: "Paella Mixta"
+title: "Paella"
 description: "Recipe from my mom: chicken wings, squid and mussels over a sofrito with short-grain rice."
 image: main.webp
 categories: [mains]
 author: [gerard]
+defaultVariant: mixta
+variants:
+  - key: mixta
+    name:
+      en: "Mixta"
+      ca: "Mixta"
+      es: "Mixta"
 portion:
   type: servings
   value: 4

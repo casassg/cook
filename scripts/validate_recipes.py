@@ -117,7 +117,7 @@ def check_i18n_maps(meta: dict, tag: str) -> list[str]:
 
     for ing in meta.get("ingredients", []):
         iid = ing.get("id", "?")
-        for field in ("item", "note", "group"):
+        for field in ("item", "note"):
             if field in ing:
                 check_field(ing[field], f"ingredients[{iid}].{field}")
     for tool in meta.get("tools", []):
@@ -131,6 +131,11 @@ def check_i18n_maps(meta: dict, tag: str) -> list[str]:
         vk = variant.get("key", "?")
         if "name" in variant:
             check_field(variant["name"], f"variants[{vk}].name")
+
+    for group in meta.get("groups", []):
+        gk = group.get("key", "?")
+        if "name" in group:
+            check_field(group["name"], f"groups[{gk}].name")
 
     return errors
 
@@ -160,6 +165,7 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
     ingredient_ids = {ing["id"] for ing in meta.get("ingredients", [])}
     tool_ids = {t["id"] for t in meta.get("tools", [])}
     variant_keys = {v["key"] for v in meta.get("variants", [])}
+    group_keys = {g["key"] for g in meta.get("groups", [])}
 
     # defaultVariant must be a declared key
     if "defaultVariant" in meta and meta["defaultVariant"] not in variant_keys:
@@ -174,6 +180,14 @@ def validate_base(path: Path, schema_base: dict) -> tuple[dict, str, list[str]]:
                 errors.append(
                     f"{tag}: ingredient '{ing['id']}' onlyForVariation key '{vk}' not declared"
                 )
+
+    # Ingredient group keys must reference declared groups
+    for ing in meta.get("ingredients", []):
+        gk = ing.get("group")
+        if gk and gk not in group_keys:
+            errors.append(
+                f"{tag}: ingredient '{ing['id']}' group key '{gk}' not in declared groups"
+            )
 
     # Every ingredient must have an emoji: direct `emoji` field (unicode char), or id auto-resolves via emojify
     for ing in meta.get("ingredients", []):

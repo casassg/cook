@@ -21,12 +21,14 @@
   {{ $item := partial "localize.html" (dict "v" .item "lang" $lang) }}
   {{ $note := partial "localize.html" (dict "v" (index . "note") "lang" $lang) }}
   {{ with $note }}{{ $note = $.RenderString (dict "display" "inline") $note }}{{ end }}
-  {{ $group := partial "localize.html" (dict "v" (index . "group") "lang" $lang) }}
+  {{ $groupKey := index . "group" | default "" }}
+  {{ $group := "" }}
+  {{ range ($en.Params.groups | default slice) }}{{ if eq .key $groupKey }}{{ $group = partial "localize.html" (dict "v" .name "lang" $lang) }}{{ end }}{{ end }}
   {{ $only := index . "onlyForVariation" | default slice }}
   {{/* Emoji: direct character from `emoji` field, else Hugo emojify on the id. */}}
   {{ $emoji := index . "emoji" | default "" }}
   {{ if not $emoji }}{{ $code := printf ":%s:" .id }}{{ $try := emojify $code }}{{ if ne $try $code }}{{ $emoji = $try }}{{ end }}{{ end }}
-  {{ $entry := dict "id" .id "amount" .amount "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "group" $group "only" $only "emoji" $emoji }}
+  {{ $entry := dict "id" .id "amount" .amount "unit" $unit "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "group" $group "only" $only "emoji" $emoji }}
   {{ $ings = $ings | append $entry }}
   {{ $ingIndex = merge $ingIndex (dict .id $entry) }}
 {{ end }}
@@ -89,7 +91,12 @@
   {{ $stepOnly = $stepOnly | append (delimit .only " ") }}
   {{ $stepHasPanel = $stepHasPanel | append (or (gt (len .timers) 0) (gt (len .refs) 0)) }}
 {{ end }}
-{{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly "stepsHasPanel" $stepHasPanel }}
+{{ $unitLabels := dict }}
+{{ $usUnits := slice "cup" "cups" "oz" "lb" }}
+{{ $metricUnits := slice "kg" "g" "ml" "l" "tsp" "tbsp" "clove" "slices" }}
+{{ range $usUnits }}{{ $unitLabels = merge $unitLabels (dict . (i18n (printf "unit_%s" .))) }}{{ end }}
+{{ range $metricUnits }}{{ $unitLabels = merge $unitLabels (dict . (i18n (printf "unit_%s" .))) }}{{ end }}
+{{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly "stepsHasPanel" $stepHasPanel "densities" .Site.Data.densities "unitLabels" $unitLabels }}
 {{ $heroImg := .Resources.GetMatch ($en.Params.image) }}
 
 <article class="mx-auto max-w-4xl px-5 py-4" x-data="recipe({{ $cfg | jsonify }})" @keydown.window="onKey($event)">
@@ -141,10 +148,13 @@
       <div class="flex items-center justify-between">
         <h2 class="text-xl font-semibold text-heading">{{ i18n "ingredients" }}</h2>
         {{ if $scalable }}
-        <div class="inline-flex items-center gap-1.5 rounded-lg border border-line text-sm">
-          <button @click="dec()" class="px-2.5 py-1 text-lg leading-none text-muted transition hover:text-accent" aria-label="{{ i18n "decrease" }}">−</button>
-          <span class="min-w-[1.5ch] text-center font-medium tabular-nums text-heading" x-text="servings">{{ $portion.value }}</span>
-          <button @click="inc()" class="px-2.5 py-1 text-lg leading-none text-muted transition hover:text-accent" aria-label="{{ i18n "increase" }}">+</button>
+        <div class="flex items-center gap-2">
+          <div class="inline-flex items-center gap-1.5 rounded-lg border border-line text-sm">
+            <button @click="dec()" class="px-2.5 py-1 text-lg leading-none text-muted transition hover:text-accent" aria-label="{{ i18n "decrease" }}">−</button>
+            <span class="min-w-[1.5ch] text-center font-medium tabular-nums text-heading" x-text="servings">{{ $portion.value }}</span>
+            <button @click="inc()" class="px-2.5 py-1 text-lg leading-none text-muted transition hover:text-accent" aria-label="{{ i18n "increase" }}">+</button>
+          </div>
+          <button @click="toggleUnits()" class="rounded-lg border border-line px-2.5 py-1 text-sm text-muted transition hover:text-accent" aria-label="Toggle metric / US units" x-text="units === 'us' ? 'cups' : 'g/ml'">g/ml</button>
         </div>
         {{ end }}
       </div>

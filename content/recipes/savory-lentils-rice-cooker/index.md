@@ -59,12 +59,12 @@ ingredients:
     amount: 2
     unit: unit
     item: { en: "potatoes", ca: "patates", es: "patatas" }
-    note: { en: "or 3, depending on size; cut into chunks", ca: "o 3, segons la mida; tallades a trossos", es: "o 3, según el tamaño; cortadas en trozos" }
+    note: { en: "or 3, depending on size; cut into cubes", ca: "o 3, segons la mida; tallades a daus", es: "o 3, según el tamaño; cortadas en cubos" }
   - id: carrot
     amount: 2
     unit: unit
     item: { en: "carrots", ca: "pastanagues", es: "zanahorias" }
-    note: { en: "peeled, cut into small thin pieces", ca: "pelades, tallades a tires fines i petites", es: "peladas, cortadas en trocitos finos" }
+    note: { en: "peeled, cut into cubes", ca: "pelades, tallades a daus", es: "peladas, cortadas en cubos" }
   - id: cumin
     emoji: "🌿"
     amount: 1
@@ -102,14 +102,14 @@ ingredients:
     item: { en: "black pepper", ca: "pebre negre", es: "pimienta negra" }
 ---
 
-1. Slice the [onion](i:onion) very thin and mince the [garlic](i:garlic). Peel the [carrots](i:carrot) and cut them into small thin pieces; cut the [potatoes](i:potato) into chunks.
-2. Set the [rice cooker](tool:rice_cooker) (or multi-purpose Instant Pot) to sauté mode and heat the [olive oil](i:olive_oil). Sauté the [onion](i:onion) and [garlic](i:garlic) until the onion is soft and translucent.
+1. Cut the [onion](i:onion) and [garlic](i:garlic) very thin, then start sautéing them in the [rice cooker](tool:rice_cooker) on sauté mode with the [olive oil](i:olive_oil).
+2. While the [onion](i:onion) is sautéing, cut the [potatoes](i:potato) and [carrots](i:carrot) into cubes and set them aside; don't add them yet.
 3. Add the [chorizo](i:chorizo) and sauté it with the [onion](i:onion) until the onion starts to look reddish.
-4. Add the [sausages](i:sausage) (frozen sausages or any meat you want to throw in) and keep sautéing: they add extra protein to the dish.
-5. Add the [lentils](i:lentils) and stop the sautéing.
-6. Add the [potatoes](i:potato), [carrots](i:carrot), [cumin](i:cumin) and [curry](i:curry).
-7. Add the [stock](i:stock) (chicken or veggie, instead of water) and the [diced tomatoes](i:tomato) with their juices, plus a couple of [bay leaves](i:bay_leaves).
-8. Close the lid, set to White Rice (or press the Cook switch) and cook until the rice cooker switches to Keep-Warm, about [45 min](t:45m).
-9. Midway through cooking, carefully open the [rice cooker](tool:rice_cooker) and stir with a long-handled [wooden spoon](tool:wooden_spoon), then re-cover. Careful: escaping steam and the inner bowl are hot.
+4. Add the [sausages](i:sausage) and keep sautéing.
+5. Add the [lentils](i:lentils) and the [diced tomatoes](i:tomato) and keep sautéing for a little bit, so they absorb the flavor of the [chorizo](i:chorizo), the [onion](i:onion) and the tomato.
+6. Stop the sautéing and add the [potatoes](i:potato), [carrots](i:carrot), [cumin](i:cumin) and [curry](i:curry).
+7. Add the [stock](i:stock) and the [bay leaves](i:bay_leaves).
+8. Close the lid, set to White Rice (or press the Cook switch) and cook until it switches to Keep-Warm, about [45 min](t:45m).
+9. Midway through cooking, carefully open the [rice cooker](tool:rice_cooker) and stir with the [wooden spoon](tool:wooden_spoon), then re-cover. Careful: the steam and the inner bowl are hot.
 10. When it switches to Keep-Warm, open the lid, stir again and re-cover. Let it stand for [10 min](t:10m).
 11. Season with [salt](i:salt) and [pepper](i:black_pepper) to taste.

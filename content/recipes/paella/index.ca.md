@@ -4,13 +4,13 @@ description: "Recepta de la meva mare: aletes de pollastre, sípia i musclos sob
 # Structure and name translations live in index.md. Only prose lives here.
 ---
 
-1. Feu el [sofregit](/recipes/sofrito) seguint la recepta del sofregit; es pot fer en una paella a part.
+1. Feu el [sofregit](sub:sofrito); es pot fer en una paella a part.
 2. Mentre fas el sofregit, amania les [aletes de pollastre](i:chicken_wings) amb [pebre vermell](i:paprika), [sal](i:salt), [pebre negre](i:black_pepper) i [all en pols](i:garlic_powder), i deixa-les marinar a la nevera una estona, tapades, abans de coure-les.
 3. Afegeix les [aletes de pollastre](i:chicken_wings) amanides (o costella de porc tallada petita) a la [paella](tool:paella_pan) i cou-les uns [5 minuts](t:5m) per cada costat, fins que quedin daurades i sucoses pels dos costats; després treu-les i reserva-les. Quan comencis amb el pollastre, posa també el [caldo](i:stock) a escalfar.
 4. Talla la [sípia o els calamars](i:squid) a trossos petits i reserva'ls.
-5. Feu els [musclos](i:mussels) al vapor seguint la [recepta de musclos al vapor](/recipes/musclos-al-vapor).
+5. Feu els [musclos](sub:musclos) al vapor.
 6. Afegeix el sofregit a la paella, baixa una mica el foc perquè no es cremi i fregeix-lo una mica més (ja ha de portar prou oli).
-7. Afegeix-hi la [sípia](i:squid) i cou-la uns [3 minuts](t:3m), i després afegeix-hi uns quants [musclos](i:mussels) desclofollats.
+7. Afegeix-hi la [sípia](i:squid) i cou-la uns [3 minuts](t:3m), i després afegeix-hi uns quants [musclos](i:musclos__mussels) desclofollats.
 8. Afegeix l'[arròs](i:rice) i torra'l uns [2 minuts](t:2m), deixant que absorbeixi els sucs. Quan el posis, l'arròs ha de quedar vermell: si no, et cal més sofregit.
 9. Afegeix el [caldo](i:stock) calent (ha d'estar calent quan el posis) i torna a posar-hi les [aletes de pollastre](i:chicken_wings). Barreja el caldo amb el sofregit i prova-ho: ha de ser salat, així que afegeix-hi [sal](i:salt) si no n'hi ha prou, i amaneix amb [pebre negre](i:black_pepper).
 10. Comença amb foc fort; quan el caldo comenci a bullir, baixa'l fins que faci xup-xup i deixa-ho estar, inclinant i movent la paella perquè es cogui bé, amb el [safrà](i:saffron) si en fas servir. No remenis un cop l'arròs comenci a beure el líquid, perquè llavors quedarà malament.

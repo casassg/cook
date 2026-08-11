@@ -20,6 +20,13 @@ tools:
   - id: paella_pan
     icon: "🍳"
     name: { en: "paella pan", ca: "paella", es: "paellera" }
+subRecipes:
+  - id: sofrito
+    recipe: /recipes/sofrito
+    servings: 4
+  - id: musclos
+    recipe: /recipes/musclos-al-vapor
+    servings: 2
 groups:
   - key: protein
     name: { en: "Protein", ca: "Proteïna", es: "Proteína" }
@@ -80,16 +87,7 @@ ingredients:
       en: "chicken broth, ideally bone broth for better flavor; you can also use the water from steaming the mussels, or fish broth"
       ca: "caldo de pollastre, idealment d'ossos, que dóna més gust; també pots fer servir l'aigua de coure els musclos o caldo de peix"
       es: "caldo de pollo, idealmente de huesos, que da más sabor; también puedes usar el agua de cocer los mejillones o caldo de pescado"
-  - id: mussels
-    emoji: "🦪"
-    amount: 450
-    unit: g
-    group: protein
-    item: { en: "mussels", ca: "musclos", es: "mejillones" }
-    note:
-      en: "1 lb for the paella; I usually buy a 2 lb bag and eat the rest as a starter"
-      ca: "1 lb per a la paella; normalment compro una bossa de 2 lb i la resta la menjo d'entrant"
-      es: "1 lb para la paella; normalmente compro una bolsa de 2 lb y el resto me lo como de entrante"
+
   - id: saffron
     emoji: "🌼"
     amount: 0
@@ -132,13 +130,13 @@ ingredients:
       es: "opcional, para servir"
 ---
 
-1. Make the [sofrito](/recipes/sofrito) following the sofrito recipe; it can be done in a separate pan.
+1. Make the [sofrito](sub:sofrito); it can be done in a separate pan.
 2. While making the sofrito, season the [chicken wings](i:chicken_wings) with [paprika](i:paprika), [salt](i:salt), [black pepper](i:black_pepper) and [garlic powder](i:garlic_powder), then leave them to marinate in the fridge for a little while, covered.
 3. Add the seasoned [chicken wings](i:chicken_wings) (or small-cut pork ribs) to the [paella pan](tool:paella_pan) and cook them for about [5 min](t:5m) per side, until they look golden and juicy on both sides, then take them out and set them aside. When you start the chicken, also put the [stock](i:stock) on to heat.
 4. Cut the [squid](i:squid) into small pieces and set it aside.
-5. Steam the [mussels](i:mussels) following the [steamed mussels recipe](/recipes/musclos-al-vapor).
+5. Steam the [mussels](sub:musclos).
 6. Add the sofrito to the pan, lower the heat a bit so it doesn't burn, and fry it a little more (it should already have enough oil).
-7. Add the [squid](i:squid) and cook it for about [3 min](t:3m), then add some shelled [mussels](i:mussels).
+7. Add the [squid](i:squid) and cook it for about [3 min](t:3m), then add some shelled [mussels](i:musclos__mussels).
 8. Add the [rice](i:rice) and toast it for about [2 min](t:2m), letting it absorb the juices. When you add it, the rice should look red: if it doesn't, you need more sofrito.
 9. Add the hot [stock](i:stock) (it must be hot when it goes in) and return the [chicken wings](i:chicken_wings) to the pan. Mix the broth with the sofrito and taste it: it needs to be salty, so add [salt](i:salt) if there's not enough, and season with [black pepper](i:black_pepper).
 10. Start on strong heat; when the broth comes to a boil, lower it to a gentle simmer (chup chup) and leave it, tilting and moving the pan around so it cooks evenly, with the [saffron](i:saffron) if you're using it. Don't stir once the rice starts absorbing the liquid, or it will come out wrong.

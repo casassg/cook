@@ -39,6 +39,14 @@
   {{- else -}}
     {{- errorf "recipe %q references unknown tool id %q (%s)" $page.Path $id .Position -}}
   {{- end -}}
+{{- else if hasPrefix $d "sub:" -}}
+  {{- $id := strings.TrimPrefix "sub:" $d -}}
+  {{- $sub := index ($page.Store.Get "subIndex") $id -}}
+  {{- if $sub -}}
+  <a href="{{ $sub.permalink }}" class="text-accent underline underline-offset-2 hover:text-accent-hover">{{ .Text | safeHTML }}</a>
+  {{- else -}}
+    {{- errorf "recipe %q references unknown subRecipe id %q (%s)" $page.Path $id .Position -}}
+  {{- end -}}
 {{- else if hasPrefix $d "t:" -}}
   {{- /* Non-interactive label: reads as plain prose text inline (the emoji is
          reserved for the tappable timer in the focus-mode panel, where it only

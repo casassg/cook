@@ -39,6 +39,46 @@ function formatAmount(n) {
   return String(r);
 }
 
+// --- US unit conversion ---
+const FRACTIONS = [[0.125,"⅛"],[0.25,"¼"],[0.333,"⅓"],[0.5,"½"],[0.667,"⅔"],[0.75,"¾"]];
+
+function formatUS(n) {
+  if (!isFinite(n) || n <= 0) return "";
+  const whole = Math.floor(n);
+  const frac = n - whole;
+  // Snap to nearest fraction if within 5%
+  for (const [val, glyph] of FRACTIONS) {
+    if (Math.abs(frac - val) < 0.05) {
+      return whole ? whole + " " + glyph : glyph;
+    }
+  }
+  if (frac < 0.03) return String(whole || "");
+  // No fraction match: show rounded decimal
+  return String(Math.round(n * 100) / 100);
+}
+
+function convertUS(amount, rawUnit, density) {
+  // Normalize: recipes may use "L" for liters
+  const unit = rawUnit ? rawUnit.toLowerCase() : "";
+  // Volume: ml/l → cups/tbsp/tsp
+  let ml = unit === "ml" ? amount : unit === "l" ? amount * 1000 : null;
+  // Weight with density: g/kg → virtual ml via density, then to cups/tbsp/tsp
+  if (ml === null && (unit === "g" || unit === "kg") && density) {
+    ml = (unit === "kg" ? amount * 1000 : amount) / density * 236.588;
+  }
+  if (ml !== null) {
+    if (ml >= 59) return [ml / 236.588, "cup"];
+    if (ml >= 15) return [ml / 14.787, "tbsp"];
+    return [ml / 4.929, "tsp"];
+  }
+  // Weight without density: g/kg → oz/lb
+  if (unit === "kg" || unit === "g") {
+    const g = unit === "kg" ? amount * 1000 : amount;
+    return g >= 454 ? [g / 453.59, "lb"] : [g / 28.35, "oz"];
+  }
+  return null; // non-metric units pass through unchanged
+}
+
 function chime() {
   // Soft two-tone (E6 -> A6) chime, repeated 3x, instead of a harsh single beep.
   try {
@@ -169,6 +209,7 @@ document.addEventListener("alpine:init", () => {
     stepsHasPanel: cfg.stepsHasPanel || [],
     focus: false,
     pos: 0,
+    units: localStorage.getItem("units") || "metric",
 
     init() {
       this.$watch("variant", () => {
@@ -191,6 +232,22 @@ document.addEventListener("alpine:init", () => {
     },
     dec() {
       this.servings = Math.max(1, Math.round((this.servings - 1) * 100) / 100);
+    },
+    toggleUnits() {
+      this.units = this.units === "us" ? "metric" : "us";
+      try { localStorage.setItem("units", this.units); } catch (e) {}
+    },
+    amt(base, unit, iid) {
+      const n = (parseFloat(base) || 0) * this.factor;
+      if (this.units === "us") {
+        const c = convertUS(n, unit, cfg.densities?.[iid]);
+        if (c) {
+          const label = c[1] === "cup" && c[0] > 1.05 ? (cfg.unitLabels?.["cups"] ?? "cups") : (cfg.unitLabels?.[c[1]] ?? c[1]);
+          return formatUS(c[0]) + " " + label;
+        }
+      }
+      const lk = unit ? unit.toLowerCase() : "";
+      return formatAmount(n) + (lk ? " " + (cfg.unitLabels?.[lk] ?? unit) : "");
     },
 
     // --- variants ---

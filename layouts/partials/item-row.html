@@ -5,7 +5,7 @@
 <div class="min-w-0">
   <div>
     {{- if $e.hasAmount -}}
-    <span class="font-semibold tabular-nums text-heading"><span data-base="{{ $amount }}" x-text="fmt($el.dataset.base)">{{ $amount }}</span>{{ with $e.unitLabel }} {{ . }}{{ end }}</span>
+    <span class="font-semibold tabular-nums text-heading" data-base="{{ $amount }}" data-unit="{{ $e.unit }}" data-iid="{{ $e.id }}" x-text="amt($el.dataset.base, $el.dataset.unit, $el.dataset.iid)">{{ $amount }}{{ with $e.unitLabel }} {{ . }}{{ end }}</span>
     {{- else if $e.unitLabel -}}<span class="text-muted">{{ $e.unitLabel }}</span>
     {{- end -}}
     {{ with $e.item }} {{ . }}{{ end }}

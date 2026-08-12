@@ -54,6 +54,18 @@
             "additionalProperties": false
           }
         },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["key", "name"],
+            "properties": {
+              "key": { "type": "string", "minLength": 1 },
+              "name": { "$ref": "#/$defs/i18nText" }
+            },
+            "additionalProperties": false
+          }
+        },
         "tools": {
           "type": "array",
           "items": {
@@ -112,7 +124,7 @@
               "unit": { "type": "string", "minLength": 1 },
               "item": { "$ref": "#/$defs/i18nText" },
               "note": { "$ref": "#/$defs/i18nText" },
-              "group": { "$ref": "#/$defs/i18nText" },
+              "group": { "type": "string", "minLength": 1 },
               "emoji": {
                 "type": "string",
                 "minLength": 1,
@@ -122,6 +134,19 @@
                 "type": "array",
                 "items": { "type": "string" }
               }
+            },
+            "additionalProperties": false
+          }
+        },
+        "subRecipes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "recipe", "servings"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+              "recipe": { "type": "string", "pattern": "^/recipes/[a-z0-9-]+/?$" },
+              "servings": { "type": "number", "exclusiveMinimum": 0 }
             },
             "additionalProperties": false
           }

@@ -21,12 +21,14 @@
   {{ $item := partial "localize.html" (dict "v" .item "lang" $lang) }}
   {{ $note := partial "localize.html" (dict "v" (index . "note") "lang" $lang) }}
   {{ with $note }}{{ $note = $.RenderString (dict "display" "inline") $note }}{{ end }}
-  {{ $group := partial "localize.html" (dict "v" (index . "group") "lang" $lang) }}
+  {{ $groupKey := index . "group" | default "" }}
+  {{ $group := "" }}
+  {{ range ($en.Params.groups | default slice) }}{{ if eq .key $groupKey }}{{ $group = partial "localize.html" (dict "v" .name "lang" $lang) }}{{ end }}{{ end }}
   {{ $only := index . "onlyForVariation" | default slice }}
   {{/* Emoji: direct character from `emoji` field, else Hugo emojify on the id. */}}
   {{ $emoji := index . "emoji" | default "" }}
   {{ if not $emoji }}{{ $code := printf ":%s:" .id }}{{ $try := emojify $code }}{{ if ne $try $code }}{{ $emoji = $try }}{{ end }}{{ end }}
-  {{ $entry := dict "id" .id "amount" .amount "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "group" $group "only" $only "emoji" $emoji }}
+  {{ $entry := dict "id" .id "amount" .amount "unit" $unit "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "group" $group "only" $only "emoji" $emoji }}
   {{ $ings = $ings | append $entry }}
   {{ $ingIndex = merge $ingIndex (dict .id $entry) }}
 {{ end }}
@@ -45,6 +47,91 @@
   {{ $toolIndex = merge $toolIndex (dict .id $entry) }}
 {{ end }}
 {{ $.Store.Set "toolIndex" $toolIndex }}
+
+{{/* Sub-recipes: merge ingredients, tools, and parse steps for focus mode. */}}
+{{ $subIndex := dict }}
+{{ $subSteps := dict }}
+{{ range ($en.Params.subRecipes | default slice) }}
+  {{ $subId := .id }}
+  {{ $subPage := $en.GetPage .recipe }}
+  {{ if not $subPage }}{{ errorf "recipe %q: subRecipe '%s' references non-existent recipe '%s'" $en.Path $subId .recipe }}{{ end }}
+  {{ $subLang := $subPage }}
+  {{ if ne $lang "en" }}{{ with index (where $subPage.AllTranslations "Language.Lang" $lang) 0 }}{{ $subLang = . }}{{ end }}{{ end }}
+  {{ $subPortion := $subPage.Params.portion }}
+  {{ $scale := div (float .servings) (float $subPortion.value) }}
+  {{ $subTitle := $subLang.Title }}
+  {{ $subDefaultVariant := $subPage.Params.defaultVariant | default "" }}
+  {{ $subIndex = merge $subIndex (dict $subId (dict "title" $subTitle "permalink" $subLang.RelPermalink "servings" .servings)) }}
+  {{/* Merge sub-recipe ingredients (scaled, grouped under sub title). */}}
+  {{ range $subPage.Params.ingredients }}
+    {{ $only := index . "onlyForVariation" | default slice }}
+    {{ if and (gt (len $only) 0) (not (in $only $subDefaultVariant)) }}{{ continue }}{{ end }}
+    {{ $nsId := printf "%s__%s" $subId .id }}
+    {{ $unit := .unit }}
+    {{ $isSpecial := in $special $unit }}
+    {{ $scaledAmt := mul (float .amount) $scale }}
+    {{ $hasAmount := and (not $isSpecial) (gt .amount 0) }}
+    {{ $unitLabel := i18n (printf "unit_%s" $unit) }}
+    {{ if and (eq $unitLabel "") (ne $unit "unit") }}{{ $unitLabel = $unit }}{{ end }}
+    {{ $item := partial "localize.html" (dict "v" .item "lang" $lang) }}
+    {{ $note := partial "localize.html" (dict "v" (index . "note") "lang" $lang) }}
+    {{ with $note }}{{ $note = $.RenderString (dict "display" "inline") $note }}{{ end }}
+    {{ $emoji := index . "emoji" | default "" }}
+    {{ if not $emoji }}{{ $code := printf ":%s:" .id }}{{ $try := emojify $code }}{{ if ne $try $code }}{{ $emoji = $try }}{{ end }}{{ end }}
+    {{ $entry := dict "id" $nsId "amount" $scaledAmt "unitLabel" $unitLabel "hasAmount" $hasAmount "item" $item "note" $note "group" $subTitle "only" (slice) "emoji" $emoji }}
+    {{ $ings = $ings | append $entry }}
+    {{ $ingIndex = merge $ingIndex (dict $nsId $entry) }}
+  {{ end }}
+  {{/* Merge sub-recipe tools. */}}
+  {{ range ($subPage.Params.tools | default slice) }}
+    {{ $nsId := printf "%s__%s" $subId .id }}
+    {{ $name := partial "localize.html" (dict "v" .name "lang" $lang) }}
+    {{ $icon := index . "icon" | default "🔧" }}
+    {{ $note := partial "localize.html" (dict "v" (index . "note") "lang" $lang) }}
+    {{ with $note }}{{ $note = $.RenderString (dict "display" "inline") $note }}{{ end }}
+    {{ $entry := dict "id" $nsId "name" $name "item" $name "icon" $icon "note" $note }}
+    {{ $tools = $tools | append $entry }}
+    {{ $toolIndex = merge $toolIndex (dict $nsId $entry) }}
+  {{ end }}
+  {{/* Update Store before parsing steps (RenderString reads from Store). */}}
+  {{ $.Store.Set "ingIndex" $ingIndex }}
+  {{ $.Store.Set "toolIndex" $toolIndex }}
+  {{/* Parse sub-recipe steps from the current-language body. */}}
+  {{ $parsed := slice }}
+  {{ range findRE `(?m)^[0-9]+\.[ \t]+.*$` $subLang.RawContent }}
+    {{ $text := replaceRE `^[0-9]+\.[ \t]+` "" . }}
+    {{ $stepOnly := slice }}
+    {{ with (findRE `\{variant:[^}]+\}` $text 1) }}
+      {{ $keys := (index . 0) | replaceRE `\{variant:` "" | replaceRE `\}` "" | strings.TrimSpace }}
+      {{ $stepOnly = split $keys " " }}
+    {{ end }}
+    {{ if and (gt (len $stepOnly) 0) (not (in $stepOnly $subDefaultVariant)) }}{{ continue }}{{ end }}
+    {{ $text = replaceRE `[ \t]*\{variant:[^}]+\}` "" $text }}
+    {{ $text = replaceRE `\(i:([a-z0-9_]+)` (printf "(i:%s__$1" $subId) $text }}
+    {{ $text = replaceRE `\(tool:([a-z0-9_]+)` (printf "(tool:%s__$1" $subId) $text }}
+    {{ $refs := slice }}
+    {{ range findRE `\(i:[a-z0-9_]+(\*[0-9.]+)?\)` $text }}
+      {{ $raw := . | replaceRE `^\(i:` "" | replaceRE `\)$` "" }}
+      {{ $rid := $raw }}
+      {{ $rfrac := 0.0 }}
+      {{ with findRE `\*[0-9.]+$` $raw 1 }}
+        {{ $rid = replaceRE `\*[0-9.]+$` "" $raw }}
+        {{ $rfrac = float (strings.TrimPrefix "*" (index . 0)) }}
+      {{ end }}
+      {{ $refs = $refs | append (dict "id" $rid "frac" $rfrac) }}
+    {{ end }}
+    {{ $timers := slice }}
+    {{ range findRE `\[[^\]]*\]\(t:[0-9hms]+\)` $text }}
+      {{ $label := . | replaceRE `^\[([^\]]*)\]\(.*\)$` "$1" }}
+      {{ $dur := . | replaceRE `^\[[^\]]*\]\(t:` "" | replaceRE `\)$` "" }}
+      {{ $timers = $timers | append (dict "dur" $dur "emoji" "⏳" "label" $label) }}
+    {{ end }}
+    {{ $html := $.RenderString (dict "display" "inline") $text }}
+    {{ $parsed = $parsed | append (dict "html" $html "only" (slice) "refs" $refs "timers" $timers "sub" (dict "title" $subTitle)) }}
+  {{ end }}
+  {{ $subSteps = merge $subSteps (dict $subId $parsed) }}
+{{ end }}
+{{ $.Store.Set "subIndex" $subIndex }}
 
 {{/* Variants. */}}
 {{ $variants := slice }}
@@ -79,17 +166,38 @@
     {{ $dur := . | replaceRE `^\[[^\]]*\]\(t:` "" | replaceRE `\)$` "" }}
     {{ $timers = $timers | append (dict "dur" $dur "emoji" "⏳" "label" $label) }}
   {{ end }}
+  {{ $subRef := "" }}
+  {{ with findRE `\(sub:[a-z0-9_]+\)` $text 1 }}
+    {{ $subRef = (index . 0) | replaceRE `^\(sub:` "" | replaceRE `\)$` "" }}
+  {{ end }}
   {{ $html := $.RenderString (dict "display" "inline") $text }}
-  {{ $steps = $steps | append (dict "html" $html "only" $only "refs" $refs "timers" $timers) }}
+  {{ $steps = $steps | append (dict "html" $html "only" $only "refs" $refs "timers" $timers "subRef" $subRef) }}
+{{ end }}
+
+{{/* Build focus-mode steps: replace sub-recipe markers with inlined sub steps. */}}
+{{ $focusSteps := slice }}
+{{ range $steps }}
+  {{ if .subRef }}
+    {{ with index $subSteps .subRef }}
+      {{ range . }}{{ $focusSteps = $focusSteps | append . }}{{ end }}
+    {{ end }}
+  {{ else }}
+    {{ $focusSteps = $focusSteps | append . }}
+  {{ end }}
 {{ end }}
 
 {{ $stepOnly := slice }}
 {{ $stepHasPanel := slice }}
-{{ range $steps }}
+{{ range $focusSteps }}
   {{ $stepOnly = $stepOnly | append (delimit .only " ") }}
   {{ $stepHasPanel = $stepHasPanel | append (or (gt (len .timers) 0) (gt (len .refs) 0)) }}
 {{ end }}
-{{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly "stepsHasPanel" $stepHasPanel }}
+{{ $unitLabels := dict }}
+{{ $usUnits := slice "cup" "cups" "oz" "lb" }}
+{{ $metricUnits := slice "kg" "g" "ml" "l" "tsp" "tbsp" "clove" "slices" }}
+{{ range $usUnits }}{{ $unitLabels = merge $unitLabels (dict . (i18n (printf "unit_%s" .))) }}{{ end }}
+{{ range $metricUnits }}{{ $unitLabels = merge $unitLabels (dict . (i18n (printf "unit_%s" .))) }}{{ end }}
+{{ $cfg := dict "defaultVariant" ($en.Params.defaultVariant | default "") "servings" $portion.value "scalable" $scalable "steps" $stepOnly "stepsHasPanel" $stepHasPanel "densities" .Site.Data.densities "unitLabels" $unitLabels }}
 {{ $heroImg := .Resources.GetMatch ($en.Params.image) }}
 
 <article class="mx-auto max-w-4xl px-5 py-4" x-data="recipe({{ $cfg | jsonify }})" @keydown.window="onKey($event)">
@@ -141,10 +249,13 @@
       <div class="flex items-center justify-between">
         <h2 class="text-xl font-semibold text-heading">{{ i18n "ingredients" }}</h2>
         {{ if $scalable }}
-        <div class="inline-flex items-center gap-1.5 rounded-lg border border-line text-sm">
-          <button @click="dec()" class="px-2.5 py-1 text-lg leading-none text-muted transition hover:text-accent" aria-label="{{ i18n "decrease" }}">−</button>
-          <span class="min-w-[1.5ch] text-center font-medium tabular-nums text-heading" x-text="servings">{{ $portion.value }}</span>
-          <button @click="inc()" class="px-2.5 py-1 text-lg leading-none text-muted transition hover:text-accent" aria-label="{{ i18n "increase" }}">+</button>
+        <div class="flex items-center gap-2">
+          <div class="inline-flex items-center gap-1.5 rounded-lg border border-line text-sm">
+            <button @click="dec()" class="px-2.5 py-1 text-lg leading-none text-muted transition hover:text-accent" aria-label="{{ i18n "decrease" }}">−</button>
+            <span class="min-w-[1.5ch] text-center font-medium tabular-nums text-heading" x-text="servings">{{ $portion.value }}</span>
+            <button @click="inc()" class="px-2.5 py-1 text-lg leading-none text-muted transition hover:text-accent" aria-label="{{ i18n "increase" }}">+</button>
+          </div>
+          <button @click="toggleUnits()" class="rounded-lg border border-line px-2.5 py-1 text-sm text-muted transition hover:text-accent" aria-label="Toggle metric / US units" x-text="units === 'us' ? 'cups' : 'g/ml'">g/ml</button>
         </div>
         {{ end }}
       </div>
@@ -201,7 +312,7 @@
     <div class="flex flex-1 flex-col-reverse overflow-hidden sm:flex-row">
       {{/* Step panel: bottom on mobile, left on desktop. Shows this step's timer(s) + ingredients. */}}
       <aside x-show="hasPanel" class="max-h-[42vh] shrink-0 overflow-y-auto border-t border-line p-5 sm:max-h-none sm:w-80 sm:border-r sm:border-t-0">
-        {{ range $i, $s := $steps }}
+        {{ range $i, $s := $focusSteps }}
         <div x-show="isCurrent({{ $i }})" x-cloak class="flex flex-col gap-6">
           {{ with $s.timers }}
           <div>
@@ -237,8 +348,9 @@
       </aside>
       <div class="flex-1 overflow-y-auto px-6 py-12">
         <div class="mx-auto max-w-xl">
-          {{ range $i, $s := $steps }}
+          {{ range $i, $s := $focusSteps }}
           <div x-show="isCurrent({{ $i }})" x-cloak>
+            {{ with $s.sub }}<span class="mb-2 block text-sm text-muted">↳ {{ .title }}</span>{{ end }}
             <p class="text-2xl leading-relaxed sm:text-3xl">{{ $s.html }}</p>
           </div>
           {{ end }}

@@ -12,7 +12,8 @@ portion:
 tools:
   - id: rice_cooker
     icon: "🍚"
-    name: { en: "rice cooker (or multi-purpose Instant Pot)", ca: "arrocera (o olla multifunció Instant Pot)", es: "arrocera (u olla multifunción Instant Pot)" }
+    name: { en: "rice cooker", ca: "arrocera", es: "arrocera" }
+    note: { en: "or multi-purpose Instant Pot", ca: "o olla multifunció Instant Pot", es: "u olla multifunción Instant Pot" }
   - id: wooden_spoon
     icon: "🥄"
     name: { en: "long-handled wooden spoon", ca: "cullera de fusta de mànec llarg", es: "cuchara de madera de mango largo" }

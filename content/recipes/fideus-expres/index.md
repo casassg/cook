@@ -1,6 +1,6 @@
 ---
 date: 2026-08-13T18:00:00-05:00
-title: "Express Noodles"
+title: "Fideus exprés"
 description: "Ada Parellada's express noodles: angel hair noodles toasted in olive oil, cooked in fish stock with squid in American sauce and clams, topped with stuffed squid and allioli."
 image: main.webp
 categories: [mains]

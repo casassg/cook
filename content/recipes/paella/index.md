@@ -25,7 +25,7 @@ subRecipes:
     recipe: /recipes/sofrito
     servings: 4
   - id: musclos
-    recipe: /recipes/musclos-al-vapor
+    recipe: /recipes/mussels
     servings: 2
 groups:
   - key: protein

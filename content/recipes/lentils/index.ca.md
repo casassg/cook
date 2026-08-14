@@ -1,5 +1,5 @@
 ---
-title: "Llenties saboroses a l'arrocera"
+title: "Llenties"
 description: "Llenties amb xoriço i salsitxes, sofregides amb ceba, all, patata i pastanaga, i cuites a l'arrocera."
 # Structure and name translations live in index.md. Only prose lives here.
 ---

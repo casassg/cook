@@ -1,5 +1,5 @@
 ---
-title: "Lentejas sabrosas en la arrocera"
+title: "Lentejas"
 description: "Lentejas con chorizo y salchichas, salteadas con cebolla, ajo, patata y zanahoria, y cocinadas en la arrocera."
 # Structure and name translations live in index.md. Only prose lives here.
 ---

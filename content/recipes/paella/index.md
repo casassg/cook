@@ -118,18 +118,8 @@ ingredients:
       en: "optional, for serving, cut in wedges"
       ca: "opcional, per servir, tallada a quarts"
       es: "opcional, para servir, cortada en gajos"
-  - id: aioli
-    emoji: "🧄"
-    amount: 0
-    unit: as_needed
-    group: serving
-    item: { en: "aioli", ca: "allioli", es: "alioli" }
-    note:
-      en: "optional, for serving"
-      ca: "opcional, per servir"
-      es: "opcional, para servir"
 ---
-
+ 
 1. Make the [sofrito](sub:sofrito); it can be done in a separate pan.
 2. While making the sofrito, season the [chicken wings](i:chicken_wings) with [paprika](i:paprika), [salt](i:salt), [black pepper](i:black_pepper) and [garlic powder](i:garlic_powder), then leave them to marinate in the fridge for a little while, covered.
 3. Add the seasoned [chicken wings](i:chicken_wings) (or small-cut pork ribs) to the [paella pan](tool:paella_pan) and cook them for about [5 min](t:5m) per side, until they look golden and juicy on both sides, then take them out and set them aside. When you start the chicken, also put the [stock](i:stock) on to heat.
@@ -141,4 +131,4 @@ ingredients:
 9. Add the hot [stock](i:stock) (it must be hot when it goes in) and return the [chicken wings](i:chicken_wings) to the pan. Mix the broth with the sofrito and taste it: it needs to be salty, so add [salt](i:salt) if there's not enough, and season with [black pepper](i:black_pepper).
 10. Start on strong heat; when the broth comes to a boil, lower it to a gentle simmer (chup chup) and leave it, tilting and moving the pan around so it cooks evenly, with the [saffron](i:saffron) if you're using it. Don't stir once the rice starts absorbing the liquid, or it will come out wrong.
 11. When the rice starts showing through the broth, taste it: if it's not done yet, add a little more boiling [stock](i:stock) (salted water only as a last resort). When the broth is mostly absorbed, raise the heat a little for about a minute to create a bit of socarrat at the bottom, then turn off the heat and let it rest for about [5 min](t:5m), finishing on its own heat so it doesn't overcook.
-12. Serve: arrange the whole mussels and any extra [chicken wings](i:chicken_wings) on top in a nice formation, with [lemon](i:lemon) wedges and [aioli](i:aioli) on the side.
+12. Serve: arrange the whole mussels and any extra [chicken wings](i:chicken_wings) on top in a nice formation, with [lemon](i:lemon) wedges and the [allioli](/recipes/allioli) on the side.

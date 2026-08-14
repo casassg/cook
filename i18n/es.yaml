@@ -19,6 +19,8 @@ original_recipe: "Original"
 search_placeholder: "Buscar recetas, ingredientes, autores…"
 
 cat_mains: "Platos principales"
+cat_sides: "Acompañamientos"
+cat_salsas: "Salsas"
 cat_desserts: "Postres"
 cat_snacks: "Aperitivos"
 cat_drinks: "Bebidas"

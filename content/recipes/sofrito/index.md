@@ -3,7 +3,7 @@ date: 2026-08-08T13:00:00-05:00
 title: "Sofrito"
 description: "The base of the paella: onion slowly fried in olive oil with a seasoned tomato sauce, reduced until intense red."
 image: main.webp
-categories: [mains]
+categories: [salsas]
 author: [gerard]
 portion:
   type: servings

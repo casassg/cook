@@ -3,7 +3,7 @@ date: 2026-08-13T18:00:00-05:00
 title: "Egg Allioli"
 description: "The easy egg allioli: garlic, egg and olive oil emulsified with the immersion blender."
 image: main.webp
-categories: [snacks]
+categories: [salsas]
 author: [gerard]
 portion:
   type: servings

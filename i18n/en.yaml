@@ -19,6 +19,8 @@ original_recipe: "Original"
 search_placeholder: "Search recipes, ingredients, authors…"
 
 cat_mains: "Mains"
+cat_sides: "Side dishes"
+cat_salsas: "Sauces"
 cat_desserts: "Desserts"
 cat_snacks: "Snacks"
 cat_drinks: "Drinks"

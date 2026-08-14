@@ -3,7 +3,7 @@ date: 2026-08-08T12:30:00-05:00
 title: "Musclos al vapor"
 description: "Quick, easy and cheap: mussels steamed with garlic, bay leaf and lemon, ready in minutes."
 image: main.webp
-categories: [mains]
+categories: [sides]
 author: [gerard]
 portion:
   type: servings

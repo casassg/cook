@@ -72,9 +72,9 @@ ingredients:
     group: seafood
     item: { en: "stuffed squid in American sauce", ca: "calamars farcits en salsa americana", es: "calamares rellenos en salsa americana" }
     note:
-      en: "canned; for the top"
-      ca: "de llauna; per posar al damunt"
-      es: "en lata; para poner por encima"
+      en: "canned; optional, for the top"
+      ca: "de llauna; opcional, per posar al damunt"
+      es: "en lata; opcional, para poner por encima"
   - id: salt
     amount: 0
     unit: to_taste

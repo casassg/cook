@@ -1,10 +1,14 @@
 ---
 date: 2026-08-10T13:00:00-05:00
-title: "Savory Lentils in the Rice Cooker"
+title: "Lentils"
 description: "Lentils with chorizo and sausage, sautéed with onion, garlic, potato and carrot, then cooked in the rice cooker."
 image: main.webp
 categories: [mains]
 author: [gerard]
+defaultVariant: savory
+variants:
+  - key: savory
+    name: { en: "Savory (rice cooker)", ca: "Saboroses (arrocera)", es: "Sabrosas (arrocera)" }
 portion:
   type: servings
   value: 4

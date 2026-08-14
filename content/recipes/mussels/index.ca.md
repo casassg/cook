@@ -1,5 +1,5 @@
 ---
-title: "Musclos al vapor"
+title: "Musclos"
 description: "Ràpida, fàcil i econòmica: musclos al vapor amb all, llorer i llimona, a punt en pocs minuts."
 # Structure and name translations live in index.md. Only prose lives here.
 ---

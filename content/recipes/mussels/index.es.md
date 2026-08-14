@@ -1,5 +1,5 @@
 ---
-title: "Musclos al vapor"
+title: "Mejillones"
 description: "Rápida, fácil y económica: mejillones al vapor con ajo, laurel y limón, listos en minutos."
 # Structure and name translations live in index.md. Only prose lives here.
 ---

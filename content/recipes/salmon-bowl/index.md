@@ -1,7 +1,7 @@
 ---
 date: 2026-08-16T18:00:00-05:00
 title: "Salmon Rice Bowl"
-description: "Air-fried salmon over frozen brown rice with avocado and cucumber, topped with mayo and chilli crunch."
+description: "Marinated, air-fried salmon over frozen brown rice with avocado and cucumber, topped with mayo and chilli crunch."
 image: main.webp
 categories: [mains]
 author: [gerard]
@@ -24,6 +24,18 @@ tools:
       ca: "microones"
       es: "microondas"
 ingredients:
+  - id: salmon
+    emoji: "🐟"
+    amount: 450
+    unit: g
+    item:
+      en: "salmon fillets"
+      ca: "lloms de salmó"
+      es: "lomos de salmón"
+    note:
+      en: "skinless; enough for generous bowls for two, or four smaller ones"
+      ca: "sense pell; suficient per a bols generosos per a dos, o quatre de més petits"
+      es: "sin piel; suficiente para boles generosos para dos, o cuatro más pequeños"
   - id: rice
     amount: 400
     unit: g
@@ -35,18 +47,45 @@ ingredients:
       en: "pre-cooked frozen rice; 2 minutes in the microwave straight from frozen"
       ca: "arròs precuit congelat; 2 minuts al microones directament congelat"
       es: "arroz precocido congelado; 2 minutos en el microondas directamente congelado"
-  - id: salmon
-    emoji: "🐟"
-    amount: 450
+  - id: soy_sauce
+    emoji: "🍶"
+    amount: 45
     unit: g
     item:
-      en: "salmon fillets"
-      ca: "lloms de salmó"
-      es: "lomos de salmón"
+      en: "soy sauce"
+      ca: "salsa de soja"
+      es: "salsa de soja"
     note:
-      en: "skinless"
-      ca: "sense pell"
-      es: "sin piel"
+      en: "or your usual soy-free substitute"
+      ca: "o el teu substitut habitual sense soja"
+      es: "o tu sustituto habitual sin soja"
+  - id: garlic
+    amount: 3
+    unit: clove
+    item:
+      en: "garlic"
+      ca: "alls"
+      es: "dientes de ajo"
+  - id: parsley
+    emoji: "🌿"
+    amount: 10
+    unit: g
+    item:
+      en: "parsley"
+      ca: "julivert"
+      es: "perejil"
+    note:
+      en: "a small handful, chopped"
+      ca: "un grapat petit, picat"
+      es: "un puñado pequeño, picado"
+  - id: sesame_oil
+    emoji: "🫗"
+    amount: 10
+    unit: g
+    item:
+      en: "toasted sesame oil"
+      ca: "oli de sèsam torrat"
+      es: "aceite de sésamo tostado"
   - id: avocado
     amount: 1
     unit: unit
@@ -81,17 +120,12 @@ ingredients:
       en: "Momofuku brand or any chili crisp"
       ca: "de la marca Momofuku o qualsevol chili crisp"
       es: "de la marca Momofuku o cualquier chili crisp"
-  - id: salt
-    amount: 0
-    unit: to_taste
-    item:
-      en: "salt"
-      ca: "sal"
-      es: "sal"
 ---
 
 1. Heat the [frozen cooked brown rice](i:rice) in the [microwave](tool:microwave) for [2 min](t:2m).
-2. Season the [salmon](i:salmon) with [salt](i:salt) and cook it in the [air fryer](tool:air_fryer) at 390°F (200°C) for [15 min](t:15m), until golden and cooked through.
-3. Slice the [avocado](i:avocado) and the [cucumber](i:cucumber).
-4. Divide the rice between two bowls and top with the salmon, avocado and cucumber.
-5. Drizzle with [mayonnaise](i:mayonnaise) and [chilli crunch](i:chilli_crunch).
+2. Mix the [soy sauce](i:soy_sauce), [garlic](i:garlic), [parsley](i:parsley) and [sesame oil](i:sesame_oil) in a bowl and coat the [salmon](i:salmon) with the marinade.
+3. Let it marinate for [15-30 min](t:15m).
+4. Cook the salmon in the [air fryer](tool:air_fryer) at 390°F (200°C) for [15 min](t:15m), until golden and cooked through.
+5. Slice the [avocado](i:avocado) and the [cucumber](i:cucumber).
+6. Divide the rice between two bowls and top with the salmon, avocado and cucumber.
+7. Drizzle with [mayonnaise](i:mayonnaise) and [chilli crunch](i:chilli_crunch).

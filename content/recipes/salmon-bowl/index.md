@@ -177,9 +177,9 @@ ingredients:
       ca: "chilli crunch"
       es: "chilli crunch"
     note:
-      en: "Momofuku brand or any chili crisp"
-      ca: "de la marca Momofuku o qualsevol chili crisp"
-      es: "de la marca Momofuku o cualquier chili crisp"
+      en: "Momofuku chilli crunch, any chili crisp, or Sriracha"
+      ca: "chilli crunch de Momofuku, qualsevol chili crisp o Sriracha"
+      es: "chilli crunch de Momofuku, cualquier chili crisp o Sriracha"
 ---
 
 1. Mix the [soy sauce](i:soy_sauce), [garlic](i:garlic), [parsley](i:parsley), [sesame oil](i:sesame_oil) and [lime juice](i:lime_juice) in a bowl and coat the [salmon](i:salmon) with the marinade.

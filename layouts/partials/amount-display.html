@@ -5,7 +5,7 @@
        stays correct. */ -}}
 {{- $amount := .amount -}}
 {{- $label := .label | default "" -}}
-{{- if and (eq .unit "g") (gt (float $amount) 1000) -}}
+{{- if and (eq .unit "g") (ge (float $amount) 1000) -}}
   {{- $amount = div (float $amount) 1000.0 -}}
   {{- $label = i18n "unit_kg" -}}
 {{- end -}}

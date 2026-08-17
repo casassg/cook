@@ -78,6 +78,15 @@ ingredients:
       en: "toasted sesame oil"
       ca: "oli de sèsam torrat"
       es: "aceite de sésamo tostado"
+  - id: lime_juice
+    group: marinade
+    emoji: "🍋"
+    amount: 10
+    unit: ml
+    item:
+      en: "lime juice"
+      ca: "suc de llima"
+      es: "jugo de lima"
   - id: salmon
     group: bowl
     emoji: "🐟"
@@ -143,7 +152,7 @@ ingredients:
       es: "de la marca Momofuku o cualquier chili crisp"
 ---
 
-1. Mix the [soy sauce](i:soy_sauce), [garlic](i:garlic), [parsley](i:parsley) and [sesame oil](i:sesame_oil) in a bowl and coat the [salmon](i:salmon) with the marinade.
+1. Mix the [soy sauce](i:soy_sauce), [garlic](i:garlic), [parsley](i:parsley), [sesame oil](i:sesame_oil) and [lime juice](i:lime_juice) in a bowl and coat the [salmon](i:salmon) with the marinade.
 2. Let it marinate for at least [30 min](t:30m), or longer if you have time: marinating in the morning and cooking in the afternoon works great.
 3. Heat the [frozen cooked brown rice](i:rice) in the [microwave](tool:microwave) for [2 min](t:2m).
 4. Cook the salmon in the [air fryer](tool:air_fryer) at 390°F (200°C) for [15 min](t:15m), until golden and cooked through.

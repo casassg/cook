@@ -1,7 +1,7 @@
 ---
 date: 2026-08-16T18:00:00-05:00
 title: "Salmon Rice Bowl"
-description: "Marinated, air-fried salmon over frozen brown rice with avocado and cucumber, topped with mayo and chilli crunch."
+description: "Marinated, air-fried salmon over frozen brown rice with avocado, cucumber and cherry tomatoes, topped with mayo and chilli crunch."
 image: main.webp
 categories: [mains]
 author: [gerard]
@@ -128,6 +128,19 @@ ingredients:
       en: "cucumber"
       ca: "cogombre"
       es: "pepino"
+  - id: cherry_tomato
+    group: bowl
+    emoji: "🍅"
+    amount: 5
+    unit: unit
+    item:
+      en: "cherry tomatoes"
+      ca: "tomàquets cherry"
+      es: "tomates cherry"
+    note:
+      en: "2-3 per serving, halved"
+      ca: "2-3 per ració, a la meitat"
+      es: "2-3 por ración, partidos por la mitad"
   - id: mayonnaise
     group: bowl
     emoji: "🫙"
@@ -156,6 +169,6 @@ ingredients:
 2. Let it marinate for at least [30 min](t:30m), or longer if you have time: marinating in the morning and cooking in the afternoon works great.
 3. Heat the [frozen cooked brown rice](i:rice) in the [microwave](tool:microwave) for [2 min](t:2m).
 4. Cook the salmon in the [air fryer](tool:air_fryer) at 390°F (200°C) for [15 min](t:15m), until golden and cooked through.
-5. Slice the [avocado](i:avocado) and the [cucumber](i:cucumber).
-6. Divide the rice between two bowls and top with the salmon, avocado and cucumber.
+5. Slice the [avocado](i:avocado) and the [cucumber](i:cucumber), and halve the [cherry tomatoes](i:cherry_tomato).
+6. Divide the rice between two bowls and top with the salmon, avocado, cucumber and cherry tomatoes.
 7. Drizzle with [mayonnaise](i:mayonnaise) and [chilli crunch](i:chilli_crunch).

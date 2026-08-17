@@ -247,6 +247,9 @@ document.addEventListener("alpine:init", () => {
         }
       }
       const lk = unit ? unit.toLowerCase() : "";
+      if (lk === "g" && n >= 1000) {
+        return formatAmount(n / 1000) + " " + (cfg.unitLabels?.["kg"] ?? "kg");
+      }
       return formatAmount(n) + (lk ? " " + (cfg.unitLabels?.[lk] ?? unit) : "");
     },
 

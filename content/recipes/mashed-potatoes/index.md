@@ -5,6 +5,7 @@ description: "Rich and creamy homemade mashed potatoes, always a crowd favorite.
 image: main.webp
 categories: [sides]
 author: [gerard]
+source: "https://www.gimmesomeoven.com/best-mashed-potatoes-recipe/"
 portion:
   type: servings
   value: 10

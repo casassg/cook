@@ -5,7 +5,7 @@ description: "Marinated, air-fried salmon over frozen brown rice with avocado an
 image: main.webp
 categories: [mains]
 author: [gerard]
-source: "https://s.samsungfood.com/6m02L"
+source: "https://www.barleyandsage.com/salmon-rice-bowls/"
 portion:
   type: servings
   value: 2

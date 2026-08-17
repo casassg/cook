@@ -98,7 +98,10 @@ function usVolume(ml, labels) {
   } else {
     lowerAmount = Math.round(lowerAmount * 2) / 2;
   }
-  if (lowerAmount < 0.5) return formatUS(amount) + " " + label;
+  if (lowerAmount < 1) {
+    const rounded = remainderTsp >= size / 2 ? whole + 1 : whole;
+    return formatUS(rounded) + " " + label;
+  }
   return whole + " " + label + " + " + formatUS(lowerAmount) + " " + usLabel(labels, lowerUnit, lowerAmount);
 }
 
@@ -119,11 +122,14 @@ function convertUS(amount, rawUnit, density, labels) {
     const g = unit === "kg" ? amount * 1000 : amount;
     if (g >= 454) {
       const ounces = Math.round(((g % 453.59) / 28.35) * 2) / 2;
-      const pounds = Math.floor(g / 453.59) + (ounces >= 16 ? 1 : 0);
-      const remainder = ounces >= 16 ? 0 : ounces;
-      return remainder ? [pounds, "lb", remainder] : [pounds, "lb"];
+      const pounds = Math.floor(g / 453.59) + (ounces >= 14 ? 1 : 0);
+      const remainder = ounces >= 14 ? 0 : ounces;
+      // Drop negligible oz remainder (< 2 oz next to pounds)
+      if (remainder < 2) return [pounds, "lb"];
+      return [pounds, "lb", remainder];
     }
-    return [Math.round((g / 28.35) * 4) / 4, "oz"];
+    const oz = g / 28.35;
+    return [oz >= 4 ? Math.round(oz * 2) / 2 : Math.round(oz * 4) / 4, "oz"];
   }
   return null; // non-metric units pass through unchanged
 }

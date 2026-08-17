@@ -23,31 +23,20 @@ tools:
       en: "microwave"
       ca: "microones"
       es: "microondas"
+groups:
+  - key: marinade
+    name:
+      en: "Marinade"
+      ca: "Marinada"
+      es: "Marinada"
+  - key: bowl
+    name:
+      en: "Bowl"
+      ca: "Bol"
+      es: "Bol"
 ingredients:
-  - id: salmon
-    emoji: "🐟"
-    amount: 450
-    unit: g
-    item:
-      en: "salmon fillets"
-      ca: "lloms de salmó"
-      es: "lomos de salmón"
-    note:
-      en: "skinless; enough for generous bowls for two, or four smaller ones"
-      ca: "sense pell; suficient per a bols generosos per a dos, o quatre de més petits"
-      es: "sin piel; suficiente para boles generosos para dos, o cuatro más pequeños"
-  - id: rice
-    amount: 400
-    unit: g
-    item:
-      en: "frozen cooked brown rice"
-      ca: "arròs integral cuit congelat"
-      es: "arroz integral cocido congelado"
-    note:
-      en: "pre-cooked frozen rice; 2 minutes in the microwave straight from frozen"
-      ca: "arròs precuit congelat; 2 minuts al microones directament congelat"
-      es: "arroz precocido congelado; 2 minutos en el microondas directamente congelado"
   - id: soy_sauce
+    group: marinade
     emoji: "🍶"
     amount: 45
     unit: g
@@ -60,6 +49,7 @@ ingredients:
       ca: "o el teu substitut habitual sense soja"
       es: "o tu sustituto habitual sin soja"
   - id: garlic
+    group: marinade
     amount: 3
     unit: clove
     item:
@@ -67,6 +57,7 @@ ingredients:
       ca: "alls"
       es: "dientes de ajo"
   - id: parsley
+    group: marinade
     emoji: "🌿"
     amount: 10
     unit: g
@@ -79,6 +70,7 @@ ingredients:
       ca: "un grapat petit, picat"
       es: "un puñado pequeño, picado"
   - id: sesame_oil
+    group: marinade
     emoji: "🫗"
     amount: 10
     unit: g
@@ -86,7 +78,33 @@ ingredients:
       en: "toasted sesame oil"
       ca: "oli de sèsam torrat"
       es: "aceite de sésamo tostado"
+  - id: salmon
+    group: bowl
+    emoji: "🐟"
+    amount: 450
+    unit: g
+    item:
+      en: "salmon fillets"
+      ca: "lloms de salmó"
+      es: "lomos de salmón"
+    note:
+      en: "skinless; enough for generous bowls for two, or four smaller ones"
+      ca: "sense pell; suficient per a bols generosos per a dos, o quatre de més petits"
+      es: "sin piel; suficiente para boles generosos para dos, o cuatro más pequeños"
+  - id: rice
+    group: bowl
+    amount: 400
+    unit: g
+    item:
+      en: "frozen cooked brown rice"
+      ca: "arròs integral cuit congelat"
+      es: "arroz integral cocido congelado"
+    note:
+      en: "pre-cooked frozen rice; 2 minutes in the microwave straight from frozen"
+      ca: "arròs precuit congelat; 2 minuts al microones directament congelat"
+      es: "arroz precocido congelado; 2 minutos en el microondas directamente congelado"
   - id: avocado
+    group: bowl
     amount: 1
     unit: unit
     item:
@@ -94,6 +112,7 @@ ingredients:
       ca: "alvocat"
       es: "aguacate"
   - id: cucumber
+    group: bowl
     amount: 100
     unit: g
     item:
@@ -101,6 +120,7 @@ ingredients:
       ca: "cogombre"
       es: "pepino"
   - id: mayonnaise
+    group: bowl
     emoji: "🫙"
     amount: 30
     unit: g
@@ -109,6 +129,7 @@ ingredients:
       ca: "maionesa"
       es: "mayonesa"
   - id: chilli_crunch
+    group: bowl
     emoji: "🌶️"
     amount: 15
     unit: g

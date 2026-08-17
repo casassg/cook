@@ -37,7 +37,7 @@ ingredients:
       es: "arroz precocido congelado; 2 minutos en el microondas directamente congelado"
   - id: salmon
     emoji: "🐟"
-    amount: 300
+    amount: 450
     unit: g
     item:
       en: "salmon fillets"

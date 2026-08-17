@@ -1,7 +1,7 @@
 ---
 date: 2026-08-16T18:00:00-05:00
 title: "Salmon Rice Bowl"
-description: "Marinated, air-fried salmon over frozen brown rice with avocado, cucumber and cherry tomatoes, topped with mayo and chilli crunch."
+description: "Marinated, air-fried salmon over frozen brown rice with avocado, cucumber, cherry tomatoes and lettuce, topped with mayo and chilli crunch."
 image: main.webp
 categories: [mains]
 author: [gerard]
@@ -141,6 +141,19 @@ ingredients:
       en: "2-3 per serving, halved"
       ca: "2-3 per ració, a la meitat"
       es: "2-3 por ración, partidos por la mitad"
+  - id: lettuce
+    group: bowl
+    emoji: "🥬"
+    amount: 5
+    unit: leaves
+    item:
+      en: "lettuce"
+      ca: "enciam"
+      es: "lechuga"
+    note:
+      en: "romaine or any crisp lettuce, torn into pieces"
+      ca: "romana o qualsevol enciam cruixent, esquinçat"
+      es: "romana o cualquier lechuga crujiente, rota en trozos"
   - id: mayonnaise
     group: bowl
     emoji: "🫙"
@@ -150,6 +163,10 @@ ingredients:
       en: "mayonnaise"
       ca: "maionesa"
       es: "mayonesa"
+    note:
+      en: "Kewpie is the one I use"
+      ca: "la Kewpie és la que faig servir"
+      es: "la Kewpie es la que uso"
   - id: chilli_crunch
     group: bowl
     emoji: "🌶️"
@@ -170,5 +187,6 @@ ingredients:
 3. Heat the [frozen cooked brown rice](i:rice) in the [microwave](tool:microwave) for [2 min](t:2m).
 4. Cook the salmon in the [air fryer](tool:air_fryer) at 390°F (200°C) for [15 min](t:15m), until golden and cooked through.
 5. Slice the [avocado](i:avocado) and the [cucumber](i:cucumber), and halve the [cherry tomatoes](i:cherry_tomato).
-6. Divide the rice between two bowls and top with the salmon, avocado, cucumber and cherry tomatoes.
-7. Drizzle with [mayonnaise](i:mayonnaise) and [chilli crunch](i:chilli_crunch).
+6. Tear the [lettuce](i:lettuce) into pieces.
+7. Divide the rice between two bowls and top with the salmon, avocado, cucumber, cherry tomatoes and lettuce.
+8. Drizzle with [mayonnaise](i:mayonnaise) and [chilli crunch](i:chilli_crunch).

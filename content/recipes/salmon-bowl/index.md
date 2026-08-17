@@ -185,7 +185,7 @@ ingredients:
 1. Mix the [soy sauce](i:soy_sauce), [garlic](i:garlic), [parsley](i:parsley), [sesame oil](i:sesame_oil) and [lime juice](i:lime_juice) in a bowl and coat the [salmon](i:salmon) with the marinade.
 2. Let it marinate for at least [30 min](t:30m), or longer if you have time: marinating in the morning and cooking in the afternoon works great.
 3. Heat the [frozen cooked brown rice](i:rice) in the [microwave](tool:microwave) for [2 min](t:2m).
-4. Cook the salmon in the [air fryer](tool:air_fryer) at 390°F (200°C) for [15 min](t:15m), until golden and cooked through.
+4. Cook the salmon in the [air fryer](tool:air_fryer) at 390°F (200°C) for [10 min](t:10m), until golden and cooked through.
 5. Slice the [avocado](i:avocado) and the [cucumber](i:cucumber), and halve the [cherry tomatoes](i:cherry_tomato).
 6. Tear the [lettuce](i:lettuce) into pieces.
 7. Divide the rice between two bowls and top with the salmon, avocado, cucumber, cherry tomatoes and lettuce.

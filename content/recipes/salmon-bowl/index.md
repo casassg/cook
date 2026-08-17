@@ -45,9 +45,9 @@ ingredients:
       ca: "salsa de soja"
       es: "salsa de soja"
     note:
-      en: "or your usual soy-free substitute"
-      ca: "o el teu substitut habitual sense soja"
-      es: "o tu sustituto habitual sin soja"
+      en: "or, for a soy-free option, Kikkoman's umami soy sauce alternative"
+      ca: "o, per una opció sense soja, l'alternativa umami de salsa de soja de Kikkoman"
+      es: "o, para una opción sin soja, la alternativa umami de salsa de soja de Kikkoman"
   - id: garlic
     group: marinade
     amount: 3

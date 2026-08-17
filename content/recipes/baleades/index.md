@@ -84,6 +84,7 @@ ingredients:
       ca: "com la sour cream; la crema salvadorenca, la mexicana o la sour cream també funcionen"
       es: "como la crema agria; la crema salvadoreña, la mexicana o la crema agria también funcionan"
   - id: eggs
+    emoji: "🥚"
     amount: 2
     unit: unit
     item:
@@ -92,6 +93,7 @@ ingredients:
       es: "huevos"
     onlyForVariation: [egg]
   - id: milk
+    emoji: "🥛"
     amount: 30
     unit: ml
     item:

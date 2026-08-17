@@ -90,7 +90,7 @@ ingredients:
       en: "eggs"
       ca: "ous"
       es: "huevos"
-    onlyForVariation: egg
+    onlyForVariation: [egg]
   - id: milk
     amount: 30
     unit: ml
@@ -102,7 +102,7 @@ ingredients:
       en: "a splash"
       ca: "una mica"
       es: "un poco"
-    onlyForVariation: egg
+    onlyForVariation: [egg]
   - id: chicken_breast
     emoji: "🍗"
     amount: 150
@@ -115,7 +115,7 @@ ingredients:
       en: "cooked and minced; the minced chicken recipe is coming soon"
       ca: "cuita i picada; aviat hi haurà la recepta del pollastre picat"
       es: "cocida y picada; pronto habrá la receta del pollo picado"
-    onlyForVariation: minced_chicken
+    onlyForVariation: [minced_chicken]
   - id: cheese
     emoji: "🧀"
     amount: 0

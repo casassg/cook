@@ -100,9 +100,9 @@ ingredients:
       ca: "arròs integral cuit congelat"
       es: "arroz integral cocido congelado"
     note:
-      en: "pre-cooked frozen rice; 2 minutes in the microwave straight from frozen"
-      ca: "arròs precuit congelat; 2 minuts al microones directament congelat"
-      es: "arroz precocido congelado; 2 minutos en el microondas directamente congelado"
+      en: "pre-cooked frozen rice (2 minutes in the microwave) or freshly cooked in a rice cooker"
+      ca: "arròs precuit congelat (2 minuts al microones) o acabat de fer a l'arrossera"
+      es: "arroz precocido congelado (2 minutos en el microondas) o recién hecho en la arrocera"
   - id: avocado
     group: bowl
     amount: 1
@@ -143,9 +143,9 @@ ingredients:
       es: "de la marca Momofuku o cualquier chili crisp"
 ---
 
-1. Heat the [frozen cooked brown rice](i:rice) in the [microwave](tool:microwave) for [2 min](t:2m).
-2. Mix the [soy sauce](i:soy_sauce), [garlic](i:garlic), [parsley](i:parsley) and [sesame oil](i:sesame_oil) in a bowl and coat the [salmon](i:salmon) with the marinade.
-3. Let it marinate for [15-30 min](t:15m).
+1. Mix the [soy sauce](i:soy_sauce), [garlic](i:garlic), [parsley](i:parsley) and [sesame oil](i:sesame_oil) in a bowl and coat the [salmon](i:salmon) with the marinade.
+2. Let it marinate for at least [30 min](t:30m), or longer if you have time: marinating in the morning and cooking in the afternoon works great.
+3. Heat the [frozen cooked brown rice](i:rice) in the [microwave](tool:microwave) for [2 min](t:2m).
 4. Cook the salmon in the [air fryer](tool:air_fryer) at 390°F (200°C) for [15 min](t:15m), until golden and cooked through.
 5. Slice the [avocado](i:avocado) and the [cucumber](i:cucumber).
 6. Divide the rice between two bowls and top with the salmon, avocado and cucumber.

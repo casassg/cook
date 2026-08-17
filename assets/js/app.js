@@ -57,7 +57,55 @@ function formatUS(n) {
   return String(Math.round(n * 100) / 100);
 }
 
-function convertUS(amount, rawUnit, density) {
+function usLabel(labels, unit, amount) {
+  if ((unit === "cup" || unit === "qt") && amount > 1.05) {
+    return labels?.[unit === "cup" ? "cups" : "qts"] ?? unit;
+  }
+  return labels?.[unit] ?? unit;
+}
+
+function usVolume(ml, labels) {
+  const tsp = Math.round((ml / 4.929) * 4) / 4;
+  const units = [
+    ["gal", 768],
+    ["qt", 192],
+    ["cup", 48],
+  ];
+  const head = units.find(([, size]) => tsp >= size) || (tsp >= 3 ? ["tbsp", 3] : ["tsp", 1]);
+  const [unit, size] = head;
+  const amount = tsp / size;
+  const whole = Math.floor(amount);
+  const frac = amount - whole;
+  const snapped = FRACTIONS.find(([value]) => Math.abs(frac - value) < 0.05);
+  const label = usLabel(labels, unit, amount);
+
+  if (snapped || frac < 0.03) return formatUS(amount) + " " + label;
+
+  const lower = { gal: ["qt", 48], qt: ["cup", 12], cup: ["tbsp", 3], tbsp: ["tsp", 1] }[unit];
+  const remainderTsp = tsp - whole * size;
+  if (!lower) return formatUS(amount) + " " + label;
+
+  let [lowerUnit, lowerSize] = lower;
+  let lowerAmount = remainderTsp / lowerSize;
+  if (lowerUnit === "cup" || lowerUnit === "qt") {
+    const lowerFraction = lowerAmount - Math.floor(lowerAmount);
+    if (lowerFraction >= 0.03 && !FRACTIONS.some(([value]) => Math.abs(lowerFraction - value) < 0.05)) {
+      lowerUnit = "tbsp";
+      lowerSize = 3;
+      lowerAmount = remainderTsp / lowerSize;
+      lowerAmount = Math.round(lowerAmount * 2) / 2;
+    }
+  } else {
+    lowerAmount = Math.round(lowerAmount * 2) / 2;
+  }
+  if (lowerAmount < 1) {
+    const rounded = remainderTsp >= size / 2 ? whole + 1 : whole;
+    return formatUS(rounded) + " " + label;
+  }
+  return whole + " " + label + " + " + formatUS(lowerAmount) + " " + usLabel(labels, lowerUnit, lowerAmount);
+}
+
+function convertUS(amount, rawUnit, density, labels) {
   // Normalize: recipes may use "L" for liters
   const unit = rawUnit ? rawUnit.toLowerCase() : "";
   // Volume: ml/l → cups/tbsp/tsp
@@ -67,14 +115,21 @@ function convertUS(amount, rawUnit, density) {
     ml = (unit === "kg" ? amount * 1000 : amount) / density * 236.588;
   }
   if (ml !== null) {
-    if (ml >= 59) return [ml / 236.588, "cup"];
-    if (ml >= 15) return [ml / 14.787, "tbsp"];
-    return [ml / 4.929, "tsp"];
+    return usVolume(ml, labels);
   }
   // Weight without density: g/kg → oz/lb
   if (unit === "kg" || unit === "g") {
     const g = unit === "kg" ? amount * 1000 : amount;
-    return g >= 454 ? [g / 453.59, "lb"] : [g / 28.35, "oz"];
+    if (g >= 454) {
+      const ounces = Math.round(((g % 453.59) / 28.35) * 2) / 2;
+      const pounds = Math.floor(g / 453.59) + (ounces >= 14 ? 1 : 0);
+      const remainder = ounces >= 14 ? 0 : ounces;
+      // Drop negligible oz remainder (< 2 oz next to pounds)
+      if (remainder < 2) return [pounds, "lb"];
+      return [pounds, "lb", remainder];
+    }
+    const oz = g / 28.35;
+    return [oz >= 4 ? Math.round(oz * 2) / 2 : Math.round(oz * 4) / 4, "oz"];
   }
   return null; // non-metric units pass through unchanged
 }
@@ -240,15 +295,20 @@ document.addEventListener("alpine:init", () => {
     amt(base, unit, iid) {
       const n = (parseFloat(base) || 0) * this.factor;
       if (this.units === "us") {
-        const c = convertUS(n, unit, cfg.densities?.[iid]);
+        const c = convertUS(n, unit, cfg.densities?.[iid], cfg.unitLabels);
         if (c) {
-          const label = c[1] === "cup" && c[0] > 1.05 ? (cfg.unitLabels?.["cups"] ?? "cups") : (cfg.unitLabels?.[c[1]] ?? c[1]);
-          return formatUS(c[0]) + " " + label;
+          if (typeof c === "string") return c;
+          const label = usLabel(cfg.unitLabels, c[1], c[0]);
+          const amount = c[2] ? formatUS(c[0]) + " " + label + " " + formatUS(c[2]) + " " + (cfg.unitLabels?.oz ?? "oz") : formatUS(c[0]) + " " + label;
+          return amount;
         }
       }
       const lk = unit ? unit.toLowerCase() : "";
       if (lk === "g" && n >= 1000) {
         return formatAmount(n / 1000) + " " + (cfg.unitLabels?.["kg"] ?? "kg");
+      }
+      if (lk === "ml" && n >= 1000) {
+        return formatAmount(n / 1000) + " " + (cfg.unitLabels?.["l"] ?? "l");
       }
       return formatAmount(n) + (lk ? " " + (cfg.unitLabels?.[lk] ?? unit) : "");
     },

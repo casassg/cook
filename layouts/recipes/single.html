@@ -193,7 +193,7 @@
   {{ $stepHasPanel = $stepHasPanel | append (or (gt (len .timers) 0) (gt (len .refs) 0)) }}
 {{ end }}
 {{ $unitLabels := dict }}
-{{ $usUnits := slice "cup" "cups" "oz" "lb" }}
+{{ $usUnits := slice "cup" "cups" "oz" "lb" "qt" "qts" "gal" }}
 {{ $metricUnits := slice "kg" "g" "ml" "l" "tsp" "tbsp" "clove" "slices" }}
 {{ range $usUnits }}{{ $unitLabels = merge $unitLabels (dict . (i18n (printf "unit_%s" .))) }}{{ end }}
 {{ range $metricUnits }}{{ $unitLabels = merge $unitLabels (dict . (i18n (printf "unit_%s" .))) }}{{ end }}

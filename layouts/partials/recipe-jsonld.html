@@ -7,7 +7,7 @@
 {{- $ingredientLines := slice -}}
 {{- range $ings -}}
   {{- $line := .item -}}
-  {{- if .hasAmount -}}{{- $line = printf "%v %s %s" .amount .unitLabel .item | strings.TrimSpace -}}{{- end -}}
+  {{- if .hasAmount -}}{{- $line = printf "%s %s" (partial "amount-display.html" (dict "amount" .amount "unit" .unit "label" .unitLabel)) .item | strings.TrimSpace -}}{{- end -}}
   {{- $ingredientLines = $ingredientLines | append $line -}}
 {{- end -}}
 {{- $instructions := slice -}}

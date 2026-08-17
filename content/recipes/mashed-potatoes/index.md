@@ -8,7 +8,7 @@ author: [gerard]
 source: "https://www.gimmesomeoven.com/best-mashed-potatoes-recipe/"
 portion:
   type: servings
-  value: 10
+  value: 6
   unit: servings
 tools:
   - id: stockpot
@@ -29,7 +29,7 @@ tools:
       es: "o el microondas"
 ingredients:
   - id: potato
-    amount: 2250
+    amount: 1300
     unit: g
     item: { en: "potatoes", ca: "patates", es: "patatas" }
     note:
@@ -37,7 +37,7 @@ ingredients:
       ca: "la meitat Yukon Gold, la meitat Russet"
       es: "la mitad Yukon Gold, la mitad Russet"
   - id: garlic
-    amount: 4
+    amount: 2
     unit: clove
     item: { en: "garlic", ca: "all", es: "ajo" }
     note:
@@ -58,17 +58,17 @@ ingredients:
       ca: "freda, per cobrir les patates"
       es: "fría, para cubrir las patatas"
   - id: butter
-    amount: 85
+    amount: 50
     unit: g
     item: { en: "butter", ca: "mantega", es: "mantequilla" }
   - id: milk
     emoji: "🥛"
-    amount: 240
+    amount: 150
     unit: ml
     item: { en: "whole milk", ca: "llet sencera", es: "leche entera" }
   - id: cream_cheese
     emoji: "🧀"
-    amount: 113
+    amount: 70
     unit: g
     item: { en: "cream cheese", ca: "formatge crema", es: "queso crema" }
     note:

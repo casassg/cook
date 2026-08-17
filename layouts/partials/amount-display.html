@@ -1,0 +1,12 @@
+{{- /* Display an amount + unit, auto-converting grams >= 1000 to kg.
+       Params: amount (number, base unit), unit (string), label (string, optional
+       localized unit label e.g. "g"). Only the VISIBLE text converts; callers
+       must keep data-base/data-unit in the base unit so Alpine scaling math
+       stays correct. */ -}}
+{{- $amount := .amount -}}
+{{- $label := .label | default "" -}}
+{{- if and (eq .unit "g") (gt (float $amount) 1000) -}}
+  {{- $amount = div (float $amount) 1000.0 -}}
+  {{- $label = i18n "unit_kg" -}}
+{{- end -}}
+{{- printf "%v" $amount -}}{{ with $label }} {{ . }}{{ end -}}

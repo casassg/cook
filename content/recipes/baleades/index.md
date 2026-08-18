@@ -4,7 +4,7 @@ title: "Baleadas"
 description: "Honduran folded flour tortillas with refried beans, sour cream and scrambled egg or minced chicken. Quick weeknight dinner with Laura."
 image: main.webp
 categories: [mains]
-author: [gerard]
+author: [laura]
 portion:
   type: servings
   value: 2

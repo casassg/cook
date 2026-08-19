@@ -3,7 +3,7 @@ title: "Baleades"
 description: "Tortilles de blat plegades a l'estil hondureny amb mongetes refregides, crema i ou o pollastre picat. Sopar ràpid amb la Laura."
 ---
 
-1. En un [bol petit](tool:bowl), bateu els [ous](i:eggs) amb una mica de [llet](i:milk), [sal](i:salt) i [pebre negre](i:black_pepper), i coeu-los en una [paella](tool:frying_pan) a foc baix, remenant sovint perquè quedin tous. {variant: egg}
+1. En un [bol petit](tool:bowl), bateu els [ous](i:eggs) amb una mica d'[aigua](i:egg_water), [sal](i:salt) i [pebre negre](i:black_pepper), i coeu-los en una [paella](tool:frying_pan) a foc baix, remenant sovint perquè quedin tous. {variant: egg}
 2. Cueu el [pit de pollastre](i:chicken_breast), deixeu-lo reposar i piqueu-lo. {variant: minced_chicken}
 3. Escalfeu les [mongetes](i:beans) en una [paella](tool:frying_pan) amb una mica d'[aigua](i:water) perquè no s'assequin.
 4. Escalfeu les [tortillas](i:tortillas) a la paella, donant-les la volta i sacsejant-les per separar-les.

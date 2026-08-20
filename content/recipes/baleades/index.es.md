@@ -3,7 +3,7 @@ title: "Baleadas"
 description: "Tortillas de harina plegadas al estilo hondureño con frijoles refritos, crema y huevo o pollo picado. Cena rápida con Laura."
 ---
 
-1. En un [bol pequeño](tool:bowl), bate los [huevos](i:eggs) con un poco de [leche](i:milk), [sal](i:salt) y [pimienta negra](i:black_pepper), y cuécelos en una [sartén](tool:frying_pan) a fuego bajo, removiendo con frecuencia para que queden suaves. {variant: egg}
+1. En un [bol pequeño](tool:bowl), bate los [huevos](i:eggs) con un poco de [agua](i:water), [sal](i:salt) y [pimienta negra](i:black_pepper), y cuécelos en una [sartén](tool:frying_pan) a fuego bajo, removiendo con frecuencia. {variant: egg}
 2. Cocina la [pechuga de pollo](i:chicken_breast), déjala reposar y pícala. {variant: minced_chicken}
 3. Calienta los [frijoles](i:beans) en una [sartén](tool:frying_pan) con un poco de [agua](i:water) para que no se sequen.
 4. Calienta las [tortillas](i:tortillas) en la sartén, dándoles la vuelta y sacudiéndolas para separarlas.

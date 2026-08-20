@@ -61,16 +61,16 @@ ingredients:
       es: "ya hechos, de lata: Campo Fresco o una marca latina similar"
   - id: water
     emoji: "💧"
-    amount: 30
-    unit: ml
+    amount: 0
+    unit: to_taste
     item:
       en: "water"
       ca: "aigua"
       es: "agua"
     note:
-      en: "a splash, so the beans stay moist"
-      ca: "una mica, perquè les mongetes no s'assequin"
-      es: "un poco, para que los frijoles no se sequen"
+      en: "a splash, as needed: to keep the beans moist and to make the eggs softer"
+      ca: "una mica, segons convingui: perquè les mongetes no s'assequin i els ous quedin més tous"
+      es: "un poco, según convenga: para que los frijoles no se sequen y los huevos queden más suaves"
   - id: cream
     emoji: "🥛"
     amount: 0
@@ -85,25 +85,12 @@ ingredients:
       es: "como la crema agria; la crema salvadoreña, la mexicana o la crema agria también funcionan"
   - id: eggs
     emoji: "🥚"
-    amount: 2
+    amount: 3
     unit: unit
     item:
       en: "eggs"
       ca: "ous"
       es: "huevos"
-    onlyForVariation: [egg]
-  - id: milk
-    emoji: "🥛"
-    amount: 30
-    unit: ml
-    item:
-      en: "milk"
-      ca: "llet"
-      es: "leche"
-    note:
-      en: "a splash"
-      ca: "una mica"
-      es: "un poco"
     onlyForVariation: [egg]
   - id: chicken_breast
     emoji: "🍗"
@@ -170,7 +157,7 @@ ingredients:
       es: "pimienta negra"
 ---
 
-1. In a [small bowl](tool:bowl), beat the [eggs](i:eggs) with a splash of [milk](i:milk), [salt](i:salt) and [black pepper](i:black_pepper), then cook them in a [frying pan](tool:frying_pan) over low heat, stirring often so they stay soft. {variant: egg}
+1. In a [small bowl](tool:bowl), beat the [eggs](i:eggs) with a splash of [water](i:water), [salt](i:salt) and [black pepper](i:black_pepper), then cook them in a [frying pan](tool:frying_pan) over low heat, stirring often. {variant: egg}
 2. Cook the [chicken breast](i:chicken_breast), let it rest and mince it. {variant: minced_chicken}
 3. Heat the [beans](i:beans) in a [frying pan](tool:frying_pan) with a little [water](i:water) so they stay moist.
 4. Warm the [tortillas](i:tortillas) in the frying pan, turning and shaking to separate them.

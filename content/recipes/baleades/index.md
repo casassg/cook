@@ -101,9 +101,9 @@ ingredients:
       ca: "aigua"
       es: "agua"
     note:
-      en: "a splash to keep the eggs soft; not milk"
-      ca: "una mica perquè els ous quedin tous; no llet"
-      es: "un poco para que los huevos queden suaves; no leche"
+      en: "a splash; it helps them be softer"
+      ca: "una mica; ajuda que quedin més tous"
+      es: "un poco; ayuda a que queden más suaves"
     onlyForVariation: [egg]
   - id: chicken_breast
     emoji: "🍗"
@@ -170,7 +170,7 @@ ingredients:
       es: "pimienta negra"
 ---
 
-1. In a [small bowl](tool:bowl), beat the [eggs](i:eggs) with a splash of [water](i:egg_water), [salt](i:salt) and [black pepper](i:black_pepper), then cook them in a [frying pan](tool:frying_pan) over low heat, stirring often so they stay soft. {variant: egg}
+1. In a [small bowl](tool:bowl), beat the [eggs](i:eggs) with a splash of [water](i:egg_water), [salt](i:salt) and [black pepper](i:black_pepper), then cook them in a [frying pan](tool:frying_pan) over low heat, stirring often. {variant: egg}
 2. Cook the [chicken breast](i:chicken_breast), let it rest and mince it. {variant: minced_chicken}
 3. Heat the [beans](i:beans) in a [frying pan](tool:frying_pan) with a little [water](i:water) so they stay moist.
 4. Warm the [tortillas](i:tortillas) in the frying pan, turning and shaking to separate them.

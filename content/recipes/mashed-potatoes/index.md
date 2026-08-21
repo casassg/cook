@@ -90,7 +90,7 @@ ingredients:
 1. Cut the [potatoes](i:potato) into evenly sized chunks about an inch thick (peeling is optional) and transfer them to a large [stockpot](tool:stockpot) filled with [cold water](i:water).
 2. Make sure the water sits about an inch above the potatoes, stir in the [garlic](i:garlic) and 1 tablespoon of [salt](i:salt), and bring everything to a boil over high heat.
 3. Reduce the heat to medium-high and cook for [10-12 min](t:10m), until a knife pierces the middle of a potato with almost no resistance. Drain the potatoes carefully.
-4. Meanwhile, warm the [milk](i:milk) in the [microwave](tool:microwave) for [30 seconds to a minute](t:30s), until warm but not boiling. Set aside.
+4. Meanwhile, warm the [milk](i:milk) in the [microwave](tool:microwave) or a small pot for [30 seconds to a minute](t:30s), until warm but not boiling. Set aside.
 5. Return the drained potatoes to the hot [stockpot](tool:stockpot) over low heat and shake gently for about a minute to cook off the remaining steam. Remove from the heat.
 6. Mash the potatoes with a [potato masher](tool:masher) to your desired consistency.
 7. Using a [wooden spoon](tool:spoon), fold in the [olive oil](i:olive_oil), then the warm [milk](i:milk), then the [salt](i:salt), folding until just combined, and finally the [cream cheese](i:cream_cheese). Avoid over-mixing; add a splash of warm [milk](i:milk) if needed.

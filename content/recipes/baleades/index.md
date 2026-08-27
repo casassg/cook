@@ -1,7 +1,7 @@
 ---
 date: 2026-08-16T18:00:00-05:00
 title: "Baleadas"
-description: "Honduran folded flour tortillas with refried beans, sour cream and scrambled egg or minced chicken. Quick weeknight dinner with Laura."
+description: "Honduran folded flour tortillas with refried beans and scrambled egg or minced chicken. Add the Salvadoran cream for the family-style version (Gerard usually makes them with just beans, no cream)."
 image: main.webp
 categories: [mains]
 author: [laura]
@@ -21,6 +21,11 @@ variants:
       en: "With Minced Chicken"
       ca: "Amb pollastre picat"
       es: "Con pollo picado"
+  - key: egg_with_cream
+    name:
+      en: "With Egg & Cream"
+      ca: "Amb ou i crema"
+      es: "Con huevo y crema"
 tools:
   - id: frying_pan
     icon: "🍳"
@@ -80,9 +85,10 @@ ingredients:
       ca: "crema hondurenya"
       es: "crema hondureña"
     note:
-      en: "like sour cream; Salvadoran or Mexican cream, or plain sour cream, works too"
-      ca: "com la sour cream; la crema salvadorenca, la mexicana o la sour cream també funcionen"
-      es: "como la crema agria; la crema salvadoreña, la mexicana o la crema agria también funcionan"
+      en: "like sour cream; Salvadoran or Mexican cream, or plain sour cream, works too. Only in the Egg & Cream variant — Gerard usually skips it and does them with just beans."
+      ca: "com la sour cream; la crema salvadorenca, la mexicana o la sour cream també funcionen. Només en la variant Amb ou i crema: en Gerard normalment la treu i les fa només amb mongetes."
+      es: "como la crema agria; la crema salvadoreña, la mexicana o la crema agria también funcionan. Solo en la variante Con huevo y crema: Gerard normalmente la omite y las hace solo con frijoles."
+    onlyForVariation: [egg_with_cream]
   - id: eggs
     emoji: "🥚"
     amount: 3
@@ -91,7 +97,7 @@ ingredients:
       en: "eggs"
       ca: "ous"
       es: "huevos"
-    onlyForVariation: [egg]
+    onlyForVariation: [egg, egg_with_cream]
   - id: chicken_breast
     emoji: "🍗"
     amount: 150
@@ -157,12 +163,13 @@ ingredients:
       es: "pimienta negra"
 ---
 
-1. In a [small bowl](tool:bowl), beat the [eggs](i:eggs) with a splash of [water](i:water), [salt](i:salt) and [black pepper](i:black_pepper), then cook them in a [frying pan](tool:frying_pan) over low heat, stirring often. {variant: egg}
+1. In a [small bowl](tool:bowl), beat the [eggs](i:eggs) with a splash of [water](i:water), [salt](i:salt) and [black pepper](i:black_pepper), then cook them in a [frying pan](tool:frying_pan) over low heat, stirring often. {variant: egg egg_with_cream}
 2. Cook the [chicken breast](i:chicken_breast), let it rest and mince it. {variant: minced_chicken}
 3. Heat the [beans](i:beans) in a [frying pan](tool:frying_pan) with a little [water](i:water) so they stay moist.
 4. Warm the [tortillas](i:tortillas) in the frying pan, turning and shaking to separate them.
-5. Spread a layer of beans over a tortilla and add the [cream](i:cream), mixing it with the beans.
-6. Top with the scrambled [eggs](i:eggs). {variant: egg}
-7. Top with the minced [chicken](i:chicken_breast). {variant: minced_chicken}
-8. Optionally add [cheese](i:cheese) and pass the baleada through the pan briefly so it melts.
-9. Fold the tortilla in half and finish with [avocado](i:avocado) pieces and [hot sauce](i:hot_sauce) to taste.
+5. Spread a layer of beans over a tortilla.
+6. Add the [cream](i:cream) and mix it in with the beans. {variant: egg_with_cream}
+7. Top with the scrambled [eggs](i:eggs). {variant: egg egg_with_cream}
+8. Top with the minced [chicken](i:chicken_breast). {variant: minced_chicken}
+9. Optionally add [cheese](i:cheese) and pass the baleada through the pan briefly so it melts.
+10. Fold the tortilla in half and finish with [avocado](i:avocado) pieces and [hot sauce](i:hot_sauce) to taste.

@@ -44,9 +44,9 @@ ingredients:
       ca: "tortillas integrals de blat"
       es: "tortillas integrales de harina"
     note:
-      en: "H-E-B whole wheat tortillas"
-      ca: "tortillas integrals de l'H-E-B"
-      es: "tortillas integrales de H-E-B"
+      en: "These are the H-E-B Bakery Wheat Flour Tortillas ([product 1478450](https://www.heb.com/product-detail/h-e-b-bakery-wheat-flour-tortillas-10-ct/1478450)), 10 ct. One tortilla per person — for 2 people use 2."
+      ca: "Aquestes són les tortilles de farina de blat de l'H-E-B Bakery ([producte 1478450](https://www.heb.com/product-detail/h-e-b-bakery-wheat-flour-tortillas-10-ct/1478450)), 10 unitats. Una tortilla per persona: per a 2 persones, 2."
+      es: "Estas son las tortillas de harina de trigo de H-E-B Bakery ([producto 1478450](https://www.heb.com/product-detail/h-e-b-bakery-wheat-flour-tortillas-10-ct/1478450)), 10 unidades. Una tortilla por persona: para 2 personas, 2."
   - id: beans
     emoji: "🫘"
     amount: 200

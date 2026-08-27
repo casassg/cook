@@ -56,9 +56,9 @@ ingredients:
       ca: "mongetes vermelles refregides"
       es: "frijoles rojos refritos"
     note:
-      en: "ready-made, canned: Campo Fresco or a similar Latin brand"
-      ca: "ja fetes, de llauna: Campo Fresco o una marca llatina semblant"
-      es: "ya hechos, de lata: Campo Fresco o una marca latina similar"
+      en: "ready-made, canned. This is the H-E-B refried red beans we use ([H-E-B product 1466504](https://www.heb.com/product-detail/1466504)); the H-E-B refried black beans work the same. Campo Fresco or any similar Latin brand is a fine substitute."
+      ca: "ja fetes, de llauna. Aquestes són les mongetes vermelles refregides de l'H-E-B que fem servir ([producte H-E-B 1466504](https://www.heb.com/product-detail/1466504)); les negres refregides de l'H-E-B també funcionen igual. La Campo Fresco o qualsevol marca llatina semblant és una bona alternativa."
+      es: "ya hechos, de lata. Estos son los frijoles rojos refritos de H-E-B que usamos ([producto H-E-B 1466504](https://www.heb.com/product-detail/1466504)); los frijoles negros refritos de H-E-B funcionan igual. Campo Fresco o cualquier marca latina similar es una buena alternativa."
   - id: water
     emoji: "💧"
     amount: 0

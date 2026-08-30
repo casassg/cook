@@ -1,7 +1,7 @@
 ---
 date: 2026-08-29T12:00:00-05:00
 title: "Parmesan Broth"
-description: "Chicken broth stretched with water and simmered with a Parmesan rind and the mushroom trimmings saved from the risotto. A pressure cooker stocks it in half an hour. The broth is just a flavor shortcut — it also works with all water, or with vegetable broth."
+description: "Water simmered with a Parmesan rind, the mushroom trimmings saved from the risotto and a few aromatics. A pressure cooker stocks it in half an hour. The base is water; a pre-made chicken or veggie broth is just an optional shortcut to add flavor faster."
 image: main.webp
 categories: [salsas]
 author: [gerard]
@@ -18,24 +18,24 @@ tools:
     icon: "🧺"
     name: { en: "fine-mesh sieve", ca: "colador de malla fina", es: "colador de malla fina" }
 ingredients:
-  - id: chicken_broth
-    emoji: "🍲"
-    amount: 1000
-    unit: ml
-    item: { en: "chicken broth (or vegetable)", ca: "brou de pollastre (o de verdures)", es: "caldo de pollo (o de verduras)" }
-    note:
-      en: "optional shortcut: it just adds flavor faster. 4 cups. Chicken or veggie broth both work; or skip it and use all water. See the note above the steps."
-      ca: "escurçó opcional: només hi afegeix sabor més ràpid. 4 tasses. Té el mateix sentit el brou de pollastre o el de verdures; o salta-te'l i fes servir tota l'aigua. Mira la nota abans dels passos."
-      es: "atajo opcional: solo le añade sabor más rápido. 4 tazas. Funciona igual el caldo de pollo o el de verduras; o sáltatelo y usa toda el agua. Ver la nota antes de los pasos."
   - id: water
     emoji: "💧"
-    amount: 1000
+    amount: 2000
     unit: ml
     item: { en: "water", ca: "aigua", es: "agua" }
     note:
-      en: "4 cups; with the 4 cups of broth that makes 8 total. Use all 8 cups of water instead for a longer broth."
-      ca: "4 tasses; amb les 4 de brou fan 8 en total. Fes servir les 8 tasses d'aigua en lloc de res per a un brou més llarg."
-      es: "4 tazas; con las 4 de caldo hacen 8 en total. Usa las 8 tazas de agua en lugar de nada para un caldo más largo."
+      en: "8 cups, or 6 cups if you top up the rest with pre-made broth. The base is water."
+      ca: "8 tasses, o 6 si hi acabes de posar brou ja fet. La base és aigua."
+      es: "8 tazas, o 6 si el resto lo completas con caldo ya hecho. La base es agua."
+  - id: pre_made_broth
+    emoji: "🍲"
+    amount: 0
+    unit: as_needed
+    item: { en: "pre-made broth (chicken bone or veggie)", ca: "brou ja fet (d'os de pollastre o de verdures)", es: "caldo ya hecho (de hueso de pollo o de verduras)" }
+    note:
+      en: "optional shortcut: swap some of the water for this to get flavor faster. Use chicken or veggie, not fish. Or use all water — see the note on the water."
+      ca: "escurçó opcional: canvia una part de l'aigua per això perquè agafi sabor més ràpid. Fes servir pollastre o verdures, no peix. O fes servir tota l'aigua."
+      es: "atajo opcional: cambia parte del agua por esto para que tome sabor más rápido. Usa pollo o verduras, no pescado. O usa todo el agua."
   - id: parmesan_rinds
     emoji: "🧀"
     amount: 2
@@ -80,7 +80,7 @@ ingredients:
     note: { en: "peeled", ca: "pelats", es: "pelados" }
 ---
 
-1. Put the [chicken broth](i:chicken_broth), [water](i:water), [Parmesan rinds](i:parmesan_rinds), [mushroom trimmings](i:mushroom_trimmings), [black peppercorns](i:black_peppercorns), [bay leaves](i:bay_leaves), [onion](i:onion) and [garlic](i:garlic) in the [pressure cooker](tool:pressure_cooker).
+1. Put the [water](i:water) in the [pressure cooker](tool:pressure_cooker) with the [Parmesan rinds](i:parmesan_rinds), [mushroom trimmings](i:mushroom_trimmings), [black peppercorns](i:black_peppercorns), [bay leaves](i:bay_leaves), [onion](i:onion) and [garlic](i:garlic). For a quicker, fuller-flavored broth, swap part of the water for [pre-made broth](i:pre_made_broth).
 
 2. For the pressure cooker: seal and cook on high pressure for [30 min](t:30m), then release the pressure. On the stove instead: bring to a simmer and cook gently, covered, for about 1 hour.
 

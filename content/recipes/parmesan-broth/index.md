@@ -20,13 +20,13 @@ tools:
 ingredients:
   - id: water
     emoji: "💧"
-    amount: 2000
+    amount: 1500
     unit: ml
     item: { en: "water", ca: "aigua", es: "agua" }
     note:
-      en: "8 cups, or 6 cups if you top up the rest with pre-made broth. The base is water."
-      ca: "8 tasses, o 6 si hi acabes de posar brou ja fet. La base és aigua."
-      es: "8 tazas, o 6 si el resto lo completas con caldo ya hecho. La base es agua."
+      en: "6 cups. You can go up to 8 cups for a longer, more diluted broth. The base is water — see the shortcut note below."
+      ca: "6 tasses. Pots pujar a 8 tasses per a un brou més llarg i més diluït. La base és aigua — mira la nota de l'escurçó de sota."
+      es: "6 tazas. Puedes subir a 8 tazas para un caldo más largo y más diluido. La base es agua — mira la nota del atajo de abajo."
   - id: pre_made_broth
     emoji: "🍲"
     amount: 0

@@ -1,24 +1,18 @@
 ---
 title: "Risotto"
-description: "Risotto cremoso de setas porcini con caldo de parmesano. El método clásico en fogones más una alternativa en olla a presión — el por defecto es el clásico."
+description: "Risotto cremoso de setas portobello y shiitake salteadas al punto noisette, ligado con un caldo de parmesano. Se hace en un wok en los fogones; el caldo es otra receta que también sirve de base."
 ---
 
-1. Haz el [caldo de parmesano](sub:parmesan_broth) y mantenlo caliente. Limpia las [setas porcini](i:porcini): recorta la base, raspa la tierra, frota con un paño húmedo, y corta en láminas de unos 7-8 mm, manteniendo la sección entera si es posible. Aparta los tallos recortados para el caldo.
+1. Haz el [caldo de parmesano](sub:parmesan_broth) y mantenlo caliente. Limpia los [portobello](i:portobello) y las [shiitake](i:shiitake): quita los tallos y, para los portobello, raspa las laminillas. Aparta los recortes para el caldo, luego corta los sombreros en dados.
 
-2. Calienta el [aceite de oliva](i:olive_oil) en una [cacerola](tool:saucepan) y fríe brevemente el [ajo](i:garlic) machacado. Sube el fuego, añade las [setas porcini](i:porcini) y saltéalas unos [10 min](t:10m) hasta que doren, luego sazona con [sal](i:salt) y [pimienta negra](i:black_pepper) y retira del fuego. {variant: classic}
+2. Calienta el [aceite de oliva](i:olive_oil) en el [wok](tool:wok) a fuego medio. Añade las [setas](i:portobello) en dados y saltéalas, removiendo de vez en cuando, unos 10 a 20 minutos — depende de la cantidad que pongas. Cocina hasta que hayan soltado la mayor parte del agua, queden tiernas y ligeramente doradas al punto noisette. Sazona con [pimienta blanca](i:white_pepper) o [pimienta negra](i:black_pepper). Saca las setas del wok y resérvalas.
 
-3. Mientras tanto, derrite la mitad de la [mantequilla](i:butter) en la [cacerola](tool:saucepan), añade la [cebolla](i:onion) y cocina a fuego bajo 10-15 minutos, añadiendo un cucharón de caldo si se seca. Cuando la cebolla se haya ablandado, añade el [arroz](i:rice) y tuéstalo un par de minutos. {variant: classic}
+3. En el mismo [wok](tool:wok), saltea las [chalotas](i:shallots) y el [ajo](i:garlic) hasta que queden translúcidos y amarillo pálido, unos 1 a 2 minutos, según lo caliente que esté la sartén. Añade el [arroz](i:rice) y tuéstalo con las chalotas un par de minutos, removiendo con la [cuchara de madera](tool:wooden_spoon), hasta que quede ligeramente tostado y huela a nuez.
 
-4. Cuando el arroz se haya vuelto casi translúcido, cocínalo añadiendo un cucharón de caldo cada vez, removiendo a menudo con la [cuchara de madera](tool:wooden_spoon). Mantén las burbujas constantes y el fuego medio. Unos minutos antes de que el arroz esté al dente, añade de nuevo las [setas porcini](i:porcini) y termina la cocción, ajustando la [sal](i:salt) y la [pimienta negra](i:black_pepper) si hace falta. {variant: classic}
+4. Vierte el [vino blanco](i:white_wine) y deja que se absorba y se evapore del todo.
 
-5. Cuando esté cocido, remueve el risotto a fuego bajo, añadiendo la [mantequilla](i:butter) restante y el [parmesano](i:parmesan) rallado, y mezcla bien. Si está demasiado seco, añade otro cucharón de caldo. Decora con [perejil](i:parsley) y sirve. {variant: classic}
+5. Añade el caldo caliente un cucharón a la vez — media taza aproximadamente cada uno — removiendo constantemente y bajando el arroz que se pegue a los laterales para que no se queme. Mantén el fuego medio-bajo y añade el siguiente cucharón cuando el anterior se haya absorbido. Apunta a unos 8 cucharones (4 tazas), luego prueba. Es más arte que ciencia: si el arroz no está a punto, sigue, pero para mientras esté justo al dente — ni demasiado cocido, ni crudo. Todo el proceso tarda unos 15 minutos.
 
-6. Calienta el [aceite de oliva](i:olive_oil) en la [olla a presión](tool:instant_pot) en modo sauté y cocina el [ajo](i:garlic) y las [setas porcini](i:porcini) en láminas hasta que doren, luego reserva las setas. {variant: instant_pot}
+6. Cuando el arroz esté al punto, incorpora las [setas](i:portobello), la [mantequilla](i:butter) y el [parmesano](i:parmesan), y sazona con [sal](i:salt) y [pimienta](i:black_pepper) al gusto. Mezcla todo bien, prueba y ajusta.
 
-7. Aún en modo sauté, derrite la [mantequilla](i:butter) y cocina la [cebolla](i:onion) hasta que esté blanda. Añade el [arroz](i:rice) y remueve hasta que quede ligeramente tostado, unos 2 minutos. {variant: instant_pot}
-
-8. Desglasa con el [vino blanco](i:white_wine), raspando los trocitos dorados. Añade el caldo y las [setas porcini](i:porcini) doradas, y remueve. {variant: instant_pot}
-
-9. Cierra la tapa, pon a presión alta y cocina [5 min](t:5m). Deja que la presión salga naturalmente [10 min](t:10m), luego abre la tapa. {variant: instant_pot}
-
-10. Incorpora el [parmesano](i:parmesan) y sazona con [sal](i:salt) y [pimienta negra](i:black_pepper) al gusto. Decora con [perejil](i:parsley) y sirve. {variant: instant_pot}
+7. Sirve de inmediato — el arroz se ablanda y pierde el punto enseguida — con un poco más de [parmesano](i:parmesan) por encima y un toque de [ciboulette](i:chives) o perejil fresco.

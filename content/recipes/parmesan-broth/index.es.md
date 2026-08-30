@@ -1,10 +1,10 @@
 ---
 title: "Caldo de Parmesano"
-description: "Caldo de verduras profundamente sabroso cocinado con cortezas de queso — el secreto de un risotto más rico. Aprovecha las cortezas que tirarías."
+description: "Caldo de pollo diluido con agua y cocido con una corteza de parmesano y los restos de setas que sobran del risotto. La olla a presión lo deja listo en media hora. El caldo es solo un atajo de sabor: también funciona con toda el agua, o con caldo de verduras."
 ---
 
-1. Pon el [caldo de verduras](i:vegetable_broth), las [cortezas de parmesano](i:parmesan_rinds), los [tallos de setas](i:mushroom_stems), la [cebolla](i:onion), el [ajo](i:garlic), la [hoja de laurel](i:bay_leaves) y un pellizco de [granos de pimienta negra](i:black_pepper) en una [olla grande](tool:pot).
+1. Pon el [caldo de pollo](i:chicken_broth), el [agua](i:water), las [cortezas de parmesano](i:parmesan_rinds), los [restos de setas](i:mushroom_trimmings), los [granos de pimienta negra](i:black_peppercorns), las [hojas de laurel](i:bay_leaves), la [cebolla](i:onion) y el [ajo](i:garlic) en la [olla a presión](tool:pressure_cooker).
 
-2. Lleva a ebullición suave a fuego medio, luego baja el fuego y tapa. Deja cocinar suavemente unos [40 min](t:40m) hasta que el caldo tenga un sabor profundamente sabroso.
+2. Para la olla a presión: cierra y cocina a presión alta [30 min](t:30m), luego libera la presión. En la estufa en su lugar: lleva a ebullición suave y cocina suavemente, tapado, unos 60 minutos.
 
-3. Pásalo por un [colador de malla fina](tool:strainer) y desecha los sólidos. Mantén el caldo caliente para el risotto, o déjalo enfriar y congélalo para más adelante.
+3. Pásalo por un [colador de malla fina](tool:strainer) y desecha los sólidos. Usa el caldo para el risotto, o déjalo enfriar y congélalo para más adelante.

@@ -7,3 +7,4 @@ description: "Bol sense cocció de cigrons de llauna amb all picat, pebre vermel
 2. Peleu i piqueu l'[all](i:garlic) i afegiu-lo al bol.
 3. Afegiu la [tonyina](i:tuna) i desfeu-la amb una forquilla.
 4. Amaniu amb [pebre vermell fumat](i:smoked_paprika) al gust i remeneu-ho bé.
+5. Per la versió en bol, afegiu els [tomàquets](i:tomato) tallats i els [croutons](i:croutons), amaniu amb un raig d'oli d'oliva i remeneu-ho. {variant: croutons}

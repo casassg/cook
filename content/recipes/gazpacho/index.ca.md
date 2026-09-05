@@ -10,3 +10,5 @@ description: "Gaspatxo andalús fred. Millor servit ben fred."
 4. Afegeix l'[aigua freda](i:water) a poc a poc (amb uns glaçons si vols) i tritura una mica per alleugerir. {variant: light}
 5. Amb la batedora en marxa a velocitat baixa, afegeix l'[oli d'oliva](i:oil) en un fil fi, com si fessis allioli, fins que emulsioni i quedi sedós durant [1 minut](t:1m).
 6. Tasta, ajusta la [sal](i:salt) i el [vinagre](i:vinegar), serveix ben fred.
+7. Per la versió de dinar exprés, serveix el gazpacho ben fred en un bol i escampa-hi els [croutons](i:croutons) a sobre perquè es remullin una mica. {variant: atun}
+8. Esqueixa la [tonyina](i:tuna) sobre la sopa i acaba amb un raig d'[oli d'oliva](i:oil). {variant: atun}

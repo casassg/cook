@@ -17,6 +17,8 @@ variants:
     name: { en: "With bread (creamy)", ca: "Amb pa (cremós)", es: "Con pan (cremoso)" }
   - key: light
     name: { en: "Light (no bread)", ca: "Lleuger (sense pa)", es: "Ligero (sin pan)" }
+  - key: atun
+    name: { en: "Con atún (quick lunch)", ca: "Amb tonyina (dinar exprés)", es: "Con atún (comida rápida)" }
 tools:
   - id: blender
     icon: "⚙️"
@@ -83,6 +85,26 @@ ingredients:
     amount: 0
     unit: to_taste
     item: { en: "salt", ca: "sal", es: "sal" }
+  - id: croutons
+    emoji: "🥖"
+    amount: 40
+    unit: g
+    item: { en: "croutons", ca: "croutons", es: "croutones" }
+    note:
+      en: "torn stale bread toasted, or store-bought"
+      ca: "pa dur esqueixat i torrat, o de botiga"
+      es: "pan duro troceado y tostado, o de tienda"
+    onlyForVariation: [atun]
+  - id: tuna
+    emoji: "🐟"
+    amount: 0.5
+    unit: can
+    item: { en: "canned albacore tuna", ca: "tonyina albacora de llauna", es: "atún albacora de lata" }
+    note:
+      en: "drained; Wild Planet pole & line works great"
+      ca: "escorreguda; la Wild Planet pole & line hi va perfecta"
+      es: "escurrido; el Wild Planet pole & line va perfecto"
+    onlyForVariation: [atun]
 ---
 
 1. Remove the germ from the [garlic](i:garlic). Peel the [cucumber](i:cucumber) and cut it and the [pepper](i:pepper) into large pieces. Quarter the [tomatoes](i:tomato).
@@ -90,4 +112,6 @@ ingredients:
 3. Put everything except the oil in a [blender](tool:blender): [tomatoes](i:tomato), [cucumber](i:cucumber), [pepper](i:pepper), [garlic](i:garlic), [vinegar](i:vinegar), [salt](i:salt) and the [soaked bread](i:bread). Blend until smooth for [2 minutes](t:2m).
 4. Add the [cold water](i:water) gradually (with a few ice cubes if you like) and blend briefly to loosen. {variant: light}
 5. With the blender running low, drizzle in the [olive oil](i:oil) in a thin stream, like making aioli, until silky and emulsified for [1 minute](t:1m).
-6. Taste, adjust [salt](i:salt) and [vinegar](i:vinegar), serve well chilled.
+6. Taste and adjust the [salt](i:salt) and [vinegar](i:vinegar), serve well chilled.
+7. For the quick-lunch version, ladle the chilled gazpacho into a bowl and scatter the [croutons](i:croutons) on top to soak slightly. {variant: atun}
+8. Flake the [tuna](i:tuna) over the soup and finish with a drizzle of [olive oil](i:oil). {variant: atun}

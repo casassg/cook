@@ -1,6 +1,6 @@
 ---
-title: "Garbanzos con Atún"
-description: "Bol sin cocción de garbanzos de lata con ajo picado, pimentón ahumado y atún. Listo en cinco minutos."
+title: "Garbanzo Bowl"
+description: "Bol de garbanzos sin cocción: el garbanzos con atún clásico, o la versión de comida con croutones y tomate. Listo en cinco minutos."
 ---
 
 1. Escurre y lava los [garbanzos](i:chickpeas) y colócalos en un bol.

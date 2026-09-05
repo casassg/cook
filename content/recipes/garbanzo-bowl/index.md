@@ -1,7 +1,7 @@
 ---
 date: 2026-08-17T18:00:00-05:00
-title: "Garbanzos con Atún"
-description: "No-cook bowl of canned chickpeas with minced garlic, smoked paprika and tuna. Ready in five minutes."
+title: "Garbanzo Bowl"
+description: "No-cook chickpea bowl: classic garbanzos con atún, or the croutons-and-tomato lunch bowl. Ready in five minutes."
 image: main.webp
 categories: [mains]
 author: [gerard]

@@ -1,6 +1,6 @@
 ---
-title: "Cigrons amb tonyina"
-description: "Bol sense cocció de cigrons de llauna amb all picat, pebre vermell fumat i tonyina. A punt en cinc minuts."
+title: "Bol de cigrons"
+description: "Bol de cigrons sense cocció: el garbanzos con atún clàssic, o la versió de dinar amb croutons i tomàquet. A punt en cinc minuts."
 ---
 
 1. Escorreu i renteu els [cigrons](i:chickpeas) i poseu-los en un bol.

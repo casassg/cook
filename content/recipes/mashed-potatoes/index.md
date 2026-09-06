@@ -66,16 +66,20 @@ ingredients:
     emoji: "🥛"
     amount: 150
     unit: ml
-    item: { en: "whole milk", ca: "llet sencera", es: "leche entera" }
+    item: { en: "non-fat, 1% or 2% milk", ca: "llet desnatada, 1% o 2%", es: "leche desnatada, 1% o 2%" }
+    note:
+      en: "whole milk is fine too, if a bit richer"
+      ca: "la llet sencera també hi va bé, només queda més greixosa"
+      es: "la leche entera también va bien, solo queda más grasa"
   - id: cream_cheese
     emoji: "🧀"
-    amount: 70
-    unit: g
+    amount: 1
+    unit: oz
     item: { en: "cream cheese", ca: "formatge crema", es: "queso crema" }
     note:
-      en: "room temperature"
-      ca: "a temperatura ambient"
-      es: "a temperatura ambiente"
+      en: "1 oz (28g), room temperature — reduced-fat cream cheese (e.g. Neufchâtel) works as a lighter alternative"
+      ca: "1 oz (28g), a temperatura ambient — el formatge crema reduït en greix (p. ex. Neufchâtel) serveix com a alternativa més lleugera"
+      es: "1 oz (28g), a temperatura ambiente — el queso crema reducido en grasa (p. ej. Neufchâtel) sirve como alternativa más ligera"
   - id: black_pepper
     emoji: "🧂"
     amount: 0

@@ -16,8 +16,6 @@ variants:
     name: { en: "Pork (original)", ca: "Porc (original)", es: "Cerdo (original)" }
   - key: lean_beef
     name: { en: "Lean beef", ca: "Vaca magra", es: "Ternera magra" }
-  - key: beyond
-    name: { en: "Beyond Meat", ca: "Beyond Meat", es: "Beyond Meat" }
 groups:
   - key: filling
     name: { en: "Wontons", ca: "Wontons", es: "Wontons" }
@@ -48,13 +46,6 @@ ingredients:
     unit: g
     item: { en: "lean ground beef (93/7)", ca: "carn de vaca magra picada (93/7)", es: "carne de ternera magra picada (93/7)" }
     onlyForVariation: [lean_beef]
-  - id: beyond_meat
-    emoji: "🌱"
-    group: filling
-    amount: 450
-    unit: g
-    item: { en: "Beyond Meat ground", ca: "Beyond Meat picat", es: "Beyond Meat picado" }
-    onlyForVariation: [beyond]
   - id: scallion
     group: filling
     emoji: "🥕"
@@ -154,7 +145,6 @@ ingredients:
 1. Chop the [scallions](i:scallion) and [garlic](i:garlic) for the filling.
 2. Mix the [meat](i:ground_pork) with [scallions](i:scallion), [garlic](i:garlic), [soy](i:soy_sauce), [oyster](i:oyster_sauce), [sesame oil](i:sesame_oil), and [sugar](i:sugar). {variant: pork}
 2. Mix the [lean beef](i:lean_ground_beef) with [scallions](i:scallion), [garlic](i:garlic), [soy](i:soy_sauce), [oyster](i:oyster_sauce), [sesame oil](i:sesame_oil), and [sugar](i:sugar). {variant: lean_beef}
-2. Mix the [Beyond Meat](i:beyond_meat) with [scallions](i:scallion), [garlic](i:garlic), [soy](i:soy_sauce), [oyster](i:oyster_sauce), [sesame oil](i:sesame_oil), and [sugar](i:sugar). {variant: beyond}
 3. Place a spoonful of filling on each [wonton wrapper](i:wontons) and fold tightly (see wrapper pack for folding style).
 4. Boil the wontons in a [large pot](tool:pot) of water for [4-5 min](t:5m), until they float to the surface and are fully cooked.
 5. Meanwhile, place the [red pepper flakes](i:red_peppers), [garlic](i:sauce_garlic), [sugar](i:sauce_sugar), and [five-spice](i:chinese_five_spice) in a [heatproof bowl](tool:bowl).

@@ -6,7 +6,6 @@ description: "Wontons casolans bullits i llançats dins una salsa d'oli de xili 
 1. Pica les [cebolles](i:scallion) i l'[all](i:garlic) del farciment.
 2. Barreja la [carn de porc](i:ground_pork) amb [cebolles](i:scallion), [all](i:garlic), [soja](i:soy_sauce), [ostres](i:oyster_sauce), [oli de sèsam](i:sesame_oil) i [sucre](i:sugar). {variant: pork}
 2. Barreja la [vaca magra](i:lean_ground_beef) amb [cebolles](i:scallion), [all](i:garlic), [soja](i:soy_sauce), [ostres](i:oyster_sauce), [oli de sèsam](i:sesame_oil) i [sucre](i:sugar). {variant: lean_beef}
-2. Barreja el [Beyond Meat](i:beyond_meat) amb [cebolles](i:scallion), [all](i:garlic), [soja](i:soy_sauce), [ostres](i:oyster_sauce), [oli de sèsam](i:sesame_oil) i [sucre](i:sugar). {variant: beyond}
 3. Posa una cullerada de farciment a cada [oblea de wonton](i:wontons) i tanca-les bé (mira el paquet per l'estil de plec).
 4. Bull els wontons en una [olla gran](tool:pot) amb aigua durant [4-5 min](t:5m), fins que suren i queden cuits.
 5. Mentrestant, posa els [flocs de xili](i:red_peppers), l'[all](i:sauce_garlic), el [sucre](i:sauce_sugar) i la [cinc-espècies](i:chinese_five_spice) en un [bol resistent a la calor](tool:bowl).

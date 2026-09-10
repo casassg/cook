@@ -10,3 +10,5 @@ description: "Gazpacho andaluz frío. Mejor servido bien frío."
 4. Añade el [agua fría](i:water) poco a poco (con unos cubitos de hielo si quieres) y tritura brevemente para aligerar. {variant: light}
 5. Con la batidora en marcha a velocidad baja, añade el [aceite de oliva](i:oil) en un hilo fino, como si hicieras alioli, hasta emulsionar y que quede sedoso durante [1 minuto](t:1m).
 6. Prueba, ajusta la [sal](i:salt) y el [vinagre](i:vinegar), sirve bien frío.
+7. Para la versión de comida rápida, sirve el gazpacho bien frío en un bol y reparte los [croutones](i:croutons) por encima para que se empapen un poco. {variant: atun}
+8. Desmenuza el [atún](i:tuna) sobre la sopa y termina con un hilo de [aceite de oliva](i:oil). {variant: atun}

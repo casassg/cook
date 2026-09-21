@@ -52,4 +52,5 @@ One leaf bundle per recipe under `content/recipes/<slug>/`, one file per languag
 
 - UI strings and unit/category labels live in `i18n/{en,ca,es}.yaml` (keys `unit_*`, `cat_*`). Recipe content lives in content files.
 - Keep changes minimal and static-first. Verify with `hugo --gc --minify` and the validator before committing.
+- Never set `date` in the future: Hugo skips future-dated pages (`buildFuture` is off), which silently breaks translation linking — the translation pages render with empty ingredient/tool indexes and the build fails with a cryptic `can't evaluate field Position` error from the render-link hook. Set `date` to now or earlier.
 - Deploy: push to `main`, GitHub Actions builds and deploys to Pages. `static/CNAME` holds the custom domain.
